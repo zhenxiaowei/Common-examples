@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>缩放式布局</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        /*流式布局法*/
+        /*html, body {
+            width: 100%;
+            height: 100%;
+            background: #EEE;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            padding-top: 10px;  设计稿中的上填充是20px
+            background: #FFF;
+            overflow: hidden;
+        }
+
+        .nav li {
+            float: left;
+            margin-bottom: 10px;  设计稿中的下边距是20px
+            width: 25%;
+            height: 68px;  设计稿中的高度136
+        }
+
+        .nav li span {
+            display: block;
+        }
+
+        .nav li span:nth-child(1) {
+            margin: 0 auto 6px;  设计稿中的下边距是12px
+            width: 40px;  设计稿中每一个图标都是80*80
+            height: 40px;
+            background: lightblue;
+            border-radius: 5px;
+        }
+
+        .nav li span:nth-child(2) {
+            line-height: 22px;  设计稿中文字的高度44
+            text-align: center;
+        }*/
+
+        /*缩放布局*/
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-size: 28px;
+            background: #EEE;
+            overflow-x: hidden;
+        }
+
+        .main {
+            width: 750px;
+        }
+
+        .nav {
+            padding-top: 20px;
+            background: #FFF;
+        }
+
+        .nav:after {
+            display: block;
+            height: 0;
+            content: "";
+            clear: both;
+            zoom: 1;
+        }
+
+        .nav li {
+            float: left;
+            margin-bottom: 20px;
+            width: 187.5px;
+            height: 136px;
+        }
+
+        .nav li span {
+            display: block;
+        }
+
+        .nav li span:nth-child(1) {
+            margin: 0 auto 12px;
+            width: 80px;
+            height: 80px;
+            background: lightblue;
+            border-radius: 10px;
+        }
+
+        .nav li span:nth-child(2) {
+            line-height: 44px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<section class="main" id="main">
+    <ul class="nav">
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+        <li>
+            <span></span>
+            <span>京东超市</span>
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    ~function (desW) {
+        //->DESW:设计稿的宽度 WINW:当前屏幕的宽度
+        var winW = document.documentElement.clientWidth,
+                n = winW / desW,
+                oMain = document.getElementById("main");
+
+        //->设置缩放的基点(默认是正中心),我们需要社设置基点为左上角
+        oMain.style.webkitTransformOrigin = "left top";
+        oMain.style.webkitTransform = "scale(" + n + ")";
+    }(750);
+</script>
+
+</body>
+</html>

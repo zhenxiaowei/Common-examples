@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="获取随机数" id="input1"/>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    var oInput = document.getElementById("input1");
+    var oDiv = document.getElementById("div1");
+    function random(){
+        var res = [];
+        for(var i = 0;i<7;i++){
+            var val =  Math.floor(Math.random()*60)+2;
+            if(res.indexOf(val)==-1){
+                res.push(val);
+            }
+        }
+        return res;
+    }
+    oInput.onclick = function(){
+        var res = random();
+       history.pushState(res,"","?page=1");
+    };
+    window.onpopstate = function(e){
+        oDiv.innerHTML = e.state;
+    }
+
+
+</script>

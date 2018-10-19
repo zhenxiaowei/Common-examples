@@ -1,0 +1,71 @@
+客户端和服务器端的数据交互一般都采用的是JSON格式的数据(JSON格式的字符串)
+
+1、获取所有的客户信息
+  URL:/getAllData  GET
+  参数:(客户端需要传递给服务器端的内容) 无
+  返回:(服务器端返回给客户端的内容) JSON格式的字符串
+      '{
+        code:0, 1->当前没有任何的客户信息
+        message:"当前没有任何的客户信息",
+        data:[
+              {
+                 "id":1,
+                 "name":"xxx",
+                 "age":25,
+                 "phone":"xxxxxxxxxxx",
+                 "address":"xxxxxx...."
+              },
+              ...
+           ]
+      }'
+
+2、增加客户信息
+   URL:/addCustom  POST
+   参数:
+       '{"name":"xxx","age":xx,"phone":"xxx","address":"xx"}'
+   返回:
+       '{
+          code:0 ->0代表成功 1代表失败,
+          message:"xxx" ->提示信息
+       }'
+
+3、获取当前用户的信息
+   URL:/getData  GET
+   参数:?id=客户的编号
+   返回值:
+      '{
+         code:0, ->0用户存在  ->1用户不存在
+         message:"用户存在",
+         data:{"id":xx,"name":"xxx","age":xx,"phone":"xxx","address":"xx"} ->用户存在把用户的信息返回,用户不存在我们返回一个null
+      }'
+
+4、修改客户休息
+    URL:/updateCustom  POST
+    参数:
+      '{"id":xxx,"name":"xxx","age":xx,"phone":"xxx","address":"xx"}'
+    返回:
+      '{
+         code:0 ->0代表成功 1代表失败,
+         message:"xxx" ->提示信息
+      }'
+
+5、删除指定用户信息
+   URL:/removeCustom  GET
+   参数:?id=客户的编号
+   返回值:
+         '{
+            code:0, ->0删除成功  ->1用户不存在  2->删除失败
+            message:"删除成功"
+         }'
+
+
+
+NODE写后台程序:
+->创建服务监听端口
+->处理静态资源文件的请求
+->处理数据的请求
+
+前端开发：
+->写静态的HTML+CSS
+->用JS中的Ajax调取数据接口,把数据得到
+->把数据展示在页面中

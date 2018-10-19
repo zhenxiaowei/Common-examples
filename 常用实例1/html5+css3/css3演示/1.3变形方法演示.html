@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #CCC;
+            margin: 0 auto 40px;
+            transform-style: preserve-3d;
+            perspective: 300px;
+        }
+        .item{
+            width:100%;
+            height: 100%;
+            background: red;
+
+        }
+        #translate .item{
+            /*transform: translateZ(-100px);/!*translateZ()可以改变视距,大于零物体看上去变大,小于零,物体看上去变小*!/*/
+            transform: translate3d(0,0,-100px);
+
+        }
+        #scale .item{
+            /*transform: scale3d(1,1,3) rotateX(45deg);*/
+        }
+        #rotate .item{
+            /*
+            rotateX 正->前翻 负->后翻
+            rotateY 正 ->右翻  负 ->左翻
+            rotateZ效果等同于2D方法rotate(),不同的是,在3D空间的Z轴旋转
+            */
+            /*transform: rotateZ(45deg);*/
+            /*transform: rotate3d(1,0.7,0.6,10deg);*/
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container"  id="translate">
+    <div class="item"></div>
+</div>
+<div class="container"  id="scale">
+    <div class="item"></div>
+</div>
+
+<div class="container"  id="rotate">
+    <div class="item"></div>
+</div>
+
+</body>
+</html>

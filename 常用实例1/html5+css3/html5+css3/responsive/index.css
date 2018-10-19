@@ -1,0 +1,159 @@
+html, body {
+    height: 100%;
+    font-family: "Microsoft yahei";
+}
+
+.headerLayout {
+    width: 100%;
+    position: fixed;
+    height: 80px;
+    background: #fff;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.header a {
+    float: left;
+    margin-top: 20px;
+}
+
+.header ul {
+    float: right;
+}
+
+.header ul li {
+    float: left;
+    line-height: 80px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+@media all and (min-width: 1000px) {
+    .header {
+        width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.channel {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.channel li {
+    display: inline-block;
+    margin: 0 1%;
+}
+
+.service {
+    text-align: center;
+    font-size: 16px;
+    margin: 50px 0;
+}
+
+.service ul li {
+    width: 263px;
+    display: inline-block;
+}
+
+.service ul li h3 {
+    font-size: 1em;
+}
+
+.service ul li p {
+    font-size: 0.8em;
+    line-height: 2em;
+}
+
+@media all and (max-width: 999px) {
+    .channel li {
+        max-width: 23%; /*如果内容的宽度大于23%,则宽度设成23%,如果小于23%,则以内容自身的宽度显示*/
+    }
+
+    .channel li img {
+        width: 100%;
+    }
+
+    .channel li.watch img, .channel li.phone img {
+        max-width: 50px;
+    }
+
+    .service ul li {
+        width: 30%;
+        vertical-align: top;
+    }
+
+    .service ul li img {
+        width: 100%;
+    }
+
+    .header ul li {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+}
+
+@media all  and (max-width: 480px) {
+    .headerLayout {
+        position: absolute;
+        height: 50px;
+        background: palegreen;
+    }
+
+    .header a {
+        margin-top: 10px;
+    }
+
+    .header ul {
+        background: palegreen;
+        width: 100%;
+        display: none;
+    }
+    .header:after{
+        content: "";
+        position: absolute;
+        right: 0px;
+        top:3px;
+        width: 50px;
+        height: 50px;
+        background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0NkQ1N0YwRDFGMjQ2ODExODA4M0M5RUE1NUY0ODcyRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NzBDQ0I1NzUzNzYxMUU0QjdGNzk4NTAyRkVFNTUyOCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NzBDQ0I1NjUzNzYxMUU0QjdGNzk4NTAyRkVFNTUyOCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzBFMkY0QTI1RTI0NjgxMTgwODNDOUVBNTVGNDg3MkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDZENTdGMEQxRjI0NjgxMTgwODNDOUVBNTVGNDg3MkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5jEkKZAAAA3UlEQVR42uzbwQmAMBBFQVe8a/9VagVr0oPgD8wD75KRLHuwuntTTrsjACIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiIAAERAgAiIgQAQEiL7rCHmPazwVdC73eH75taxCfmmbB3AGgcwP5HFlCQgQLTFDDPUwELmygAiITd1Qt6nb1AUEiGzqhrpN3ZUlIEBkUzfUbequLDNEQGRTN9TlygIiIEAEBIiAABEQAQEiIEAEBIiAABEQAQEiIEAEBIiAABEQAQEiIEAEBIiAABEQAQEiICv3CjAAFEMwp2HLEjcAAAAASUVORK5CYII=") no-repeat;
+        background-size:100% 100%;
+    }
+
+    .header ul li {
+        float: none;
+        color: #333;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        line-height: 60px;
+        margin: 0;
+        padding-left: 10px;
+
+    }
+    .channel li{
+        width: 46%;
+        margin: 0 2%;
+        max-width: 46%;
+    }
+    .channel li.watch img, .channel li.phone img {
+        max-width: 100px;
+    }
+    .service ul li{
+        width: 100%;
+        padding:10px;
+        box-sizing: border-box;/*width包含内容的宽度+padding+border*/
+    }
+    .service ul li img{
+        width: 20px;
+        height: 20px;
+        float: left;
+    }
+    .service ul li h3{
+        text-align: left;
+        padding-left: 30px;
+    }
+    .service ul li p{
+        text-align: left;
+        line-height: 25px;
+    }
+}

@@ -1,0 +1,519 @@
+/*
+姝ゆ枃浠跺畾涔変簡鍚勪釜鎺т欢銆佽鐩栫墿鍛堢幇鐨勫瑙�
+娉ㄩ噴璇存槑锛�
+甯�(-)鐨勬敞閲婁笅鐨勫睘鎬ц〃绀鸿灞炴€у彲鍒犻櫎鎴栬€呮敼鍐�
+甯�(*)鐨勬敞閲婁笅鐨勫睘鎬ц〃绀鸿灞炴€у繀椤诲瓨鍦紝鍙敼鍐�
+甯�(!)鐨勬敞閲婁笅鐨勫睘鎬ц〃绀鸿灞炴€у繀椤诲瓨鍦紝涓嶅彲鏀瑰啓
+閫傞厤鐨勫紩鎿庣増鏈細v1.0.2
+*/
+
+/*姣斾緥灏烘帶浠剁殑榛樿澶栬*/
+/*姣斾緥灏烘帶浠剁殑绔栧悜鍥惧舰閮ㄥ垎鐨勬牱寮�(宸�)*/
+.ScaleControl_I_Left{
+    /* (!) */
+    position: absolute;
+    left: 0px;
+    bottom:0px;
+    /* (*) */
+    width: 3px;
+    height: 9px;
+    background-image: url("images/controls/ScaleControl/left.png");
+}
+/*姣斾緥灏烘帶浠剁殑绔栧悜鍥惧舰閮ㄥ垎鐨勬牱寮�(鍙�)*/
+.ScaleControl_I_Right{
+    /* (!) */
+    position: absolute;
+    right: 0px;
+    bottom:0px;
+    /* (*) */
+    width: 3px;
+    height: 9px;
+    background-image: url("images/controls/ScaleControl/right.png");
+}
+/*姣斾緥灏烘帶浠剁殑绔栧悜鍥惧舰閮ㄥ垎鐨勬牱寮�(涓棿)*/
+.ScaleControl_I_Bottom{
+    /* (!) */
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom:0px;
+    width: 100%;
+    /* (*) */
+    height: 5px;
+    background-image: url("images/controls/ScaleControl/b.png");
+}
+/*姣斾緥灏轰腑鐨勬枃瀛梔iv*/
+.ScaleControl_ScaleInfo{
+    position: absolute;
+    width: 100%;
+    bottom: 6px;
+    vertical-align:bottom;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    text-align: center;
+}
+
+/*楣扮溂鎺т欢鐨勫杈规鏍峰紡*/
+.ovMapDiv{
+    border: 4px double #3a70af;
+    background-color: #C8C8C8;
+}
+/*楣扮溂鍐呴儴鐨勮绐楃煩褰iv鐨勬牱寮�*/
+.ovMap_rectDiv{
+    background-color: white;
+    filter:alpha(opacity=40);
+    opacity:0.4;
+    font-size: 1px;
+    z-index: 1000;
+    cursor: move;
+    border: 2px solid blue;
+}
+/*楣扮溂鐨勬敹缂╂樉绀哄皬鎸夐挳鐨勬牱寮�*/
+.ovMap_panDiv{
+    bottom:0px;
+    right: 0px;
+    z-index: 1001;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+/*杩樺師*/
+.ovMap_panDiv_img1{
+    background-image: url(images/controls/ovMap/2.GIF);
+}
+/*缂╁皬*/
+.ovMap_panDiv_img2{
+    background-image: url(images/controls/ovMap/1.GIF);
+}
+
+/*瀵艰埅鎺т欢鐨勬牱寮�*/
+/*瀵艰埅鎺т欢涓婇儴鍒嗙殑瀹瑰櫒鐨勬牱寮忥紙鍚勪釜鏂瑰悜涓婇紶鏍囩Щ鍔ㄤ笂鍘绘椂鐨勬牱寮忥紝娉ㄦ剰姝ゆ牱寮忔槸鏁翠釜瀹瑰櫒鐨勬牱寮忥紝褰撻紶鏍囩Щ鍔ㄥ埌涓嶅悓鐨勫尯鍩燂紝姝ゆ牱寮忚繘琛屾浛鎹㈣揪鍒颁笉鍚屾樉绀烘晥鏋滐級*/
+.NavControl_stdMpPan{
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+.NavControl_stdMpPan_start{
+    background-image: url(images/controls/NavControl/stdMpPan_start.png);
+}
+.NavControl_stdMpPan_top{
+    background-image: url(images/controls/NavControl/stdMpPan_top.png);
+}
+.NavControl_stdMpPan_left{
+    background-image: url(images/controls/NavControl/stdMpPan_left.png);
+}
+.NavControl_stdMpPan_bottom{
+    background-image: url(images/controls/NavControl/stdMpPan_bottom.png);
+}
+.NavControl_stdMpPan_right{
+    background-image: url(images/controls/NavControl/stdMpPan_rigth.png);
+}
+/*閲嶇疆鎸夐挳榧犳爣绉诲姩涓婂幓鐨勬牱寮�*/
+.NavControl_stdMpPan_m{
+    background-image: url(images/controls/NavControl/stdMpPan_start.png);
+}
+/*涓婁笅宸﹀彸骞崇Щ鎸夐挳div鐨勬牱寮�*/
+.NavControl_panButton_top{
+    width: 15px;
+    height: 15px;
+    top:0px;
+    left: 14px;
+}
+.NavControl_panButton_right{
+    width: 15px;
+    height: 15px;
+    top:12px;
+    left: 27px;
+}
+.NavControl_panButton_bottom{
+    width: 15px;
+    height: 15px;
+    top:25px;
+    left: 14px;
+}
+.NavControl_panButton_left{
+    width: 15px;
+    height: 15px;
+    top:12px;
+    left: 1px;
+}
+.NavControl_panButton_m{
+    width: 0px;
+    height: 0px;
+}
+/*涓嬮儴鍒嗘粦鍔ㄦ潯鐨勫鍣╠iv鏍峰紡*/
+.NavControl_stdMpZoom{
+    top:45px;
+}
+/*绔栧舰閮ㄥ垎瀹瑰櫒*/
+.NavControl_stdMpSlider{
+    top:18px;
+}
+/*琛ㄧず鍏ㄩ儴绛夌骇鐨勬牸瀛�*/
+.NavControl_stdMpSliderBgTop{
+    left: 17px;
+    width: 10px;
+    overflow: hidden;
+    background-image: url(images/controls/NavControl/SliderBgTop.png);
+}
+/*琛ㄧず褰撳墠绛夌骇鐨勬牸瀛愰儴鍒�*/
+.NavControl_stdMpSliderBgBot{
+    left: 17px;
+    width: 10px;
+    overflow: hidden;
+    background-image: url(images/controls/NavControl/SliderBgBot.png);
+}
+/*婊戝潡*/
+.NavControl_stdMpSliderBar{
+    height: 11px;
+    width: 19px;
+    left: 13px;
+    overflow: hidden;
+    background-image: url(images/controls/NavControl/SliderBar.png);
+}
+/*缂╂斁鎸夐挳*/
+.NavControl_stdMpZoom_zoomIn{
+    width: 22px;
+    height: 21px;
+    left: 12px;
+    background-image: url(images/controls/NavControl/zoomIn.png);
+    background-repeat: no-repeat;
+}
+.NavControl_stdMpZoom_zoomOut{
+    width: 22px;
+    height: 21px;
+    left: 12px;
+    background-image: url(images/controls/NavControl/zoomOut.png);
+    background-repeat: no-repeat;
+}
+
+
+/*鏍囨敞鐨勯粯璁ゅ瑙�*/
+.DefaultMarker{
+    /* (*) */
+    background-image: url("images/overlays/Marker/DefaultMarker.png");
+    width: 39px;
+    height: 25px;
+    margin-left: -10px;
+    margin-top: -25px;
+    /* (!) */
+    position: absolute;
+}
+
+/*鍙抽敭鑿滃崟鐨勬牱寮�*/
+.ContextMenu{
+    /* (-) */
+    text-align: center;
+    padding: 1px 2px 1px 2px;
+    /* (!) */
+    position: absolute;
+}
+
+/*鑿滃崟涓垎闅旂鐨勬牱寮�*/
+.Separator{
+    /* (*) */
+    width: 100%;
+    margin: 3px 2px 3px 2px;
+    background-color: #AAA;
+}
+
+/*鍙抽敭鑿滃崟涓殑椤圭洰鐨勯粯璁ゅ瑙�*/
+.MenuItem-enable{
+    /* (-) */
+    text-align: center;
+    background-color: #FFF;
+    color:#000;
+}
+.MenuItem-disable{
+    /* (-) */
+    text-align: center;
+    background-color: #DDD;
+    color: #AAA;
+}
+
+/*淇℃伅妗嗘渶澶栧眰div鐨勬牱寮�*/
+.InfoWindow-Div{
+    /* (!) */
+    overflow: visible;
+    z-index: 401;
+    /* (*) */
+    min-width: 250px;
+    min-height: 50px;
+    padding: 3px 3px 3px 3px;/*璇adding灞炴€х敤浜庡畾浣嶆爣棰榙iv鍜屾鏂嘾iv,闇€瑕佸拰濉厖杈筪iv鐨勫搴﹀尮閰�*/
+    cursor: default;
+    font: 12px arial,sans-serif;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+/*淇℃伅妗嗙殑鏍囬div鏍峰紡*/
+.InfoWindow-titleDiv{
+    /* (!) */
+    overflow: hidden;
+    /*position: relative;*/
+    /* (*) */
+    min-height: 10px;
+    /* (-) */
+    line-height: 30px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    height: 30px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+/*淇℃伅妗嗙殑姝ｆ枃div鏍峰紡*/
+.InfoWindow-contentDiv{
+    /* (!) */
+    overflow: hidden;
+    /*position: relative;*/
+    /* (-) */
+}
+
+/*缁勬垚淇℃伅妗嗙殑杈规div*/
+.InfoWindow-cornerDiv-top-left{
+    /* (*) */
+    width: 3px;
+    height: 3px;
+    top: 0px;
+    left: 0px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-top-right{
+    /* (*) */
+    width: 3px;
+    height: 3px;
+    top:0px;
+    right: 0px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-bottom-left{
+    /* (*) */
+    width: 3px;
+    height: 3px;
+    bottom:0px;
+    left:0px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-bottom-right{
+    /* (*) */
+    width: 3px;
+    height: 3px;
+    bottom: 0px;
+    right: 0px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+
+/*淇℃伅妗嗕笅鏂圭殑绠ご*/
+.InfoWindow-cornerDiv-arrows{
+    /* (*) */
+    width: 51px;
+    height: 31px;
+    bottom: -31px;
+    left: 120px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-image: url("images/overlays/Infowindow/iw_tail.png");
+}
+
+/*淇℃伅妗嗚竟缂樼殑鍥涗釜闀挎柟褰iv*/
+.InfoWindow-cornerDiv-top{
+    /* (*) */
+    height: 3px;
+    top:0px;
+    left: 3px;
+    right: 3px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-left{
+    /* (*) */
+    width: 3px;
+    left: 0px;
+    top:3px;
+    bottom: 3px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-right{
+    /* (*) */
+    width: 3px;
+    right: 0px;
+    top:3px;
+    bottom: 3px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+.InfoWindow-cornerDiv-bottom{
+    /* (*) */
+    height: 3px;
+    bottom:0px;
+    left: 3px;
+    right: 3px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #fff;
+}
+
+/*淇℃伅妗嗙殑鍏抽棴鎸夐挳*/
+.InfoWindow-close{
+    /* (*) */
+    top:10px;
+    right: 10px;
+    width: 11px;
+    height: 11px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-image: url(images/overlays/Infowindow/iw_close.gif);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/*淇℃伅妗嗙殑鏈€澶у寲鍜岃繕鍘熸寜閽牱寮�*/
+.InfoWindow-max{
+    /* (*) */
+    top:10px;
+    right: 25px;
+    width: 11px;
+    height: 11px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #f00;
+    cursor: pointer;
+}
+.InfoWindow-min{
+    /* (*) */
+    top:10px;
+    right: 25px;
+    width: 11px;
+    height: 11px;
+    /* (!) */
+    position: absolute;
+    /* (-) */
+    background-color: #0f0;
+    cursor: pointer;
+}
+
+/**
+浠ヤ笅涓哄悇绉嶅湴鍥惧伐鍏锋墍浣跨敤鐨勬牱寮�
+**/
+
+/*绉诲姩宸ュ叿鐨勯紶鏍囨牱寮�
+娉ㄦ剰锛氱敱浜嶪E涓嶆敮鎸乧ss涓殑cursor灞炴€х浉瀵硅矾寰勶紝鍦↖E涓嬫棤娉曟樉绀�*/
+.Pan-Cursor-open{
+    cursor:url(images/tools/PanTool/openhand.cur),move;
+}
+.Pan-Cursor-close{
+    cursor: url(images/tools/PanTool/closedhand.cur),move;
+}
+
+/*鏀惧ぇ缂╁皬宸ュ叿浣跨敤鏃剁殑鏍峰紡*/
+.Zoomin{
+    cursor: url("images/tools/ZoomInTool/zoomin.cur"),auto;
+}
+.Zoomout{
+    cursor: url("images/tools/ZoomOutTool/zoomout.cur"),auto;
+}
+
+/*娴嬭窛宸ュ叿鐨�"娓呴櫎缁撴灉"DIV鏄剧ず鏍峰紡*/
+.Measure-ClearResult{
+    margin-left: 3px;
+    color: #4e7dff;
+    cursor: pointer
+}
+/*娴嬭窛宸ュ叿鐨勬樉绀鸿窛绂荤殑div鐨勬牱寮�*/
+.Measure-Result{
+    position: absolute;
+    border:1px solid #ff587a;
+    background-color: #fff;
+}
+/*娴嬭窛宸ュ叿鐨勬瘡涓妭鐐圭殑div鏍峰紡*/
+.Measure-jd{
+    position:absolute;
+    width:12px;
+    height:13px;
+    background-image: url(images/tools/MeasureTool/cjjd.png);
+    background-repeat: no-repeat;;
+    margin-left: -6px;
+    margin-top: -6px;
+}
+/*娴嬭窛宸ュ叿鐨勯紶鏍囨牱寮�*/
+.Measure-Cursor{
+    cursor: url(images/tools/MeasureTool/ruler.cur),auto;
+}
+
+/*渚ч潰宸ュ叿鐨勯紶鏍囨牱寮�*/
+.MeasureArea-Cursor{
+    cursor: url("images/tools/MeasureAreaTool/cur.png"),auto;
+}
+
+/*鐢荤嚎宸ュ叿鐨勯紶鏍囨牱寮�*/
+.Line-Cursor{
+    cursor: crosshair;
+}
+
+/*鐢诲渾宸ュ叿鐨勯紶鏍囨牱寮�*/
+.Oval-Cursor{
+    cursor: crosshair;
+}
+
+/*绠ご宸ュ叿鐨勯紶鏍囨牱寮�*/
+.Arrows-Cursor{
+    cursor: crosshair;
+}
+
+/*绠ご宸ュ叿鐨勬帶鍒剁偣鏍峰紡*/
+.Arrows-CPdiv{
+    position:absolute;
+    width:12px;
+    height:13px;
+    background-image: url(images/tools/ArrowsTool/cjjd.png);
+    background-repeat: no-repeat;;
+    margin-left: -6px;
+    margin-top: -6px;
+}
+
+/*鐭╁舰妗嗗伐鍏风殑榧犳爣鏍峰紡*/
+.Rect-Cursor{
+    cursor: crosshair;
+}
+
+/*鐢诲杈瑰舰宸ュ叿鐨勯紶鏍囨牱寮�*/
+.Polyline-Cursor{
+    cursor: crosshair;
+}
+
+/*鏍囨敞宸ュ叿鐨勯紶鏍囨牱寮�*/
+.AddMarker-Cursor{
+    cursor:default;
+}
+
+
+.TestCss{
+    overflow: hidden;
+    cursor:url("http://api.map.baidu.com/images/openhand.cur");
+}

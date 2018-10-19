@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="zh-en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+<title>高德地图api热门商家标注列表代码</title>
+
+<link rel="stylesheet" href="css/index.css">
+<style>
+	body{background-color: #2B2B2B}
+</style>
+
+</head>
+<body><script src="/demos/googlegg.js"></script>
+<div class="outer-box" style="margin-top: 100px">
+    <div id="container" class="container" style="height: 350px"></div>
+    <div id="mapList" class="map-list">
+        <span class="item w-20 item-acitive">Office</span>
+        <span class="item w-20">Gov</span>
+        <span class="item w-20">Edu</span>
+        <span class="item w-20">Life</span>
+        <span class="item w-20">Other</span>
+    </div>
+    <div id="projectName" class="project-name">
+        <span class="item item-acitive">Own</span>
+        <span class="item">Conpetitor</span>
+    </div>
+    <div id="panelBox" class="scrollbar1 panel-box top-64">
+        <div id="myList" class="myList"></div>
+    </div>
+</div>
+
+<!-- gaode Map JS(1.3) -->
+<script src="http://webapi.amap.com/maps?v=1.3&key=8f13eb006c09768e84e7604067a22695"></script>
+<!-- UI组件库(1.0) -->
+<script src="http://webapi.amap.com/ui/1.0/main.js"></script>
+<!-- Create Map -->
+<script src="js/create_map.js"></script>
+<!-- Jquery-->
+<script src="js/jquery.min.js"></script>
+<script>
+AMapUI.load(['lib/$'], function($){
+   // $ 即为UI组件库最终使用的DomLibrary
+    drawMarkerListInfo();
+});
+function drawMarkerListInfo(){
+    //demo数据
+    var result=[
+        {
+            'pic': 'http://store.is.autonavi.com/showpic/227d5873670a89d94864622ca60ebb24?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '潮粥荟(望京旗舰店)',
+            'address': '望京街9号望京国际商业中心B座6层',
+            'id': 'B000A85R9D',
+            'latitude': '39.990896',
+            'longitude': '116.484240',
+            'type': 'Own',
+            'page':'0'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/253a4097d55ff088a718c377bddb738c?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '眉州东坡酒楼(望京店)',
+            'address': '广顺南大街望京10号院6号楼',
+            'id': 'B000A7ZS2K',
+            'latitude': '39.989275',
+            'longitude': '116.474709',
+            'type': 'Office',
+            'page':'0'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/5409bc6035c869f5630acf26ac897b60?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': ' 重庆记忆老灶火锅(望京店)',
+            'address': '望京商业中心E座1层',
+            'id': 'B0FFG74TCZ',
+            'latitude': '39.989404',
+            'longitude': '116.483934',
+            'type': 'Office',
+            'page':'1'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/28409c3e87ef1c1a43734e937d0a761a?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '阿荣小镇火锅(望京国际商业中心店)',
+            'address': '望京街道9号望京国际商业中心C座(麦当劳旁)四层1号',
+            'id': 'B0FFGONR7H',
+            'latitude': '39.990897',
+            'longitude': '116.484479',
+            'type': 'Office',
+            'page':'1'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/8c803618c804505927226dd5e82cc2ed?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': ' 幕一幕一餐吧(望京总店)',
+            'address': '望京悠乐汇A3-120(广顺南大街与阜通东大街交叉口西北角)',
+            'id': 'B0FFH213GG',
+            'latitude': '39.988916',
+            'longitude': '116.477880',
+            'type': 'Office',
+            'page':'1'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/dd494cffe6fe1c2ce5ebad348b6e0ceb?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '富女队长重庆火锅(望京店)',
+            'address': '望京街9号望京国际商业中心B座4层',
+            'id': 'B0FFFAI6RX',
+            'latitude': '39.989934',
+            'longitude': '116.484401',
+            'type': 'Company',
+            'page':'0'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/8b54c40064a90135d1031eab22ca19a6?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '依皓厨房(望京悠乐汇店)',
+            'address': '望京悠乐汇A区6层',
+            'id': 'B0FFGDRIE7',
+            'latitude': '39.989024',
+            'longitude': '116.476811',
+            'type': 'Company',
+            'page':'1'
+        }, {
+            'pic': 'http://store.is.autonavi.com/showpic/8f635ea4103ac9861e6a88962acec0a5?operate=merge&w=160&h=150&position=5',
+            'time': '30 min',
+            'km': '1.2 km',
+            'name': '鹿港小镇(新世界利莹百货)',
+            'address': '广顺南大街16号院1号索尼移动通信大厦1层',
+            'id': 'B000A84CLE',
+            'latitude': '39.986120',
+            'longitude': '116.480874',
+            'type': 'Company',
+            'page':'1'
+        }
+    ];
+    /*
+    *result:获取的数据,如需后天传数据，应改成url路径。获取数据见create_map的280行代码
+    *'container'：地图divName
+    *'myList'：右侧标注展示列表内层divName
+    *'panelBox'：右侧标注展示列表外层divName
+    *1000：高亮圆形半径
+    *'mapList'：第一行分类divName
+    *'projectName'：第二行分类divName
+    *'Office'：默认显示选择参数1
+    *'Own'：默认显示选择参数2
+     */
+    getMarkerListInfo(result, 'container', 'myList', 'panelBox', 1000, 'mapList', 'projectName', 'Office' ,'Own');
+}
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

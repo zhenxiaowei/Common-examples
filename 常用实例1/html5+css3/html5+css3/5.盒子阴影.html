@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul{
+            list-style: none;
+        }
+        ul li{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 50px;
+
+        }
+        ul li:nth-child(1){/*外阴影*/
+            box-shadow:8px 0 10px -4px #51ff3a  ;
+        }
+        ul li:nth-child(2){/*内阴影*/
+            box-shadow:8px 5px 10px 4px rgba(255,99,277,0.3) inset ;
+        }
+        ul li:nth-child(4){/*多层阴影*/
+            box-shadow:1px 2px 5px 4px palegreen,4px 4px 5px 4px #FB5A26,6px 7px 5px 4px orange,9px 10px 5px 4px blue;
+        }
+        ul li:nth-child(3){/*文字阴影 少一个扩展半径*/
+            font-size: 60px;
+            width: 500px;
+            text-shadow: 2px 3px 2px red,6px 7px 3px green,5px 6px 5px blue ;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li>珠峰培训</li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

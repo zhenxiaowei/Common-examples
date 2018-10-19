@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            width:200px;
+            height: 60px;
+            background: #ccc;
+            position: absolute;
+            top:30px;
+            left: 50%;
+            margin-left: -100px;
+
+        }
+        #mark{
+            display: none;
+            position: absolute;
+            top:61px;
+            left:0;
+            width: 500px;
+            height: 200px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="mark"></div>
+</div>
+<script>
+    var oBox=document.getElementById('box');
+    var oMark=document.getElementById('mark');
+    oBox.onmouseenter=function(){
+        oMark.style.display='block';
+        console.log('ok')
+    };
+    oBox.onmouseleave=function(){
+        oMark.style.display='none';
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求：'2016-12-18 11:25:58' 转化成 '2016年12月18日 11时25分58秒'的格式
+    /* //日期格式化封装
+     var strDate='2016-12-18 11:25:58';
+     //1.把字符串中的数字提成一个数组；
+     var ary=strDate.match(/\d+/g);
+     //2.把数组中的内容替换为模板的内容
+     var str='{0}年{1}月{2}日 {3}时{4}分{5}秒';
+     str=str.replace(/{(\d)}/g,function(){
+     return ary[arguments[1]]
+     })
+     console.log(str);*/
+    var strDate='2016/12/18 11:25:58';
+    var tmp='{0}年{1}月{2}日 {3}时{4}分{5}秒';
+    String.prototype.dataFormat=function(tmp){
+        //this:strDate实例；
+        var tmp=tmp||'{0}年{1}月{2}日     {3}时{4}分{5}秒';//模板可传可不传
+        //1.把实例中的数字拎出来，放入数组
+        //var ary=this.match(/\d+/g);//['2016','12','18','11','25','58']
+        //var ary=this.split(/[-:\s]/g)
+        // var ary=this.split(/\D+/g);
+        var ary=this.split(/[^\d]+/g);
+        //2.把数组的内容，替换为模板的内容；
+        tmp=tmp.replace(/{(\d)}/g,function(){
+            return ary[arguments[1]];
+        })
+        return tmp;
+
+    }
+    var res=strDate.dataFormat(tmp);//返回值：'2016年'
+    console.log(res)
+    document.write(res);
+
+</script>
+</body>
+</html>

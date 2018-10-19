@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div{
+            width: 120px;
+            height: 160px;
+            margin: 30px auto;
+            border:1px solid red;
+
+        }
+        div img{
+            width: 100%;
+            /*移动端写如下两种方式*/
+            /*transform: scale(0.5,2);*/
+            /*-webkit-transform: scale(0.5,2);*/
+            /*PC端写如下五种方式*/
+            /*transform:scale(2);*/
+            /*-webkit-transform:scale(2);*/
+            /*-moz-transform:scale(2);*/
+            /*-ms-transform:scale(2);*/
+            /*-o-transform:scale(2);*/
+            /*transform: skew(10deg,30deg);*/
+            /*
+            第一个参数 正:左 负 :右
+            第二个参数 正:下 负 :上
+            */
+            /*transform: translate(0,0);*/
+            /*
+            第一个参数:水平方向移动 正:右 负 :左
+            第二个参数:垂直方向移动 正:下 负 :上
+            */
+            transform:translate(50px,0) rotate(45deg) ;
+            /*transform-origin: left;改变基准点*/
+        }
+        /*默认变形的基准点都是中心点,rotate,scale,skew变形的基准点可以改变,translate的基准点不能改变,只能是中心点
+        如果把translate()放在第一个,则变形的基准点会发生改变
+        */
+
+    </style>
+</head>
+<body style="background: rgba(81,255,58,0.5);">
+<div><img src="img/baby.jpg"> </div>
+</body>
+</html>

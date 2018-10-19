@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", simSum;
+            font-size: 28px;
+        }
+
+        #div1 {
+            margin: 10px auto;
+            width: 800px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+            text-align: center;
+            border: 1px solid #004d00;
+            background: -webkit-linear-gradient(top left, #004d00, #0050D0, firebrick);
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript">
+    //把时间格式的字符串变成我们的标准时间格式
+    //var tar=new Date("2015-05-24 17:59:59");
+    //对字符串格式有要求
+    //中间用"-"在IE678下不兼容，需要改成"/"
+    //getTime:获取距离1970年1月1日午夜（00:00）之间的毫秒差
+
+    var oDiv = document.getElementById("div1");
+    var str = getSpanTime();
+    oDiv.innerHTML = "距离睡觉时间：" + str;
+
+    var timer = window.setInterval(function () {
+        var str = getSpanTime();
+        oDiv.innerHTML = "距离睡觉时间：" + str;
+    }, 1000);
+
+    function getSpanTime() {
+        var tarTime = new Date("2018-3-22 21:00:00");
+        var nowTime = new Date();
+        var tarSpan = tarTime.getTime();
+        var nowSpan = nowTime.getTime();
+        var diffTime = tarSpan - nowSpan;//当前时间距离目标时间的毫秒差
+        //接下来我们用毫秒差算出包含多少个小时、分钟、秒
+
+        //1 算出总毫秒差中包含的小时有几个
+        var hour = Math.floor(diffTime / (1000 * 60 * 60));
+        //2 算出当前这几个小时占了多少毫秒
+        var hourMs = hour * 60 * 60 * 1000;
+        //3 接下来算分钟的时候，需要把小时占用的减去
+        var spanMs = diffTime - hourMs;
+        //4 开始算spanMs中包含多少分钟
+        var minute = Math.floor(spanMs / (1000 * 60));
+        //5 算这么多分钟占多少毫秒
+        var minuteMs = minute * 60 * 1000;
+        //6 算秒的时候把分钟占用的减去
+        spanMs = spanMs - minuteMs;
+        //7 算剩下的包含多少秒
+        var second = Math.floor(spanMs / 1000);
+        return zero(hour) + ":" + zero(minute) + ":" + zero(second);
+    }
+
+    function zero(value) {
+        return value < 10 ? "0" + value : value;
+    }
+
+
+</script>
+</body>
+</html>

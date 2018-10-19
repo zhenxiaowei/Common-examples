@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            margin: 100px;
+        }
+        *{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            width: 100px;
+            height: 30px;
+            background: yellow;
+            margin: 10px 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li draggable="true">1</li>
+    <li draggable="true">2</li>
+    <li draggable="true">3</li>
+</ul>
+<div id="div1"></div>
+<img src="images/1.jpg" alt="" id="img1"/>
+</body>
+</html>
+<script>
+    var oLis =  document.getElementsByTagName("li");
+    var oDiv = document.getElementById("div1");
+    var oImg = document.getElementById("img1");
+    var n = 0;
+    for(var i = 0;i<oLis.length;i++){
+        var oLi = oLis[i];
+        oLi.ondragstart = function(e){
+            this.style.background = "green";
+            e.dataTransfer.setData("text","目标元素")
+            e.dataTransfer.setDragImage(oImg,75,60);
+            e.dataTransfer.effectAllowed = "link";
+        }
+
+        oLi.ondrag = function(){
+             document.title = n++;
+        }
+        oLi.ondragend = function(){
+            this.style.background ="yellow";
+        }
+    }
+    oDiv.ondragenter = function(){
+            this.style.background="orange";
+    }
+    oDiv.ondragover = function(e){
+            e.preventDefault();
+    }
+    oDiv.dragleave  = function(){
+
+    }
+    oDiv.ondrop = function(e){
+        oDiv.innerHTML = e.dataTransfer.getData('text');
+    }
+
+
+
+</script>

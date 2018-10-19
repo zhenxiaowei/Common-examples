@@ -1,0 +1,38 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+
+/*CSS3使用@MEDIA检测横竖屏的切换:在H5开发的时候我们只能检测出当前是横屏还是竖屏但是不能禁止横竖屏切换*/
+/*
+@media all and (orientation: landscape) {
+    /!*横屏*!/
+    body {
+        background: green;
+    }
+}
+
+@media all and (orientation: portrait) {
+    /!*竖屏*!/
+    body {
+        background: red;
+    }
+}*/
+
+/*
+  使用JS检测横竖屏的切换
+  var flag = "onorientationchange" in window,
+            event = flag ? "orientationchange" : "resize";
+    window.addEventListener(event, function () {
+        if (flag) {
+            if (Math.abs(window.orientation) === 90) {
+                //->横屏
+                alert("横");
+            } else {
+                //->竖屏
+                alert("竖");
+            }
+        }
+    }, false);
+*/

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CRM客户管理系统</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/add.css"/>
+</head>
+<body>
+<form class="box">
+    <div>
+        <label>姓名:</label>
+        <input type="text" id="userName"/>
+    </div>
+    <div>
+        <label>年龄:</label>
+        <input type="text" id="userAge"/>
+    </div>
+    <div>
+        <label>电话:</label>
+        <input type="text" id="userPhone"/>
+    </div>
+    <div>
+        <label>地址:</label>
+        <input type="text" id="userAddress"/>
+    </div>
+    <input type="submit" id="submit" value="提交"/>
+</form>
+<script charset="utf-8" type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript">
+    var userName = document.getElementById("userName"),
+            userAge = document.getElementById("userAge"),
+            userPhone = document.getElementById("userPhone"),
+            userAddress = document.getElementById("userAddress"),
+            submit = document.getElementById("submit");
+
+    //->首先判断当前的页面是增加还是修改:如果页面URL地址传递了id这个参数就是修改,反之就是增加；如果是修改的话,进入当前页面的第一件事情把对应客户的信息读取出来并且存放在四个文本框中
+    var nowURL = window.location.href,//->获取当前页面的URL地址
+            obj = queryURLParameter(nowURL),
+            isFlag = false;//->验证是否为修改
+    if (obj["id"]) {
+        isFlag = true;
+        ajax({
+            url: "/getData?id=" + obj["id"],
+            success: function (data) {
+                if (data && data.code == 0) {
+                    data = data["data"];
+                    userName.value = data["name"];
+                    userAge.value = data["age"];
+                    userPhone.value = data["phone"];
+                    userAddress.value = data["address"];
+                }
+            }
+        });
+    }
+
+    //->当点击提交的时候,我们需要判断是增加还是修改
+    submit.onclick = function (e) {
+        //->阻止SUBMIT按钮的默认行为
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+        var resObj = {
+            name: userName.value,
+            age: userAge.value,
+            phone: userPhone.value,
+            address: userAddress.value
+        };
+
+        if (isFlag) {//->当前属于修改
+            resObj["id"] = obj["id"];
+            ajax({
+                url: "/updateCustom",
+                type: "post",
+                data: JSON.stringify(resObj),
+                success: function (data) {
+                    if (data && data.code == 0) {
+                        window.location.href = "index.html";
+                    }
+                }
+            });
+            return;
+        }
+
+        //->当前属于增加
+        ajax({
+            url: "/addCustom",
+            type: "post",
+            data: JSON.stringify(resObj),
+            success: function (data) {
+                if (data && data.code == 0) {
+                    //->增加成功:跳转到首页
+                    window.location.href = "index.html";
+                }
+            }
+        });
+    };
+
+    //->http://192.168.0.28/add.html?id=3&name=zz#aa ->{id:3,name:'zz'} 把当前页面URL地址后面问号传递的参数值以对象键值对的方式解析出来queryURLParameter
+    function queryURLParameter(url) {
+        var reg = /([^?&=#]+)=([^?&=#]+)/g,
+                obj = {};
+        url.replace(reg, function () {
+            obj[arguments[1]] = arguments[2];
+        });
+        return obj;
+    }
+    //http://old.zhufengpeixun.cn/jishuziliao/javaScriptzhuanti/2016-07-02/482.html
+</script>
+</body>
+</html>

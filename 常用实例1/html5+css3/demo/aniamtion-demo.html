@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .item{
+            width: 1200px;
+            height: 300px;
+            border:1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .line{
+            position: absolute;
+            background: url(images/jd.png) no-repeat 0 -124px;
+            width: 365px;
+            height: 5px;
+            right: 0;
+            top: -3px;
+
+        }
+        @keyframes move {
+            0%{
+                transform: translate(-1200px,0);
+            }
+            100%{
+                transform:translate(0,0);
+            }
+        }
+        .item:hover .line{
+            animation: move 0.5s ;
+            -webkit-animation: move 0.5s ;
+            -moz-animation: move 0.5s ;
+            -ms-animation: move 0.5s ;
+            -o-animation: move 0.5s ;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="item">
+        <div class="line"></div>
+        <img src="images/jdLike.jpg" alt=""/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/jquery-1.11.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+<body>
+<div id="alertModalBox"></div>
+</body>
+</html>
+<script>
+    confirmBox(1)
+    function confirmBox(e){
+        $("#alertModalBox").html('<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
+                '<div class="modal-dialog"><div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button><h4 class="modal-title" id="myModalLabel">信息</h4></div> ' +
+                '<div class="modal-body">' +
+                ''+e+'</div>' +
+                ' <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">取消</button>' +
+                '<button type="button" class="btn btn-primary">确定</button></div>' +
+                '</div></div></div>');
+        $("#alertModal").modal("show");
+    }
+    document.onkeydown=function(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode==13){
+            $("#alertModal").find("button.btn-primary").trigger("click");
+        }
+        if(e && e.keyCode==46){ // delete 键
+
+        }
+    };
+    $("#alertModal").find("button.btn-primary").click(function(){
+        alert("enter按下后触发的事件")
+    })
+</script>

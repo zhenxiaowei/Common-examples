@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3选择器</title>
+    <style type="text/css">
+        ul{
+            list-style: none;
+            width: 300px;
+            margin: 100px auto;
+        }
+        ul li{
+            border:1px solid burlywood;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: palegreen;
+            margin:20px;
+            display: inline-block;
+            text-align: center;
+        }
+        /*ul>li.a2~li{
+            background: orange;
+        }*/
+
+      /*  ul :nth-child(2){1.查找所有的子元素,不限定范围2.对子元素设定样式/
+            background: orange;
+        }
+        ul li:nth-of-type(2){1.限定查找的范围2.对子元素设定样式
+            background: red;
+        }*/
+       /* ul :nth-child(2n){/!*n初始值是0  偶数元素*!/
+            background: orange;
+        }
+        ul :nth-child(2n+1){/!*奇数元素*!/
+            background: palevioletred;
+        }*/
+        ul :nth-child(even){/*n初始值是0  偶数元素*/
+            background: orange;
+        }
+        ul :nth-child(odd){/*奇数元素*/
+            background: palevioletred;
+        }
+        ul :first-child{ /*第一个子元素*/
+            background: blue;
+        }
+        ul li:first-of-type{
+            background: purple;
+        }
+        /*div a:only-of-type{*/
+            /*background: paleturquoise;*/
+        /*}*/
+        div :only-child{
+            background: paleturquoise;
+        }
+        div:empty{
+            height: 50px;
+            background: yellow;
+        }
+        div:not(.div2) a{
+            font-size: 40px;
+        }
+        ul li[class*="zf"]{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li class="zf">1</li>
+    <li class="bc pczf aa ">2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+</ul>
+<div class="div1">
+    <a href="##">aaaa</a>
+</div>
+<div class="div2">
+    <p>1111</p>
+    <a href="##">bbbb</a>
+    <a href="##">ccc</a>
+</div>
+<div>
+    <a href="##">aaaa</a>
+    <a href="##">aaaa</a>
+    <a href="##">aaaa</a>
+</div>
+<div>
+
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul{
+            list-style: none;
+        }
+        ul li{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 20px;
+        }
+        ul li:nth-child(1){ /*正圆*/
+            border-radius: 50%;
+        }
+        ul li:nth-child(2){/*半圆*/
+            height: 50px;
+            border-radius: 50px 50px 0 0 ;
+        }
+        ul li:nth-child(3){/*水平椭圆 宽是高的2倍*/
+            height: 50px;
+            border-radius: 100px/50px;
+        }
+        ul li:nth-child(4){/*垂直椭圆 高是宽的2倍*/
+            width: 50px;
+            border-radius: 50px/100px;
+        }
+        ul li:nth-child(5){/*扇形*/
+            border-radius: 100px  0 0 0  ;
+        }
+        ul li:nth-child(6){/*扇形*/
+            border-radius: 0  100px 0 0  ;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

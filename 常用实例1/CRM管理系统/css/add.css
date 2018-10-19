@@ -1,0 +1,65 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+
+    font-size: 14px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+}
+
+form, input, label {
+    display: inline-block;
+    outline: none;
+}
+
+.box {
+    display: block;
+    margin: 20px auto;
+    padding: 20px;
+    width: 500px;
+    border: 2px solid green;
+}
+
+.box div {
+    margin: 10px;
+}
+
+.box label {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.box input {
+    padding: 0 10px;
+    width: 350px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+#userAge, #userName {
+    width: 100px;
+    text-align: center;
+}
+
+#submit {
+    display: block;
+    margin: 15px auto 0;
+    width: 50%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: green;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background: lightgreen;
+}

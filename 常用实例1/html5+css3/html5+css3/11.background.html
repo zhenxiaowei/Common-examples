@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        /*
+
+         background-attachment:scroll(默认值)|fixed;
+         background-origin ->背景图从哪块区域开始显示
+         background-origin:padding-box(默认值)|border-box|content-box
+         background-clip ->背景图的哪块区域裁剪掉
+        background-clip:padding-box(把padding外的区域裁剪掉)|border-box(把边框外的区域裁剪掉)|content-box(把内容区域以外的部分裁掉掉)
+        */
+        ul li{
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 15px;
+            border:10px solid rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+        ul li:nth-child(1){
+            background: url("img/baby.jpg") no-repeat;
+            background-origin:border-box;
+        }
+        ul li:nth-child(2){
+            background: url("img/baby.jpg") no-repeat;
+            background-origin:padding-box;
+        }
+        ul li:nth-child(3){
+            background: url("img/baby.jpg") no-repeat;
+            background-origin:content-box;
+        }
+        ul li:nth-child(4){
+            background: url("img/baby.jpg") no-repeat;
+            background-position:-100px -100px;
+        }
+        ul li:nth-child(5){
+            background: url("img/baby.jpg") no-repeat;
+            background-clip: padding-box;
+        }
+        ul li:nth-child(6){
+            background: url("img/baby.jpg") no-repeat;
+            background-clip: border-box;/*默认值*/
+        }
+        ul li:nth-child(7) {
+            background: url("img/baby.jpg") no-repeat;
+            background-clip: content-box;
+            background-position: -100px -100px;
+        }
+        ul li:nth-child(8){
+            background: url("img/baby.jpg") no-repeat;
+            /* background-size:100% 100% ;百分比是相对于当前元素*/
+            /*background-size:20px 50px ;*/
+            /*background-size:contain;按照原始比例缩放,整张背景图显示完整,但是不一定铺满整个盒子*/
+            background-size:cover ;/*按照原始比例缩放,整张背景图不一定显示完整,但是铺满整个盒子*/
+
+        }
+        ul li:nth-child(9){
+            background: url("img/baby.jpg") no-repeat;
+            background-size:cover ;
+            -webkit-filter:  grayscale(1);
+            filter: grayscale(1);
+        }
+
+        /*--使用滤镜来设置模糊度--*/
+        /*-webkit-filter: grayscale(1);*/
+        /*filter: grayscale(1);*/
+        /*}*/
+
+        /*body{
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }*/
+
+        /*css3中的filter除了blur以外还添加了其他的属性*/
+        /*
+            -webkit-filter: normal; 正常
+            -webkit-filter: grayscale(1); 灰度，取值范围0-1
+            -webkit-filter: brightness(0.5); 亮度，取值范围0-1
+            -webkit-filter: invert(1); 反色，取值范围0-1, 0为原图，1为彻底反色之后
+            -webkit-filter: sepia(0.5); 叠加褐色，取值范围0-1
+            -webkit-filter: hue-rotate(30deg); 色相（按照色相环进行旋转，顺时针方向，红-橙-黄-黄绿-绿-蓝绿-蓝-蓝紫-紫-紫红-红）此处为叠加黄色滤镜
+            -webkit-filter: saturate(4); 饱和度，取值范围0 ~ *, 0为无饱和度，1为原图，值越高饱和度越大
+            -webkit-filter: contrast(2); 对比度，取值范围0 ~ *, 0为无对比度（灰色），1为原图，值越高对比度越大
+            -webkit-filter: opacity(0.8); 透明度，取值范围0 ~ 1, 0为全透明，1为原图
+            -webkit-filter: drop-shadow(0 0 20px red); 阴影
+        */
+
+
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

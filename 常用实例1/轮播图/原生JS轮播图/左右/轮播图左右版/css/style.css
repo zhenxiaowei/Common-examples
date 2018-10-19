@@ -1,0 +1,59 @@
+*{ margin: 0; padding: 0; font-family: microsoft yahei; font-size: 12px; color: #999; }
+ul,li{ list-style: none; }
+a{ text-decoration: none; }
+.banner{ width: 1000px; height: 300px;  margin: 30px auto; position: relative; overflow: hidden; }
+.banner .bannerImgWrap{ position: absolute; left: 0; top: 0; width: 4000px; height: 300px;     background: url("../images/default.gif") no-repeat center #ccc;
+}
+.banner .bannerImgWrap div{
+    float: left;
+}
+.banner .bannerImgWrap div img{
+    display: none;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    border: none;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.banner .focusList{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+}
+.banner .focusList li{
+    width: 18px;
+    height: 18px;
+    border: 2px solid darkcyan;
+    border-radius: 100%;
+    float: left;
+    margin-left: 5px;
+    background: lightsalmon;
+    cursor: pointer;
+}
+.banner .focusList li.bg{
+    background: darkblue;
+}
+.banner .left,.banner .right{
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 50px;
+    margin-top: -25px;
+    background: url("../images/pre.png") no-repeat;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.banner .left{
+    left: 5px;
+}
+.banner .right{
+    right: 5px;
+    background-position: -50px;
+}
+.banner .right:hover,.banner .left:hover{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}

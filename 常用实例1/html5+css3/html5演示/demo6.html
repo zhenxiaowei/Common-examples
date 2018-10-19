@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1 {
+            width: 422px;
+            height: 362px;
+            background-color: #fff;
+            margin: 120px auto;
+            text-align: center;
+            line-height: 362px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #444;
+            border: 2px dashed rgb(119, 119, 119);
+        }
+
+        #div2 {
+            border: 1px solid red;
+        }
+
+        #body .active {
+            border: 2px dashed yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1"> 将文件拖拽到此区域</div>
+<div id="div2"></div>
+</body>
+</html>
+<script>
+    var oDiv1 = document.querySelector("#div1");
+    var oDiv2 = document.querySelector("#div2");
+    oDiv1.ondragenter = function (e) {
+        this.innerHTML = "可以释放啦！";
+        this.classList.add("active");
+    }
+    oDiv1.ondragover = function (e) {
+        e.preventDefault();
+    }
+    oDiv1.ondragleave = function (e) {
+        this.innerHTML = "将文件拖拽到此区域！";
+    }
+    oDiv1.ondrop = function (e) {
+        e.preventDefault();
+        this.innerHTML = "将文件拖拽到此区域！";
+        this.classList.remove("active")
+        var files = e.dataTransfer.files;
+        for (var i = 0; i < files.length; i++) {
+            showImg(files[i]);
+        }
+    }
+
+    function showImg(file) {
+        var reader = new FileReader();
+        reader.readAsBinaryString(file);
+        reader.onload = function () {
+            var src = btoa(this.result);
+            var fileName = file.name;
+            var fileSize = Math.floor(file.size / 1024);
+            if(!/image\/\w/.test("img/")){
+                return false;
+            }
+            if(fileSize>500){
+                return false;
+            }
+            var str = '<img src="data:' + file.type + ";base64," + src + '"/><p>图片名称：' + fileName + '</p><p>图片大小:' + fileSize + 'k</p>';
+             console.log(str);
+            oDiv2.innerHTML += str;
+
+            //上传
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData();
+            formData.append('file', file, file.name);
+
+            //上传
+            var xhr = new XMLHttpRequest();
+            var formData = new FormData();
+            formData.append('file', file, file.name);
+            // 省略dom操作
+            xhr.open('POST', '/upload'); // async default
+            xhr.upload.onprogress = function(e) {
+                // 更新进度条
+            };
+            xhr.onload = function(e) {
+                // 上传完成
+            };
+            xhr.onerror = function(e) {
+                // 错误处理
+            };
+            xhr.send(formData);
+        }
+    }
+</script>

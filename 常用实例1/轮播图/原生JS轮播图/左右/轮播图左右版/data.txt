@@ -1,0 +1,6 @@
+[
+    {"src":"images/banner1.jpg","desc":"2016火热招生中"},
+    {"src":"images/banner2.jpg","desc":"2016火热招生中"},
+    {"src":"images/banner3.jpg","desc":"2016火热招生中"},
+    {"src":"images/banner4.jpg","desc":"2016火热招生中"}
+]

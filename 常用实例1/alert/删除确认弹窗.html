@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">删除确认弹窗</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+        del();
+    };
+    function del(){
+        var msg="你真的确认要删除吗？\n\n请确认！";
+        if(confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="demo.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+    <script src="js.js"></script>
+    <script type="text/javascript">
+        function load() {
+            //配置地图
+            HTMap.setMapConfig({
+                MaxZoomLevel: 18,
+                MinZoomLevel: 4,
+                CoordSys: HTMap.CoordSys.GOOGLE,
+                FullExtent: new HTMap.Bound(
+                        HTMap.googleProjection.MinLongitude * 1e16,
+                        HTMap.googleProjection.MaxLongitude * 1e16,
+                        HTMap.googleProjection.MinLatitude * 1e16,
+                        HTMap.googleProjection.MaxLatitude * 1e16)
+            });
+            //实例化地图
+            var map = new HTMap.Map(document.getElementById("map"));
+            //向地图中添加地图类型
+            var mt = new HTMap.MapType();
+            mt.SrcFuncs = [function (level, row, column) {
+                //google中国地图瓦片URL读取规则
+                return "http://mt2.google.cn/vt/lyrs=m@218000000&hl=zh-CN&gl=CN&src=app&x=" + column + "&y=" + row + "&z=" + level + "&s=Galileo"
+            }];
+            map.addMapType(mt, true);
+            //设置地图的中心点和显示级别
+            map.setCenter(new HTMap.Point(113.3, 23.1), 4);
+            map.disableDoubleClickZoom();//禁用双击放大
+
+            //创建标注
+            var marker = new HTMap.Marker(new HTMap.Point(113.3, 23.1), {
+                cursor: 'pointer', //鼠标移到标注上时的样式
+                icon: new HTMap.Icon(32, 32, '11.png'), //标注使用的图标路径和大小
+                title: '这是一个简单的标注' //鼠标移动到标注上时显示的提示文字
+            });
+            var marke = new HTMap.Marker(new HTMap.Point(123.3, 23.1), {
+                cursor: 'pointer', //鼠标移到标注上时的样式
+                icon: new HTMap.Icon(32, 32, '11.png'), //标注使用的图标路径和大小
+                title: '这是一个简单的标注' //鼠标移动到标注上时显示的提示文字
+            });
+                        var mark = new HTMap.Marker(new HTMap.Point(133.3, 23.1), {
+                cursor: 'pointer', //鼠标移到标注上时的样式
+                icon: new HTMap.Icon(32, 32, '11.png'), //标注使用的图标路径和大小
+                title: '这是一个简单的标注' //鼠标移动到标注上时显示的提示文字
+            });
+                                   var mar = new HTMap.Marker(new HTMap.Point(43.3, 23.1), {
+                cursor: 'pointer', //鼠标移到标注上时的样式
+                icon: new HTMap.Icon(32, 32, '11.png'), //标注使用的图标路径和大小
+                title: '这是一个简单的标注' //鼠标移动到标注上时显示的提示文字
+            });
+
+            map.addOverLayer(marker);
+            map.addOverLayer(marke);
+             map.addOverLayer(mark);
+              map.addOverLayer(mar);
+
+
+           //创建多边形
+               var polygon = new HTMap.Polygon(
+                           [new HTMap.Point(113.5,22.5),new HTMap.Point(112.1,22.9),new HTMap.Point(113,22)],//顶点数组
+                           {
+                               strokeColor:"#FF00F0", //边框颜色
+                               strokeWeight:1, //边框粗细
+                               strokeStyle:'-', //边框样式
+                               strokeOpacity:1, //边框透明度
+                               fillColor:"#0000FF", //填充颜色
+                               fillOpacity:0.8,//填充透明度
+                               enableClicking:true, //接收鼠标事件
+                           }
+                   );
+            //添加到地图上
+            map.addOverLayer(polygon);
+            //创建一个信息框
+            var infoWidow = new HTMap.InfoWindow(
+                    '信息框的内容，也可以是HTML文本',
+                    {
+                        title:"信息框的信息框标题"
+                    }
+            );
+            infoWidow.open(map,new HTMap.Point(113.5,22.5));//在地图上指定位置打开该信息框
+
+        }
+
+        function marker_OnClick(e){
+            document.getElementById("clickinfo").innerText="标注被点击啦";
+            setTimeout(function(){document.getElementById("clickinfo").innerText=""},1000);
+        }
+        function marker_OnMouseOver(e){
+            document.getElementById("mouseoverinfo").innerText="鼠标移入标注";
+            setTimeout(function(){document.getElementById("mouseoverinfo").innerText=""},500);
+        }
+        function marker_OnMouseOut(e){
+            document.getElementById("mouseoutinfo").innerText="鼠标移出标注";
+            setTimeout(function(){document.getElementById("mouseoutinfo").innerText=""},500);
+        }
+    </script>
+</head>
+<body onload="load()">
+<div id="map"></div>
+<div class="democontrol">
+    <button onclick="marker.setPosition(new HTMap.Point(121.421,31.166))">更改标注的位置</button>
+    <button onclick="marker.setIcon(new HTMap.Icon(32,32,'image/11.gif'))">更改标注的图标</button>
+    <button onclick="marker.hide()">隐藏标注</button>
+    <button onclick="marker.show()">显示标注</button>
+    <button onclick="marker.setOffset(0,0)">修改标注的偏移</button>
+    <button onclick="marker.setLabel('<div style=\'width: 60px;font-size:12px;border: 1px solid #aaa;background-color: #fff;margin: 14px 0px 0px 31px; \'>标注的标签</div>')">设置标注标签</button>
+    <br/>事件处理<br/>
+    <input type="checkbox" onclick="if(this.checked){marker.addEventListener('click',marker_OnClick)}else{marker.removeEventListener('click',marker_OnClick)}"/>点击事件<span id="clickinfo"></span><br/>
+    <input type="checkbox" onclick="if(this.checked){marker.addEventListener('mouseover',marker_OnMouseOver)}else{marker.removeEventListener('mouseover',marker_OnMouseOver)}">鼠标移入事件<span id="mouseoverinfo"></span><br/>
+    <input type="checkbox" onclick="if(this.checked){marker.addEventListener('mouseout',marker_OnMouseOut)}else{marker.removeEventListener('mouseout',marker_OnMouseOut)}">鼠标移出事件<span id="mouseoutinfo"></span><br/>
+</div>
+</body>
+</html>

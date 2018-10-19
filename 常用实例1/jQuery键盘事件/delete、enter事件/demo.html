@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .box li{
+            cursor: pointer;
+        }
+        .cur{
+            color: red;
+
+        }
+    </style>
+</head>
+<body>
+<ul class="box">
+    <li id="1">我是谁</li>
+    <li id="2">我是谁1</li>
+    <li id="3">我是谁2</li>
+</ul>
+</body>
+</html>
+<script src="../jslib/jquery-3.0.0.min.js"></script>
+<script>
+    var a=$('.box li');
+    a.click(function () {
+        $(this).addClass('cur').siblings().removeClass('cur');
+    });
+    document.onkeydown=function(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode==13){ // enter 键
+            //append() - 在被选元素的结尾插入内容
+            //prepend() - 在被选元素的开头插入内容
+            //after() - 在被选元素之后插入内容
+            //before() - 在被选元素之前插入内容
+            ent()
+        }
+        if(e && e.keyCode==46){ // delete 键
+            del();
+            //有这个类名的元素清空或者获取到这个这个元素的id传递给后台，后台通过id删除，我们前台重新刷新页面
+        }
+    };
+    function ent() {
+        var msg = "您真的确定要添加吗？\n\n请确认！";
+        if (confirm(msg)==true){;
+            var a=$('.cur').clone();
+            $('.cur').after(a);
+            $('.box li').removeClass('cur');
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    function del() {
+        var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){;
+            $('.cur').remove();
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+</script>

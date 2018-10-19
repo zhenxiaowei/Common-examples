@@ -1,0 +1,44 @@
+.article{
+    width: 800px;
+    margin: 50px auto;
+}
+.header{
+    background: paleturquoise;
+    padding:20px;
+    line-height: 40px;
+    text-align: center;
+}
+.section{
+   padding: 10px 0;
+}
+.section p{
+    font-size: 16px;
+    line-height: 33px;
+    padding: 10px 0;
+    text-indent: 2em;
+}
+.figure{
+    float: left;
+    margin: 5px 20px 5px 0;
+    width: 300px;
+    overflow: hidden;
+    word-break: keep-all;
+}
+.figure figcaption{
+    font-size: 12px;
+    font-style: italic;
+    padding: 5px 0;
+}
+.footer div,address{
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+}
+address{
+    font-style: normal;
+}
+.footer div a{
+    margin: 0 5px;
+}
+
+

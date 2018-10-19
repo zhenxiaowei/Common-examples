@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style type="text/css">
+        .box{
+            width: 1200px;
+            margin:50px auto;
+        }
+        .box ul li{
+            float: left;
+            margin: 0 20px;
+            position: relative;
+            border-bottom:2px solid #ddd;
+        }
+        .box ul li img{
+            height: 170px;
+        }
+        .box ul li p{
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .box ul li h3{
+            position: absolute;
+            left: 10px;
+            bottom:56px;
+            font-size: 24px;
+            color: #fff;
+        }
+        .imgBox {
+            height: 170px;
+            overflow: hidden;
+        }
+        .box ul li:hover{
+            border-bottom-color:red;
+        }
+        .box ul li:hover img{
+            animation:h3Scale 2s 1 both;
+            -webkit-animation:h3Scale 2s 1 both;
+        }
+        @keyframes h3Scale {
+            0%, 100%{
+                transform: scale(1);
+                -webkit-transform: scale(1);
+            }
+           50%{
+                transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+            }
+        }
+        .iConBox {
+            background: #ccc;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .iConBox li{
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .iConBox li i{
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: url(img/yl.png) no-repeat;
+        }
+        .iConBox li i.icon1{
+          background-position:-91px -4px ;
+        }
+        .iConBox li i.icon2{
+            background-position:-159px -4px ;
+        }
+        .iConBox li i.icon3{
+            background-position: -228px -4px;
+        }
+        .iConBox li i.icon4{
+            background-position: -295px -6px;
+        }
+        .iConBox li span{
+            display: inline-block;
+            height: 60px;
+            vertical-align: middle;
+            padding-left: 10px;
+            font-size: 14px;
+        }
+        .iConBox li:hover i{
+            animation:shake 0.3s infinite ;
+            -webkit-animation:shake 0.3s infinite ;
+        }
+        @keyframes shake {
+            0%,50%,100%{
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(-25deg);
+                -webkit-transform: rotate(-25deg);
+            }
+            75%{
+                transform: rotate(25deg);
+                -webkit-transform: rotate(25deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="clear">
+        <li><div class="imgBox"><img src="img/hs.jpg" alt=""/></div>
+            <p>春意撩人 登高踏青赏春色</p>
+            <h3>黄山</h3>
+        </li>
+        <li><div class="imgBox"><img src="img/hs.jpg" alt=""/></div>
+            <p>春意撩人 登高踏青赏春色</p>
+            <h3>黄山</h3>
+        </li>
+        <li><div class="imgBox"><img src="img/hs.jpg" alt=""/></div>
+            <p>春意撩人 登高踏青赏春色</p>
+            <h3>黄山</h3>
+        </li>
+        <li><div class="imgBox"><img src="img/hs.jpg" alt=""/></div>
+            <p>春意撩人 登高踏青赏春色</p>
+            <h3>黄山</h3>
+        </li>
+    </ul>
+</div>
+
+<ul class="iConBox">
+    <li><i class="icon1"></i><span>全球50万家酒店</span></li>
+    <li><i class="icon2"></i><span>订酒店返现金高达20%</span></li>
+    <li><i class="icon3"></i><span>国际酒店8折起</span></li>
+    <li><i class="icon4"></i><span>7×24小时服务</span></li>
+</ul>
+</body>
+</html>

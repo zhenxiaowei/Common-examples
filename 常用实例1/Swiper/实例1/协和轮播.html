@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title></title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/reset.min.css"/>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/swiper.min.css"/>
+    <style type="text/css">
+        html {
+            font-size: 100px;
+        }
+
+        .swiper-container {
+            height: 5.1rem;
+            overflow: hidden;
+        }
+
+        .swiper-container .swiper-slide {
+            height: 100%;
+        }
+
+        .swiper-container .swiper-slide img {
+            width: 100%;
+            height: 100%;
+
+        }
+        .swiper-pagination-bullet{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: rgba(0,0,0,0.2);
+        }
+        .swiper-pagination-bullet-active{
+            color: #fff;
+            background: #007aff;
+        }
+    </style>
+</head>
+<body>
+<section class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img data-src="img/1.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="img/2.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="img/1.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+        <div class="swiper-slide">
+            <img data-src="img/2.jpg" class="swiper-lazy"/>
+
+            <div class="swiper-lazy-preloader"></div>
+        </div>
+
+    </div>
+
+    <!--如果需要分页器我们写一个这个DIV-->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+</section>
+
+<script charset="utf-8" type="text/javascript" src="js/swiper.min.js"></script>
+<script charset="utf-8" type="text/javascript">
+    //->动态设定REM的根植
+    ~function (desW) {
+        var winW = document.documentElement.clientWidth;
+        if (winW > desW) {
+            var oMain = document.querySelector(".swiper-container");
+            oMain.style.margin = "0 auto";
+            oMain.style.width = desW + "px";
+            return;
+        }
+        document.documentElement.style.fontSize = winW / desW * 100 + "px";
+    }(2334);
+
+    //->初始话swiper
+    var swipe1 = new Swiper(".swiper-container", {
+        direction: 'horizontal',//->vertical垂直方向滑动  horizontal水平方向(默认值)
+
+        speed: 300,//->从第一张切换到第二张的运动时间(动画速度) 默认300ms
+
+        loop: true,//->无缝轮播 默认是false
+
+        autoplay: 3000,//->开启自动轮播 3000是设定的轮播时间(隔多久轮播一次)
+        autoplayDisableOnInteraction: false,//->默认值是true,在我们手动切换完成后是否禁止自动轮播,默认是禁止的,写成false后手动切换完成后在开始自动轮播
+
+        effect: "slide",//->切换效果 默认值是slide(位移切换) "fade"（淡入）"cube"（方块） "coverflow"（3d流） "flip"（3d翻转）
+
+        lazyLoading: true,//->开启图片的延迟加载
+        lazyLoadingInPrevNext: true,//->会把当前运动到的这张图片的前一张和后一张同时加载了(延迟加载做了,但是用户大部分不需要等待图片加载)
+        onLazyImageReady: function (swipe) {
+            //->当延迟加载结束的时候需要做的事情
+            //->swipe参数存储的值是当前Swiper的一个实例,和外面定义的那个swipe1是一个
+            //console.log(swipe === swipe1);
+        },
+
+        pagination: ".swiper-pagination",
+        paginationClickable: true,
+        paginationBulletRender: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    });
+</script>
+</body>
+</html>

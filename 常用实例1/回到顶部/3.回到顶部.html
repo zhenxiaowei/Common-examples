@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,html{
+            height: 1000%;
+            background: green;
+            background: -webkit-linear-gradient(top,lightsalmon,lightgoldenrodyellow,lightblue,lightslategray);
+        }
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 4px 4px 10px darkGreen;
+            position: fixed;
+            right:10px;
+            bottom:30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>toTop</div>
+<script src="utlis最终版/utils.js"></script>
+<script>
+    /*回到顶部思路
+    * 1.当点击按钮的时候，让滚动条匀速的回到顶部
+    * 2.公式
+    * target 总距离 scrollTop
+    * duration 总时间   500ms
+    * interval 频率 10ms
+    * 求 步长 step=target/time*interval
+    * 3.开启一个定时器，每次获取最新的距离-step，再重新设置新位置
+    *                 每次获取最新的距离-step，再重新设置新位置
+    *                 。。。。。。。。。。
+    * 4.当浏览器卷去的高度>一屏的高度时让按钮显示，否则，按钮隐藏;
+    * 5.点击按钮的时候，立即隐藏；
+    * */
+    //获取按钮的元素
+    var oBtn=document.getElementsByTagName('div')[0];
+    //手动触发滚动条：当浏览器卷去的高度>一屏的高度时让按钮显示，否则，按钮隐藏;
+    window.onscroll=computedDisplay;
+    function computedDisplay(){
+        if(utils.win('scrollTop')>utils.win('clientHeight')){
+            oBtn.style.display='block';
+        }else{
+            oBtn.style.display='none';
+        }
+    };
+    //当点击按钮的时候，让滚动条匀速的回到顶部
+    oBtn.onclick=function(){
+        //点击按钮的时候，立即隐藏； 可是，当按钮被点击的时候，就会触发滚轮事件，及if 显示 else隐藏都会被触发；这样就跟让按钮隐藏冲突；解决办法：window.onscroll=null;
+        this.style.display='none';
+        window.onscroll=null;
+        //对公式的计算 step=target/duration*interval;
+        var target=utils.win('scrollTop');
+        var duration=1000;
+        var interval=10;
+        var step=target/duration*interval;
+        //开启一个定时器，每次获取最新的距离-step，再重新设置新位置
+        var timer=setInterval(function(){
+            //每次获取最新的距离
+            var curTop=utils.win('scrollTop');
+            if(curTop<=0){
+                clearInterval(timer);
+                //当定时器结束的时候，恢复滚轮事件及里面的条件判断
+                window.onscroll=computedDisplay;
+                return;
+            }
+            //每次让最新的距离-step；然后重新赋值
+            curTop-=step;
+            //当我们求到最新的距离，把他赋值给scrollTop
+            utils.win('scrollTop',curTop);
+        },interval)
+    }
+</script>
+</body>
+</html>

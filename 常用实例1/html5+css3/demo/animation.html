@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle,red,green,yellow);
+            background: -webkit-radial-gradient(circle,red,green,yellow);
+            border-radius: 50%;
+            /*animation-name: move;*/
+            /*animation-duration: 2s;*/
+            /*animation-timing-function: ease-in-out;*/
+            /*animation-delay: 1s;*/
+            /*animation-iteration-count: 2;*/
+            /*animation-direction: normal;*/
+            /*animation-fill-mode: both;*/
+            animation: move 2s both;
+
+
+        }
+        @keyframes move {
+          0%{
+              transform: translate(100px,100px);
+          }
+            50%{
+                transform: translate(1200px,500px);
+            }
+            100%{
+                transform: translate(500px,500px);
+            }
+        }
+
+        /*#div1:hover{*/
+            /*animation-play-state: paused;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

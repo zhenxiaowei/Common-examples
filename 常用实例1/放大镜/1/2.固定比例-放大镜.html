@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #s{
+            width: 350px;
+            height: 350px;
+            background: url("img/iphone.jpg") no-repeat;
+            position: relative;
+            box-shadow: 4px 4px 10px #111;
+            margin:20px;
+        }
+        #m{
+            display: none;
+            position: absolute;
+            width: 175px;
+            height: 175px;
+            background: darkkhaki;
+            opacity: 0.5;
+            filter: alpha(opacity:50);
+            cursor: move;
+        }
+        #b{
+            display: none;
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            left:390px;
+            top:20px;
+            overflow: hidden;
+        }
+        #b img{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 200%;
+            height: 200%;
+        }
+    </style>
+</head>
+<body>
+<div id="s">
+    <div id="m"></div>
+</div>
+<div id="b">
+    <img src="img/iphone_big.jpg" alt=""/>
+</div>
+<script>
+    var oS=document.getElementById('s');
+    var oM=document.getElementById('m');
+    var oB=document.getElementById('b');
+    var oImg=oB.getElementsByTagName('img')[0];
+    //1.鼠标移入显示m这个遮罩，显示b（大图）；移出隐藏；
+    oS.onmouseenter=function(){
+        oM.style.display='block';
+        oB.style.display='block';
+    };
+    //2.在鼠标移动阶段：mark遮罩需要跟着鼠标动；b下的大图跟着一起动；
+    oS.onmousemove=function(e){
+        e=e||window.event;
+        var l= e.clientX-this.offsetLeft-oM.offsetWidth/2;
+        var t= e.clientY-this.offsetTop-oM.offsetHeight/2;
+        if(l<=0){
+            l=0;
+        }else if(l>=oS.offsetWidth-oM.offsetWidth){
+            l=oS.offsetWidth-oM.offsetWidth;
+        }
+        if(t<=0){
+            t=0;
+        }else if(t>=oS.offsetHeight-oM.offsetHeight){
+            t=oS.offsetHeight-oM.offsetHeight;
+        }
+        //大图是小图的两倍；所以，当mark走一步的时候，大图应该走两步；而且，大图走的方向和mark移动的方向正好相反;
+        oM.style.left=l+'px';
+        oM.style.top=t+'px';
+        oImg.style.left=-l*2+'px';
+        oImg.style.top=-t*2+'px';
+    };
+    oS.onmouseleave=function(){
+        oM.style.display='none';
+        oB.style.display='none';
+    };
+</script>
+</body>
+</html>

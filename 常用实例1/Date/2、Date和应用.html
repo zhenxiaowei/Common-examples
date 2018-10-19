@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body, div {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", simSum;
+            font-size: 28px;
+        }
+
+        #div1 {
+            margin: 10px auto;
+            width: 800px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+            text-align: center;
+            border: 1px solid #004d00;
+            background: -webkit-linear-gradient(top left, #004d00, #0050D0, firebrick);
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script type="text/javascript">
+    //获取当前自己电脑的时间:不能做重要的用途（例如淘宝秒杀）
+    //var time = new Date();
+    //console.log(time);//Mon Jul 11 2016 21:25:12 GMT+0800 (中国标准时间)  时间格式数据（对象数据类型的）
+    //"2015年05月24日  星期日 15时31分27秒"  变成我们这个时间格式的字符串
+    var oDiv = document.getElementById("div1");
+    var timeStr = formatTime();
+    oDiv.innerHTML = "北京时间：" + timeStr;
+
+    var timer = window.setInterval(function () {
+        var timeStr = formatTime();
+        oDiv.innerHTML = "北京时间：" + timeStr;
+    }, 1000);
+
+    function formatTime() {
+        var time = new Date();
+        var year = time.getFullYear();//获得年
+        var month = time.getMonth() + 1;//0-11代表我们的1-12月
+        var day = time.getDate();//日
+        var w = time.getDay();//0-6代表周日-周六
+        var wStr = "日一二三四五六", week = wStr.charAt(w);
+        var hours = time.getHours();//时
+        var minutes = time.getMinutes();//分
+        var seconds = time.getSeconds();//秒
+        var mlSeconds = time.getMilliseconds();//毫秒
+        return year + "年" + zero(month) + "月" + zero(day) + "日 星期" + week + " " + zero(hours) + "时" + zero(minutes) + "分" + zero(seconds) + "秒";
+    }
+
+    //补"0"函数
+    function zero(value) {
+        return value < 10 ? "0" + value : value;
+    }
+
+
+</script>
+</body>
+</html>

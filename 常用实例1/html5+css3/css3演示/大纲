@@ -1,0 +1,18 @@
+transform-style:preserve-3d|flat  设置是否在3D空间里展示
+perspective:600px  视距 (隔着多远看物体)->近大远小
+transform:perspective(600px)
+ perspective-origin:center center 透视位置
+
+3D transfromfunctions
+平移:translate3d(x,y,z) translateZ() translate(x,y) translateX() translateY()
+缩放:scale3d(sx,sy,sz) 默认值是1 ,scaleX(),scaleY(),scaleZ()
+scaleZ()单独设置不起作用,必须和其他变形属性一起设置才能起作用
+
+旋转 rotate3d(rx,ry,rz,angle) rx:x轴的矢量坐标(数值)  ry:y轴的矢量坐标(数值) rz是z轴的矢量坐标(数值), angle:角度(deg)
+
+rotateX(10deg) -> rotateX(1,0,0,10deg)
+rotateY(20deg) -> rotateY(0,1,0,20deg)
+rotateZ(30deg) -> rotateZ(0,0,1,30deg)
+
+
+

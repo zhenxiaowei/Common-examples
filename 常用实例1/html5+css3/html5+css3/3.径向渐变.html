@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>重复径向渐变</title>
+    <style type="text/css">
+        div{
+            width: 500px;
+            height: 500px;
+            margin: 50px  auto;
+            border:1px solid red;
+            /*以下这部分演示重复线性渐变*/
+            /*background-image: linear-gradient(top,orange 25%,green 50%,orange 75%,green 100%) ;*/
+            /*background-image: -webkit-linear-gradient(top,orange 25%,green 50%,orange 75%,green 100%);*/
+            /*background-size:100% 40px;*/
+            /*background-repeat:repeat-y;*/
+           /* background-image: repeating-linear-gradient(top,orange 25px,green 50px);
+            background-image:-webkit-repeating-linear-gradient(top,orange 25px,green 50px);*/
+
+            /*以下这部分演示径向渐变*/
+            background-image: repeating-radial-gradient(circle,orange 10px,blue 30px,green 70px);
+            background-image:-webkit-repeating-radial-gradient(circle,orange 10px,blue 30px,green 70px);
+
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div{
+            width: 120px;
+            height: 160px;
+            margin: 30px auto;
+            border:1px solid red;
+
+        }
+        div img{
+            width: 100%;
+        }
+        div{
+          animation-name:move;
+          animation-duration:1s;
+          animation-timing-function:ease-in-out;
+          animation-delay:1s;
+          animation-iteration-count: infinite;
+          animation-direction:normal ; /*normal|reverse|alternate|reverse-alternate*/
+          animation-fill-mode:forwards;
+            /*
+            forwards:最后的状态
+            backwards:开始的状态
+            both : 或者开始的状态或者最后的状态
+            受animation-direction影响
+            */
+           animation-play-state:running;/*paused*/
+        }
+        /*
+        1.声明关键帧 @keyframes 动画名
+        2.animation调用声明的关键帧
+        */
+        @keyframes move {
+            0%{
+                transform: scale(0.1);
+            }
+            20%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+
+<body style="background: rgba(81,255,58,0.5);">
+    <div><img src="img/baby.jpg"> </div>
+</body>
+</html>

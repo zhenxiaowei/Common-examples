@@ -1,0 +1,87 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+
+    font-size: 14px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+}
+
+a, a:hover, a:active, a:target, a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.w50 {
+    width: 50px;
+}
+
+.w150 {
+    width: 150px;
+}
+
+.w200 {
+    width: 200px;
+}
+
+.box {
+    margin: 20px auto;
+    padding: 20px;
+    width: 800px;
+    border: 1px solid green;
+}
+
+.box .link {
+    font-size: 18px;
+}
+
+.box .link:hover {
+    color: orange;
+}
+
+.box h2 {
+    margin-top: 10px;
+    height: 35px;
+    line-height: 35px;
+    background: green;
+    font-size: 16px;
+    color: #fff;
+}
+
+.box h2 span {
+    float: left;
+    text-align: center;
+}
+
+.box li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.box li span {
+    float: left;
+    text-align: center;
+}
+
+/*--CSS3中新增加的--*/
+.box li:nth-child(even) {
+    background: #eee;
+}
+
+.box li:hover {
+    background: #B1D7EF;
+}
+
+.control a {
+    display: inline-block;
+    margin: 0 5px;
+}

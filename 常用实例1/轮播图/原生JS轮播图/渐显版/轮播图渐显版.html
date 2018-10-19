@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body, div, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            position: relative;
+            width: 1000px;
+            height: 300px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .banner .innerBanner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: url("images/default.gif") no-repeat center #ccc;
+        }
+
+        .banner .innerBanner div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0;
+        }
+
+        .banner .innerBanner div img {
+            display: none;
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+        }
+
+        .banner .focusList {
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .banner .focusList li {
+            width: 18px;
+            height: 18px;
+            border: 2px solid blue;;
+            background: black;
+            float: left;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .banner .focusList li.bg {
+            background: red;
+        }
+
+        .banner .left, .banner .right {
+            display: none;
+            width: 30px;
+            height: 40px;
+            background: url("images/pre.png") no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        .banner .right {
+            right: 0;
+            background-position: -45px 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="banner" id="banner">
+    <div class="innerBanner">
+    </div>
+    <ul class="focusList">
+    </ul>
+    <a class="left" href="javascript:void 0;"></a>
+    <a class="right" href="javascript:void 0;"></a>
+</div>
+
+<div class="banner" id="banner2">
+    <div class="innerBanner">
+    </div>
+    <ul class="focusList">
+    </ul>
+    <a class="left" href="javascript:void 0;"></a>
+    <a class="right" href="javascript:void 0;"></a>
+</div>
+</body>
+</html>
+<script src="js/utils.finally_this.js"></script>
+<script src="js/zhufengTween.js"></script>
+<script src="js/bannerClass.js"></script>
+<script>
+    var newBanner1 = new Banner('banner','data.txt',2000);
+    var newBanner2 = new Banner('banner2','data2.txt',1500);
+</script>
+<script>
+    var obj = {
+        fn:function (){
+            console.log(this);
+        }
+    }
+    window.setInterval(obj.fn,1000);
+</script>
+<!--
+<script>
+    var banner = utils.getElementsByClass('banner')[0];
+    var innerBanner = utils.getElementsByClass('innerBanner', banner)[0];
+    var imgList = innerBanner.getElementsByTagName('img');
+    var focusList = utils.next(innerBanner);
+    var focusLis = focusList.getElementsByTagName('li');
+    var left = utils.getElementsByClass('left')[0];
+    var right = utils.getElementsByClass('right')[0];
+    function getData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'data.txt?_=' + Math.random(), false);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && /^2\d{2}$/.test(xhr.status)) {
+                window.resData = utils.jsonParse(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+    getData();
+    //console.log(resData);
+
+    function dataBind() {
+        if (resData) {
+            var str = '', str2 = '';
+            for (var i = 0; i < resData.length; i++) {
+                var curData = resData[i];
+                str += '<div><img src="" trueSrc="' + curData.src + '" alt=""/></div>';
+                str2 += i === 0 ? '<li class="bg"></il>' : '<li></li>'
+            }
+            innerBanner.innerHTML = str;
+            focusList.innerHTML = str2;
+        }
+    }
+    dataBind();
+
+    function imgDelayLoad() {
+
+        for (var i = 0; i < imgList.length; i++) {
+            (function (i) {
+                var curImg = imgList[i];
+                if (curImg.isload) return;
+                var tempImg = new Image();
+                tempImg.src = curImg.getAttribute('trueSrc');
+                tempImg.onload = function () {
+                    curImg.src = this.src;
+                    curImg.style.display = 'block';
+                    if (i === 0) {
+                        utils.css(curImg.parentNode, 'Index', 1);
+                        zhufengAnimate(curImg.parentNode, {opacity: 1}, 300);
+                    }
+                    tempImg = null;
+                }
+                curImg.isload = true;
+            })(i);
+        }
+    }
+    window.setTimeout(imgDelayLoad, 500);
+
+    var timer = null;
+    var interval = 2000;
+    var step = 0;
+    timer = window.setInterval(autoMove, interval);
+    function autoMove() {
+        if (step == 3) {
+            step = -1;
+        }
+        step++;
+        setBanner();
+    }
+
+    function setBanner(){
+        for (var i = 0; i < imgList.length; i++) {
+            var curImg = imgList[i];
+            if (i === step) {
+                utils.css(curImg, 'Index', 1);
+                zhufengAnimate(imgList[step].parentNode, {opacity: 1}, 200,                   function () {
+                    var siblings = utils.siblings(this);
+                    for (var i = 0; i < siblings.length; i++) {
+                        var cur = siblings[i];
+                        utils.css(cur, 'opacity', 0);
+                    }
+                });
+                continue;
+            }
+            utils.css(curImg, 'Index', 0);
+        }
+
+        focusAlign();
+    }
+
+    function focusAlign() {
+        for (var i = 0; i < focusLis.length; i++) {
+            var curLi = focusLis[i];
+            step == i ? utils.addClass(curLi, 'bg') : utils.removeClass(curLi, 'bg');
+        }
+    }
+
+    function bindEvenForFocus() {
+        for (var i = 0; i < focusLis.length; i++) {
+            var curLi = focusLis[i];
+            curLi.index = i;
+            curLi.onclick = function () {
+                step = this.index;
+                setBanner();
+            }
+        }
+    }
+    bindEvenForFocus();
+
+    banner.onmouseover = function (){
+        window.clearInterval(timer);
+        utils.css(left,'display','block');
+        utils.css(right,'display','block');
+    }
+    banner.onmouseout = function (){
+        timer = window.setInterval(autoMove,interval);
+        utils.css(left,'display','none');
+        utils.css(right,'display','none');
+    }
+
+    left.onclick = function (){
+        if(step == 0){
+            step = 4;
+        }
+        step&#45;&#45;;
+        setBanner();
+    }
+
+    right.onclick = autoMove;
+
+
+
+
+</script>-->

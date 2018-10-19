@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <style type="text/css">
+        .list li{
+            float: left;
+            margin: 0 10px;
+            width: 293px;
+            overflow: hidden;
+            position: relative;
+            border-bottom:1px solid #ddd;
+            cursor: pointer;
+
+        }
+        .list li h3{
+            position: absolute;
+            left:10px;
+            bottom:48px;
+            font-size: 22px;
+            color: #fff;
+        }
+        .wrap{
+            height: 170px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .list li img{
+            height: 200px;
+            transition:transform 1s;
+            -webkit-transition:transform 1s;
+        }
+        .list li p{
+            padding:10px 0;
+            font-size: 16px;
+        }
+        .list li:hover img{
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+
+        }
+        .boxIcon{
+            width: 1200px;
+            padding: 20px;
+            border-bottom: 2px solid #ccc;
+            background: #f7f7f7;
+        }
+        .boxIcon li{
+            float: left;
+            margin: 0 20px;
+            vertical-align: middle;
+            cursor: pointer;
+
+        }
+
+        .boxIcon li i{
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: url("img/yl.png") no-repeat;
+        }
+        .boxIcon li span{
+            display: inline-block;
+            height: 60px;
+            vertical-align: middle;
+            padding: 0 0 0 10px;
+        }
+        .boxIcon li i.ico1 {
+            background-position: -91px -4px;
+        }
+        .boxIcon li i.ico2 {
+            background-position: -159px -4px;
+        }
+        .boxIcon li i.ico3 {
+            background-position: -228px -4px;
+        }
+        .boxIcon li i.ico4 {
+              background-position: -295px -6px;
+        }
+        .boxIcon li:hover i{
+            animation:shake 0.3s infinite ;
+            -webkit-animation:shake 0.3s infinite ;
+        }
+        @keyframes shake {
+            0%,50%,100%{
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(-25deg);
+                -webkit-transform: rotate(-25deg);
+            }
+            75%{
+                transform: rotate(25deg);
+                -webkit-transform: rotate(25deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<ul class="list clear">
+    <li><div class="wrap"><img src="img/hs.jpg" /></div>
+        <h3>黄山</h3>
+        <p>春意撩人 登高踏青赏春色</p>
+    </li>
+    <li><div class="wrap"><img src="img/hs.jpg" /></div>
+        <h3>黄山</h3>
+        <p>春意撩人 登高踏青赏春色</p>
+    </li>
+    <li><div class="wrap"><img src="img/hs.jpg" /></div>
+        <h3>黄山</h3>
+        <p>春意撩人 登高踏青赏春色</p>
+    </li>
+    <li><div class="wrap"><img src="img/hs.jpg" /></div>
+        <h3>黄山</h3>
+        <p>春意撩人 登高踏青赏春色</p>
+    </li>
+</ul>
+<ul class="boxIcon clear">
+    <li>
+        <i class="ico1"></i>
+        <span>全球50万家酒店</span>
+    </li>
+    <li>
+        <i class="ico2"></i>
+        <span>订酒店返现金高达20%</span>
+    </li>
+    <li>
+        <i class="ico3"></i>
+        <span>国际酒店8折起</span>
+    </li>
+    <li>
+        <i class="ico4"></i>
+        <span>7×24小时服务</span>
+    </li>
+</ul>
+</body>
+</html>

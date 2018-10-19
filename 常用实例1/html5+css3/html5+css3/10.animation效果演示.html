@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background:radial-gradient(circle,pink,green);
+            background:-webkit-radial-gradient(circle,pink ,green );
+            background:-moz-radial-gradient(circle,pink ,green );
+            background:-ms-radial-gradient(circle,pink ,green );
+            background:-o-radial-gradient(circle,pink ,green );
+            /*
+            animation-name
+            animation-duration
+            animation-timing-function:ease-in|ease-out|linear
+            animation-delay
+            animation-iteration-count
+            animation-direction :normal|reverse|alternate|alternate-reverse
+            animation-play-state : running|paused
+            animation-fill-mode:none|forwards|backwards|both
+            forwards:最后一帧
+            backwards:开始的状态
+            both:可能停留在第一帧或者最后一帧
+            */
+            animation:move 2s ease-in-out  2 alternate both 2s;
+            -webkit-animation:move 2s ease-in-out  2 alternate both 2s;
+
+        }
+        @keyframes move {
+          0%{
+              transform: translate(100px,0);
+              -webkit-transform: translate(100px,0);
+          }
+          50%{
+              transform: translate(100px,100px);
+              -webkit-transform: translate(100px,100px);
+          }
+          100%{
+              transform: translate(500px,0);
+              -webkit-transform: translate(500px,0);
+          }
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

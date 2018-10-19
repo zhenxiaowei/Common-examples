@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery带搜索跳转功能的列表分页代码</title>
+	
+<style>
+	a{text-decoration:none;outline:none;border:none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color:transparent;color:#303030; font-size:14px;}
+	.pageListTab{overflow:hidden; margin:20px 0;}
+	.pageListTab .pageLt{float:left; font-size:12px;}
+	.pageListTab .pageLt span{display:inline-block;}
+	.pageListTab .pageLt a{display:inline-block; border:1px solid #ddd; background:#fff; width:30px; height:30px; line-height:30px; text-align:center; font-size:12px; margin:0 5px;}
+	.pageListTab .pageRt{float:right; font-size:12px; text-align:right; margin-top:3px;}	
+	.pageListTab .pageRt a{display:inline-block; border:1px solid #ddd; background:#fff; padding:0 10px; height:24px; line-height:24px; text-align:center; font-size:12px; margin:0 5px;}
+	.pageListTab .pageRt input{border:1px solid #ddd; height:24px; line-height:24px; width:45px; text-align:center;}
+	.pageListTab .pageLt .active{background:#44B549; border:1px solid #44B549; color:#fff;}	
+	.pageListTab .pageRt .active{background:#44B549; border:1px solid #44B549; color:#fff;}	
+</style>
+
+<script src="js/jquery-1.8.1.js"></script>
+
+</head>
+<body>
+
+<div style="width: 100%;">
+	<div class="pageListTab">
+		<div class="pageLt" id="pageLt">
+			<span>条数显示</span>
+			<a href="javascript:;">10</a>
+			<a href="javascript:;">20</a>
+			<a href="javascript:;">30</a>
+			<a href="javascript:;">40</a>
+		</div>
+		<div class="pageRt">
+			<span>共<em id="count">0</em>条</span>
+			<a href="javascript:;" class="down_page"><</a>
+			<a href="javascript:;" class="active" id="nowPage">1</a>
+			<a href="javascript:;" class="up_page">></a>
+			<input type="text" id="pageNum" name="pageNum">
+			<span id="allPage">/1页</span>
+			<a href="javascript:;" class="jump_page">跳转</a>
+		</div>
+	</div>
+</div>
+<script>
+	var page = 1;
+	var limit = 10;
+	var sumPage = 6;
+	var size = 28;
+	$(function(){
+		page = parseInt(page);
+		limit = parseInt(limit);  //防止页码出现字符串，转换类型
+		
+		loadClass();
+		setPageMsg();
+		initPage();
+		
+		$("#pageLt").find("a").unbind("click").click(function(){
+			$("#pageLt").find("a").removeClass("active");
+			$(this).addClass("active");
+			
+			limit = parseInt($(this).text());
+			// 分页执行的fun
+		});
+	});
+
+	function loadClass(){
+		
+		if(limit == 10){
+			$("#pageLt").find("a").removeClass("active");
+			$("#pageLt").find("a").eq(0).addClass("active");
+		}else if(limit == 20){
+			$("#pageLt").find("a").removeClass("active");
+			$("#pageLt").find("a").eq(1).addClass("active");
+		}else if(limit == 30){
+			$("#pageLt").find("a").removeClass("active");
+			$("#pageLt").find("a").eq(2).addClass("active");
+		}else if(limit == 40){
+			$("#pageLt").find("a").removeClass("active");
+			$("#pageLt").find("a").eq(3).addClass("active");
+		}
+	}
+
+	/** 初始化分页控件 **/
+	function initPage(){
+		
+		$(".down_page").click(function(){  //上一页
+			if(page != 1){
+				page = page - 1;
+				$("#nowPage").text(page);
+				// 分页执行的fun
+			}else{
+				alert("已经是第一页了","warning");
+			}
+		});
+		$(".up_page").click(function(){   //下一页
+			if(page < parseInt(sumPage)){
+				page = page + 1;
+				$("#nowPage").text(page);
+				// 分页执行的fun
+			}else{
+				alert("已经是最后一页了","warning");
+			}
+		});
+		$(".jump_page").click(function(){
+			var pageNum = $("#pageNum").val();
+			if(parseInt(pageNum) <= parseInt(sumPage)){
+				page = parseInt(pageNum);
+				$("#nowPage").text(page);
+				// 分页执行的fun
+			}else{
+				alert("页数不能大于总页数","warning");
+			}
+		});
+	}
+
+	function setPageMsg(){
+		$("#count").text(size);
+		$("#nowPage").text(page);
+		$("#allPage").text(""+sumPage+"页");
+	} 
+</script>
+
+</div>
+</body>
+</html>

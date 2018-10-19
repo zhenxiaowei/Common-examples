@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 5px;
+            margin: 50px auto;
+            background: #ffcccc;
+            width: 480px;
+            height: 640px;
+            position: relative;
+        }
+
+        li {
+            margin: 5px;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            float: left;
+            background: #a4edff;
+            cursor: pointer;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border: none;
+
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""/></li>
+    <li><img src="img/2.png" alt=""/></li>
+    <li><img src="img/3.png" alt=""/></li>
+    <li><img src="img/4.png" alt=""/></li>
+    <li><img src="img/5.png" alt=""/></li>
+    <li><img src="img/6.png" alt=""/></li>
+    <li><img src="img/7.png" alt=""/></li>
+    <li><img src="img/8.png" alt=""/></li>
+    <li><img src="img/9.png" alt=""/></li>
+    <li><img src="img/10.png" alt=""/></li>
+    <li><img src="img/11.png" alt=""/></li>
+    <li><img src="img/12.png" alt=""/></li>
+</ul>
+</body>
+</html>
+<script src="JS/event1.js"></script>
+<script src="JS/drag.js"></script>
+<script src="JS/utils.finally.js"></script>
+<script src="JS/zhufengTween.js"></script>
+<script>
+    var oLis = document.getElementsByTagName("li");
+    /*
+     for (var i = 0; i < oLis.length; i++) {
+     var oLi=oLis[i];
+
+     // oLi.style.position="absolute";
+     oLi.style.left=oLi.offsetLeft+"px";
+     oLi.style.top=oLi.offsetTop+"px";
+     }
+     for (var i = 0; i < oLis.length; i++) {
+     var oLi=oLis[i];
+
+     oLi.style.position="absolute";
+     //oLi.style.left=oLi.offsetLeft+"px";
+     //oLi.style.top=oLi.offsetTop+"px";
+     //这样做会出现定位不准确的情况，原因是定位是从margin外边开始的，但offsetLeft是从margin里边开始的，这样会导致margin给重复计算一次
+     }
+     */
+    for (var i = oLis.length - 1; i >= 0; i--) {
+        var oLi = oLis.item(i);
+        oLi.style.left = (oLi.l = oLi.offsetLeft) + "px";
+        oLi.style.top = (oLi.t = oLi.offsetTop) + "px";
+        oLi.style.position = "absolute";//必须把这一行写在后面
+        oLi.style.margin = 0;
+        new Drag(oLi).on("dragstart", increseIndex).on("dragend", changePosition).on("drag", hitedTest);
+    }
+
+    var zIndex = 0;
+    function increseIndex() {
+        this.obj.style.zIndex = ++zIndex;
+    }
+
+    function goHome() {
+        zhufengAnimate(this.obj, {left: this.obj.l, top: this.obj.t}, 600, 3);
+    }
+
+    function test(a, b) {//碰撞检测的算法。a和b是两个元素，如果这两个元素撞上了，则返回true,没撞上返回false
+        if (a.offsetLeft + a.offsetWidth < b.offsetLeft || a.offsetTop + a.offsetHeight < b.offsetTop || a.offsetLeft > b.offsetLeft + b.offsetWidth || a.offsetTop > b.offsetTop + b.offsetHeight) {
+            return false
+        } else {
+            return true;
+        }
+
+    }
+
+    function hitedTest() {
+        this.aHited = [];
+        for (var i = 0; i < oLis.length; i++) {
+            var oLi = oLis[i];
+            if (this.obj == oLi)continue;
+            oLi.style.backgroundColor = "";
+            if (test(this.obj, oLi)) {
+                this.aHited.push(oLi);
+                oLi.style.backgroundColor = "red";
+            }
+        }
+    }
+
+    function changePosition() {
+        var a = this.aHited;
+        if (a && a.length) {
+            for (var i = 0; i < a.length; i++) {
+                var oLi = a[i];
+                oLi.c = Math.sqrt(Math.pow(this.obj.offsetLeft - oLi.offsetLeft, 2) + Math.pow(this.obj.offsetTop - oLi.offsetTop, 2));
+            }
+            a.sort(function (a, b) {
+                return a.c - b.c
+            });
+            var shortestLi = a[0];
+            zhufengAnimate(this.obj, {left: shortestLi.l, top: shortestLi.t}, 700, 4);
+            zhufengAnimate(shortestLi, {left: this.obj.l, top: this.obj.t}, 600, 3);
+
+            var tempL = this.obj.l;
+            var tempT = this.obj.t;
+            this.obj.l = shortestLi.l;
+            this.obj.t = shortestLi.t;
+            shortestLi.l = tempL;
+            shortestLi.t = tempT;
+        } else {
+            goHome.call(this);
+        }
+    }
+
+</script>
