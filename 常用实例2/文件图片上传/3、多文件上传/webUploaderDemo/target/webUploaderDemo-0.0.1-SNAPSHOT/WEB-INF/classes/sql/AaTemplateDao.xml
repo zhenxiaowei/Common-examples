@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.sas.cms.bizshare.dao.AaTemplateDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.AaTemplateDto"
+		id="AaTemplateBean">
+		<result column="template_id" property="templateId" />
+		<result column="template_name" property="templateName" />
+		<result column="default_flg" property="defaultFlg" />
+		<result column="comment" property="comment" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	
+	
+	<select id="templateById"   parameterType="String"   resultMap="AaTemplateBean">
+	
+		SELECT *
+		FROM aa_template
+		WHERE
+		template_id=#{templateId}
+	</select>
+	<update id="updateTemplate1">
+		<![CDATA[
+			update aa_template set default_flg=0
+			]]>
+	</update>
+	<update id="updateTemplateComment"       parameterType="jp.co.sas.cms.bizshare.dto.AaTemplateDto">
+		<![CDATA[
+			update aa_template set comment=#{comment},template_name=#{templateName},update_user_id=#{updateUserId},update_datetime=#{updateDatetime}
+			]]>
+		where template_id=#{templateId}
+	</update>
+	<update id="updateTemplate2" parameterType="jp.co.sas.cms.bizshare.dto.AaTemplateDto">
+		<![CDATA[
+			update aa_template set default_flg=1,update_user_id=#{updateUserId},update_datetime=#{updateDatetime}
+			]]>
+		where template_id=#{templateId}
+	</update>
+	<delete id="deleteByTemplateId" parameterType="String">
+		DELETE
+		FROM
+		aa_template
+		WHERE template_id=#{templateId}
+	</delete>
+	<select id="templateList" resultMap="AaTemplateBean">
+		SELECT *
+		FROM aa_template     order by    template_name  asc
+	</select>
+	<select id="templateName" resultMap="AaTemplateBean"
+		parameterType="String">
+		SELECT *
+		FROM aa_template
+		WHERE
+		template_name=#{templateName}
+	</select>
+	<insert id="templateRegister" parameterType="jp.co.sas.cms.bizshare.dto.AaTemplateDto">
+		INSERT INTO
+		aa_template
+		(template_id
+		,template_name
+		,default_flg
+		,comment
+		,update_user_id
+		,create_datetime
+		,update_datetime
+		)
+		VALUES
+		(
+		#{templateId},
+		#{templateName},
+		#{defaultFlg},
+		#{comment},
+		#{updateUserId},
+		#{createDatetime},
+		#{updateDatetime}
+		)
+	</insert>
+</mapper>

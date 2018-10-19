@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/css.css" type="text/css" rel="stylesheet" />
+
+
+<link href="favicon.ico" rel="shortcut icon" />
+<script>
+	window.onload = function(){
+		var fwtTitle = document.getElementById('fwtTitle');
+		var aLis = fwtTitle.getElementsByTagName('li');	
+		
+		//变量一定要先获取再使用 
+		var fwtCon = document.getElementById('fwtCon');
+		var aUls = fwtCon.getElementsByTagName('ul');
+		
+		//给所有的li添加鼠标划入事件
+		for(var i = 0; i < aLis.length; i++){
+			//在for循环的开始位置设置自定义的编号属性
+			aLis[i].index = i;
+			
+			
+			aLis[i].onmouseover = function(){
+				//li的排它操作:1、先排它 （先把所有的li都设置为没有current的状态）
+				for(var i = 0; i < aLis.length; i++){
+					aLis[i].className = '';
+				}
+				//li的排它2：控制自己变为有current的状态
+				this.className = 'current';
+				
+				//ul的排它操作1：先排它（就是控制所有的ul都先隐藏）
+				for(var i = 0; i < aUls.length; i++){
+					aUls[i].style.display = 'none';
+				}
+				
+				//2：再控制自己显示 在这里的this代表的是用户操作的那个li 跟我们现在要控制的ul没有直接的关系
+				//alert(this.index);//弹出了用户滑过的li对应的编号属性
+				aUls[this.index].style.display = 'block';
+				
+			}
+		}
+		
+	}
+</script>
+
+</head>
+
+<body>
+	<!--头部开始-->
+    <div class="head">
+    	<div class="headIn">
+        	<!--headInLeft开始-->
+          	<div class="hiLeft">
+            	<a href="javascript:;" class="red">亲，请登录</a>
+            	<a href="javascript:;">免费注册</a>　　<a href="javascript:;">手机淘宝网</a>
+            </div>
+        	<!--headInLeft结束-->
+            <!--headInRight开始-->
+            <div class="hiRight">
+            	<ul>
+                	<li>
+                    	<a href="javascript:;">我的淘宝</a>
+                    	<img src="img/arrow_down.png" width="4" height="2" class="arrow_down" /> 
+                    </li>
+                	<li>
+                    	<a href="javascript:;" class="shoppingCar">购物车</a>
+                    	<img src="img/arrow_down_red.png" width="4" height="2" class="arrow_down" /> 
+                    </li>
+                	<li>
+                    	<a href="javascript:;" class="shouCang">收藏夹</a>
+                    	<img src="img/arrow_down.png" width="4" height="2" class="arrow_down" /> 
+                    </li>
+                	<li><a href="javascript:;">商品分类</a></li>
+                	<li class="line">|</li>
+                	<li>
+                    	<a href="javascript:;">卖家中心</a>
+                        <img src="img/arrow_down.png" width="4" height="2" class="arrow_down" /> 
+                    </li>
+                	<li><a href="javascript:;">联系客服</a></li>
+                	<li>
+                    	<a href="javascript:;" class="daDuiZhang">网站导航</a>
+                    	<img src="img/arrow_down_red.png" width="4" height="2" class="arrow_down" /> 
+                    </li>
+                </ul>
+            </div>
+            <!--headInRight结束-->
+
+        </div>
+    </div>
+	<!--头部结束-->
+    <!--主体内容开始-->
+    <div class="main">
+        <!--搜索框开始-->
+   	  <div class="search">
+            <h1 class="logo">
+                <a href="index.html"><img src="img/logo.png" width="141" height="58" title="淘宝网、淘我喜欢" />淘宝网、淘我喜欢</a>  	
+            </h1>
+            <div class="searchIn">
+                <ul class="siTop">
+                    <li class="current"><a href="javascript:;">宝贝</a></li>
+                    <li><a href="javascript:;">天猫</a></li>
+                    <li><a href="javascript:;">店铺</a></li>
+                </ul>
+                
+                <div class="siCenter">
+                	<div class="sicLeft">
+                    	<input type="text" class="inpTxt" placeholder="请搜索内容" /><a href="javascript:;" class="searchBtn"></a>
+                    </div>
+                    <a href="javascript:;" class="sicRight">高级<br />搜索</a>
+                </div>
+                
+                <div class="siBottom">
+                	<div class="sibLeft">
+                        <a href="javascript:;">打底裤</a>
+                        <a href="javascript:;">毛呢外套</a>
+                        <a href="javascript:;">时尚短靴</a>
+                        <a href="javascript:;">羽绒服</a>
+                        <a href="javascript:;">雪地靴</a>
+                        <a href="javascript:;">保暖内衣</a>
+                        <a href="javascript:;">新款棉衣</a>
+                        <a href="javascript:;">男士外套四件套</a>
+                        <a href="javascript:;">时尚女包</a>
+                        <a href="javascript:;">大码女装</a>
+                        <a href="javascript:;">新款男鞋</a>
+                    </div>
+					<a href="javascript:;" class="more">更多</a>
+                    
+                    
+                </div>
+            </div>
+            
+          <!--二维码开始-->
+          <a class="erWeiMa" href="javascript:;">
+           	   <span class="red">手机查物流</span>
+          	   <img src="img/erWeima.png" width="80" height="81" />
+               <span class="closeBtn"></span>
+          </a>
+          <!--二维码结束-->
+            
+        </div>
+        <!--搜索框结束-->
+        <!--conIn开始-->
+        <div class="conIn">
+        	<div class="ciLeft">
+                <div class="cilTop">
+                	<a href="javascript:;" class="more">更多</a>
+					<h2>
+                    	<del>淘宝特色服务</del>
+                    </h2>
+                    <dl>
+                    	<dt class="theme">主题市场</dt>
+						<dd>
+                            <a href="javascript:;">淘宝女人</a>
+                            <a href="javascript:;" class="c2">运动派</a>
+                            <a href="javascript:;" class="c3">情侣</a>
+                            <a href="javascript:;">淘宝男人</a>
+                            <a href="javascript:;" class="c2">孕婴童</a>
+                            <a href="javascript:;" class="c3">家居</a>
+                            <a href="javascript:;">美容护肤</a>
+                            <a href="javascript:;" class="c2">中老年</a>
+                            <a href="javascript:;" class="c3">美食</a>
+                            <a href="javascript:;">保险理财</a>
+                            <a href="javascript:;" class="c2">有车族</a>
+                            <a href="javascript:;" class="c3">装修</a>
+                            <a href="javascript:;">手机数码</a>
+                            <a href="javascript:;" class="c2">生活家</a>
+                            <a href="javascript:;" class="c3">游戏</a>
+                        </dd>
+                        	<dt class="shopping">特色购物</dt>
+							<dd>
+                                <a href="javascript:;">淘宝二手</a>
+                                <a href="javascript:;" class="c2">拍卖会</a>
+                                <a href="javascript:;" class="c3">爱逛街</a>
+                                <a href="javascript:;">淘宝男人</a>
+                                <a href="javascript:;" class="c2">孕婴童</a>
+                                <a href="javascript:;" class="c3">家居</a>
+                                <a href="javascript:;">美容护肤</a>
+                                <a href="javascript:;" class="c2">中老年</a>
+                                <a href="javascript:;" class="c3">美食</a>
+                                <a href="javascript:;" class="c7 hot">保险理财<i></i></a>
+                                <a href="javascript:;" class="c4">B格</a>
+                                <a href="javascript:;" class="c4">动漫</a>
+                                <a href="javascript:;" class="c4">腔调</a>
+                                <a href="javascript:;">手机数码</a>
+                                <a href="javascript:;" class="c2">生活家</a>
+                                <a href="javascript:;" class="c3">游戏</a>
+                            </dd>
+                        	<dt class="sale">优惠促销</dt>
+                            <dd class="lastTwo">
+                                <a href="javascript:;">淘宝女人</a>
+                                <a href="javascript:;" class="c2">运动派</a>
+                                <a href="javascript:;" class="c3">情侣</a>
+                                <a href="javascript:;">淘宝男人</a>
+                                <a href="javascript:;" class="c2">孕婴童</a>
+                                <a href="javascript:;" class="c3">家居</a>
+                           </dd>
+                           <dd class="ddLast">
+                                <a href="javascript:;">淘宝女人</a>
+                                <a href="javascript:;" class="c2">运动派</a>
+                                <a href="javascript:;" class="c3">情侣</a>
+                           </dd>
+                           
+                    </dl>
+                    
+                    
+                </div>
+                <a href="javascript:;" class="cilBottom"></a>
+            </div>
+			<!--内容右侧 开始-->
+            
+        	<div class="ciRight">
+           	  <div class="cirTop">
+                    <ul class="cirLeft">
+                        <li><a href="javascript:;">天猫</a></li>
+                        <li><a href="javascript:;">聚划算</a></li>
+                        <li><a href="javascript:;">超市</a></li>
+                        <li class="fenGe">|</li>
+                    </ul>
+                <ul class="cirCenter">
+                    	<li><a href="javascript:;">阿里旅行</a></li>
+                    	<li><a href="javascript:;">司法拍卖</a></li>
+                    	<li><a href="javascript:;">一淘</a></li>
+                    	<li><a href="javascript:;">电器城</a></li>
+                    	<li><a href="javascript:;">嗨淘妆品</a></li>
+                    	<li><a href="javascript:;">云智能</a></li>
+                    	<li class="last"><a href="javascript:;">特色中国</a></li>
+                    </ul>
+                  <ul class="cirRight">
+                   	  <li class="cirrLeft"><a href="javascript:;"><img src="img/money.png" width="87" height="24" /></a></li>
+                   	  <li class="cirrRight"><a href="javascript:;">&nbsp;消费者保障</a></li>
+                        
+                  </ul>
+                    
+                </div>
+                <!--conBottom 开始-->
+                <div class="conBottom">
+                    <!--banner图开始-->
+                    <div class="banner">
+                    	<div class="bannerLeft">
+                        	<div class="blTop">
+                   	    		<a href="javascript:;"><img src="img/ad.jpg" width="520" height="280" /> </a>
+                                <a href="javascript:;" class="leftBtn">
+                                	<span></span>
+                                </a>
+                                <a href="javascript:;" class="rightBtn">
+                                	<span></span>
+                                </a>
+                                <ol class="olList">
+                                	<li><a href="javascript:;"></a></li>
+                                	<li><a href="javascript:;" class="current"></a></li>
+                                	<li><a href="javascript:;"></a></li>
+                                	<li><a href="javascript:;"></a></li>
+                                	<li><a href="javascript:;"></a></li>
+                                </ol>
+                            </div>
+                            <div class="blBottom">
+                   	    	    <a href="javascript:;"><img src="img/dapai.jpg" width="130" height="198" /></a> 
+                           	    <a href="javascript:;"><img src="img/last.jpg" width="130" height="198" /></a> 
+                           	    <a href="javascript:;"><img src="img/dapai.jpg" width="130" height="198" /></a> 
+                           	    <a href="javascript:;" class="last"><img src="img/last.jpg" width="130" height="198" /></a> 
+                                <a href="javascript:;" class="cat"></a>
+                                <ol class="olList">
+                                    <li><a href="javascript:;"></a></li>
+                                    <li><a href="javascript:;" class="current"></a></li>
+                                    <li><a href="javascript:;"></a></li>
+                                    <li><a href="javascript:;"></a></li>
+                                    <li><a href="javascript:;"></a></li>
+                                </ol>                              
+                            </div>
+                        </div>
+                        <div class="bannerRight">
+                        	<a href="javascript:;"><img src="img/shoes.png" width="170" height="280" /></a>
+                        	<a href="javascript:;"><img src="img/jiu.png" width="170" height="200" /></a>
+                        </div>
+                        
+                        
+                  </div>
+                    <!--banner图结束-->
+                    <!--服务开始-->
+                    <div class="fuWu">
+                    	<div class="fwTop">
+                        	<ul class="fwtTitle" id="fwtTitle">
+                            	<li class="current"><a href="javascript:;">公告</a></li>
+                            	<li><a href="javascript:;">规则</a></li>
+                            	<li><a href="javascript:;">论坛</a></li>
+                            	<li><a href="javascript:;">安全</a></li>
+                            	<li><a href="javascript:;">公益</a></li>
+                            </ul>
+                            <div id="fwtCon">
+                                <ul class="fwtCon">
+                                    <li><a href="javascript:;" class="red">公告公告公告</a></li>
+                                    <li><a href="javascript:;">公告公告公告</a></li>
+                                    <li><a href="javascript:;">公告公告公告</a></li>
+                                    <li><a href="javascript:;">公告公告公告</a></li>
+                                </ul>                           
+                                <ul class="fwtCon" style="display:none;">
+                                    <li><a href="javascript:;" class="red">规则规则规则</a></li>
+                                    <li><a href="javascript:;">规则规则规则</a></li>
+                                    <li><a href="javascript:;">规则规则规则</a></li>
+                                    <li><a href="javascript:;">规则规则规则</a></li>
+                                </ul>                           
+                                <ul class="fwtCon" style="display:none;">
+                                    <li><a href="javascript:;" class="red">论坛论坛论坛</a></li>
+                                    <li><a href="javascript:;">论坛论坛论坛</a></li>
+                                    <li><a href="javascript:;">论坛论坛论坛</a></li>
+                                    <li><a href="javascript:;">论坛论坛论坛</a></li>
+                                </ul>                           
+                                <ul class="fwtCon" style="display:none;">
+                                    <li><a href="javascript:;" class="red">安全安全安全</a></li>
+                                    <li><a href="javascript:;">安全安全安全</a></li>
+                                    <li><a href="javascript:;">安全安全安全</a></li>
+                                    <li><a href="javascript:;">安全安全安全</a></li>
+                                </ul>                           
+                                <ul class="fwtCon" style="display:none;">
+                                    <li><a href="javascript:;" class="red">公益公益公益</a></li>
+                                    <li><a href="javascript:;">公益公益公益</a></li>
+                                    <li><a href="javascript:;">公益公益公益</a></li>
+                                    <li><a href="javascript:;">公益公益公益</a></li>
+                                </ul>                           
+                            </div>
+
+                            
+                        </div>
+                    	<div class="fwBottom">
+                        	<div class="fwbTop">
+                            	<a href="javascript:;" class="bigHead"></a>
+                                <div class="fwbtRight">
+                                	<p><a href="javascript:;">hi!你好</a></p>
+                                    <div class="btnList">
+                                    	<a href="javascript:;" class="gold">
+                                        	<span class="goldIcon"></span>
+                                        	<span class="goldTxt">领淘金币抵钱</span>
+                                        </a>
+                                    	<a href="javascript:;" class="vip">会员俱乐部</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fwbBottom">
+                            	<a href="javascript:;" class="login">登录</a>
+                            	<a href="javascript:;">免费注册</a>
+                            	<a href="javascript:;">免费开店</a>
+                            </div>
+                        </div>
+                        <div class="fangBian">
+                        	<h3 class="fbH3">
+                            	<del>便民服务</del>
+                            </h3>
+                            <ul>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                        <span class="arrow_down01"></span>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                        <span class="arrow_down01"></span>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                        <span class="arrow_down01"></span>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                        <span class="arrow_down01"></span>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+                            	<li>
+                                	<a href="javascript:;">
+                                    	<span class="phoneMoney"></span>
+                                        <p>话费</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                    <!--服务结束-->
+                    
+                </div>
+                <!--conBottom 结束-->
+
+            </div>
+			<!--内容右侧 结束-->
+
+        </div>
+        <!--conIn结束-->
+        
+        
+    </div>
+    <!--主体内容结束-->
+    
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #box{width: 300px;height: 300px;border: 1px solid red;}
+        #box li{list-style: none;font-size: 20px;line-height: 20px;background: #ccc;
+            width: 100px;height: 20px;margin: 10px 0;}
+        #con{width: 300px;height: 300px;border: 1px solid #888;}
+        #con li{list-style: none;font-size: 20px;line-height: 20px;background: #ccc;
+            width: 100px;height: 20px;margin: 10px 0;}
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById('box');
+            var con = document.getElementById('con');
+            var lis = document.getElementsByTagName('li');
+            for (var i = 0; i < lis.length; i++) {
+
+                lis[i].draggable = true;
+                lis[i].flag = false;
+
+                lis[i].ondragstart = function () {
+                    this.flag = true;
+                }
+                lis[i].ondragend = function () {
+                    this.flag = false;
+                }
+
+            }
+            // A.ondragenter：当拖拽对象进入投放区时触发；
+            //B.ondragover：拖拽对象在投放区内移动时触发；
+            //C.ondragleave：拖拽对象没有投放到投放区，离开投放区的时候触发；
+            //D.ondrop：拖拽对象投放在投放区时触发。
+            box.ondragenter = function (e) {
+                e.preventDefault();
+            }
+            box.ondragover = function (e) {
+                e.preventDefault();
+            }
+            box.ondragleave = function (e) {
+                e.preventDefault();
+            }
+            box.ondrop = function (e) {
+                for (var i = 0; i < lis.length; i++) {
+                    if (lis[i].flag) {
+                        box.appendChild(lis[i]);
+                    }
+
+                }
+                e.preventDefault();
+            }
+
+
+
+//                    hh
+            con.ondragenter = function (e) {
+                e.preventDefault();
+            }
+            con.ondragover = function (e) {
+                e.preventDefault();
+            }
+            con.ondragleave = function (e) {
+                e.preventDefault();
+            }
+            con.ondrop = function (e) {
+                for (var i = 0; i < lis.length; i++) {
+                    if (lis[i].flag) {
+                        con.appendChild(lis[i]);
+                    }
+
+                }
+                e.preventDefault();
+            }
+
+            if(null == undefined){alert('ok');}
+        }
+    </script>
+</head>
+<body>
+<div id="box"><li>后盾php</li>
+    <li>后盾js</li></div>
+
+<div id="con">
+    <li>后盾php</li>
+    <li>后盾js</li>
+    <li>后盾html</li>
+    <li>后盾css3</li>
+    <li>后盾jq</li>
+
+</div>
+
+
+</body>
+</html>

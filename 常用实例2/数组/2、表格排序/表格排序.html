@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", simSum;
+        }
+
+        #wrap table {
+            width: 1000px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin: 50px auto;
+            -webkit-user-select: none;
+            padding: 15px;
+            font-size: 30px;
+        }
+
+        #wrap table thead th {
+            background: #dd1d26;
+        }
+
+        #wrap table thead th, #wrap table tbody td {
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .cursor {
+            cursor: pointer
+        }
+
+        .bg {
+            background: #00E1FF;
+        }
+
+        .oo {
+            background: #A0A000;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th class="cursor">姓名</th>
+            <th class="cursor">年龄</th>
+            <th class="cursor">体重kg</th>
+            <th class="cursor">身高cm</th>
+            <th class="cursor">性别</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--        <tr>
+                    <td>甄晓伟</td>
+                    <td>30</td>
+                    <td>65</td>
+                    <td>170</td>
+                    <td>男</td>
+                </tr>-->
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<script src="bgpx.js"></script>
+<script>
+    //获取元素
+    var wrap = document.getElementById("wrap");
+    var table = wrap.getElementsByTagName("table")[0];
+    var thead = table.tHead;
+    var theadRow = thead.rows[0];
+    var theadCells = theadRow.cells;
+    var tbody = table.tBodies[0];
+    var tbodyRows = tbody.rows;
+    //  console.log(theadRow);
+    //获取数据
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "json.txt", false);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            window.res = bgPx.jsonParse(xhr.responseText);
+        }
+    }
+    xhr.send(null);
+    console.log(res);
+    //绑定数据
+    function bind() {
+        var frg = document.createDocumentFragment();
+        for (var i = 0; i < res.length; i++) {
+            var cur = res[i];
+            var tr = document.createElement("tr");
+            for (var key in cur) {
+                var td = document.createElement("td");
+                if (key === "gender") {
+                    if (cur[key] == 1) {
+                        td.innerHTML = "男";
+                    } else {
+                        td.innerHTML = "女";
+                    }
+                } else {
+                    td.innerHTML = cur[key];
+                }
+
+
+                tr.appendChild(td);
+            }
+            frg.appendChild(tr);
+        }
+        tbody.appendChild(frg);
+        frg = null;
+    }
+    bind();
+    //隔行变色
+    function ghbs() {
+        for (var i = 0; i < tbodyRows.length; i++) {
+            tbodyRows[i].className = i % 2 ? "bg" : "oo";
+        }
+    }
+    ghbs();
+    //排序
+    function sort() {
+        for (var i = 0; i < theadCells.length; i++) {
+            var hh = theadCells[i];
+            if (hh = !this) {
+                hh.hhh = -1;
+            }
+        }
+        var gg = bgPx.listToArray(tbodyRows);
+        var that = this;
+        that.hhh *= -1;
+        gg.sort(function (a, b) {
+            if (isNaN(a.cells[that.index].innerHTML) || isNaN(b.cells[that.index].innerHTML)) {
+                return a.cells[that.index].innerHTML.localeCompare(b.cells[that.index].innerHTML) * that.hhh;
+            }
+            return (a.cells[that.index].innerHTML - b.cells[that.index].innerHTML) * that.hhh;
+        })
+        var frg = document.createDocumentFragment();
+        for (var i = 0; i < gg.length; i++) {
+            var cur = gg[i];
+            frg.appendChild(cur);
+        }
+        tbody.appendChild(frg);
+        frg = null;
+        ghbs();
+    }
+    //点击带cursor的排序
+    for (var i = 0; i < theadCells.length; i++) {
+        var cur = theadCells[i];
+        cur.index = i;
+        cur.hhh = -1;
+        cur.onclick = function () {
+            sort.call(this);
+        }
+    }
+
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //    var count = 0;
+    //    var timer = window.setInterval(function () {
+    //        count++;
+    //        console.log(count);
+    //        if (count === 10) {
+    //            window.clearInterval(timer);
+    //        }
+    //    }, 1000);
+
+    //使用setTimeout实现一个和setInterval一模一样的功能:使用递归的思想，每一次执行完成move方法后，从新设置一个新的定时器，让定时器1s后从新执行move...
+    var count = 0;
+    var timer = null;
+    function move() {
+        //每一次执行move方法都会重新创建一个新的setTimeout定时器，定时器执行一次就不重新执行了，但是我们并没有把它清除，导致很多没用的定时器累积，占内存，->在每一次执行move，进来的第一件事就是把上一次没用的定时器清除掉
+        window.clearTimeout(timer);
+        count++;
+        console.log(count);
+        if(count===10){
+            return;
+        }
+        //console.log(arguments.callee);//存储的是当前函数本身，等价于move方法
+        //timer = window.setTimeout(move, 1000);
+        timer = window.setTimeout(arguments.callee, 1000);
+    }
+    move();
+
+
+</script>
+</body>
+</html>

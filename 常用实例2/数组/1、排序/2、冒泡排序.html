@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a = [5, 4, 3, 2, 1];
+    for (var i = 0; i < a.length; i++) {
+        for (var j = 0; j < a.length - 1 - i; j++) {
+            if (a[j] > a[j + 1]) {
+                var b = a[j + 1];
+                a[j + 1] = a[j];
+                a[j] = b;
+            }
+        }
+    }
+    console.log(a);
+
+
+</script>
+</body>
+</html>

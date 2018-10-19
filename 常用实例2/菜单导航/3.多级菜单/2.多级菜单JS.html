@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-size: 18px;
+        }
+        .box{
+            width: 300px;
+            padding:10px;
+            margin:10px;
+            background: lightblue;
+            background: -webkit-linear-gradient(left top,lightblue,lightpink,lightgoldenrodyellow,lightsteelblue);
+        }
+        .box li{
+            line-height: 40px;
+            position: relative;
+        }
+        .box li em{
+            position: absolute;
+            width: 16px;
+            height:16px;
+            background: url("img/icon.png") no-repeat -59px -28px;
+            top:12px;
+            cursor: pointer;
+        }
+        .box li em.open{
+            background-position: -42px -28px;
+        }
+        .box li span{
+            padding-left: 20px;
+        }
+        .two{
+            margin-left: 20px;
+        }
+        .three{
+            margin-left: 40px;
+        }
+        .four{
+            margin-left: 60px;
+        }
+        .two,.three,.four{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <ul id="ul">
+        <li>
+            <em></em><span>第一级第一个</span>
+            <ul class="two">
+                <li><span>第二级第一个</span></li>
+                <li>
+                    <em></em><span>第二级第二个</span>
+                    <ul class="three">
+                        <li><em></em><span>第三级第一个</span>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                        <li><span>第三级第二个</span></li>
+                        <li><em></em><span>第三级第三个</span>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>第二级第三个</span>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li><span>第三级第三个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    //1.给前面是em的span加上鼠标移入的小手效果；
+    var oBox=document.getElementById('box');
+    var aSpan=oBox.getElementsByTagName('span');
+    for(var i=0; i<aSpan.length; i++){
+        var cur=aSpan[i];
+        var preEm=utils.prev(cur);//上一个哥哥元素
+        //确保上一个哥哥元素存在，并且是em的时候，这个span才符合加小手的条件；
+        if(preEm && preEm.tagName.toLowerCase()==='em'){
+            utils.css(cur,'cursor','pointer');
+        }
+    }
+    //在box这个容器中，不确定有多少个元素需要发生点击事件，我们可以把点击事件委托给box；然后通过事件源来做不同的处理；
+    oBox.onclick=function(e){
+        //当点击的是em/span的时候，如果该事件源的父级的第一个ul存在的话：如果ul显示，让其隐藏，否则，让其显示；
+        e=e||window.event;
+        var tar= e.target|| e.srcElement;
+        if(/^(em|span)$/i.test(tar.tagName)){
+            var parent=tar.parentNode;
+            var firUl=utils.getChildren(parent,'ul')[0];
+            var firEm=utils.getChildren(parent,'em')[0];
+            if(firUl){
+                var bOk=utils.css(firUl,'display')==='block'?true:false;
+                //如果bOk为true，说明要让ul显示，然em的class名变成open;反之；ul隐藏，同时移出em的class名为open的；
+                if(bOk){//说明ul处于显示阶段，我们ul隐藏，并且移出em的open名
+                    /*utils.css(firUl,'display','none');
+                    utils.removeClass(firEm,'open');*/
+                    //当关闭的时候，让当前父级下的所有的ul都隐藏；让所有的em都移除open;
+                    var allUl=parent.getElementsByTagName('ul');
+                    var allEm=parent.getElementsByTagName('em');
+                    for(var i=0; i<allUl.length; i++){
+                        utils.css(allUl[i],'display','none');
+                        utils.removeClass(allEm[i],'open');
+                    }
+                }else{
+                    utils.css(firUl,'display','block');
+                    utils.addClass(firEm,'open');
+                }
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

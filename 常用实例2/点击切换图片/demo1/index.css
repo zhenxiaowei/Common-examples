@@ -1,0 +1,213 @@
+html, body {
+
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    position: relative;
+    max-width: 1445px;
+    height: 420px;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 420px;
+}
+
+.swiper-slide {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-wrapper .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper .swiper-slide {
+    background: url("01.jpg") no-repeat;
+}
+
+.initial {
+    color: #fff;
+}
+
+.initial img:nth-of-type(1) {
+    width: 90px;
+}
+
+.swiper-slide .move {
+    -webkit-animation: shang 0.4s 0s both;
+    animation: shang 0.4s 0s both;
+}
+
+.swiper-slide .donw {
+    -webkit-animation: donw 0.4s 0s both;
+    animation: donw 0.4s 0s both;
+}
+
+.swiper-slide .p1_up {
+    -webkit-animation: shang1 0.4s 0s both;
+    animation: shang1 0.4s 0s both;;
+}
+
+.swiper-slide .p1_down {
+    -webkit-animation: donw1 0.4s 0s both;
+    animation: donw1 0.4s 0s both;
+}
+
+.swiper-slide .p2_up {
+    -webkit-animation: shang2 0.6s 0s both;
+    animation: shang2 0.6s 0s both;;
+}
+
+.swiper-slide .p2_down {
+    -webkit-animation: donw2 0.6s 0s both;
+    animation: donw2 0.6s 0s both;
+}
+
+.hover {
+    -webkit-transform: translate3d(0, -500px, 0);
+    transform: translate3d(0, -500px, 0);
+}
+
+.hover_up {
+    -webkit-animation: hover_up 0.6s 0s both;
+    animation: hover_up 0.6s 0s both;
+}
+
+.hover_down {
+    -webkit-animation: hover_down 0.6s 0s both;
+    animation: hover_down 0.6s 0s both;
+}
+
+.hover .btn {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #fff;
+    margin: 0 auto;
+}
+
+@keyframes shang {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, -50px, 0);
+        transform: translate3d(0, -50px, 0);
+    }
+}
+
+@keyframes donw {
+    from, to {
+        -webkit-transform: translate3d(0, -50px, 0);
+        transform: translate3d(0, -50px, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0px, 0);
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+@keyframes shang1 {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -20px, 0);
+        transform: translate3d(0, -20px, 0);
+    }
+}
+
+@keyframes donw1 {
+    from, to {
+        -webkit-transform: translate3d(0, -20px, 0);
+        transform: translate3d(0, -20px, 0);
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0px, 0);
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+@keyframes shang2 {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+
+        -webkit-transform: translate3d(0, -40px, 0);
+        transform: translate3d(0, -40px, 0);
+    }
+}
+
+@keyframes donw2 {
+    from, to {
+        -webkit-transform: translate3d(0, -40px, 0);
+        transform: translate3d(0, -40px, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0px, 0);
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+@keyframes hover_up {
+    from, to {
+        -webkit-transform: translate3d(0, 500px, 0);
+        transform: translate3d(0, 500px, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes hover_down {
+    from, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 500px, 0);
+        transform: translate3d(0, 500px, 0);
+    }
+}

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<!--メッセージ -->
+	<messages>
+		<!-- 共通 -->
+		<!-- 修改后的message请放到这里 start -->
+		<page id="common">
+			<message id="E00001">検索結果が０件です。</message>
+			<message id="E00002">数値を入力してください。</message>
+			<message id="E00003">日付の指定が正しくありません。</message>
+			<message id="E00004">変更内容が登録されていません。よろしいですか？</message>
+			<message id="E00005">セッションの期限が過ぎたため、操作が失敗しました。ウィンドウを閉じて、もう一度ログインして下さい。
+			</message>
+			<message id="E00006">データベースとの接続エラーが発生しました。</message>
+			<message id="E00007">対象コンテンツは存在しません。</message>
+			<message id="E00008">アップロード同時実行数が、最大数 {0} 件を超えています。しばらく経ってから実行してください。
+			</message>
+			<message id="E00009">メタ情報 {0} は既に選択されています。</message>
+			<message id="E00010">ダウンロード同時実行数が、最大数 {0} 件を超えています。しばらく経ってから実行してください。
+			</message>
+			<message id="E00012">{0} 以下の数値を入力してください。</message>
+			<message id="E00013">空のファイルはアップロードできません。</message>
+			<message id="E00014">
+			 <![CDATA[  ファイル名の先頭が半角スペース、全角スペースのファイルは使用できません。[ファイル名＝{0}]  ]]>
+			</message>
+			<message id="E00015">
+			  <![CDATA[ファイル名に使用できない文字( \/?*"><| )が含まれているファイルは使用できません。[ファイル名＝{0}] ]]>
+			</message>
+
+			<message id="E00999">システムエラーが発生しました。システム管理者に連絡してください。</message>
+			<message id="E01001">ユーザID、またはパスワードが正しくありません。</message>
+			<message id="E01101">パスワード再設定が完了しました。新しいパスワードでログインしてください。</message>
+			<message id="E01102">現在のパスワード、新しいパスワードを入力してください。</message>
+			<message id="E01103">新しいパスワード、パスワード確認が一致しません。正しく入力してください。</message>
+			<message id="E01104">
+			 <![CDATA[パスワードは以下の条件で入力してください。<br >・{0}文字以上、50文字以下<br >・英数字混在]]>
+			</message>
+			<message id="E01105">新しいパスワードは、現在のパスワードと異なるパスワードを設定してください。</message>
+			<message id="E01106">現在のパスワードが正しくありません。</message>
+			<message id="E04001">Excel出力を実行します。よろしいですか？</message>
+			<message id="E04002">Excel出力でエラーが発生しました。</message>
+			<message id="E04003">出力項目を１つ以上選択してください。</message>
+			<message id="E04004">出力対象のコンテンツが存在しません。</message>
+			<message id="E05001">コンテンツ情報を登録します。よろしいですか？</message>
+			<message id="E05002">コンテンツ情報を登録しました。</message>
+			<message id="E05003">コンテンツ情報の登録でエラーが発生しました。</message>
+			<message id="E05004">登録内容が他端末により更新されています。上書き登録してよろしいですか？</message>
+			<message id="E05005">コンテンツ情報を削除します。よろしいですか？</message>
+			<message id="E05006">コンテンツ情報を削除しました。</message>
+			<message id="E05007">コンテンツ情報の削除でエラーが発生しました。</message>
+			<message id="E05008">PCMファイルがアップロード済みです。コンテンツを開き直してください。</message>
+			<message id="E05009">ダウンロード対象のDSDファイルが存在しません。</message>
+			<message id="E05010">Audio編集クライアントに転送を実行します。よろしいですか？</message>
+			<message id="E05011">Audio編集クライアントに転送が完了しました。</message>
+			<message id="E05012">Audio編集クライアントに転送でエラーが発生しました。</message>
+			<message id="E05013">DSDファイルがアップロード済みです。コンテンツを開き直してください。</message>
+			<message id="E05014">ダウンロード対象のPCMファイルが存在しません。</message>
+			<message id="E05015">添付ファイルをアップロードします。よろしいですか？</message>
+			<message id="E05016">添付ファイルのアップロードが完了しました。</message>
+			<message id="E05017">添付ファイルのアップロードでエラーが発生しました。</message>
+			<message id="E05018">アップロード対象の添付ファイルは、すでにサーバーに存在します。上書きアップロードしてよろしいですか？
+			</message>
+			<message id="E05019">添付ファイル削除を実行します。よろしいですか？</message>
+			<message id="E05020">添付ファイル削除が完了しました。</message>
+			<message id="E05021">添付ファイル削除でエラーが発生しました。</message>
+			<message id="E05022">ダウンロード対象の添付ファイルが存在しません。</message>
+			<message id="E05023">Audio編集クライアントの転送先フォルダが既に存在します。上書きしてよろしいですか？
+			</message>
+			<message id="E00011">{0} 文字以内で入力してください。</message>
+			<message id="E05024">変更後のテンプレートに存在しないメタ項目に値が設定されています。変更によりこの項目は値が破棄されますがよろしいですか？[メタ項目名＝{0}]
+			</message>
+			<message id="E05025">必須項目を入力してください。</message>
+			<message id="E05026">ファイルアップロード処理でエラーが発生しました。処理を終了します。[ファイル名＝{0}]</message>
+			<message id="E05027">コンテンツの変更内容が登録されていません。登録後に再実行してください。</message>
+			<message id="E06001">DSDファイルアップロードが完了しました。</message>
+			<message id="E06002">DSDファイルアップロードでエラーが発生しました。</message>
+			<message id="E06003">DSDファイルアップロードを実行します。よろしいですか？</message>
+			<message id="E06004">アップロード対象が選択されていません。</message>
+			<message id="E06005">DSDファイルはサーバーに存在します。上書きしてもよろしいですか？（※サーバーファイルを削除してアップロードします）
+			</message>
+			<message id="E06006">拡張子「{0}」のファイルを選択してください。</message>
+			<message id="E06007">アップロード対象フォルダに、DSDファイル「{0}」、プレビュー元ファイル「{1}」が存在しません。</message>
+			<message id="E06008">ファイルアップロード処理でエラーが発生しました。処理を終了します。[ファイル名＝{0}]</message>
+			<message id="E06009">音声種類が「PCMマルチ」に変更されています。コンテンツを開き直してください。</message>
+			<message id="E06010">Audio編集クライアントのフォルダ参照用の、ネットワークドライブ作成に失敗しました。</message>
+			<message id="E07001">PCMファイルアップロードが完了しました。</message>
+			<message id="E07002">PCMファイルアップロードでエラーが発生しました。</message>
+			<message id="E07003">PCMファイルアップロードを実行します。よろしいですか？</message>
+			<message id="E07004">アップロード対象が選択されていません。</message>
+			<message id="E07005">アップロード対象ファイルに、サーバーに存在するファイルが指定されています。上書きしてもよろしいですか？
+			</message>
+			<message id="E07006">選択したファイルのダウンロードを実行します。よろしいですか？</message>
+			<message id="E07007">ダウンロード対象が選択されていません。</message>
+			<message id="E07008">選択したファイルの、削除が完了しました。</message>
+			<message id="E07009">削除でエラーが発生しました。</message>
+			<message id="E07010">選択したファイルの、削除を実行します。よろしいですか？</message>
+			<message id="E07012">ファイルアップロード処理でエラーが発生しました。処理を終了します。[ファイル名＝{0}]</message>
+			<message id="E07013">音声種類が「DSD」に変更されています。コンテンツを開き直してください。</message>
+			<message id="E07011">削除対象が選択されていません。</message>
+			<message id="E71001">選択したユーザを削除します。よろしいですか？</message>
+			<message id="E71002">ユーザを削除しました。</message>
+			<message id="E71003">ユーザの削除でエラーが発生しました。</message>
+			<message id="E71004">削除対象が選択されていません。</message>
+			<message id="E71005">ログインユーザ自身を削除することはできません。</message>
+			<message id="E72001">ユーザを作成します。よろしいですか？</message>
+			<message id="E72002">ユーザを作成しました。</message>
+			<message id="E72003">ユーザの作成でエラーが発生しました。</message>
+			<message id="E72004">そのユーザIDはすでに存在するため、作成できません。</message>
+			<message id="E72005">ユーザIDの入力が正しくありません。（入力可能文字：「半角英数字」「-（ハイフン）」「_アンダーバー」）
+			</message>
+			<message id="E72006">パスワードと確認パスワードが一致しません。</message>
+			<message id="E72007">
+			 <![CDATA[パスワードは以下の条件で入力してください。<br >・{0}文字以上、50文字以下<br >・英数字混在]]>
+			</message>
+			<message id="E73001">ユーザ設定を保存します。よろしいですか？</message>
+			<message id="E73002">ユーザ設定を保存しました。</message>
+			<message id="E73003">ユーザ設定でエラーが発生しました。</message>
+			<message id="E73004">ログインユーザ自身のユーザ種別は変更できません。</message>
+			<message id="E73005">新しいパスワードと確認パスワードが一致しません。</message>
+			<message id="E73006">
+			 <![CDATA[パスワードは以下の条件で入力してください。<br >・{0}文字以上、50文字以下<br >・英数字混在]]>
+			</message>
+			<message id="E74001">選択したテンプレートを削除します。よろしいですか？</message>
+			<message id="E74002">テンプレートを削除しました。</message>
+			<message id="E74003">テンプレートの削除でエラーが発生しました。</message>
+			<message id="E74004">削除対象が選択されていません。</message>
+			<message id="E74005">テンプレート一覧の変更を保存します。よろしいですか？</message>
+			<message id="E74006">テンプレート一覧の変更を保存しました。</message>
+			<message id="E74007">テンプレート一覧の設定保存でエラーが発生しました。</message>
+			<message id="E74008">選択したテンプレートは、すでに使用されているため削除できません。</message>
+			<message id="E75001">テンプレート設定を保存します。よろしいですか？</message>
+			<message id="E75002">テンプレート設定を保存しました。</message>
+			<message id="E75003">テンプレート設定でエラーが発生しました。</message>
+			<message id="E75004">そのテンプレート名はすでに存在するため、保存できません。</message>
+			<message id="E75005">テンプレート名を入力してください。</message>
+			<message id="E75006">選択したテンプレートのメタ項目は、すでに使用されているため削除できません。</message>
+			<message id="E76001">選択したメタ情報を削除します。よろしいですか？</message>
+			<message id="E76002">メタ情報を削除しました。</message>
+			<message id="E76003">メタ情報の削除でエラーが発生しました。</message>
+			<message id="E76004">削除対象が選択されていません。</message>
+			<message id="E76005">選択したメタ情報は、すでに使用されているため削除できません。</message>
+			<message id="E77001">メタ情報設定を保存します。よろしいですか？</message>
+			<message id="E77002">メタ情報設定を保存しました。</message>
+			<message id="E77003">メタ情報設定でエラーが発生しました。</message>
+			<message id="E77004">そのメタ情報名はすでに存在するため、保存できません。</message>
+			<message id="E77005">メタ情報名を入力してください。</message>
+			<message id="E78001">選択した参照マスタを削除します。よろしいですか？</message>
+			<message id="E78002">参照マスタを削除しました。</message>
+			<message id="E78003">参照マスタの削除でエラーが発生しました。</message>
+			<message id="E78004">削除対象が選択されていません。</message>
+			<message id="E78005">選択した参照マスタ情報は、すでに使用されているため削除できません。メタ情報名＝「{0}」
+			</message>
+			<message id="E79001">参照マスタ設定を保存します。よろしいですか？</message>
+			<message id="E79002">参照マスタ設定を保存しました。</message>
+			<message id="E79003">参照マスタ設定でエラーが発生しました。</message>
+			<message id="E79004">その参照マスタ名はすでに存在するため、保存できません。</message>
+			<message id="E79005">参照マスタ名を入力してください。</message>
+			<message id="E79006">重複する値は保存できません。値＝「{0}」</message>
+			<message id="E80001">一覧項目／Excel出力項目設定を保存します。よろしいですか？</message>
+			<message id="E80002">一覧項目／Excel出力項目設定を保存しました。</message>
+			<message id="E80003">一覧項目／Excel出力項目設定でエラーが発生しました。</message>
+			<message id="E80004">一覧列幅を数字（文字数）で入力してください。</message>
+			<message id="E81001">選択したAudio編集クライアントを削除します。よろしいですか？</message>
+			<message id="E81002">Audio編集クライアントを削除しました。</message>
+			<message id="E81003">Audio編集クライアントの削除でエラーが発生しました。</message>
+			<message id="E81004">削除対象が選択されていません。</message>
+			<message id="E81005">選択したAudio編集クライアントは、すでに使用されているため削除できません。</message>
+			<message id="E81006">Audio編集クライアント一覧の変更を保存します。よろしいですか？</message>
+			<message id="E81007">Audio編集クライアント一覧の変更を保存しました。</message>
+			<message id="E81008">Audio編集クライアント一覧の設定保存でエラーが発生しました。</message>
+			<message id="E82001">Audio編集クライアント設定を保存します。よろしいですか？</message>
+			<message id="E82002">Audio編集クライアント設定を保存しました。</message>
+			<message id="E82003">Audio編集クライアント設定でエラーが発生しました。</message>
+			<message id="E82004">そのAudio編集クライアント名はすでに存在するため、保存できません。</message>
+			<message id="E82005">必須項目を入力してください。</message>
+			<message id="E82006">新しいパスワードと確認パスワードが一致しません。</message>
+			
+			<!-- 自定义message -->
+			<message id="M00001">参照でエラーが発生しました。</message>
+			<message id="M00002">DSDファイルアップロード中</message>
+			<message id="M00003">プレビューファイル作成中</message>
+			<message id="M00004">CABファイル作成中</message>
+			<message id="M00005">コンテンツデータ登録中</message>
+			<message id="M00006">アップロード中：</message>
+			<message id="M00007">ActiveXObjectを使うことはできません</message>
+			<message id="M00008">CABファイル展開中</message>
+			<message id="M00009">「Audio編集クライアントに転送」共有ファイルをlogout時エラーが発生しました</message>
+			<message id="M00010">copy中エラーが発生しました</message>
+			<message id="M00011">CABファイル作成中エラーが発生しました</message>
+			<message id="M00012">CABファイル展開中エラーが発生しました</message>
+			<message id="M00013">プレビューファイル作成中エラーが発生しました</message>
+			<message id="M00014">ファイルのタイムスタンプを更新中エラーが発生しました</message>
+			<message id="M00015">「DSDファイルアップロード」共有ファイルをlogout時エラーが発生しました</message>
+			<message id="M00016">「DSDファイルアップロード」共有ファイルをlogin時エラーが発生しました</message>
+			<message id="M00017">「Audio編集クライアントに転送」共有ファイルをlogin時エラーが発生しました</message>
+			<message id="M00018">「ファイル存在チェック」共有ファイルをlogin時エラーが発生しました</message>
+			<message id="M00019">既に同じコンテンツにDSDファイルのアップロードを他端末で開始しているため、実行できません。</message>
+			<message id="M00020">既に同じ共有フォルダにAudio編集クライアントに転送を他端末で開始しているため、実行できません。</message>
+            <message id="M00021">{0}他端末に[Audio編集クライアントに転送]/[DSDアップロード]をしています。後でまた試みてください。</message>
+            <message id="M00022">「同じ資源は同時操作されチェック」共有ファイルをlogout時エラーが発生しました</message>
+            
+            <!-- 日志输出 用-->
+            <message id="M00023">[コンテンツID={0}] </message>
+            <message id="M00024">開始</message>
+            <message id="M00025">完了</message>
+            <message id="M00026">エラー</message>
+            <message id="M00027">コンテンツ新規登録処理{0}</message>
+            <message id="M00028">コンテンツ更新登録処理{0}</message>
+            <message id="M00029">コンテンツ削除処理{0}</message>
+            <message id="M00030">DSDファイルアップロード処理{0}</message>
+            <message id="M00031">PCMファイルアップロード処理{0}</message>
+            <message id="M00032">PCMファイル削除処理{0}</message>
+            <message id="M00033">Audio編集クライアントに転送処理{0}</message>
+            <message id="M00034">添付ファイルアップロード処理{0}</message>
+            <message id="M00035">添付ファイル削除処理{0}</message>
+            
+            <message id="M00036">既に同じコンテンツのDSDファイルを他端末で使用中のため、実行できません。</message>
+            <message id="M00037">既に同じ共有フォルダを他端末で使用中のため、実行できません。</message>
+            <message id="M00038">[Audio編集クライアントに転送][DSDアップロード]カウアント時エラーが発生しました。</message>
+            <message id="M00039">
+            <![CDATA[既に同じコンテンツに同じファイル「{0}」のアップロードを他端末で開始しているため、実行できません。]]>
+            </message>
+            <message id="M00040">PCMファイル{0}はアクセスできません。他端末にPCMファイルが使用中です。後でまた試みてください。</message>
+            <message id="M00041">他端末に同じ添付ファイルをアップロードしています。後でまた試みてください。</message>
+            <message id="M00042">添付ファイルはアクセスできません。他端末に添付ファイルが使用中です。後でまた試みてください。</message>
+            <message id="M00043">path:{0} ファイルパスは削除することはできません</message>
+            <message id="M00044">転送先パス:{0} は不正です</message>
+            <message id="M00045">ファイルの書式は正しくありません</message>
+            <message id="M00046">サムネルはアップロード失敗しました</message>
+            <message id="M00047">ファイルはアクセスできません。ファイルリネーム時エラーが発生しました</message>
+            <message id="M00048">データベースに更新する時にエラーが発生しました。</message>
+            <message id="M00049">パラメータ不正</message>
+            <message id="M00050">アップロードキャンセルしました</message>
+            <message id="M00051"> アップロード失敗しました</message>
+            <message id="M00052"> アップロードが完了しました。</message>
+            <message id="M00053">アップロードエラー発生しました。</message>
+            <message id="M00054">隠しファイル:{0}はコピー対象外</message>
+           
+		</page>
+
+
+
+		<!-- 修改后的message请放到这里 end -->
+
+		<!-- <page id="GCOM1010"> <message id="E00000002">ユーザーIDまたはパスワードが違います。</message> 
+			</page> <page id="common"> <message id="E00000005">{0}は整数で入力してください。</message> 
+			<message id="E00000006">{0}の値が重複しています。</message> <message id="M00000001">登録が完了しました。</message> 
+			</page> -->
+		<!-- アイコン登録 -->
+		<!-- <page id="GSHO6020"> <message id="E00000001">アップロードするファイルにはPDF形式を指定してください。</message> 
+			<message id="E00000002">媒体種別が設定されていません。</message> <message id="E00000003">分類が設定されていません。</message> 
+			<message id="E00000004">アイコン名称を入力してください。</message> </page> -->
+	</messages>
+
+	<!-- ラベル -->
+	<labels>
+		<!-- 共通 -->
+		<page id="common">
+			<message id="save">保存</message>
+			<message id="back">戻る</message>
+			<message id="cancel">キャンセル</message>
+			<message id="errorPageTitle">エラー</message>
+		</page>
+		
+	<!--	<page id="GMST1040">
+			<message id="title">ＦＮＰＸプロセス監視</message>
+		</page> -->
+
+	</labels>
+</root>
+

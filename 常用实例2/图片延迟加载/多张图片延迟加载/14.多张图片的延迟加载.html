@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,html{
+            height: 3000px;
+        }
+        *{
+            margin:0;
+            padding:0;
+        }
+        p{
+            width: 400px;
+            height: 260px;
+            background: url("../单张图片延迟加载/2/img2/default.gif") center center no-repeat #e1e1e1;
+        }
+        p img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 1000px"></div>
+<p><img realImg="img2/1.jpg" alt=""/></p>
+<p><img realImg="img2/2.jpg" alt=""/></p>
+<p><img realImg="img2/3.jpg" alt=""/></p>
+<p><img realImg="img2/4.jpg" alt=""/></p>
+</body>
+<script>
+    var aImg=document.getElementsByTagName('img');
+    //当触发滚轮事件的时候，判断图片是否满足加载条件
+    window.onscroll=function(){
+        //求浏览器卷去的高度
+        var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+        //求可视区的高度
+        var clientH=document.documentElement.clientHeight||document.body.clientHeight;
+        var scrollBottom=scrollT+clientH;
+        //需要分别比较每张图片是否满足条件
+        for(var i=0; i<aImg.length; i++){
+            var imgPosition=aImg[i].offsetTop+aImg[i].offsetHeight;
+            //判断图片的加载条件 (图片距离body的top值+图片本身的高度)<=(浏览器卷去的高度+可视区的高度)
+            if(imgPosition<=scrollBottom){//满足让图片可以加载的条件
+                lazyImg(aImg[i]);//这个方法中就是图片加载的处理；
+            }
+        }
+    };
+    function lazyImg(img){
+        //图片已经加载过的，不会重复加载
+        if(img.loaded){
+            return
+        }
+        //创建一个img对象，就相当于我们创建了一个<img></img>
+        var tmpImg=new Image;
+        //给创建的这个img对象，赋值一个src属性：从realImg这个自定义属性上取出的地址
+        tmpImg.src=img.getAttribute('realImg');
+        //校验图片地址如果正确的话需要做3步：1，把地址赋值给img.src 2.释放tmpImg 3.避免重复加载
+        tmpImg.onload=function(){
+            img.src=this.src;
+            tmpImg=null;
+            img.loaded=true;
+        };
+        //校验图片地址失败：1.释放tmpImg 2.避免重复加载
+        tmpImg.onerror=function(){
+            tmpImg=null;
+            img.loaded=true;
+        };
+    }
+
+</script>
+</html>

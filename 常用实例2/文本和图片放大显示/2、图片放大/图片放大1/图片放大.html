@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery-单击文字或图片内容放大显示且含圆角投影效果</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="js/content_zoom.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('div.small_pic a').fancyZoom({scaleImg: true, closeOnClick: true});
+		$('#zoom_word_1').fancyZoom({width:400, height:200});
+		$('#zoom_word_2').fancyZoom();
+		$('#zoom_flash').fancyZoom();
+	});
+</script>
+</head>
+
+<body>
+<div class="zxx_zoom_left">
+    <h4>图片的放大</h4>
+    <div class="small_pic">
+        <a href="#pic_one">
+            <img src="image/2.jpg" width="100"/>
+        </a>
+    </div>
+    <div class="small_pic">
+        <a href="#pic_two">
+            <img src="image/2.jpg" width="100"/>
+        </a>
+    </div>
+    <div class="small_pic">
+        <a href="#pic_three">
+            <img src="image/2.jpg" width="100"/>
+        </a>
+    </div>
+    <div class="small_pic">
+        <a href="#pic_four">
+            <img src="image/2.jpg" width="100"/>
+        </a>
+    </div>
+</div>
+    <!-- 要放大显示的div -->
+    <div id="pic_one" style="display:none;"> <img src="image/2.jpg"/></div>
+    <div id="pic_two" style="display:none;"><img src="image/2.jpg"/></div>
+    <div id="pic_three" style="display:none;"><img src="image/2.jpg"/></div>
+    <div id="pic_four" style="display:none;"><img src="image/2.jpg"/></div>
+</body>
+</html>

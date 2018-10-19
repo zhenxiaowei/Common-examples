@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="ajaxfileupload.js"></script>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function ajaxFileUpload(){
+            $.ajaxFileUpload({
+                url:'${pageContext.request.contextPath}/equipments/ajax',
+                fileElementId:'file',
+                dataType:'json',
+                success:function(data,status){
+                    alert(1);
+                },
+                error:function(data,status,e){
+
+                }
+            });
+        }
+
+
+    </script>
+
+
+<input type="file" id="file" name="file" onchange="ajaxFileUpload()" >
+</body>
+</html>

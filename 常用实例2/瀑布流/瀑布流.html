@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 900px;
+            margin: 10px auto;
+        }
+        ul{
+            float: left;
+            width: 260px;
+            /*height: 10px;*/
+            margin: 10px;
+            /*border: 1px solid red;*/
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="utils.js"></script>
+<script type="text/javascript">
+    var aUl=document.getElementsByTagName('ul');
+    function createLi(){
+        var oLi=document.createElement('li');
+        oLi.style.height=utils.rnd(100,300)+'px';
+        oLi.style.backgroundColor='rgb('+utils.rnd(0,255)+','+utils.rnd(0,255)+','+utils.rnd(0,255)+')';
+        return oLi;
+    }
+
+    function li50(){
+        for(var i=0;i<50;i++){
+            var oLi=createLi();
+            var ary=utils.listToArray(aUl);
+            ary.sort(function (a,b) {
+                return utils.getCss(a,'height')-utils.getCss(b,'height');
+            });
+            ary[0].appendChild(oLi);
+        }
+    }
+    li50();
+    window.onscroll= function () {
+        var scrollBottom=utils.win('scrollTop')+utils.win('clientHeight');
+        if(scrollBottom>=document.body.scrollHeight-300){
+            li50();
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.sas.cms.bizshare.dao.UserDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.UserDto" id="userDto">
+		<result column="USER_ID" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="password" property="password" />
+		<result column="user_kind" property="userKind" />
+		<result column="access_auth" property="accessAuth" />
+		<result column="pass_change_date" property="passChangeDate" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<!-- 删除用户 -->
+	<delete id="deleteByUserId" parameterType="String">
+		DELETE FROM aa_user
+		WHERE USER_ID in
+		<foreach collection="userArr" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<!-- 查询所有用户 -->
+	<select id="userList" resultType="jp.co.sas.cms.bizshare.dto.UserDto">
+		SELECT USER_ID userId,user_name userName,password,user_kind userKind,access_auth accessAuth,pass_change_date passChangeDate,update_user_id
+		updateUserId,create_datetime createDatetime,update_datetime updateDatetime
+		FROM aa_user   order by    USER_ID  asc
+
+	</select>
+ 
+	<!-- 用户注册 -->
+	<insert id="saveUser" parameterType="jp.co.sas.cms.bizshare.dto.UserDto">
+
+		INSERT INTO aa_user
+		(user_id
+		,user_name
+		,password
+		,user_kind
+		,access_auth
+		,pass_change_date
+		,update_user_id
+		,create_datetime
+		,update_datetime
+		)
+		VALUES
+		(
+		#{userId},
+		#{userName},
+		#{password},
+		#{userKind},
+		#{accessAuth},
+		#{passChangeDate},
+		#{updateUserId},
+		#{createDatetime},
+		#{updateDatetime}
+		)
+	</insert>
+	<!-- 用户更新 -->
+
+	<update id="updateUser" parameterType="jp.co.sas.cms.bizshare.dto.UserDto">
+		<![CDATA[
+			update aa_user set user_name=#{userName},user_kind=#{userKind},access_auth=#{accessAuth},
+			pass_change_date=#{passChangeDate},update_user_id=#{updateUserId},update_datetime=#{updateDatetime}
+			]]>
+		<if test="password!=null and password!=''">
+			,password=#{password}
+		</if>
+		<![CDATA[
+			where user_id=#{userId}
+		]]>
+	</update>
+	<!--用户ID获取用户信息 -->
+	<select id="findUserInfoByUserId" parameterType="String" resultMap="userDto">
+		<![CDATA[
+					SELECT USER_ID userId,user_name userName,password,user_kind userKind,access_auth accessAuth,pass_change_date passChangeDate,update_user_id
+		updateUserId,create_datetime createDatetime,update_datetime updateDatetime
+		 from aa_user where user_id=#{userId}
+		]]>
+	</select>
+</mapper>

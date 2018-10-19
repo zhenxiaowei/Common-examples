@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary = [6, 5, 4, 7, 2];
+    function crpx(ary) {
+        var newAry = [];
+        newAry.push(ary[0]);
+        for (var i = 1; i < ary.length; i++) {
+            var cur = ary[i];
+            for (var j = newAry.length - 1; j >= 0;) {
+                if (cur < newAry[j]) {
+                    j--;
+                    if (j === -1) {
+                        newAry.unshift(cur);
+                    }
+                } else {
+                    newAry.splice(j + 1, 0, cur);
+                    j = -1;
+                }
+            }
+
+        }
+        return newAry;
+    }
+    var res = crpx(ary);
+    console.log(res);
+
+
+</script>
+</body>
+</html>

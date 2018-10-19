@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a, a:hover, a:active, a:visited, a:target {
+            text-decoration: none;
+            color: #000;
+        }
+
+        body {
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Arial, STHeiti, "Microsoft Yahei", sans-serif;
+        }
+
+        .box {
+            margin: 10px auto;
+            padding: 10px;
+            width: 600px;
+            border: 1px solid green;
+        }
+
+        .box div {
+            overflow: hidden;
+        }
+
+        .box a {
+            float: left;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+
+        .box a i {
+            color: #ccc;
+            font-size: 12px;
+        }
+
+        .box .button {
+            margin: 20px auto 0;
+            width: 300px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+
+        .box .button i {
+            display: inline-block;
+            margin-right: 5px;
+            width: 0;
+            height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+        }
+
+        .box .button i.down {
+            /*--下三角--*/
+            position: relative;
+            top: 3px;
+            border-top-color: red;
+        }
+
+        .box .button i.up {
+            /*--上三角--*/
+            position: relative;
+            bottom: 2px;
+            border-bottom-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>
+        <a href="#">苹果<i>(30400)</i></a>
+        <a href="#">小米<i>(30400)</i></a>
+        <a href="#">华为<i>(30400)</i></a>
+        <a href="#">诺基亚<i>(30400)</i></a>
+        <a href="#">ViVO<i>(30400)</i></a>
+        <a href="#">OPPO<i>(30400)</i></a>
+
+        <a href="#">魅族<i>(30400)</i></a>
+        <a href="#">锤子<i>(30400)</i></a>
+        <a href="#">索尼<i>(30400)</i></a>
+        <a href="#">HTC<i>(30400)</i></a>
+        <a href="#">三星<i>(30400)</i></a>
+        <a href="#">中兴<i>(30400)</i></a>
+        <a href="#">黑莓<i>(30400)</i></a>
+
+        <a href="#">其它品牌手机<i>(30400)</i></a>
+    </div>
+    <div class="button"><i class="down"></i>显示全部的品牌</div>
+</div>
+
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script charset="utf-8" type="text/javascript">
+    var $link = $(".box a");
+
+    //->1、把除了前六个和最后一个,其余的A都默认先隐藏
+    //var $target = $(".box a:gt(5):not(:last)");
+    var $target = $link.filter(":gt(5):not(:last)");
+    $target.css("display", "none");
+
+    //->2、把热销品牌置为红色
+    var $hot = $link.filter(":contains('苹果'),:contains('小米'),:contains('OPPO')");
+    $hot.css("color", "red");
+
+    //->3、绑定点击事件
+    $(".button").on("click", function () {
+        var isBok = $target.css("display");//->如果是设置样式,是把TARGET中所有的A都设置了(内置循环),获取样式的话只获取第一个A的样式;
+        if (isBok === "none") {
+            $target.stop().fadeIn(200);
+            $(this).html('<i class="up"></i>精简显示品牌');
+            return;
+        }
+        $target.stop().fadeOut(200);
+        $(this).html('<i class="down"></i>显示全部的品牌');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.sas.cms.bizshare.dao.ColBaseDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ColBaseDto" id="colBaseDtoBean">
+		<result column="base_id" property="baseId" />
+		<result column="base_name" property="baseName" />
+	</resultMap>
+	<select id="selectBaseId" resultMap="colBaseDtoBean"
+		parameterType="String">
+		SELECT *
+		FROM aa_col_base
+		WHERE
+		trim(base_id)=#{baseId}
+	</select>
+	<delete id="deleteId" parameterType="String">
+		DELETE FROM
+		aa_col_base
+		WHERE base_id=#{baseId}
+	</delete>
+	<select id="colList" resultMap="colBaseDtoBean">
+		SELECT *
+		FROM
+		aa_col_base   order by    base_name  asc
+	</select>
+</mapper>

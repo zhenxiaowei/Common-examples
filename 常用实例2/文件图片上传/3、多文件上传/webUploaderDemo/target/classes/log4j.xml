@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor
+	license agreements. See the NOTICE file distributed with this work for additional
+	information regarding copyright ownership. The ASF licenses this file to
+	You under the Apache License, Version 2.0 (the "License"); you may not use
+	this file except in compliance with the License. You may obtain a copy of
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required
+	by applicable law or agreed to in writing, software distributed under the
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+	OF ANY KIND, either express or implied. See the License for the specific
+	language governing permissions and limitations under the License. -->
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd|HH:mm:ss}|%p|hon|app|%c|%t|%m%n" />
+		</layout>
+	</appender>
+
+	<category name="sys.debug">
+		<priority value="DEBUG" />
+		<appender-ref ref="debug" />
+		<appender-ref ref="STDOUT" />
+	</category>
+	
+	<logger name="sys.application">
+		<level value="DEBUG" />
+		<appender-ref ref="application" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="sys.interface">
+		<level value="DEBUG" />
+		<appender-ref ref="interface" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="org.apache.struts2"> 
+	   <level value="OFF"/> 
+	</logger> 
+
+	<logger name="org.springframework"> 
+	   <level value="OFF"/> 
+	</logger> 
+	
+	 <logger name="com.opensymphony"> 
+       <level value="OFF"/> 
+    </logger>
+    
+    <logger name="freemarker"> 
+       <level value="OFF"/> 
+    </logger> 
+    
+    <logger name="org.apache.velocity"> 
+       <level value="OFF"/> 
+    </logger> 
+    
+     <logger name="org.mybatis.spring"> 
+       <level value="OFF"/> 
+    </logger> 
+
+	<category name="sys.error">
+		<priority value="DEBUG" />
+		<appender-ref ref="error" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+	<category name="sys.velocity">
+		<priority value="ERROR" />
+		<appender-ref ref="error" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+	<category name="sys.disp_op">
+		<priority value="DEBUG" />
+		<appender-ref ref="disp_op" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+	<category name="sys.sql">
+		<priority value="DEBUG" />
+		<appender-ref ref="sql_pf" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+	<category name="sys.audit">
+		<priority value="DEBUG" />
+		<appender-ref ref="audit" />
+		<appender-ref ref="STDOUT" />
+	</category>
+
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</log4j:configuration>

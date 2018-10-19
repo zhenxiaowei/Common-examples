@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.sas.cms.bizshare.dao.ColListDao">
+	<resultMap id="ColListDtoBean" type="jp.co.sas.cms.bizshare.dto.ColListDto">
+		<result column="col_id" property="colId" />
+		<result column="col_kind" property="colKind" />
+		<result column="col_length" property="colLength" />
+		<result column="list_flg" property="listFlg" />
+		<result column="excel_length" property="excelLength" />
+		<result column="excel_flg" property="excelFlg" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+		<result column="display_order" property="order" />
+	</resultMap>
+	<update id="updateColList" parameterType="jp.co.sas.cms.bizshare.dto.ColListDto">
+		<![CDATA[
+			update aa_col_list  set col_length=#{colLength},list_flg=#{listFlg},excel_flg=#{excelFlg},excel_length=#{excelLength},
+			update_datetime=#{updateDatetime},display_order=#{order},update_user_id=#{updateUserId}
+			]]>
+		<![CDATA[
+			where col_id=#{colId}
+		]]>
+	</update>
+	<select id="selectColListOd"   resultMap="ColListDtoBean"
+		parameterType="int">
+		SELECT *
+		FROM aa_col_list
+		WHERE
+		display_order>#{order}
+	</select>
+	<select id="selectColList" resultMap="ColListDtoBean"
+		parameterType="String">
+		SELECT *
+		FROM aa_col_list
+		WHERE
+		col_id=#{colId}
+	</select>
+	<select id="selectColListOrd"     resultType="Integer"    parameterType="String">
+		SELECT  display_order 
+		FROM  aa_col_list
+		WHERE  col_id=#{colId}
+	</select>
+	<delete id="deleteColList" parameterType="String">
+		DELETE FROM
+		aa_col_list
+		WHERE col_id=#{colId}
+	</delete>
+	<select id="colList" resultMap="ColListDtoBean">
+		SELECT *
+		FROM
+		aa_col_list order by display_order
+	</select>
+	<select id="colListMax" resultType="int">
+		SELECT  max(display_order)
+		FROM
+		aa_col_list 
+	</select>
+	<insert id="colListRegister" parameterType="jp.co.sas.cms.bizshare.dto.ColListDto">
+		INSERT INTO aa_col_list
+		(col_id
+		,col_kind
+		,display_order
+		,list_flg
+		,excel_length
+		,update_user_id
+		,excel_flg
+		,create_datetime
+		,update_datetime
+		)
+		VALUES
+		(
+		#{colId},
+		#{colKind},
+		#{order},
+		#{excelLength},
+		#{listFlg},
+			#{updateUserId},
+		#{excelFlg},
+		#{createDatetime},
+		#{updateDatetime}
+		)
+	</insert>
+</mapper>

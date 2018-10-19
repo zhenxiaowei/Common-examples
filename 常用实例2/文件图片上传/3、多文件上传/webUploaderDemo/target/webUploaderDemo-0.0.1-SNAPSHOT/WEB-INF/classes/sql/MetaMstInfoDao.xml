@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.sas.cms.bizshare.dao.MetaMstInfoDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.MetaMstInfoDto"
+		id="MetaMstInfoDtoBean">
+		<result column="meta_mst_id" property="metaMstId" />
+		<result column="value" property="value" />
+		<result column="display_order" property="order" />
+		<result column="default_flg" property="defaultFlg" />
+	</resultMap>
+	<select id="selectmMetaMstInfo" parameterType="String"
+		resultMap="MetaMstInfoDtoBean">
+		select * FROM aa_meta_mst_info
+		WHERE
+		trim(meta_mst_id)=#{metaMstId} order by display_order
+	</select>
+	<delete id="deletemMetaMstInfo" parameterType="String">
+		DELETE
+		FROM aa_meta_mst_info
+		WHERE meta_mst_id=#{metaMstId}
+	</delete>
+	<insert id="aaMetaMstInfoRegister" parameterType="jp.co.sas.cms.bizshare.dto.MetaMstInfoDto">
+		INSERT INTO aa_meta_mst_info
+		VALUES
+		(
+		#{metaMstId},
+		#{value},
+		#{order},
+		#{defaultFlg}
+		)
+	</insert>
+</mapper>

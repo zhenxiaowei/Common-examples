@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="jp.co.sas.cms.bizshare.dao.ContentsDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ContentsDto" id="contentsBean">
+		<result column="contents_id" property="contentsId" />
+		<result column="contents_date" property="contentsDate" />
+		<result column="access_auth" property="accessAuth" />
+		<result column="audio_kind" property="audioKind" />
+		<result column="thumbnail_flg" property="thumbnailFlg" />
+		<result column="audio_client_id" property="audioClientId" />
+		<result column="template_id" property="templateId" />
+		<result column="title" property="title" />
+		<result column="comment" property="comment" />
+		<result column="audio_data_update" property="audioDataUpdate" />
+		<result column="multi_data_update" property="multiDataUpdate" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<select id="selectcontentemplateId" resultMap="contentsBean" parameterType="String">
+		select * from aa_contents
+		WHERE template_id=#{templateId}
+	</select>
+	<select id="selectcontentcontentsId" resultMap="contentsBean" parameterType="String">
+		select * from aa_contents
+		WHERE contents_id=#{contentsId}
+	</select>
+	<select id="selectcontentaudios" resultMap="contentsBean" parameterType="String">
+		select * from aa_contents
+		WHERE audio_client_id=#{audioClientId}
+	</select>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ContentsInfoDto" id="contentsInfoBean">
+		<result column="contents_id" property="contentsId" />
+		<result column="meta_id" property="metaId" />
+		<result column="value" property="value" />
+	</resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ColListDto" id="colListBean">
+		<result column="col_id" property="colId" />
+		<result column="col_kind" property="colKind" />
+		<result column="col_length" property="colLength" />
+		<result column="list_flg" property="listFlg" />
+		<result column="excel_length" property="excelLength" />
+		<result column="excel_flg" property="excelFlg" />
+		<result column="display_order" property="order" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ColBaseDto" id="colBaseBean">
+		<result column="base_id" property="baseId" />
+		<result column="base_name" property="baseName" />
+	</resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.AudioClientDto" id="audioClientBean">
+		<result column="audio_id" property="audioId" />
+		<result column="audio_client_name" property="audioClientName" />
+		<result column="file_type" property="fileType" />
+		<result column="audio_file_extension" property="audioFileExtension" />
+		<result column="pre_file_extension" property="preFileExtension" />
+		<result column="ip_address" property="ipAddress" />
+		<result column="folder" property="folder" />
+		<result column="user_id" property="userId" />
+		<result column="password" property="password" />
+		<result column="default_flg" property="defaultFlg" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.MetaDto" id="metaBean">
+		<result column="meta_id" property="metaId" />
+		<result column="meta_name" property="metaName" />
+		<result column="data_type" property="dataType" />
+		<result column="meta_mst_id" property="metaMstId" />
+		<result column="comment" property="comment" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ContentsMetaDto" id="contentsMetaBean">
+        <result column="contents_id" property="contentsId" />
+        <result column="meta_id" property="metaId" />
+        <result column="meta_name" property="metaName" />
+        <result column="value" property="value" />
+    </resultMap>
+	<resultMap type="jp.co.sas.cms.bizshare.dto.MetaMstDto" id="metaMstBean">
+		<result column="meta_mst_id" property="metaMstId" />
+		<result column="meta_mst_name" property="metaMstName" />
+		<result column="comment" property="comment" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+
+	<resultMap type="jp.co.sas.cms.bizshare.dto.MetaMstInfoDto" id="metaMstInfoBean">
+		<result column="meta_mst_id" property="metaMstId" />
+		<result column="value" property="value" />
+		<result column="display_order" property="order" />
+		<result column="default_flg" property="defaultFlg" />
+	</resultMap>
+
+	<resultMap type="jp.co.sas.cms.bizshare.dto.TemplateDto" id="templateBean">
+		<result column="template_id" property="template_id" />
+		<result column="template_name" property="template_name" />
+		<result column="default_flg" property="defaultFlg" />
+		<result column="comment" property="comment" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+
+	<resultMap type="jp.co.sas.cms.bizshare.dto.TemplateInfoDto" id="templateInfoBean">
+		<result column="template_id" property="template_id" />
+		<result column="meta_id" property="meta_id" />
+	</resultMap>
+
+	<resultMap type="jp.co.sas.cms.bizshare.dto.UserDto" id="userBean">
+		<result column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="user_kind" property="userKind" />
+		<result column="access_auth" property="accessAuth" />
+		<result column="password" property="password" />
+		<result column="pass_change_date" property="passChangeDate" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+
+	<resultMap type="jp.co.sas.cms.bizshare.dto.ColShowDto" id="colShowBean">
+		<result column="col_id" property="colId" />
+		<result column="name" property="name" />
+		<result column="length" property="length" />
+		<result column="display_order" property="order" />
+		<result column="data_type" property="dataType" />
+		<result column="excel_flg" property="excelFlg" />
+	</resultMap>
+
+
+	<!-- contents search start -->
+	<select id="queryContentsIdsCount" resultType="String" parameterType="java.util.Map">
+		select c.contents_id from aa_contents c
+		where c.contents_id like CONCAT('%',#{contentsKey},'%' )
+		or c.title like CONCAT('%',#{contentsKey},'%' )
+		or c.comment like CONCAT('%',#{contentsKey},'%' )
+		or exists
+		(
+		select 1
+		from aa_contents_info ci ,aa_meta m
+		where ci.meta_id = m.meta_id
+		and m.data_type in (1,3)
+		and ci.value like CONCAT('%',#{contentsKey},'%' )
+		and ci.contents_id = c.contents_id
+		)
+		<if test="audioKind != null">
+			and c.audio_kind = #{audioKind}
+		</if>
+		order by c.contents_id desc
+	</select>
+
+	<!-- contents start -->
+	<select id="selectContentsCount" resultType="int">
+		select count(1) from aa_contents
+	</select>
+
+	<select id="queryContentsIds" resultType="String" parameterType="java.util.Map">
+
+		select c.contents_id from aa_contents c
+		where c.contents_id like CONCAT('%',#{contentsKey},'%' )
+		or c.title like CONCAT('%',#{contentsKey},'%' )
+		or c.comment like CONCAT('%',#{contentsKey},'%' )
+		or exists
+		(
+		select 1
+		from aa_contents_info ci ,aa_meta m
+		where ci.meta_id = m.meta_id
+		and m.data_type in (1,3)
+		and ci.value like CONCAT('%',#{contentsKey},'%' )
+		and ci.contents_id = c.contents_id
+		)
+		<if test="audioKind != null">
+			and c.audio_kind = #{audioKind}
+		</if>
+		order by c.contents_id desc
+		limit #{start},#{limit}
+
+
+		<!-- select tt1.contents_id from (select distinct t1.contents_id from aa_contents c left join (select ci.contents_id from aa_contents_info ci join aa_meta m on ci.meta_id = m.meta_id) t1 on c.contents_id 
+			= t1.contents_id where (c.contents_id like CONCAT('%',#{contentsKey},'%' ) or c.title like CONCAT('%',#{contentsKey},'%' ) or c.comment like CONCAT('%',#{contentsKey},'%' )) union select distinct t1.contents_id 
+			from (select ci.contents_id, ci.meta_id, ci.value from aa_contents_info ci join aa_meta m on ci.meta_id = m.meta_id where m.data_type in (1,3)) t1 where t1.value like CONCAT('%',#{contentsKey},'%' )) tt1, 
+			aa_contents c where tt1.contents_id = c.contents_id <if test="audioKind != null" > and c.audio_kind = #{audioKind} </if> order by tt1.contents_id desc limit #{start},#{limit} -->
+	</select>
+
+	<select id="queryColList" resultMap="colShowBean">
+		select t1.col_id, t1.name, t1.length, t1.display_order, t1.data_type from (
+		select cl.col_id, cb.base_name as name, cl.col_length as length,
+		cl.display_order, null as data_type from aa_col_list cl , aa_col_base cb
+		where cl.list_flg = '1'
+		and cl.col_kind = '1'
+		and cl.col_id = cb.base_id
+		union
+		select cl.col_id, m.meta_name as name, cl.col_length as length, cl.display_order, m.data_type from aa_col_list cl , aa_meta m
+		where cl.list_flg = '1'
+		and cl.col_kind = '2'
+		and cl.col_id = m.meta_id
+		) t1
+		order
+		by t1.display_order
+	</select>
+
+	<select id="queryBaseById" parameterType="String" resultType="java.util.Map">
+		select c.contents_id, c.contents_date, c.access_auth, c.audio_kind, c.title, c.comment,
+		ac.audio_client_name, ac.file_type
+		from aa_contents c join aa_audio_client ac
+		on c.audio_client_id = ac.audio_id
+		where c.contents_id = #{contentsId}
+	</select>
+
+	<select id="queryMetasById" parameterType="String" resultType="java.util.Map">
+		select c.contents_id, m.meta_id, m.meta_name, ci.value from aa_contents_info ci join aa_contents c
+		on c.contents_id
+		= ci.contents_id
+		join aa_meta m
+		on ci.meta_id = m.meta_id
+		where c.contents_id = #{contentsId}
+	</select>
+
+	<!-- contents search end -->
+
+	<!-- detail search start -->
+	<sql id="getMetaIdNames">select m.meta_id, m.meta_name from aa_meta m</sql>
+
+	<select id="queryPramInfos" resultMap="colBaseBean">
+		select id as base_id, name as base_name from
+		(select cb.base_id as id, cb.base_name as name from aa_col_base cb
+		where cb.base_id in ('B00001','B00002', 'B00003', 'B00004', 'B00006')
+		union
+		<include refid="getMetaIdNames" />
+		) t1
+		order by t1.id
+	</select>
+
+	<select id="queryMetas" resultMap="metaBean">
+		select m.meta_id, m.meta_name from aa_meta m join aa_col_list cl on m.meta_id=cl.col_id order by cl.display_order;
+	</select>
+
+	<select id="queryMetaById" parameterType="String" resultMap="metaBean">
+		select m.meta_id, m.meta_name, m.data_type from aa_meta m
+		where m.meta_id = #{metaId}
+	</select>
+
+	<select id="queryOptions" parameterType="String" resultMap="metaMstInfoBean">
+		<!-- select m.meta_id, m.meta_name, m.meta_mst_id, m.data_type, mm.meta_mst_id, mm.meta_mst_name, mmi.value, mmi.display_order, mmi.default_flg -->
+		select mmi.meta_mst_id, mmi.value, mmi.display_order, mmi.default_flg
+		from aa_meta m
+		join aa_meta_mst mm
+		on m.meta_mst_id = mm.meta_mst_id
+		join aa_meta_mst_info mmi
+		on mm.meta_mst_id = mmi.meta_mst_id
+		where m.meta_id = #{metaId}
+		order by m.meta_id, mmi.display_order
+	</select>
+
+	<select id="queryCidsByParam" parameterType="String" resultType="String">
+		${value}
+	</select>
+	<!-- detail search end -->
+
+	<!-- contents detail start -->
+	<select id="getContentsInfoById" resultMap="contentsBean" parameterType="String">
+		SELECT
+		*
+		FROM
+		aa_contents
+		WHERE
+		contents_id = #{contentsId}
+	</select>
+
+	<select id="getContentsMetaByCid" resultMap="contentsInfoBean" parameterType="String">
+		SELECT
+		*
+		FROM
+		aa_contents_info a
+		WHERE
+		a.contents_id=#{contentsId}
+	</select>
+	
+	<select id="getMetaValueByCid" resultMap="contentsMetaBean" parameterType="String">
+        SELECT
+        a.contents_id,
+        a.meta_id,
+        b.meta_name,
+        a.value
+        FROM
+        aa_contents_info a,
+        aa_meta b
+        WHERE
+        a.contents_id=#{0}
+        and a.meta_id = #{1}
+        and a.meta_id = b.meta_id
+    </select>
+
+	<select id="getMaxContentsId" resultType="String">
+		SELECT
+		CASE WHEN MAX(contents_id) IS NULL THEN
+		'0'
+		ELSE
+		CONV(MAX(contents_id),16,10)
+		END AS contentsId
+		FROM aa_contents
+	</select>
+
+	<insert id="saveContentsDetail" parameterType="jp.co.sas.cms.bizshare.dto.ContentsDto" keyProperty="contentsId">
+		INSERT INTO aa_contents
+		(
+		contents_id,
+		contents_date,
+		access_auth,
+		audio_kind,
+		audio_client_id,
+		template_id,
+		title,
+		comment,
+		audio_data_update,
+		multi_data_update,
+		update_user_id,
+		create_datetime,
+		update_datetime
+		)
+		VALUES
+		(
+		#{contentsId,jdbcType=VARCHAR},
+		#{contentsDate,jdbcType=VARCHAR},
+		#{accessAuth,jdbcType=VARCHAR},
+		#{audioKind,jdbcType=VARCHAR},
+		#{audioClientId,jdbcType=VARCHAR},
+		#{templateId,jdbcType=VARCHAR},
+		#{title,jdbcType=VARCHAR},
+		#{comment,jdbcType=VARCHAR},
+		#{audioDataUpdate,jdbcType=DATE},
+		#{multiDataUpdate,jdbcType=DATE},
+		#{updateUserId,jdbcType=VARCHAR},
+		#{createDatetime,jdbcType=DATE},
+		#{updateDatetime,jdbcType=DATE}
+		)
+	</insert>
+
+	<delete id="deleteByContentsId" parameterType="String">
+		DELETE FROM aa_contents
+		WHERE contents_id =#{contentsId}
+	</delete>
+
+	<update id="updateByContentsId" parameterType="jp.co.sas.cms.bizshare.dto.ContentsDto">
+		UPDATE aa_contents
+		set   
+		 update_user_id = #{updateUserId,jdbcType=VARCHAR}
+        ,update_datetime = #{updateDatetime,jdbcType=DATE}
+        <if test="contentsDate !=null and contentsDate !=''">
+             ,contents_date = #{contentsDate,jdbcType=VARCHAR}
+        </if>
+		<if test="audioClientId !=null and audioClientId !=''">
+		      ,audio_client_id = #{audioClientId,jdbcType=VARCHAR}
+		</if>
+		<if test="title !=null and title !=''">
+		      ,title = #{title,jdbcType=VARCHAR}
+		</if>
+		<if test="accessAuth !=null and accessAuth !=''">
+			,access_auth = #{accessAuth,jdbcType=VARCHAR}
+		</if>
+		<if test="audioKind !=null and audioKind !=''">
+			,audio_kind = #{audioKind,jdbcType=VARCHAR}
+		</if>
+		<if test="audioDataUpdate !=null and audioDataUpdate !=''">
+			,audio_data_update = #{audioDataUpdate,jdbcType=DATE}
+		</if>
+		    ,comment = #{comment,jdbcType=VARCHAR}
+	       	,template_id = #{templateId,jdbcType=VARCHAR}
+			,multi_data_update = #{multiDataUpdate,jdbcType=DATE}
+		where
+		contents_id = #{contentsId}
+	</update>
+	
+	<update id="updateUploadTime" parameterType="jp.co.sas.cms.bizshare.dto.ContentsDto" >
+        UPDATE aa_contents
+        set   
+         update_user_id = #{updateUserId,jdbcType=VARCHAR}
+        ,update_datetime = #{updateDatetime,jdbcType=DATE}
+       <if test="audioDataUpdate !=null and audioDataUpdate !=''">
+            ,audio_data_update = #{audioDataUpdate,jdbcType=DATE}
+        </if>
+        ,multi_data_update = #{multiDataUpdate,jdbcType=DATE}
+        where
+        contents_id = #{contentsId}
+    </update>
+
+	<select id="getMetaByTemplateId" resultMap="metaBean" parameterType="String">
+		SELECT
+		am.meta_id,
+		am.meta_name,
+		am.data_type,
+		am.meta_mst_id
+		FROM
+		aa_template_info ati
+		LEFT JOIN
+		aa_meta am ON ati.meta_id = am.meta_id
+		WHERE
+		ati.template_id=#{templateId}
+		ORDER BY
+		ati.display_order ASC
+	</select>
+
+	<select id="getMetaMstInfoListByMetaId" resultMap="metaMstInfoBean" parameterType="String">
+		SELECT * FROM aa_meta_mst_info ammi
+		WHERE ammi.meta_mst_id=#{metaMstId} ORDER BY ammi.display_order ASC
+	</select>
+
+	<insert id="addContentsInfo" parameterType="java.util.List">
+		insert into
+		aa_contents_info
+		(
+		contents_id,
+		meta_id,
+		value
+		)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.contentsId,jdbcType=VARCHAR},
+			#{item.metaId,jdbcType=VARCHAR},
+			#{item.value,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+
+	<update id="updateContentsInfo" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" separator=";" open="" close="">
+			update
+			aa_contents_info
+			set
+			value=#{item.value}
+			where
+			contents_id = #{item.contentsId}
+			and meta_id = #{item.metaId}
+		</foreach>
+	</update>
+
+	<delete id="deleteMetaInfoByContentsId">
+		DELETE FROM aa_contents_info where contents_id = #{contentsId}
+	</delete>
+
+	<!-- contents detail end -->
+
+	<!-- excel export start -->
+	<select id="queryExcelInfos" resultMap="colShowBean">
+		select t1.col_id, t1.name, t1.length, t1.display_order, t1.data_type, t1.excel_flg from (
+		select cl.col_id, cb.base_name as name,
+		cl.excel_length as length, cl.display_order, null as data_type, cl.excel_flg from aa_col_list cl , aa_col_base cb
+		where cl.col_kind = '1'
+		and cl.col_id = cb.base_id
+		union
+		select cl.col_id, m.meta_name as name, cl.excel_length as length, cl.display_order, m.data_type, cl.excel_flg from aa_col_list cl , aa_meta m
+		where cl.col_kind = '2'
+		and cl.col_id = m.meta_id
+		) t1
+		order by
+		t1.display_order
+	</select>
+
+	<select id="queryExcelTitle" parameterType="String" resultMap="colShowBean">
+		select t1.col_id, t2.col_name as name, t1.excel_length as length, t1.display_order from (
+		select cl.col_id, cl.excel_length, cl.display_order from aa_col_list cl
+		where cl.col_id in
+		<foreach collection="infoArr" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		) t1
+		join
+		(
+		select cb.base_id as col_id, cb.base_name as col_name from aa_col_base cb
+		union
+		select m.meta_id as col_id, m.meta_name as col_name from aa_meta m
+		) t2
+		on t1.col_id = t2.col_id
+		order by t1.display_order
+	</select>
+
+	<select id="queryBaseValue" parameterType="String" resultType="java.util.Map">
+		select c.contents_id, c.contents_date, c.access_auth, c.audio_kind, c.title, c.comment,
+		ac.audio_client_name, ac.file_type
+		from aa_contents c join aa_audio_client ac
+		on c.audio_client_id = ac.audio_id
+		where c.contents_id in
+		<foreach collection="cidArr" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="queryMetaValue" parameterType="String" resultType="java.util.Map">
+		select c.contents_id, m.meta_id, m.meta_name, ci.value from aa_contents_info ci join aa_contents c
+		on c.contents_id = ci.contents_id
+		join aa_meta m
+		on ci.meta_id = m.meta_id
+		where c.contents_id in
+		<foreach collection="cidArr" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<!-- add by dff 2016-03-15 16:29:36 start -->
+	<select id="searchContentInfo" resultType="java.util.LinkedHashMap" parameterType="map">
+
+		select 
+		<if test="view==1">
+		SQL_CALC_FOUND_ROWS
+		temp.audio_data_update as audio_data_update,
+		<foreach collection="titleList" index="index" item="item" separator=",">
+			<choose>
+				<when test="item.colId=='B00001'">
+					REPLACE (temp.B00001,'\r\n',<![CDATA['<br/>']]>) contents_id
+				</when>
+				<when test="item.colId=='B00002'">
+					REPLACE (temp.B00002,'\r\n',<![CDATA['<br/>']]>) title
+				</when>
+				<when test="item.colId=='B00003'">
+					REPLACE (temp.B00003,'\r\n',<![CDATA['<br/>']]>) contents_date
+				</when>
+				<when test="item.colId=='B00004'">
+					REPLACE (temp.B00004,'\r\n',<![CDATA['<br/>']]>) audio_kind
+				</when>
+				<when test="item.colId=='B00005'">
+					REPLACE (temp.B00005,'\r\n',<![CDATA['<br/>']]>) access_auth
+				</when>
+				<when test="item.colId=='B00006'">
+					REPLACE (temp.B00006,'\r\n',<![CDATA['<br/>']]>) comment
+				</when>
+				<when test="item.colId=='B00007'">
+					REPLACE (temp.B00007,'\r\n',<![CDATA['<br/>']]>) as audio_client_id
+				</when>
+				<when test="item.colId=='B00008'">
+					REPLACE (temp.B00008,'\r\n',<![CDATA['<br/>']]>) as audio_client_name
+				</when>
+				<otherwise>
+					REPLACE (temp.${item.colId},'\r\n',<![CDATA['<br/>']]>) as #{item.colId}
+				</otherwise>
+			</choose>
+		</foreach>
+		</if>
+		<if test="view!=1">
+		<foreach collection="titleList" index="index" item="item" separator=",">
+			<choose>
+				<when test="item.colId=='B00001'">
+					REPLACE (temp.B00001,'\r\n',<![CDATA['\n']]>) contents_id
+				</when>
+				<when test="item.colId=='B00002'">
+					REPLACE (temp.B00002,'\r\n',<![CDATA['\n']]>) title
+				</when>
+				<when test="item.colId=='B00003'">
+					REPLACE (temp.B00003,'\r\n',<![CDATA['\n']]>) contents_date
+				</when>
+				<when test="item.colId=='B00004'">
+					REPLACE (temp.B00004,'\r\n',<![CDATA['\n']]>) audio_kind
+				</when>
+				<when test="item.colId=='B00005'">
+					REPLACE (temp.B00005,'\r\n',<![CDATA['\n']]>) access_auth
+				</when>
+				<when test="item.colId=='B00006'">
+					REPLACE (temp.B00006,'\r\n',<![CDATA['\n']]>) comment
+				</when>
+				<when test="item.colId=='B00007'">
+					REPLACE (temp.B00007,'\r\n',<![CDATA['\n']]>) as audio_client_id
+				</when>
+				<when test="item.colId=='B00008'">
+					REPLACE (temp.B00008,'\r\n',<![CDATA['\n']]>) as audio_client_name
+				</when>
+				<otherwise>
+					REPLACE (temp.${item.colId},'\r\n',<![CDATA['\n']]>) as #{item.colId}
+				</otherwise>
+			</choose>
+		</foreach>
+		</if>
+		 
+		from (
+		select 
+		<if test="view==1">
+		(case when ac.audio_data_update is null then '0' else '1' end) as audio_data_update,
+		</if>
+		<foreach collection="list" index="index" item="item" separator=",">
+			<choose>
+				<when test="item=='B00001'">
+					ac.contents_id as #{item}
+				</when>
+				<when test="item=='B00002'">
+					ac.title as #{item}
+				</when>
+				<when test="item=='B00003'">
+					ac.contents_date as #{item}
+				</when>
+				<when test="item=='B00004'">
+					(case when ac.audio_kind=1 then 'DSD ' else 'PCMマルチ' end) as #{item}
+				</when>
+				<when test="item=='B00005'">
+					(case when ac.access_auth=1 then '一般' when ac.access_auth=2 then 'S' when ac.access_auth=3 then 'SS' end ) as #{item}
+				</when>
+				<when test="item=='B00006'">
+					ac.comment as #{item}
+				</when>
+				<when test="item=='B00007'">
+					(case when ac.audio_client_id is null then '' else CONCAT('AudioClient:',aac.audio_client_name,<if test="view==1"><![CDATA['<br/>']]></if><if test="view!=1"><![CDATA['\n']]></if>,'FileType:',aac.file_type) end) as #{item}
+				</when>
+				<when test="item=='B00008'">
+				(case when aac.audio_client_name is null then '' else aac.audio_client_name end) as #{item}
+				</when>
+				<otherwise>
+					max((case when aci.meta_id =#{item} then aci.value else '' end))as #{item}
+				</otherwise>
+			</choose>
+		</foreach>
+		<![CDATA[
+		from aa_contents ac
+			left join aa_contents_info aci
+			on(ac.contents_id=aci.contents_id)
+			left join aa_meta am
+			on (aci.meta_id = am.meta_id)
+			left join aa_audio_client aac
+			on (ac.audio_client_id=aac.audio_id)
+			where 
+		]]>
+		<if test="userKind==2">
+			 ac.access_auth in ('1','2')
+		</if>
+		<if test="userKind==3">
+			 ac.access_auth in ('1','2','3')
+		</if>
+		<if test="userKind!=2 and userKind!=3">
+			 ac.access_auth=#{userKind}
+		</if>
+		<if test="detailSearchDto.contentsKey!=null and detailSearchDto.contentsKey!=''">
+			and (ac.contents_id like CONCAT('%',#{detailSearchDto.contentsKey},'%')
+			or ac.title like CONCAT('%',#{detailSearchDto.contentsKey},'%' )
+			or ac.comment like
+			CONCAT('%',#{detailSearchDto.contentsKey},'%')
+			or(am.data_type in (1,3) and
+			aci.value like CONCAT('%',#{detailSearchDto.contentsKey},'%' )))
+		</if>
+		<if test="detailSearchDto.audioKind!=null and detailSearchDto.audioKind!=''">
+			and ac.audio_kind=#{detailSearchDto.audioKind}
+		</if>
+
+		<if test="detailSearchDto!=null">
+			<!-- ID -->
+			<if test="detailSearchDto.id!=null and detailSearchDto.id!=''">
+				<choose>
+					<when test="detailSearchDto.idOption=='0'.toString()">
+						and ac.contents_id like CONCAT('%',#{detailSearchDto.id},'%')
+					</when>
+					<when test="detailSearchDto.idOption=='1'.toString()">
+						and ac.contents_id =#{detailSearchDto.id}
+					</when>
+					<when test="detailSearchDto.idOption=='2'.toString()">
+						and ac.contents_id &gt;=#{detailSearchDto.id}
+					</when>
+					<when test="detailSearchDto.idOption=='3'.toString()">
+						and ac.contents_id &lt;=#{detailSearchDto.id}
+					</when>
+				</choose>
+			</if>
+			<!-- タイトル -->
+			<if test="detailSearchDto.title!=null and detailSearchDto.title!=''">
+				<choose>
+					<when test="detailSearchDto.titleOption=='0'.toString()">
+						and ac.title like CONCAT('%',#{detailSearchDto.title},'%')
+					</when>
+					<when test="detailSearchDto.titleOption=='1'.toString()">
+						and ac.title =#{detailSearchDto.title}
+					</when>
+				</choose>
+
+			</if>
+			<!-- 登録日 -->
+		
+			<if test="detailSearchDto.loginStime!=null and detailSearchDto.loginStime!='' ">
+			<![CDATA[ 	and ac.contents_date >= #{detailSearchDto.loginStime} 	]]>
+					
+			</if>
+			<if test=" detailSearchDto.loginEtime!=null and detailSearchDto.loginEtime!=''">
+			<![CDATA[ 	and ac.contents_date <= #{detailSearchDto.loginEtime}	]]>
+			</if>
+			<!-- コメント -->
+			<if test="detailSearchDto.comment!=null and detailSearchDto.comment!=''">
+				<choose>
+					<when test="detailSearchDto.commentOption=='0'.toString()">
+						and ac.comment like CONCAT('%',#{detailSearchDto.comment},'%')
+					</when>
+					<when test="detailSearchDto.commentOption=='1'.toString()">
+						and ac.comment =#{detailSearchDto.comment}
+					</when>
+				</choose>
+			</if>
+			<!-- 音声種類 -->
+			<if test="detailSearchDto.detailAudioKind!=null and detailSearchDto.detailAudioKind!=''">
+				and ac.audio_kind=#{detailSearchDto.detailAudioKind}
+			</if>
+			<!-- アクセス権限 -->
+			<if test="detailSearchDto.kengen!=null and detailSearchDto.kengen!=''">
+				and ac.access_auth=#{detailSearchDto.kengen}
+			</if>	
+		</if>
+		group by ac.contents_id 
+		<if test="detailSearchDto.sortFiled==null or detailSearchDto.sortFiled==''">
+			order by ac.contents_id desc
+		</if>) temp where 1=1 
+		<!-- 可动态增加检索条件 -->
+			<if test="detailSearchDto.contInfoList !=null and detailSearchDto.contInfoList.size()>0">
+				<foreach collection="detailSearchDto.contInfoList" index="index" item="item">
+					<if test="item.metaId!=null and item.metaId!=''">
+						<choose>
+							<when test="item.metaStime!=null and item.metaStime!='' and item.metaEtime!=null and item.metaEtime!=''">
+								<![CDATA[ and (temp.${item.metaId} >= #{item.metaStime} and temp.${item.metaId} <=#{item.metaEtime})]]>
+							</when>								
+							<when test="item.metaStime!=null and item.metaStime!=''">
+								<![CDATA[  and temp.${item.metaId} >= #{item.metaStime}  	]]>
+							</when>
+							<when test="item.metaEtime!=null and item.metaEtime!=''">
+								<![CDATA[ and temp.${item.metaId} <=#{item.metaEtime}]]>
+							</when>
+							<when test="item.textValue!=null and item.textValue!=''">
+								and temp.${item.metaId} like CONCAT('%',#{item.textValue},'%')
+							</when>
+							<when test="item.selectValue!=null and item.selectValue!=''">
+								and temp.${item.metaId}=#{item.selectValue}
+							</when>
+						</choose>
+					</if>
+				</foreach>
+			</if>
+		<if test="detailSearchDto.sortFiled!=null and detailSearchDto.sortFiled!=''">
+			order by temp.${detailSearchDto.sortFiled} ${detailSearchDto.sortOrder}
+		</if>
+		
+		<if test="view==1">
+			limit #{detailSearchDto.startNo},#{detailSearchDto.pageLimit}
+		</if>
+	</select>
+
+
+	<select id="searchContentInfoCount" resultType="java.lang.Long" parameterType="map">
+		SELECT FOUND_ROWS()
+	</select>
+	<select id="getAllColList" resultType="String">
+		select col_id from aa_col_list
+	</select>
+
+	<!-- add by dff 2016-03-15 16:29:36 end -->
+</mapper>

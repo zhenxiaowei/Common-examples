@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        body,html{
+            height: 2000px;
+        }
+        p{
+            width: 400px;
+            height: 260px;
+            background: url("../../多张图片延迟加载/img2/default.gif") no-repeat center center #e1e1e1;
+            position: absolute;
+            top:1000px;
+        }
+        p img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<p><img realImg="img2/1.jpg" alt=""/></p>
+<script src="utils.js"></script>
+<script>
+    //需求：当整张图片都进入我们眼睛可视区的时候，才让他加载，否则，不加载；
+    /*
+    * 1.一开始真正的地址不能在src上,为了存储图片的真实地址，把图片放在自定义属性realImg上；
+    * 2.等我们图片满足条件的时候，才把真正的地址（从realImg取出来）放在img的src上；
+    *               1)从realImg上取出图片地址
+    *               2）验证图片地址是否能正常加载，如果能正常加载，再把它赋给src;否则提示错误；
+    *               3）已经加载过的图片，不会重复加载；
+    *
+    * */
+    var oP=document.getElementsByTagName('p')[0];
+    var oImg=document.getElementsByTagName('img')[0];
+    window.onscroll=function(){
+        var scrollBottom=utils.win('scrollTop')+utils.win('clientHeight');
+        var imgPositon=utils.offset(oImg).top+utils.getCss(oImg,'height');
+        if(imgPositon<=scrollBottom){
+            lazyImg();
+        }
+
+    };
+    function lazyImg(){
+        if(oImg.loaded){
+            return;
+        }
+        var tmpImg=new Image;//相当于创建了一个img标签，它是用来测试图片地址的；
+        tmpImg.src=oImg.getAttribute('realImg');
+        //如何测试呢？通过onload来校验图片地址
+        tmpImg.onload=function(){//图片地址如果正确的话，把他赋值给src;
+           // oImg.src=this.src;
+            oImg.setAttribute('src',this.src);
+            oImg.loaded=true;//等图片加载成功以后，添加一个自定义属性loaded：true,避免以后的重复加载；
+            tmpImg=null;
+        };
+        tmpImg.onerror=function(){//图片地址不正确的情况；
+            oImg.loaded=true;
+        };
+    }
+
+</script>
+</body>
+</html>

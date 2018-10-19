@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="list">
+    <li><label><input type="checkbox" name="items" value="1"> 1.时间都去哪儿了</label></li>
+    <li><label><input type="checkbox" name="items" value="2"> 2.海阔天空</label></li>
+    <li><label><input type="checkbox" name="items" value="3"> 3.真的爱你</label></li>
+    <li><label><input type="checkbox" name="items" value="4"> 4.不再犹豫</label></li>
+    <li><label><input type="checkbox" name="items" value="5"> 5.光辉岁月</label></li>
+    <li><label><input type="checkbox" name="items" value="6"> 6.喜欢妳</label></li>
+</ul>
+<input type="checkbox" id="all"> 全选/全不选</br>
+<input type="button" value="全选" class="btn" id="selectAll">
+<input type="button" value="全不选" class="btn" id="unSelect">
+<input type="button" value="反选" class="btn" id="reverse">
+<input type="button" value="获得选中的所有值" id="btn" id="getValue">
+</body>
+</html>
+<script src="jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+//全选/全不选
+        $("#all").click(function(){
+            $("[name=items]:checkbox").attr("checked",this.checked);
+        });
+        $("[name=items]:checkbox").click(function(){
+            var flag=true;
+            $("[name=items]:checkbox").each(function(){
+                if(!this.checked){
+                    flag=false;
+                }
+            });
+            $("#all").attr("checked",flag);
+        })
+
+
+//全选
+        $("#selectAll").click(function(){
+            $("[name=items]:checkbox").each(function(){
+                $(this).attr("checked",true);
+            });
+        });
+
+
+
+//全不选
+        $("#unSelect").click(function(){
+            $("[name=items]:checkbox").each(function(){
+                $(this).attr("checked",false);
+            });
+        });
+
+
+
+//反选
+        $("#reverse").click(function(){
+            $("[name=items]:checkbox").each(function(){ //遍历每一个复选框
+//$(this).attr("checked",!$(this).attr("checked")); //jQuery方法取复选框的反向值
+                this.checked=!this.checked; //js方法
+            });
+        });
+
+
+//输出选中的值
+        $("#btn").click(function(){
+            var str="你选中的是：\r\n";
+            $("[name=items]:checkbox:checked").each(function(){
+                str+=$(this).val()+"\r\n";
+            });
+            alert(str);
+        });
+    })
+</script>

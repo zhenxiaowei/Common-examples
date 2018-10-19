@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.sas.cms.bizshare.dao.AudioClientDao">
+	<resultMap type="jp.co.sas.cms.bizshare.dto.AudioClientDto"
+		id="AudioClientBean">
+		<result column="audio_id" property="audioId" />
+		<result column="audio_client_name" property="audioClientName" />
+		<result column="file_type" property="fileType" />
+		<result column="audio_file_extension" property="audioFileExtension" />
+		<result column="pre_file_extension" property="preFileExtension" />
+		<result column="ip_address" property="ipAddress" />
+		<result column="folder" property="folder" />
+		<result column="user_id" property="userId" />
+		<result column="password" property="password" />
+		<result column="default_flg" property="defaultFlg" />
+		<result column="comment" property="comment" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="create_datetime" property="createDatetime" />
+		<result column="update_datetime" property="updateDatetime" />
+	</resultMap>
+	<update id="updateAudio" parameterType="jp.co.sas.cms.bizshare.dto.AudioClientDto">
+		<![CDATA[
+			update aa_audio_client  set audio_client_name=#{audioClientName},file_type=#{fileType},audio_file_extension=#{audioFileExtension},
+			pre_file_extension=#{preFileExtension},ip_address=#{ipAddress},folder=#{folder},default_flg=#{defaultFlg},update_user_id=#{updateUserId}
+			,update_datetime=#{updateDatetime},comment=#{comment}
+			]]>
+		
+			,user_id=#{userId}
+		
+		
+			,password=#{password}
+		
+		<![CDATA[
+			where audio_id=#{audioId}
+		]]>
+	</update>
+	<update id="updateAudio1">
+		<![CDATA[
+			update aa_audio_client   set default_flg=0
+			]]>
+	</update>
+	<update id="updateAudio2" parameterType="String">
+		<![CDATA[
+			update aa_audio_client set default_flg=1  
+			]]>
+		where audio_id=#{audioId}
+	</update>
+	<insert id="audioRegister" parameterType="jp.co.sas.cms.bizshare.dto.AudioClientDto">
+		INSERT INTO aa_audio_client
+		(audio_id
+		,audio_client_name
+		,file_type
+		,comment
+		,audio_file_extension
+		,pre_file_extension
+		,ip_address
+		,folder
+		,user_id
+		,password
+		,default_flg
+		,update_user_id
+		,create_datetime
+		,update_datetime
+		)
+		VALUES
+		(
+		#{audioId},
+		#{audioClientName},
+		#{fileType},
+			#{comment},
+		#{audioFileExtension},
+		#{preFileExtension},
+		#{ipAddress},
+		#{folder},
+	
+		#{userId},
+		#{password},
+		#{defaultFlg},
+		#{updateUserId},
+		#{createDatetime},
+		#{updateDatetime}
+		)
+	</insert>
+	<!-- 删除 -->
+	<delete id="deleteByAudioId" parameterType="String">
+		DELETE FROM
+		aa_audio_client
+		WHERE audio_id=#{audioId}
+	</delete>
+	<!-- 查询所有 -->
+	<select id="audioList" resultMap="AudioClientBean">
+		SELECT *
+		FROM aa_audio_client  order by    audio_client_name  asc
+	</select>
+	<select id="audioByName" resultMap="AudioClientBean"
+		parameterType="String">
+		SELECT *
+		FROM aa_audio_client
+		where
+		audio_client_name=#{audioClientName}
+	</select>
+	   <select id="audioById" resultMap="AudioClientBean"
+        parameterType="String">
+        SELECT *
+        FROM aa_audio_client
+        where
+        audio_id=#{audioId}
+    </select>
+</mapper>
