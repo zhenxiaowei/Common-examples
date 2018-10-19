@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="a"/>
+    {{msg}}
+    <!--根据输入框中的内容，算出一个错误信息-->
+
+
+    <!--当给a赋值的时候影响了  错误信息的改变   错误的-->
+</div>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data:{
+          a:''
+        },
+        computed:{//computed默认调用get方法，必须要return   computed不支持异步
+            msg(){
+              if(this.a.length==0){
+                  return '';
+              }
+              if(this.a.length<3){
+                  return '少了';
+              }
+              if(this.a.length>6){
+                  return '多了'
+              }
+              return '';
+            }
+        }
+    });
+
+
+
+
+/*    let vm = new Vue({
+        el: '#app',
+        computed:{//如果写了get方法，并且val给了别人，那当前的a就不会被赋予结果了
+             a:{
+                 get(){return this.msg},set(val){this.msg=val;}
+              }
+        },
+        data:{
+            msg:''
+        }
+    });*/
+
+</script>

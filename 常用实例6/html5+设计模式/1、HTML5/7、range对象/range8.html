@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div onmouseup="moveButton()" style="width: 400px;background: saddlebrown">sd的谁谁谁水水水水谁谁谁水水水水水水水水水水水水水水水水</div>
+<button id="button">按钮</button>
+</body>
+</html>
+<script>
+    function moveButton(){
+        var btn=document.getElementById("button");
+        var selection=document.getSelection();
+        if(selection.rangeCount>0){
+            var range=selection.getRangeAt(0);
+            range.insertNode(btn);
+        }
+    }
+</script>

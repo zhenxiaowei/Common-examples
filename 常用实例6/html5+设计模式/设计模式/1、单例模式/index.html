@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>单例模式的实战</title>
+</head>
+<body>
+<button id="aa">aa</button>
+<button id="bb">bb</button>
+<button id="cc">cc</button>
+<button id="dd">dd</button>
+<button id="ee">ee</button>
+<button id="ff">ff</button>
+<script src="../jquery-1.11.1.min.js"></script>
+<script>
+    //1、独立的对象 建2个 一个xiaowang 一个xiaoli
+    //2、让xiaowang和xiaoli通过门铃通信
+    //3、先看一下xiaowang家有没有门，如果有门直接通过门铃通信，如果没有先建门
+    //4、两个单例之间进行通信
+
+    var xiaowang = (function (argument) {
+        var xiaowangjia = function (message) {
+            this.menling = message;
+        };
+        var men;
+        var info = {
+            sendMessage: function (message) {
+                if (!men) {
+                    men = new xiaowangjia(message)
+                }
+                return men;
+            }
+        };
+        return info;
+    })();
+    var xiaoli = {
+        callxiaowang: function (msg) {
+            var _xw = xiaowang.sendMessage(msg);
+            alert(_xw.menling);
+            _xw = null;//等待垃圾回收
+        }
+    };
+    xiaoli.callxiaowang('didi')
+</script>
+
+<script>
+    //页面有6个按钮abcdef
+    //abc top
+    //banner def
+    var topss = {
+        init: function () {
+            this.aa();
+            this.bb();
+            this.cc();
+        },
+        a: 4,
+        aa: function () {
+            var me = this;
+            $("#aa").click(function () {
+                alert(me.a);
+                alert('aa')
+            })
+        },
+        bb: function () {
+            var me = this;
+            $("#bb").click(function () {
+                alert(me.a);
+                alert('bb');
+            })
+        },
+        cc: function () {
+            var me = this;
+            $("#cc").click(function () {
+                alert(me.a);
+                alert('cc');
+                alert(banner.a);
+                a=666;
+                alert(a)
+            })
+        }
+    };
+    var banner = {
+        init: function () {
+            this.dd();
+            this.ee();
+            this.ff();
+        },
+        a: 44,
+        dd: function () {
+            var me = this;
+            $("#dd").click(function () {
+                alert(me.a);
+                alert('dd')
+            })
+        },
+        ee: function () {
+            var me = this;
+            $("#ee").click(function () {
+                alert(me.a);
+                alert('ee')
+            })
+        },
+        ff: function () {
+            var me = this;
+            $("#ff").click(function () {
+                alert(me.a);
+                alert('ff');
+                alert(topss.a)
+            })
+        }
+    };
+    topss.init();
+    banner.init();
+
+    //    $("#a").click(function () {
+    //
+    //    });
+    //    $("#b").click(function () {
+    //
+    //    });
+    //    $("#c").click(function () {
+    //
+    //    });
+    //    $("#d").click(function () {
+    //
+    //    });
+    //    $("#e").click(function () {
+    //
+    //    });
+    //    $("#f").click(function () {
+    //
+    //    });
+
+</script>
+</body>
+</html>

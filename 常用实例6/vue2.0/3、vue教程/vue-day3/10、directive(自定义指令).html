@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .a{
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+<button v-color="flag">变色</button>
+  <div class="a" v-drag></div>
+  <div class="a" v-drag></div>
+</div>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script>
+  let vm = new Vue({
+    directives:{
+      drag(el){
+          el.onmousedown= function (e) {
+            var disx= e.pageX-el.offsetLeft;
+            var disy= e.pageY-el.offsetTop;
+            document.onmousemove= function (e) {
+              el.style.left= e.pageX-disx+'px';
+              el.style.top= e.pageY-disy+'px';
+            }
+            document.onmouseup= function (e) {
+              document.onmousemove=document.onmouseup=null;
+            }
+            e.preventDefault();
+          }
+       },
+      color(el,bindings){//el指代的是button按钮    当前dom元素
+         el.style.background=bindings.value;
+        }
+    },
+    el: '#app',
+    data:{
+          flag:'red'
+    }
+  });
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡动画</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: #0d5ab1;
+/*        transition-property: width,height,background-color;!*对宽度进行过渡*!
+        transition-duration: 3s;!*过渡时间为3秒*!
+        transition-timing-function: ease;!*缓动效果为ease*!
+        transition-delay: 3s;!*延迟3秒后开始过渡*!*/
+        /*简写*/
+
+        transition: width 3s,height 3s,background-color 3s;
+
+
+    }
+    div:hover{
+        width: 400px;
+        height: 400px;
+        background: #ddd;
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>

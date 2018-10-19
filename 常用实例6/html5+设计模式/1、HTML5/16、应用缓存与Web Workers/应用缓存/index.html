@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html manifest="index.appcache">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>应用缓存</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<h1 class="h1">hello html5</h1>
+</body>
+</html>
+<script src="index.js"></script>
+<script>
+    //应用缓存 html标签后增加manifest="xxx.appcache"的文件
+/*    CACHE MANIFEST
+
+    CACHE:需要缓存
+            index.html
+    index.js
+
+    NETWORK:不需要缓存
+            index.css*/
+
+
+    sessionStorage.setItem('categoriesOfData',JSON.stringify(msg))
+    var userJson=sessionStorage.getItem("categoriesOfData");
+    var userData=JSON.parse(userJson);
+    console.log(userData)
+</script>

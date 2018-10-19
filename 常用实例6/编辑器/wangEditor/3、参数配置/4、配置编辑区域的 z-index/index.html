@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    //编辑区域的z-index默认为10000，可自定义修改，代码配置如下。需改之后，编辑区域和菜单的z-index会同时生效。
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.zIndex = 100
+    editor.create()
+
+</script>
+</body>
+</html>

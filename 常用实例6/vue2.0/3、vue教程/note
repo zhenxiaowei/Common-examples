@@ -1,0 +1,25 @@
+## 下载一个全局生成vue项目的脚手架
+npm install vue-cli -g
+vue init webpack <项目名称>
+cd 项目名称
+npm install
+npm run dev
+
+
+内容简介：
+vue实例上的属性、vue生命周期、vue数据绑定、computed计算属性、watch监听器、vue组件、vue组件extend、vue组件高级属性、vue的render、vue的router、vux、vue实例上的属性
+
+组件树：
+this.$parent用来访问当前组件的父组件  （方法和属性都可以）
+this.$root用来访问组件树的根组件  （方法和属性都可以）
+this.$children用来访问当前组件实例的直接子组件实例（方法和属性都可以）
+$refs:用来访问ref指令的子组件
+
+DOM访问:
+$el:用来挂载当前组件实例的dom元素
+$els：用来访问$el元素中使用了v-el指令的dom元素
+
+
+
+
+

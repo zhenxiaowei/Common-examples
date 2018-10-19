@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>构造函数模式代码实战</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    //1、用于创建一个特定类型的对象
+    //2、命名规范
+    //3、js开发的时候写单引号
+    //4、js里构造函数比较特殊的地方 new
+    //5、zaomen就是构造函数 它充当了类的概念
+    var AA = {
+        zaomen: function (huawen) {
+            if (!(this instanceof AA.zaomen)) {
+                return new AA.zaomen(huawen);
+            }
+            var _hauwen = '普通';
+            if (huawen) {
+                _hauwen = huawen
+            }
+            this.suo = '普通';
+            this.huawen = _hauwen;
+            this.create = function () {
+                return '锁:' + this.suo + '花纹:' + this.huawen;
+            }
+        }
+    };
+    var BB = {
+        zaomen: function (huawen) {
+            if (!(this instanceof AA.zaomen)) {
+                return new AA.zaomen(huawen);
+            }
+            var _hauwen = '普通';
+            if (huawen) {
+                _hauwen = huawen
+            }
+            this.suo = '普通';
+            this.huawen = _hauwen;
+            this.create = function () {
+                return '锁:' + this.suo + '花纹:' + this.huawen;
+            }
+        }
+    };
+    var xiaozhang = AA.zaomen();
+    alert('xiaozhang' + xiaozhang.create())
+    var xiaoli = BB.zaomen("绚丽");
+    alert('xiaoli' + xiaoli.create())
+</script>

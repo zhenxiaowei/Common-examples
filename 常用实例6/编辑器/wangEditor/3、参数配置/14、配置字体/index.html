@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    //编辑器的字体，可以通过editor.customConfig.fontNames自定义配置
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    // 自定义字体
+    editor.customConfig.fontNames = [
+        '宋体',
+        '微软雅黑',
+        'Arial',
+        'Tahoma',
+        'Verdana'
+    ]
+    editor.create()
+</script>
+</body>
+</html>

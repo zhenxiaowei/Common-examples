@@ -1,0 +1,4 @@
+.navbar{
+    margin-bottom: 0 !important;
+}
+div[class*="col-"]{ background:#666; border:1px #00F solid; color:white; min-height:50px;}

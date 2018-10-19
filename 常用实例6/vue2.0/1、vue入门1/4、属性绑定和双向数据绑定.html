@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-bind:title="'zxw '+title">hello world</div><!--属性绑定-->
+    <div :title="title">hello world</div>
+    <hr/>
+    <input type="text" v-model="content"/><!--数据双向绑定-->
+    <div>{{content}}</div>
+</div>
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            title: "this is hello world",
+            content:"this is content"
+        }
+    })
+</script>
+</body>
+</html>

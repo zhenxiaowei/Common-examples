@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="app">
+  <!--表达式  可以放赋值、取值、三元表达式-->
+  {{msg=0}}<!--赋值-->
+  {{msg}}<!--取值-->
+  {{msg=='helloWord'?1:0}}<!--三元表达式-->
+</div>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script>
+  //引入vue后会给你一个vue构造函数
+  let vm = new Vue({ //vm==viewModel
+    el: '#app',//告诉vue能管理那个部分,querySelector
+    data:{//data中的数据会被vm所代理
+        msg:'helloWord'//可以通过vm.msg取到对应的内容
+    }
+  });//Object.defineProperty//定义属性
+</script>

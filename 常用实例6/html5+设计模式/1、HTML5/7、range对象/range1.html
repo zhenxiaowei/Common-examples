@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>range对象</title>
+</head>
+<body>
+selection对象与range对象的使用
+<input type="button" value="点击我" onclick="rangeTest()"/>
+<div id="showRange"></div>
+</body>
+</html>
+<script>
+    function rangeTest(){
+        var html;
+        var showRangeDiv=document.getElementById('showRange');
+        var selection=document.getSelection();
+        if(selection.rangeCount>0){
+            html="你选取了"+selection.rangeCount+"段内容<br/>";
+            for(var i=0;i<selection.rangeCount;i++){
+                var range=selection.getRangeAt(i);
+                html+="第"+(i+1)+"段内容为："+range+"<br/>";
+            }
+            showRangeDiv.innerHTML=html;
+        }
+    }
+</script>

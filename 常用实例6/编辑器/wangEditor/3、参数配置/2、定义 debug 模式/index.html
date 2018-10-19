@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+<!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    /*
+    * 可通过editor.customConfig.debug = true配置debug模式，debug模式下，有 JS 错误会以throw Error方式提示出来。默认值为false，即不会抛出异常。
+
+但是，在实际开发中不建议直接定义为true或者false，可通过 url 参数进行干预，示例如下：
+    * */
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    // 通过 url 参数配置 debug 模式。url 中带有 wangeditor_debug_mode=1 才会开启 debug 模式
+    editor.customConfig.debug = location.href.indexOf('wangeditor_debug_mode=1') > 0
+    editor.create()
+</script>
+</body>
+</html>

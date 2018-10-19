@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>工厂模式代码实战</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    var changzhang={};
+    var gongchang= {}//这是单例模式
+    gongchang.chanyifu= function () {
+        this.gongren=50;//这是构造函数模式
+        alert("我们有"+this.gongren+"人")
+    };
+    gongchang.chanxie= function () {
+        this.gongren=20;
+        alert("产鞋子")
+    };
+    gongchang.yunshu= function () {
+        alert("运输")
+    };
+    gongchang.changzhang= function (para) {
+        //new 上面用了构造函数模式和单例模式
+        return new gongchang[para]();
+    };
+    var me=gongchang.changzhang('chanyifu');
+    var me2=gongchang.changzhang('chanxie');
+    alert(me.gongren);
+    alert(me2.gongren);
+</script>

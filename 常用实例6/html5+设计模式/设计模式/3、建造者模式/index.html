@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>建造者模式代码实战</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    //1、发送一个请求
+    //2、$.ajax 建造者模式  包工头
+    //3、工人 完整的工程   小回调
+    //    $.ajax({
+    //        url:"a.php",
+    //        success: function () {
+    //
+    //        }
+    //    })
+    //$('<p></p>')==>jquery内部去实现
+
+
+    //1、产出的东西是房子
+    function Fangzi() {
+        this.woshis = '';
+        this.keting = '';
+        this.chufang = '';
+    }
+    function Baogongtou() {
+        this.gaifangzi = function (gongren) {
+            gongren.jian_woshi();
+            gongren.jian_keting();
+            gongren.jian_chufang();
+        }
+    }
+    function Gongren() {
+        this.jian_woshi = function () {
+            alert('卧室我改好了');
+        };
+        this.jian_keting = function () {
+            alert('客厅我盖好了');
+        };
+        this.jian_chufang = function () {
+            alert('厨房我盖好了');
+        };
+        this.jiaogong = function () {
+            var _fangzi = new Fangzi();
+            _fangzi.woshis="ok";
+            _fangzi.keting="ok";
+            _fangzi.chufang="ok";
+            console.log( _fangzi);
+            return _fangzi;
+        }
+    }
+    var gongren = new Gongren;
+    var baogongtou = new Baogongtou()
+    baogongtou.gaifangzi(gongren)
+    var myfangzi = gongren.jiaogong();
+    console.log(myfangzi)
+</script>

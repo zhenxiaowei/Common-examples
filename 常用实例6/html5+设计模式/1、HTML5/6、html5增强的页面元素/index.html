@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--figure元素以及figcaption元素-->
+<figure>
+    <img src="loading.gif" alt="加载中"/>
+    <img src="loading.gif" alt="加载中"/>
+    <figcaption>加载中</figcaption>
+</figure>
+
+<!--details元素和summary元素-->
+<script>
+    function detailsClick(datail){
+        var p=document.getElementById('p');
+        if(datail.open){
+            p.style.visibility='hidden';
+        }else{
+            p.style.visibility='visible'
+        }
+    }
+</script>
+<details id="details" onclick="detailsClick(this)">
+    <summary>速度与激情</summary>
+    <p id="p" style="visibility: hidden">你好斯柯达上来看觉得了深刻</p>
+</details>
+
+<!--mark元素-->
+<p>这是一段文字用来<mark>测试</mark>mark元素</p>
+</body>
+</html>

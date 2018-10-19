@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor</title>
+</head>
+<body>
+<div id="div1" class="toolbar">
+</div>
+
+<div id="div2" class="text">
+
+</div>
+
+
+<!-- 引用js -->
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.create()
+    editor.txt.html('<p>用 JS 设置的内容</p>');
+    //追加内容
+    // 创建编辑器之后，可使用editor.txt.append('<p>追加的内容</p>')继续追加内容。
+
+    //清空内容
+    // 可使用editor.txt.clear()清空编辑器内容
+</script>
+</body>
+</html>

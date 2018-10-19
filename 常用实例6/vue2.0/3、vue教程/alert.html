@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .modal-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(55, 55, 55, 0.6);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-confirm {
+            width: 400px;
+            box-sizing: border-box;
+            padding: 30px 40px;
+            background-color: #fff;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <alert-modal></alert-modal>
+</div>
+<template id="alertModal">
+    <div class="modal-mask" v-show="show">
+        <div class="modal-confirm">
+            <h2 class="confirm-header">
+                <i class=""></i>{{title}}
+            </h2>
+            <div class="confirm-content">{{content}}</div>
+            <div class="confirm-btns">
+                <button class="btn" @click="op(1)">取消</button>
+                <button class="btn btn-primary" @click="op(2)">确认</button>
+            </div>
+        </div>
+    </div>
+</template>
+</body>
+</html>
+<script src="../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('alert-modal', {
+        template: '#alertModal',
+        data(){
+            return {
+                title:'标题',
+                show:true,
+                content:'内容'
+            }
+        }
+    });
+    new Vue({
+        el: "#app"
+    })
+
+
+</script>

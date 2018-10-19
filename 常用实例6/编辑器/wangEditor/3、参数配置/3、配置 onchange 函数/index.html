@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+<p>手动触发 onchange 函数执行</p>
+<button id="btn1">change</button>
+
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    /*
+配置onchange函数之后，用户操作（鼠标点击、键盘打字等）导致的内容变化之后，会自动触发onchange函数执行。
+
+但是，用户自己使用 JS 修改了div1的innerHTML，不会自动触发onchange函数，此时你可以通过执行editor.change()来手动触发onchange函数的执行。
+    * */
+
+
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.onchange = function (html) {
+        // html 即变化之后的内容
+        console.log(html)
+    }
+    editor.create()
+
+    document.getElementById('btn1').addEventListener('click', function () {
+        // 如果未配置 editor.customConfig.onchange，则 editor.change 为 undefined
+        editor.change && editor.change()
+    })
+
+    //另外，如果需要修改 onchange 触发的延迟时间（onchange 会在用户无任何操作的 xxx 毫秒之后被触发），可通过如下配置
+
+   // 自定义 onchange 触发的延迟时间，默认为 200 ms
+    //editor.customConfig.onchangeTimeout = 1000 // 单位 ms
+
+</script>
+</body>
+</html>

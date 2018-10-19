@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>
+        <input type="text" v-model="inputValue"/>
+        <button @click="handleClick">提交</button>
+    </div>
+    <ul>
+        <todo-list v-for="item of list" :content="item"></todo-list>
+        <!--参数通过属性传递-->
+    </ul>
+</div>
+<script>
+    //全局组件
+    Vue.component('todo-list', {
+        props: ['content'],//参数接收
+        template: '<li>{{content}}</li>'
+    });
+
+    //局部组件
+    //    var TodoItem = {
+    //        template: '<li>item</li>'
+    //    };
+
+
+    new Vue({
+        el: "#root",
+//        components:{//局部组件注册
+//            'todo-list':TodoItem
+//        },
+        data: {
+            inputValue: '',
+            list: []
+        },
+        methods: {
+            handleClick: function () {
+                this.list.push(this.inputValue);
+                this.inputValue = '';
+            }
+        }
+    })
+</script>
+</body>
+</html>

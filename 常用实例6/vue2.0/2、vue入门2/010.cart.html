@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <tr>
+                        <th><input type="checkbox" v-model="all"/>全选</th>
+                        <th>商品</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>小计</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr v-for="product in products">
+                        <td><input type="checkbox" v-model="product.isSelected"/></td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td><input type="text" v-model="product.count"/></td>
+                        <td>{{product.price*product.count}}</td>
+                        <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">总价{{total}}</td><!--colspan合并单元格-->
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                products:JSON.parse(localStorage.getItem('products'))||[
+                    {isSelected:false,price:30,count:1,name:"zxw1"},
+                    {isSelected:true,price:60,count:2,name:"zxw2"},
+                    {isSelected:false,price:90,count:3,name:"zxw3"}
+                ]
+            },
+            computed:{//计算属性
+                    all:{
+                        get(){
+                            return this.products.every(item => item.isSelected);
+                        },
+                        set(val){
+                          this.products.forEach(item => item.isSelected=val);
+                        }
+                    },
+                    total(){
+                         return this.products.reduce((prev,next)=>prev+next.price*next.count,0)
+                      }
+                },
+                    methods:{
+                        remove(pro){
+                             this.products=this.products.filter((item)=>item!==pro)
+                        }
+                    },
+            watch:{
+                products:{
+                    handle(){
+                        localStorage.setItem('products',JSON.stringify(this.products))
+                    },deep:true//深度监控
+
+                }
+              },
+        })
+</script>

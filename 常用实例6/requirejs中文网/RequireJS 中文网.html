@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://www.requirejs.cn/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><script src="./RequireJS 中文网_files/plugin.js" async="" charset="utf-8" mod_name="tkapi-plugin"></script><script src="./RequireJS 中文网_files/click.js" async="" charset="utf-8" mod_name="tkapi-click"></script><script charset="gbk" async="" src="./RequireJS 中文网_files/tkapi.js"></script>
+
+    <title>RequireJS 中文网</title>
+<script src="./RequireJS 中文网_files/hm.js"></script><script type="text/javascript" name="baidu-tc-cerfication" src="./RequireJS 中文网_files/lightapp.js"></script><script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: '2a4a080d1a2d2e3019076198'});</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="Require,JS,JS框架,JS framework,javascript,requirejs,中文,requirejs中文,requirejs开发,requirejs代码,requirejs入门,requirejs教程,requirejs学习">
+     
+    <link rel="stylesheet" type="text/css" href="./RequireJS 中文网_files/main.css">
+    <link rel="icon" type="image/x-icon" href="http://www.requirejs.cn/favicon.png">
+    <!--[if IE]> <link rel="stylesheet" type="text/css" href="ie.css" /> <![endif]-->
+    <link rel="stylesheet" type="text/css" href="./RequireJS 中文网_files/highlight.css">
+
+    <script type="text/javascript" src="./RequireJS 中文网_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./RequireJS 中文网_files/init.js"></script>
+    <script src="./RequireJS 中文网_files/dojo.xd.js"></script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?bd85fe55cbdf8c3a8732ad38718a3271";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+    <script type="text/javascript">
+        dojo.require("dojox.highlight");
+        dojo.require("dojox.highlight.languages.javascript");
+        dojo.require("dojox.highlight.languages.html");
+        dojo.ready(function() {
+            dojo.query("pre > code")
+                .forEach(function(node) {
+                    if (node.innerHTML.indexOf("DOCTYPE") !== -1 || node.innerHTML.indexOf('&lt;script') !== -1) {
+                        dojo.addClass(node, "html");
+                    } else {
+                        dojo.addClass(node, "javascript");
+                    }
+                })
+                .forEach(dojox.highlight.init);
+        });
+    </script>
+<script src="./RequireJS 中文网_files/share.js"></script><script src="./RequireJS 中文网_files/navbarapp_api" async="" type="text/javascript" charset="utf-8"></script><script type="text/javascript" charset="utf-8" src="./RequireJS 中文网_files/helper-utils-moplus-monitor_cccb3ce.js" _md_="_anymoore_http://apps.bdimg.com/cloudaapi/pkg/helper-utils-moplus-monitor_cccb3ce.js"></script><script type="text/javascript" charset="utf-8" src="./RequireJS 中文网_files/push-smartBar_f0a0b3a.js" _md_="_anymoore_http://apps.bdimg.com/cloudaapi/pkg/push-smartBar_f0a0b3a.js"></script><script type="text/javascript" charset="utf-8" src="./RequireJS 中文网_files/app-socialshare_b5c9f0e.js" _md_="_anymoore_http://apps.bdimg.com/cloudaapi/pkg/app-socialshare_b5c9f0e.js"></script><link rel="stylesheet" href="./RequireJS 中文网_files/share_style0_16.css"><link rel="stylesheet" href="./RequireJS 中文网_files/share_popup.css"><link rel="stylesheet" href="./RequireJS 中文网_files/select_share.css"></head>
+<body class=" hPC">
+
+
+<div id="grid"></div>
+<div id="wrapper">
+
+    <div id="navBg"></div>
+    <button type="button" role="button" aria-label="Toggle Navigation" class="off-canvas-button">
+      <span class="lines">
+        <span class="line">&nbsp;</span>
+        <span class="line">&nbsp;</span>
+        <span class="line">&nbsp;</span>
+      </span>
+      <span class="cross">×</span>
+    </button>
+    <div id="nav" class="mono">
+        <a class="homeImageLink" href="http://www.requirejs.cn/home.html"></a>
+        <h1>a javascript module loader</h1>
+
+        <ul>
+            <li class="hbox">
+                <a href="http://www.requirejs.cn/home.html">主页</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon home"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/start.html">开始</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon start"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/download.html">下载</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon download"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/api.html">API</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon api"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/optimization.html">优化</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon optimize"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/jquery.html">jQuery 加载</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon script"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/node.html">Node 加载</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon script"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/dojo.html">Dojo 加载</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon script"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/commonjs.html">CommonJS 说明</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon script"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/faq.html">常见问题解答</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon question"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/errors.html">常见错误</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon question"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/plugins.html">第三方插件</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon api"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/why.html">什么是 Web Modules</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon question"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/whyamd.html">什么是 AMD</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon question"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/requirements.html">要求</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon requirement"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/history.html">历史</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon history"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a href="http://groups.google.com/group/requirejs">帮助</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon help"></span>
+            </li>
+            <li class="hbox">
+                <a href="http://jrburke.com/">博客</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon blog"></span>
+            </li>
+            <li class="hbox">
+                <a href="http://twitter.com/jrburke">Twitter</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon twitter"></span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="hbox">
+                <a href="http://github.com/jrburke/requirejs">GitHub</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon git"></span>
+            </li>
+            <li class="hbox">
+                <a class="local" href="http://www.requirejs.cn/docs/contributing.html">贡献</a>
+                <span class="spacer boxFlex"></span>
+                <span class="icon fork"></span>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li class="version">中文文档 (V 2.1.11)</li>
+            <li class="version"><a class="local" href="http://www.requirejs.cn/docs/1.0/home.html">文档 (V 1.0)</a></li>
+        </ul>
+
+
+    </div>
+
+    <div id="content"><div id="directory" class="section">
+    <a style="position: absolute;top: -1px;left: -500px;margin-left:50%;" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DpSxlfhSCjeMcQipKwQzePDAVflQIoZepK7Vc7tFgwiFRAdhuF14FMQ8ClgvmdL9v79%2FTFaMDK6Q6IZ1oCmIPb5VQXgSNaafSZKzEiYKd1NuQcETLzAbOcm87mqsrqm3WIYULNg46oBA%3D">
+<img src="./RequireJS 中文网_files/ts.png" data-bd-imgshare-binded="1">
+</a><br><br><br><br><br>
+<h1>RequireJS API</h1>
+
+<span class="note">这是 <a href="https://github.com/jrburke/requirejs/wiki/Upgrading-to-RequireJS-2.0">RequireJS 2.0 API</a>. 如果你想要的是 1.0: <a href="http://www.requirejs.cn/1.0/index.html">转到 to 1.0</a>.</span>
+
+<ul class="index mono">
+    <li class="hbox"><a href="http://www.requirejs.cn/api.html#usage">使用教程</a><span class="spacer boxFlex"></span><span class="sect">§§ 1-1.3</span></li>
+        <ul>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#jsfiles">加载 JavaScript 文件</a><span class="spacer boxFlex"></span><span class="sect">§ 1.1</span></li>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#data-main">data-main 入口点</a><span class="spacer boxFlex"></span><span class="sect">§ 1.2</span></li>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#define">定义模块</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3</span></li>
+            <ul>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#defsimple">简单的值对</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.1</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#deffunc">函数定义</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.2</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#defdep" _hover-ignore="1">存在依赖的函数定义</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.3</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#funcmodule">定义一个函数模块</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.4</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#cjsmodule">定义一个简单的CommonJS模块</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.5</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#modulename">定义一个命名模块</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.6</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#modulenotes">其它注意事项</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.7</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#circular">循环依赖</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.8</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#jsonp" _hover-ignore="1">JSONP服务依赖</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.9</span></li>
+                <li class="hbox"><a href="http://www.requirejs.cn/api.html#undef">定义一个模板</a><span class="spacer boxFlex"></span><span class="sect">§ 1.3.10</span></li>
+
+            </ul>
+        </ul>
+    <li class="hbox"><a href="http://www.requirejs.cn/api.html#mechanics">机制</a><span class="spacer boxFlex"></span><span class="sect">§§ 2</span></li>
+    <li class="hbox"><a href="http://www.requirejs.cn/api.html#config">配置选项</a><span class="spacer boxFlex"></span><span class="sect">§§ 3</span></li>
+    <li class="hbox"><a href="http://www.requirejs.cn/api.html#advanced">高级使用</a><span class="spacer boxFlex"></span><span class="sect">§§ 4-4.6</span></li>
+    <ul>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#packages">从包中加载模块</a><span class="spacer boxFlex"></span><span class="sect">§ 4.1</span></li>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#multiversion">多版本支持</a><span class="spacer boxFlex"></span><span class="sect">§ 4.2</span></li>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#afterload">页面加载后加载代码</a><span class="spacer boxFlex"></span><span class="sect">§ 4.3</span></li>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#webworker">Web Worker支持</a><span class="spacer boxFlex"></span><span class="sect">§ 4.4</span></li>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#rhino">Rhino 支持</a><span class="spacer boxFlex"></span><span class="sect">§ 4.5</span></li>
+        <li class="hbox"><a href="http://www.requirejs.cn/api.html#errors">错误处理</a><span class="spacer boxFlex"></span><span class="sect">§ 4.6</span></li>
+    </ul>
+    <li class="hbox"><a href="http://www.requirejs.cn/api.html#plugins">加载插件</a><span class="spacer boxFlex"></span><span class="sect">§§ 5-5.4</span></li>
+        <ul>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#text">指定一个文件依赖</a><span class="spacer boxFlex"></span><span class="sect">§ 5.1</span></li>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#pageload">页面加载事件及DOM Ready </a><span class="spacer boxFlex"></span><span class="sect">§ 5.2</span></li>
+            <li class="hbox"><a href="http://www.requirejs.cn/api.html#i18n">定义 I18N Bundle </a><span class="spacer boxFlex"></span><span class="sect">§ 5.3</span></li>
+        </ul>
+</ul>
+</div>
+
+<div class="section">
+<h2>
+<a href="http://www.requirejs.cn/api.html#usage" name="usage">使用</a>
+<span class="sectionMark">§ 1</span>
+</h2>
+
+<h3>
+<a href="http://www.requirejs.cn/api.html#jsfiles" name="jsfiles">加载 JavaScript 文件</a>
+<span class="sectionMark">§ 1.1</span>
+</h3>
+
+<p>RequireJS的目标是鼓励代码的模块化，它使用了不同于传统&lt;script&gt;标签的脚本加载步骤。可以用它来加速、优化代码，但其主要目的还是为了代码的模块化。它鼓励在使用脚本时以module ID替代URL地址。</p>
+
+<p>RequireJS以一个相对于<a href="http://makingmobile.org/docs/tools/requirejs-api-zh/#config-baseUrl">baseUrl</a>的地址来加载所有的代码。 页面顶层&lt;script&gt;标签含有一个特殊的属性data-main，require.js使用它来启动脚本加载过程，而baseUrl一般设置到与该属性相一致的目录。下列示例中展示了baseUrl的设置：</p>
+
+<pre><code>&lt;!--This sets the baseUrl to the "scripts" directory, and
+    loads a script that will have a module ID of 'main'--&gt;
+&lt;script data-main="scripts/main.js" src="scripts/require.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>baseUrl亦可通过<a href="http://makingmobile.org/docs/tools/requirejs-api-zh/#config">RequireJS config</a>手动设置。如果没有显式指定config及data-main，则默认的baseUrl为包含RequireJS的那个HTML页面的所属目录。</p>
+
+<p>RequireJS默认假定所有的依赖资源都是js脚本，因此无需在module ID上再加".js"后缀，RequireJS在进行module ID到path的解析时会自动补上后缀。你可以通过<a href="http://makingmobile.org/docs/tools/requirejs-api-zh/#config-paths">paths config</a>设置一组脚本，这些有助于我们在使用脚本时码更少的字。</p>
+
+<p>有时候你想避开"baseUrl + paths"的解析过程，而是直接指定加载某一个目录下的脚本。此时可以这样做：如果一个module ID符合下述规则之一，其ID解析会避开常规的"baseUrl + paths"配置，而是直接将其加载为一个相对于当前HTML文档的脚本：</p>
+
+<ul>
+<li>以 ".js" 结束.</li>
+<li>以 "/" 开始.</li>
+<li>包含 URL 协议, 如 "http:" or "https:".</li>
+</ul>
+
+<p>一般来说，最好还是使用baseUrl及"paths" config去设置module ID。它会给你带来额外的灵活性，如便于脚本的重命名、重定位等。 同时，为了避免凌乱的配置，最好不要使用多级嵌套的目录层次来组织代码，而是要么将所有的脚本都放置到baseUrl中，要么分置为项目库/第三方库的一个扁平结构，如下：</p>
+
+<ul>
+    <li>www/
+    <ul>
+        <li>index.html</li>
+        <li>js/
+        <ul>
+            <li>app/
+            <ul>
+                <li>sub.js</li>
+            </ul>
+            </li>
+            <li>lib/
+            <ul>
+                <li>jquery.js</li>
+                <li>canvas.js</li>
+            </ul></li>
+            <li>app.js</li>
+        </ul></li>
+    </ul></li>
+</ul>
+
+<p>index.html:</p>
+
+<pre><code>&lt;script data-main="js/app.js" src="js/require.js"&gt;&lt;/script&gt;</code></pre>
+
+<p>app.js:</p>
+
+<pre><code>requirejs.config({
+    //By default load any module IDs from js/lib
+    baseUrl: 'js/lib',
+    //except, if the module ID starts with "app",
+    //load it from the js/app directory. paths
+    //config is relative to the baseUrl, and
+    //never includes a ".js" extension since
+    //the paths config could be for a directory.
+    paths: {
+        app: '../app'
+    }
+});
+
+// Start the main app logic.
+requirejs(['jquery', 'canvas', 'app/sub'],
+function   ($,        canvas,   sub) {
+    //jQuery, canvas and the app/sub module are all
+    //loaded and can be used here now.
+});
+</code></pre>
+
+<p>注意在示例中，三方库如jQuery没有将版本号包含在他们的文件名中。我们建议将版本信息放置在单独的文件中来进行跟踪。使用诸如<a href="https://github.com/volojs/volo">volo</a>这类的工具，可以将package.json打上版本信息，并在磁盘上保持文件名为"jquery.js"。这有助于你保持配置的最小化，避免为每个库版本设置一条path。例如，将"jquery"配置为"jquery-1.7.2"。</p>
+
+<p>理想状况下，每个加载的脚本都是通过<a href="http://makingmobile.org/docs/tools/requirejs-api-zh/#define">define()</a>来定义的一个模块；但有些"浏览器全局变量注入"型的传统/遗留库并没有使用define()来定义它们的依赖关系，你必须为此使用<a href="http://makingmobile.org/docs/tools/requirejs-api-zh/#config-shim">shim config</a>来指明它们的依赖关系。 如果你没有指明依赖关系，加载可能报错。这是因为基于速度的原因，RequireJS会异步地以无序的形式加载这些库。</p>
+
+<h3>
+<a href="http://www.requirejs.cn/api.html#data-main" name="data-main">data-main 入口点</a>
+<span class="sectionMark">§ 1.2</span>
+</h3>
+
+<p> require.js 在加载的时候会检察data-main 属性:</p>
+
+<pre><code>&lt;!--when require.js loads it will inject another script tag
+    (with async attribute) for scripts/main.js--&gt;
+&lt;script data-main="scripts/main" src="scripts/require.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>你可以在data-main指向的脚本中设置模板加载 选项，然后加载第一个应用模块。.注意：你在main.js中所设置的脚本是异步加载的。所以如果你在页面中配置了其它JS加载，则不能保证它们所依赖的JS已经加载成功。</p>
+<p>例如：</p>
+<pre><code>&lt;script data-main="scripts/main" src="scripts/require.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/other.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<pre><code>// contents of main.js:
+require.config({
+    paths: {
+        foo: 'libs/foo-1.1.3'
+    }
+});
+</code></pre>
+<pre><code>// contents of other.js:
+
+// This code might be called before the require.config() in main.js
+// has executed. When that happens, require.js will attempt to
+// load 'scripts/foo.js' instead of 'scripts/libs/foo-1.1.3.js'
+require( ['foo'], function( foo ) {
+
+});
+</code></pre>
+
+<h3>
+<a href="http://www.requirejs.cn/api.html#define" name="define">定义模块</a>
+<span class="sectionMark">§ 1.3</span>
+</h3>
+
+<p>模块不同于传统的脚本文件，它良好地定义了一个作用域来避免全局名称空间污染。它可以显式地列出其依赖关系，并以函数(定义此模块的那个函数)参数的形式将这些依赖进行注入，而无需引用全局变量。RequireJS的模块是模块模式的一个扩展，其好处是无需全局地引用其他模块。</p>
+
+<p>RequireJS的模块语法允许它尽快地加载多个模块，虽然加载的顺序不定，但依赖的顺序最终是正确的。同时因为无需创建全局变量，甚至可以做到在同一个页面上同时加载同一模块的不同版本。</p>
+
+<p>(如果你熟悉ConmmonJS，可参看CommonJS的注释信息以了解RequireJS模块到CommonJS模块的映射关系)。</p>
+
+<p>一个磁盘文件应该只定义 1 个模块。多个模块可以使用内置优化工具将其组织打包。</p>
+
+<div class="subSection">
+<h4>
+<a href="http://www.requirejs.cn/api.html#defsimple" name="defsimple">简单的值对</a>
+<span class="sectionMark">§ 1.3.1</span>
+</h4>
+
+<p>如果一个模块仅含值对，没有任何依赖，则在define()中定义这些值对就好了：</p>
+
+<pre><code>//Inside file my/shirt.js:
+define({
+    color: "black",
+    size: "unisize"
+});
+</code></pre>
+</div>
+
+<div class="subSection">
+<h4>
+<a href="http://www.requirejs.cn/api.html#deffunc" name="deffunc">函数式定义</a>
+<span class="sectionMark">§ 1.3.2</span>
+</h4>
+
+<p>如果一个模块没有任何依赖，但需要一个做setup工作的函数，则在define()中定义该函数，并将其传给define()：</p>
+
+<pre><code>//my/shirt.js now does setup work
+//before returning its module definition.
+define(function () {
+    //Do setup work here
+
+    return {
+        color: "black",
+        size: "unisize"
+    }
+});
+</code></pre>
+</div>
+
+<div href="#subSection" class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#defdep" name="defdep">存在依赖的函数式定义</a><span class="sectionMark">§ 1.3.3</span></h4>
+
+<p>如果模块存在依赖：则第一个参数是依赖的名称数组；第二个参数是函数，在模块的所有依赖加载完毕后，该函数会被调用来定义该模块，因此该模块应该返回一个定义了本模块的object。依赖关系会以参数的形式注入到该函数上，参数列表与依赖名称列表一一对应。</p>
+
+<pre><code>//my/shirt.js now has some dependencies, a cart and inventory
+//module in the same directory as shirt.js
+define(["./cart", "./inventory"], function(cart, inventory) {
+        //return an object to define the "my/shirt" module.
+        return {
+            color: "blue",
+            size: "large",
+            addToCart: function() {
+                inventory.decrement(this);
+                cart.add(this);
+            }
+        }
+    }
+);
+</code></pre>
+
+<p>本示例创建了一个my/shirt模块，它依赖于my/cart及my/inventory。磁盘上各文件分布如下：</p>
+
+<ul>
+<li>my/cart.js</li>
+<li>my/inventory.js</li>
+<li>my/shirt.js</li>
+</ul>
+
+<p>模块函数以参数"cart"及"inventory"使用这两个以"./cart"及"./inventory"名称指定的模块。在这两个模块加载完毕之前，模块函数不会被调用。</p>
+
+<!--p>The function is not called until the my/cart and my/inventory modules have been loaded, and the function receives the modules as the "cart" and "inventory" arguments.</p-->
+
+<p>严重不鼓励模块定义全局变量。遵循此处的定义模式，可以使得同一模块的不同版本并存于同一个页面上(参见 高级用法 )。另外，函参的顺序应与依赖顺序保存一致。</p>
+
+<p>返回的object定义了"my/shirt"模块。这种定义模式下，"my/shirt"不作为一个全局变量而存在。</p>
+</div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#funcmodule" name="funcmodule">将模块定义为一个函数</a><span class="sectionMark">§ 1.3.4</span></h4>
+
+<p>对模块的返回值类型并没有强制为一定是个object，任何函数的返回值都是允许的。此处是一个返回了函数的模块定义：</p>
+
+<pre><code>//A module definition inside foo/title.js. It uses
+//my/cart and my/inventory modules from before,
+//but since foo/title.js is in a different directory than
+//the "my" modules, it uses the "my" in the module dependency
+//name to find them. The "my" part of the name can be mapped
+//to any directory, but by default, it is assumed to be a
+//sibling to the "foo" directory.
+define(["my/cart", "my/inventory"],
+    function(cart, inventory) {
+        //return a function to define "foo/title".
+        //It gets or sets the window title.
+        return function(title) {
+            return title ? (window.title = title) :
+                   inventory.storeName + ' ' + cart.name;
+        }
+    }
+);
+</code></pre>
+</div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#cjsmodule" name="cjsmodule">简单包装CommonJS来定义模块</a><span class="sectionMark">§ 1.3.5</span></h4>
+
+<p>如果你现有一些以CommonJS模块格式编写的代码，而这些代码难于使用上述依赖名称数组参数的形式来重构，你可以考虑直接将这些依赖对应到一些本地变量中进行使用。你可以使用一个CommonJS的简单包装来实现：</p>
+
+
+<pre><code>define(function(require, exports, module) {
+        var a = require('a'),
+            b = require('b');
+
+        //Return the module value
+        return function () {};
+    }
+);
+</code></pre>
+
+<p>该包装方法依靠Function.prototype.toString()将函数内容赋予一个有意义的字串值，但在一些设备如PS3及一些老的Opera手机浏览器中不起作用。考虑在这些设备上使用优化器将依赖导出为数组形式。</p>
+
+<p>更多的信息可参看CommonJS Notes页面，以及"Why AMD"页面的"Sugar"段落。
+</p></div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#modulename" name="modulename">定义一个命名模块</a><span class="sectionMark">§ 1.3.6</span></h4>
+
+<p>你可能会看到一些define()中包含了一个模块名称作为首个参数：</p>
+
+<pre><code>    //Explicitly defines the "foo/title" module:
+    define("foo/title",
+        ["my/cart", "my/inventory"],
+        function(cart, inventory) {
+            //Define foo/title object in here.
+       }
+    );
+</code></pre>
+
+<p>这些常由优化工具生成。你也可以自己显式指定模块名称，但这使模块更不具备移植性——就是说若你将文件移动到其他目录下，你就得重命名。一般最好避免对模块硬编码，而是交给优化工具去生成。优化工具需要生成模块名以将多个模块打成一个包，加快到浏览器的载人速度。</p>
+</div>
+
+<div class="subSection">
+
+<h4><a href="http://www.requirejs.cn/api.html#modulenotes" name="modulenotes">其他注意事项</a><span class="sectionMark">§ 1.3.7</span></h4>
+
+<p id="modulenotes-onemodule"><strong>一个文件一个模块: </strong>每个Javascript文件应该只定义一个模块，这是模块名-至-文件名查找机制的自然要求。多个模块会被优化工具组织优化，但你在使用优化工具时应将多个模块放置到一个文件中。</p>
+
+<p id="modulenotes-relative"><strong>define()中的相对模块名: </strong>为了可以在define()内部使用诸如require("./relative/name")的调用以正确解析相对名称，记得将"require"本身作为一个依赖注入到模块中：</p>
+
+<pre><code>define(["require", "./relative/name"], function(require) {
+    var mod = require("./relative/name");
+});
+</code></pre>
+
+<p>或者更好地，使用下述为转换CommonJS模块所设的更短的语法：</p>
+
+<pre><code>define(function(require) {
+    var mod = require("./relative/name");
+});
+</code></pre>
+
+<!--p>This form will use Function.prototype.toString() to find the require() calls, and add them to the dependency array, along with "require", so the code will work correctly with relative paths.</p-->
+
+<p>相对路径在一些场景下格外有用，例如：为了以便于将代码共享给其他人或项目，你在某个目录下创建了一些模块。你可以访问模块的相邻模块，无需知道该目录的名称。</p>
+
+<p id="modulenotes-urls"><strong>生成相对于模块的URL地址: </strong>你可能需要生成一个相对于模块的URL地址。你可以将"require"作为一个依赖注入进来，然后调用require.toUrl()以生成该URL:</p>
+
+<pre><code>define(["require"], function(require) {
+    var cssUrl = require.toUrl("./style.css");
+});
+</code></pre>
+
+<p id="modulenotes-console"><strong>控制台调试:</strong>如果你需要处理一个已通过require(["module/name"], function(){})调用加载了的模块，可以使用模块名作为字符串参数的require()调用来获取它:</p>
+
+<pre><code>require("module/name").callSomeFunction()
+</code></pre>
+
+<p>注意这种形式仅在"module/name"已经由其异步形式的require(["module/name"])加载了后才有效。只能在define内部使用形如"./module/name"的相对路径。</p>
+</div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#circular" name="circular">循环依赖</a><span class="sectionMark">§ 1.3.8</span></h4>
+
+<p>I如果你定义了一个循环依赖(a依赖b，b同时依赖a)，则在这种情形下当b的模块函数被调用的时候，它会得到一个undefined的a。b可以在模块已经定义好后用require()方法再获取(记得将require作为依赖注入进来)：</p>
+
+<pre><code>//Inside b.js:
+define(["require", "a"],
+    function(require, a) {
+        //"a" in this case will be null if a also asked for b,
+        //a circular dependency.
+        return function(title) {
+            return require("a").doSomething();
+        }
+    }
+);
+</code></pre>
+
+<p>一般说来你无需使用require()去获取一个模块，而是应当使用注入到模块函数参数中的依赖。循环依赖比较罕见，它也是一个重构代码重新设计的警示灯。但不管怎样，有时候还是要用到循环依赖，这种情形下就使用上述的require()方式来解决。</p>
+
+<p>如果你熟悉CommonJS，你可以考虑使用exports为模块建立一个空object，该object可以立即被其他模块引用。在循环依赖的两头都如此操作之后，你就可以安全地持有其他模块了。这种方法仅在每个模块都是输出object作为模块值的时候有效，换成函数无效。</p>
+
+<pre><code>//Inside b.js:
+define(function(require, exports, module) {
+    //If "a" has used exports, then we have a real
+    //object reference here. However, we cannot use
+    //any of a's properties until after b returns a value.
+    var a = require("a");
+
+    exports.foo = function () {
+        return a.bar();
+    };
+});
+</code></pre>
+
+<p>或者，如果你使用依赖注入数组的步骤，则可用注入特殊的"exports"来解决：</p>
+
+<pre><code>//Inside b.js:
+define(['a', 'exports'], function(a, exports) {
+    //If "a" has used exports, then we have a real
+    //object reference here. However, we cannot use
+    //any of a's properties until after b returns a value.
+
+    exports.foo = function () {
+        return a.bar();
+    };
+});
+</code></pre>
+
+</div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#jsonp" name="jsonp">JSONP服务依赖</a><span class="sectionMark">§ 1.3.9</span></h4>
+
+<p>JSONP是在javascript中服务调用的一种方式。它仅需简单地通过一个script标签发起HTTP GET请求，是实现跨域服务调用一种公认手段。</p>
+
+<p>为了在RequireJS中使用JSON服务，须要将callback参数的值指定为"define"。这意味着你可将获取到的JSONP URL的值看成是一个模块定义。</p>
+
+<p>下面是一个调用JSONP API端点的示例。该示例中，JSONP的callback参数为"callback"，因此"callback=define"告诉API将JSON响应包裹到一个"define()"中：</p>
+
+<pre><code>require(["http://example.com/api/data.json?callback=define"],
+    function (data) {
+        //The data object will be the API response for the
+        //JSONP data call.
+        console.log(data);
+    }
+);
+</code></pre>
+
+<p>JSONP的这种用法应仅限于应用的初始化中。一旦JSONP服务超时，其他通过define()定义了的模块也可能得不得执行，错误处理不是十分健壮。</p>
+
+<p><strong>仅支持返回值类型为JSON object的JSONP服务</strong>，其他返回类型如数组、字串、数字等都不能支持。</p>
+
+<p>这种功能不该用于long-polling类的JSONP连接——那些用来处理实时流的API。这些API在接收响应后一般会做script的清理，而RequireJS则只能获取该JSONP URL一次——后继使用require()或define()发起的的对同一URL的依赖(请求)只会得到一个缓存过的值。</p>
+
+<p>JSONP调用错误一般以服务超时的形式出现，因为简单加载一个script标签一般不会得到很 详细的网络错误信息。你可以override requirejs.onError()来过去错误。更多的信息请参看错误处理部分。</p>
+
+</div>
+
+<div class="subSection">
+<h4><a href="http://www.requirejs.cn/api.html#undef" name="undef">Undefining a Module</a><span class="sectionMark">§ 1.3.10</span></h4>
+
+<p>有一个全局函数requirejs.undef()用来undefine一个模块。它会重置loader的内部状态以使其忘记之前定义的一个模块。</p>
+
+<p>但是若有其他模块已将此模块作为依赖使用了，该模块就不会被清除，所以该功能仅在无其他模块持有该模块时的错误处理中，或者当未来需要加载该模块时有点用。参见备错(errbacks)段的示例。</p>
+
+<p>如果你打算在undefine时做一些复杂的依赖图分析，则半私有的onResourceLoad API可能对你有用。</p>
+
+</div>
+
+<p></p></div><p></p>
+
+<div class="section">
+<h2>
+<a href="http://www.requirejs.cn/api.html#mechanics" name="mechanics">机制</a>
+<span class="sectionMark">§ 2</span>
+</h2>
+
+<p>RequireJS使用head.appendChild()将每一个依赖加载为一个script标签。</p>
+
+<p>RequireJS等待所有的依赖加载完毕，计算出模块定义函数正确调用顺序，然后依次调用它们。</p>
+
+<p>在同步加载的服务端JavaScript环境中，可简单地重定义require.load()来使用RequireJS。build系统就是这么做的。该环境中的require.load实现可在build/jslib/requirePatch.js中找到。</p>
+
+<p>未来可能将该部分代码置入require/目录下作为一个可选模块，这样你可以在你的宿主环境中使用它来获得正确的加载顺序。</p>
+</div>
+
+<div class="section">
+<h2>
+<a href="http://www.requirejs.cn/api.html#config" name="config">配置选配</a>
+<span class="sectionMark">§ 3</span>
+</h2>
+
+<p>当在顶层HTML页面(或不作为一个模块定义的顶层脚本文件)中，可将配置作为首项放入：</p>
+
+<pre><code>&lt;script src="scripts/require.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  require.config({
+    baseUrl: "/another/path",
+    paths: {
+        "some": "some/v1.0"
+    },
+    waitSeconds: 15
+  });
+  require( ["some/module", "my/module", "a.js", "b.js"],
+    function(someModule,    myModule) {
+        //This function will be called when all the dependencies
+        //listed above are loaded. Note that this function could
+        //be called before the page is loaded.
+        //This callback is optional.
+    }
+  );
+&lt;/script&gt;
+</code></pre>
+
+
+<pre><code>&lt;script&gt;
+    var require = {
+        deps: ["some/module1", "my/module2", "a.js", "b.js"],
+        callback: function(module1, module2) {
+            //This function will be called when all the dependencies
+            //listed above in deps are loaded. Note that this
+            //function could be called before the page is loaded.
+            //This callback is optional.
+        }
+    };
+&lt;/script&gt;
+&lt;script src="scripts/require.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>或者，你将配置作为全局变量"require"在require.js加载之前进行定义，它会被自动应用。下面的示例定义的依赖会在require.js一旦定义了require()之后即被加载：</p>
+
+<pre><code>requirejs.config({
+    bundles: {
+        'primary': ['main', 'util', 'text', 'text!template.html'],
+        'secondary': ['text!secondary.html']
+    }
+});
+
+require(['util', 'text'], function(util, text) {
+    //The script for module ID 'primary' was loaded,
+    //and that script included the define()'d
+    //modules for 'util' and 'text'
+});
+</code></pre>
+
+<p><b>注意:</b> 最好使用 var require = {} 的形式而不是 window.require = {}的形式。后者在IE中运行不正常。</p>
+
+
+<p>支持的配置项：</p>
+
+<p><a href="http://www.requirejs.cn/#config-baseUrl">baseUrl</a> <span id="config-baseUrl"></span>：所有模块的查找根路径。所以上面的示例中，"my/module"的标签src值是"/another/path/my/module.js"。当加载纯.js文件(<a href="http://www.requirejs.cn/#jsfiles">依赖字串以/开头，或者以.js结尾，或者含有协议</a>)，不会使用baseUrl。因此a.js及b.js都在包含上述代码段的HTML页面的同目录下加载。   </p>
+
+<p>如未显式设置baseUrl，则默认值是加载require.js的HTML所处的位置。如果用了<strong>data-main</strong>属性，则该路径就变成baseUrl。   </p>
+
+<p>baseUrl可跟require.js页面处于不同的域下，RequireJS脚本的加载是跨域的。唯一的限制是使用text! plugins加载文本内容时，这些路径应跟页面同域，至少在开发时应这样。优化工具会将text! plugin资源内联，因此在使用优化工具之后你可以使用跨域引用text! plugin资源的那些资源。   </p>
+
+<p><a href="http://www.requirejs.cn/#config-paths">paths</a> <span id="config-paths"></span>：path映射那些不直接放置于baseUrl下的模块名。设置path时起始位置是相对于baseUrl的，除非该path设置以"/"开头或含有URL协议（如http:）。在上述的配置下，"some/module"的script标签src值是"/another/path/some/v1.0/module.js"。   </p>
+
+<p>用于模块名的path不应含有.js后缀，因为一个path有可能映射到一个目录。路径解析机制会自动在映射模块名到path时添加上.js后缀。在文本模版之类的场景中使用<a href="http://www.requirejs.cn/#modulenotes-urls">require.toUrl()</a>时它也会添加合适的后缀。    </p>
+
+<p>在浏览器中运行时，可指定路径的备选(<a href="http://www.requirejs.cn/#pathsfallbacks">fallbacks</a>)，以实现诸如首先指定了从CDN中加载，一旦CDN加载失败则从本地位置中加载这类的机制。    </p>
+
+<p><a href="http://www.requirejs.cn/#config-shim">shim</a><span id="config-shim"></span>: 为那些没有使用define()来声明依赖关系、设置模块的"浏览器全局变量注入"型脚本做依赖和导出配置。   </p>
+
+<p>下面有个示例，它需要 RequireJS 2.1.0+，并且假定backbone.js、underscore.js 、jquery.js都装于baseUrl目录下。如果没有，则你可能需要为它们设置paths config：</p>
+
+<pre><code>requirejs.config({
+    //Remember: only use shim config for non-AMD scripts,
+    //scripts that do not already call define(). The shim
+    //config will not work correctly if used on AMD scripts,
+    //in particular, the exports and init config will not
+    //be triggered, and the deps config will be confusing
+    //for those cases.
+    shim: {
+        'backbone': {
+            //These script dependencies should be loaded before loading
+            //backbone.js
+            deps: ['underscore', 'jquery'],
+            //Once loaded, use the global 'Backbone' as the
+            //module value.
+            exports: 'Backbone'
+        },
+        'underscore': {
+            exports: '_'
+        },
+        'foo': {
+            deps: ['bar'],
+            exports: 'Foo',
+            init: function (bar) {
+                //Using a function allows you to call noConflict for
+                //libraries that support it, and do other cleanup.
+                //However, plugins for those libraries may still want
+                //a global. "this" for the function will be the global
+                //object. The dependencies will be passed in as
+                //function arguments. If this function returns a value,
+                //then that value is used as the module export value
+                //instead of the object found via the 'exports' string.
+                //Note: jQuery registers as an AMD module via define(),
+                //so this will not work for jQuery. See notes section
+                //below for an approach for jQuery.
+                return this.Foo.noConflict();
+            }
+        }
+    }
+});
+
+//Then, later in a separate file, call it 'MyModel.js', a module is
+//defined, specifying 'backbone' as a dependency. RequireJS will use
+//the shim config to properly load 'backbone' and give a local
+//reference to this module. The global Backbone will still exist on
+//the page too.
+define(['backbone'], function (Backbone) {
+  return Backbone.Model.extend({});
+});
+</code></pre>
+
+<p>RequireJS 2.0.*中，shim配置中的"exports"属性可以是一个函数而不是字串。这种情况下它就起到上述示例中的"init"属性的功能。 RequireJS 2.1.0+中加入了"init"承接库加载后的初始工作，以使exports作为字串值被enforceDefine所使用。</p>
+
+<p>那些仅作为jQuery或Backbone的插件存在而不导出任何模块变量的"模块"们，shim配置可简单设置为依赖数组：</p>
+
+<pre><code>requirejs.config({
+    shim: {
+        'jquery.colorize': ['jquery'],
+        'jquery.scroll': ['jquery'],
+        'backbone.layoutmanager': ['backbone']
+    }
+});
+</code></pre>
+
+<p>但请注意，若你想在IE中使用404加载检测以启用path备选(fallbacks)或备错(errbacks)，则需要给定一个字串值的exports以使loader能够检查出脚本是否实际加载了(init中的返回值不会用于enforceDefine检查中)：</p>
+
+<pre><code>requirejs.config({
+    shim: {
+        'jquery.colorize': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.colorize'
+        },
+        'jquery.scroll': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.scroll'
+        },
+        'backbone.layoutmanager': {
+            deps: ['backbone']
+            exports: 'Backbone.LayoutManager'
+        }
+    }
+});
+</code></pre>
+
+<p><b>"shim"配置的重要注意事项:</b></p>
+
+<ul>
+<li><p>shim配置仅设置了代码的依赖关系，想要实际加载shim指定的或涉及的模块，仍然需要一个常规的require/define调用。设置shim本身不会触发代码的加载。</p>
+</li>
+<li><p>请仅使用其他"shim"模块作为shim脚本的依赖，或那些没有依赖关系，并且在调用define()之前定义了全局变量(如jQuery或lodash)的AMD库。否则，如果你使用了一个AMD模块作为一个shim配置模块的依赖，在build之后，AMD模块可能在shim托管代码执行之前都不会被执行，这会导致错误。终极的解决方案是将所有shim托管代码都升级为含有可选的AMD define()调用。   </p>
+</li>
+</ul>
+
+<p><b>"shim"配置的优化器重要注意事项:</b></p>
+
+<ul>
+<li><p>您应当使用 <a href="http://requirejs.org/docs/optimization.html#mainConfigFile">mainConfigFile</a> build配置项来指定含有shim配置的文件位置，否则优化器不会知晓shim配置。另一个手段是将shim配置复制到build profile中。</p>
+</li>
+<li><p>不要在一个build中混用CDN加载和shim配置。示例场景，如：你从CDN加载jQuery的同时使用shim配置加载依赖于jQuery的原版Backbone。不要这么做。您应该在build中将jQuery内联而不是从CDN加载，否则build中内联的Backbone会在CDN加载jQuery之前运行。这是因为shim配置仅延时加载到所有的依赖已加载，而不会做任何define的自动装裹(auto-wrapping)。在build之后，所有依赖都已内联，shim配置不能延时执行非define()的代码。define()的模块可以在build之后与CDN加载代码一并工作，因为它们已将自己的代码合理地用define装裹了，在所有的依赖都已加载之前不会执行。因此记住：shim配置仅是个处理非模块(non-modular)代码、遗留代码的将就手段，如可以应尽量使用define()的模块。</p>
+</li>
+<li><p>对于本地的多文件build，上述的CDN加载建议仍然适用。任何shim过的脚本，它们的依赖<strong>必须</strong>加载于该脚本执行之前。这意味着要么直接在含有shim脚本的build层build它的依赖，要么先使用require([], function (){})调用来加载它的依赖，然后对含有shim脚本的build层发出一个嵌套的require([])调用。</p>
+</li>
+<li><p>如果您使用了uglifyjs来压缩代码，<strong>不要</strong>将uglify的toplevel选项置为true，或在命令行中<strong>不要</strong>使用 -mt。 该选项会破坏shim用于找到exports的全局名称。</p>
+</li>
+</ul>
+
+<p id="config-map"><strong><a href="http://www.requirejs.cn/api.html#config-map">map</a></strong>: 对于给定的模块前缀，使用一个不同的模块ID来加载该模块。</p>
+
+<p>该手段对于某些大型项目很重要：如有两类模块需要使用不同版本的"foo"，但它们之间仍需要一定的协同。
+在那些基于上下文的多版本实现中很难做到这一点。而且，paths配置仅用于为模块ID设置root paths，而不是为了将一个模块ID映射到另一个。
+</p>
+
+<p>map示例：</p>
+
+<pre><code>requirejs.config({
+    map: {
+        'some/newmodule': {
+            'foo': 'foo1.2'
+        },
+        'some/oldmodule': {
+            'foo': 'foo1.0'
+        }
+    }
+});
+</code></pre>
+
+<p>如果各模块在磁盘上分布如下：</p>
+
+<ul>
+    <li>foo1.0.js</li>
+    <li>foo1.2.js</li>
+    <li>some/
+        <ul>
+            <li>newmodule.js</li>
+            <li>oldmodule.js</li>
+        </ul>
+    </li>
+</ul>
+
+<p>当“some/newmodule”调用了“require('foo')”，它将获取到foo1.2.js文件；而当“some/oldmodule”调用“`require('foo')”时它将获取到foo1.0.js。</p>
+
+<p>该特性仅适用于那些调用了define()并将其注册为匿名模块的真正AMD模块脚本。并且，请在map配置中仅使用绝对模块ID，“../some/thing”之类的相对ID不能工作。</p>
+
+<p>另外在map中支持“*”，意思是“对于所有的模块加载，使用本map配置”。如果还有更细化的map配置，会优先于“*”配置。示例：</p>
+
+<pre><code>
+requirejs.config({
+    map: {
+        '*': {
+            'foo': 'foo1.2'
+        },
+        'some/oldmodule': {
+            'foo': 'foo1.0'
+        }
+    }
+});
+</code></pre>
+
+<p>意思是除了“some/oldmodule”外的所有模块，当要用“foo”时，使用“foo1.2”来替代。对于“some/oldmodule”自己，则使用“foo1.0”。</p>
+
+<p id="config-moduleconfig"><strong><a href="http://www.requirejs.cn/api.html#config-moduleconfig">config</a></strong>:常常需要将配置信息传给一个模块。这些配置往往是application级别的信息，需要一个手段将它们向下传递给模块。在RequireJS中，基于requirejs.config()的config配置项来实现。要获取这些信息的模块可以加载特殊的依赖“module”，并调用module.config()。示例：</p>
+
+<pre><code>requirejs.config({
+    config: {
+        'bar': {
+            size: 'large'
+        },
+        'baz': {
+            color: 'blue'
+        }
+    }
+});
+
+//bar.js, which uses simplified CJS wrapping:
+//http://requirejs.org/docs/whyamd.html#sugar
+define(function (require, exports, module) {
+    //Will be the value 'large'
+    var size = module.config().size;
+});
+
+//baz.js which uses a dependency array,
+//it asks for the special module ID, 'module':
+//https://github.com/jrburke/requirejs/wiki/Differences-between-the-simplified-CommonJS-wrapper-and-standard-AMD-define#wiki-magic
+define(['module'], function (module) {
+    //Will be the value 'blue'
+    var color = module.config().color;
+});
+</code></pre>
+
+<p>若要将config传给包，将目标设置为包的主模块而不是包ID:</p>
+
+<pre><code>requirejs.config({
+    //Pass an API key for use in the pixie package's
+    //main module.
+    config: {
+        'pixie/index': {
+            apiKey: 'XJKDLNS'
+        }
+    },
+    //Set up config for the "pixie" package, whose main
+    //module is the index.js file in the pixie folder.
+    packages: [
+        {
+            name: 'pixie',
+            main: 'index'
+        }
+    ]
+});
+</code></pre>
+
+<p id="config-packages"><strong><a href="http://www.requirejs.cn/api.html#config-packages">packages</a></strong>: 从CommonJS包(package)中加载模块。参见从包中加载模块。</p>
+
+<p id="config-nodeIdCompat"><strong><a href="http://www.requirejs.cn/api.html#config-nodeIdCompat">nodeIdCompat</a></strong>: 在放弃加载一个脚本之前等待的秒数。设为0禁用等待超时。默认为7秒。</p>
+
+<p id="config-waitSeconds"><strong><a href="http://www.requirejs.cn/api.html#config-waitSeconds">waitSeconds</a></strong>: 命名一个加载上下文。这允许require.js在同一页面上加载模块的多个版本，如果每个顶层require调用都指定了一个唯一的上下文字符串。想要正确地使用，请参考多版本支持一节。</p>
+
+<p id="config-context"><strong><a href="http://www.requirejs.cn/api.html#config-context">context</a></strong>: 指定要加载的一个依赖数组。当将require设置为一个config object在加载require.js之前使用时很有用。一旦require.js被定义，这些依赖就已加载。使用deps就像调用require([])，但它在loader处理配置完毕之后就立即生效。它并不阻塞其他的require()调用，它仅是指定某些模块作为config块的一部分而异步加载的手段而已。</p>
+
+<p id="config-deps"><strong><a href="http://www.requirejs.cn/api.html#config-deps">deps</a></strong>: 指定要加载的一个依赖数组。当将require设置为一个config object在加载require.js之前使用时很有用。一旦require.js被定义，这些依赖就已加载。使用deps就像调用require([])，但它在loader处理配置完毕之后就立即生效。它并不阻塞其他的require()调用，它仅是指定某些模块作为config块的一部分而异步加载的手段而已。</p>
+
+<p id="config-callback"><strong><a href="http://www.requirejs.cn/api.html#config-callback">callback</a></strong>: 在deps加载完毕后执行的函数。当将require设置为一个config object在加载require.js之前使用时很有用，其作为配置的deps数组加载完毕后为require指定的函数。</p>
+
+<p id="config-enforceDefine"><strong><a href="http://www.requirejs.cn/api.html#config-enforceDefine">enforceDefine</a></strong>: 如果设置为true，则当一个脚本不是通过define()定义且不具备可供检查的shim导出字串值时，就会抛出错误。参考在IE中捕获加载错误一节。</p>
+
+<p id="config-xhtml"><strong><a href="http://www.requirejs.cn/api.html#config-xhtml">xhtml</a></strong>: 如果设置为true，则使用document.createElementNS()去创建script元素。</p>
+
+<p id="config-urlArgs"><strong><a href="http://www.requirejs.cn/api.html#config-urlArgs">urlArgs</a></strong>: RequireJS获取资源时附加在URL后面的额外的query参数。作为浏览器或服务器未正确配置时的“cache bust”手段很有用。使用cache bust配置的一个示例：</p>
+
+<pre><code>urlArgs: "bust=" +  (new Date()).getTime()
+</code></pre>
+
+<p>在开发中这很有用，但请记得在部署到生成环境之前移除它。</p>
+
+<p id="config-scriptType"><strong><a href="http://www.requirejs.cn/api.html#config-baseUrl">scriptType</a></strong>: 指定RequireJS将script标签插入document时所用的type=""值。默认为“text/javascript”。想要启用Firefox的JavaScript 1.8特性，可使用值“text/javascript;version=1.8”。</p>
+
+<p id="config-skipDataMain"><strong><a href="http://www.requirejs.cn/api.html#config-skipDataMain">skipDataMain</a></strong>: Introduced in RequireJS 2.1.9: If set to <code>true</code>, skips the <a href="http://www.requirejs.cn/api.html#data-main">data-main attribute scanning</a> done to start module loading. Useful if RequireJS is embedded in a utility library that may interact with other RequireJS library on the page, and the embedded version should not do data-main loading.</p>
+
+</div>
+
+<div class="section">
+<h2>
+<a href="http://www.requirejs.cn/api.html#advanced" name="advanced">高级使用</a>
+<span class="sectionMark">§ 4</span>
+</h2>
+
+<h3><a href="http://www.requirejs.cn/api.html#packages" name="packages">从包中加载模块</a><span class="sectionMark">§ 4.1</span></h3>
+
+<p>RequireJS支持从CommonJS包结构中加载模块，但需要一些额外的配置。具体地，支持如下的CommonJS包特性：</p>
+
+<ul>
+<li>一个包可以关联一个模块名/前缀。</li>
+<li>package config可为特定的包指定下述属性：
+<ul>
+<li><strong>name</strong>: 包名（用于模块名/前缀映射）</li>
+<li><strong>location</strong>: 磁盘上的位置。位置是相对于配置中的baseUrl值，除非它们包含协议或以“/”开头</li>
+<li><strong>main</strong>: 当以“包名”发起require调用后，所应用的一个包内的模块。默认为“main”，除非在此处做了另外设定。该值是相对于包目录的。</li>
+</ul></li>
+</ul>
+
+<p><strong>重要事项</strong></p>
+
+<ul>
+<li>虽然包可以有CommonJS的目录结构，但模块本身应为RequireJS可理解的模块格式。例外是：如果你在用r.js Node适配器，模块可以是传统的CommonJS模块格式。你可以使用CommonJS转换工具来将传统的CommonJS模块转换为RequireJS所用的异步模块格式。</li>
+<li>一个项目上下文中仅能使用包的一个版本。你可以使用RequireJS的<a href="http://www.requirejs.cn/#multiversion">多版本支持</a>来加载两个不同的模块上下文；但若你想在同一个上下文中使用依赖了不同版本的包C的包A和B，就会有问题。未来可能会解决此问题。</li>
+</ul>
+
+<p>如果你使用了类似于入门指导中的项目布局，你的web项目应大致以如下的布局开始（基于Node/Rhino的项目也是类似的，只不过使用scripts目录中的内容作为项目的顶层目录）:</p>
+
+<ul>
+<li>project-directory/
+<ul>
+<li>project.html</li>
+<li>scripts/
+<ul>
+<li>require.js</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>而下面的示例中使用了两个包，cart及store：</p>
+
+<ul>
+<li>project-directory/
+<ul>
+<li>project.html</li>
+<li>scripts/
+<ul>
+<li>cart/
+<ul>
+<li>main.js</li>
+</ul></li>
+<li>store/
+<ul>
+<li>main.js</li>
+<li>util.js</li>
+</ul></li>
+<li>main.js</li>
+<li>require.js</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p><strong>project.html</strong> 会有如下的一个script标签：</p>
+
+<pre><code>&lt;script data-main="scripts/main" src="scripts/require.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>这会指示require.js去加载scripts/main.js。main.js使用“packages”配置项来设置相对于require.js的各个包，此例中是源码包“cart”及“store”：</p>
+
+<pre><code>//main.js contents
+//Pass a config object to require
+require.config({
+    "packages": ["cart", "store"]
+});
+
+require(["cart", "store", "store/util"],
+function (cart,   store,   util) {
+    //use the modules as usual.
+});
+</code></pre>
+
+<p>对“cart”的依赖请求会从scripts/cart/main.js中加载，因为“main”是RequireJS默认的包主模块。对“store/util”的依赖请求会从scripts/store/util.js加载。</p>
+
+<p>如果“store”包不采用“main.js”约定，如下面的结构：</p>
+
+<ul>
+<li>project-directory/
+<ul>
+<li>project.html</li>
+<li>scripts/
+<ul>
+<li>cart/
+<ul>
+<li>main.js</li>
+</ul></li>
+<li>store/
+<ul>
+<li>store.js</li>
+<li>util.js</li>
+</ul></li>
+<li>main.js</li>
+<li>package.json</li>
+<li>require.js</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>则RequireJS的配置应如下：</p>
+
+<pre><code>require.config({
+    packages: [
+        "cart",
+        {
+            name: "store",
+            main: "store"
+        }
+    ]
+});
+</code></pre>
+
+<p>减少麻烦期间，强烈建议包结构遵从“main.js”约定。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#multiversion" name="multiversion">多版本支持</a><span class="sectionMark">§ 4.2</span></h3>
+
+<p>如配置项一节中所述，可以在同一页面上以不同的“上下文”配置项加载同一模块的不同版本。require.config()返回了一个使用该上下文配置的require函数。下面是一个加载不同版本（alpha及beta）模块的示例（取自test文件中）：</p>
+
+<pre><code>&lt;script src="../require.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var reqOne = require.config({
+  context: "version1",
+  baseUrl: "version1"
+});
+
+reqOne(["require", "alpha", "beta",],
+function(require,   alpha,   beta) {
+  log("alpha version is: " + alpha.version); //prints 1
+  log("beta version is: " + beta.version); //prints 1
+
+  setTimeout(function() {
+    require(["omega"],
+      function(omega) {
+        log("version1 omega loaded with version: " +
+             omega.version); //prints 1
+      }
+    );
+  }, 100);
+});
+
+var reqTwo = require.config({
+      context: "version2",
+      baseUrl: "version2"
+    });
+
+reqTwo(["require", "alpha", "beta"],
+function(require,   alpha,   beta) {
+  log("alpha version is: " + alpha.version); //prints 2
+  log("beta version is: " + beta.version); //prints 2
+
+  setTimeout(function() {
+    require(["omega"],
+      function(omega) {
+        log("version2 omega loaded with version: " +
+            omega.version); //prints 2
+      }
+    );
+  }, 100);
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>注意“require”被指定为模块的一个依赖，这就允许传递给函数回调的require()使用正确的上下文来加载多版本的模块。如果“require”没有指定为一个依赖，则很可能会出现错误。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#afterload" name="afterload">在页面加载之后加载代码</a><span class="sectionMark">§ 4.3</span></h3>
+
+<p>上述多版本示例中也展示了如何在嵌套的require()中迟后加载代码。 </p>
+
+<h3><a href="http://www.requirejs.cn/api.html#webworker" name="webworker">Web Worker 支持</a><span class="sectionMark">§ 4.4</span></h3>
+
+<p>从版本0.12开始，RequireJS可在Web Worker中运行。可以通过在web worker中调用importScripts()来加载require.js（或包含require()定义的JS文件），然后调用require就好了。</p>
+
+<p>你可能需要设置baseUrl配置项来确保require()可找到待加载脚本。</p>
+
+<p>你可以在unit test使用的一个文件中找到一个例子。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#rhino" name="rhino">Rhino 支持</a><span class="sectionMark">§ 4.5</span></h3>
+
+<p>RequireJS可通过r.js适配器用在Rhino中。参见r.js的README。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#errors" name="errors">处理错误</a><span class="sectionMark">§ 4.6</span></h3>
+
+<p>通常的错误都是404（未找到）错误，网络超时或加载的脚本含有错误。RequireJS有些工具来处理它们：require特定的错误回调（errback），一个“paths”数组配置，以及一个全局的requirejs.onError事件。</p>
+
+<p>传入errback及requirejs.onError中的error object通常包含两个定制的属性：</p>
+
+<ul>
+<li><strong>requireType</strong>: 含有类别信息的字串值，如“timeout”，“nodefine”， “scripterror”</li>
+<li><strong>requireModules</strong>: 超时的模块名/URL数组。</li>
+</ul>
+
+<p>如果你得到了requireModules错，可能意味着依赖于requireModules数组中的模块的其他模块未定义。</p>
+
+<h4>
+<a href="http://www.requirejs.cn/api.html#ieloadfail" name="ieloadfail">在IE中捕获加载错</a>
+<span class="sectionMark">§ 4.6.1</span>
+</h4>
+
+<p>Internet Explorer有一系列问题导致检测errbacks/paths fallbacks中的加载错 比较困难：</p>
+
+<ul>
+<li>IE 6-8中的script.onerror无效。没有办法判断是否加载一个脚本会导致404错；更甚地，在404中依然会触发state为complete的onreadystatechange事件。</li>
+<li>IE 9+中script.onerror有效，但有一个bug：在执行脚本之后它并不触发script.onload事件句柄。因此它无法支持匿名AMD模块的标准方法。所以script.onreadystatechange事件仍被使用。但是，state为complete的onreadystatechange事件会在script.onerror函数触发之前触发。</li>
+</ul>
+
+<p>因此IE环境下很难两全其美：匿名AMD（AMD模块机制的核心优势）和可靠的错误检测。</p>
+
+<p>但如果你的项目里使用了define()来定义所有模块，或者为其他非define()的脚本使用shim配置指定了导出字串，则如果你将enforceDefine配置项设为true，loader就可以通过检查define()调用或shim全局导出值来确认脚本的加载无误。</p>
+
+<p>因此如果你打算支持Internet Explorer，捕获加载错，并使用了define()或shim，则记得将enforceDefine设置为true。参见下节的示例。</p>
+
+<p><b>注意</b>: 如果你设置了enforceDefine: true，而且你使用data-main=""来加载你的主JS模块，则该主JS模块必须调用define()而不是require()来加载其所需的代码。主JS模块仍然可调用require/requirejs来设置config值，但对于模块加载必须使用define()。</p>
+
+<p>如果你使用了almond而不是require.js来build你的代码，记得在build配置项中使用insertRequire来在主模块中插入一个require调用 —— 这跟data-main的初始化require()调用起到相同的目的。</p>
+
+<h4>
+<a href="http://www.requirejs.cn/api.html#errbacks" name="errbacks">require([]) errbacks</a>
+<span class="sectionMark">§ 4.6.2</span>
+</h4>
+
+<p>当与requirejs.undef()一同使用errback时，允许你检测模块的一个加载错，然后undefine该模块，并重置配置到另一个地址来进行重试。</p>
+
+<p>
+一个常见的应用场景是先用库的一个CDN版本，如果其加载出错，则切换到本地版本：</p>
+
+<pre><code>requirejs.config({
+    enforceDefine: true,
+    paths: {
+        jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min'
+    }
+});
+
+//Later
+require(['jquery'], function ($) {
+    //Do something with $ here
+}, function (err) {
+    //The errback, error callback
+    //The error has a list of modules that failed
+    var failedId = err.requireModules &amp;&amp; err.requireModules[0];
+    if (failedId === 'jquery') {
+        //undef is function only on the global requirejs object.
+        //Use it to clear internal knowledge of jQuery. Any modules
+        //that were dependent on jQuery and in the middle of loading
+        //will not be loaded yet, they will wait until a valid jQuery
+        //does load.
+        requirejs.undef(failedId);
+
+        //Set the path to jQuery to local path
+        requirejs.config({
+            paths: {
+                jquery: 'local/jquery'
+            }
+        });
+
+        //Try again. Note that the above require callback
+        //with the "Do something with $ here" comment will
+        //be called if this new attempt to load jQuery succeeds.
+        require(['jquery'], function () {});
+    } else {
+        //Some other error. Maybe show message to the user.
+    }
+});
+</code></pre>
+
+<p>使用“requirejs.undef()”，如果你配置到不同的位置并重新尝试加载同一模块，则loader会将依赖于该模块的那些模块记录下来并在该模块重新加载成功后去加载它们。</p>
+
+<p><b>注意</b>: errback仅适用于回调风格的require调用，而不是define()调用。define()仅用于声明模块。</p>
+
+<h4>
+<a href="http://www.requirejs.cn/api.html#pathsfallbacks" name="pathsfallbacks">paths备错配置</a>
+<span class="sectionMark">§ 4.6.3</span>
+</h4>
+
+<p>上述模式（检错，undef()模块，修改paths，重加载）是一个常见的需求，因此有一个快捷设置方式。paths配置项允许数组值：</p>
+
+<pre><code>requirejs.config({
+    //To get timely, correct error triggers in IE, force a define/shim exports check.
+    enforceDefine: true,
+    paths: {
+        jquery: [
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min',
+            //If the CDN location fails, load from this location
+            'lib/jquery'
+        ]
+    }
+});
+
+//Later
+require(['jquery'], function ($) {
+});
+</code></pre>
+
+<p>上述代码先尝试加载CDN版本，如果出错，则退回到本地的lib/jquery.js。</p>
+
+<p><b>注意</b>: paths备错仅在模块ID精确匹配时工作。这不同于常规的paths配置，常规配置可匹配模块ID的任意前缀部分。备错主要用于非常的错误恢复，而不是常规的path查找解析，因为那在浏览器中是低效的。</p>
+
+<h4>
+<a href="http://www.requirejs.cn/api.html#requirejsonerror" name="requirejsonerror">全局 requirejs.onError</a>
+<span class="sectionMark">§ 4.6.4</span>
+</h4>
+
+<p>为了捕获在局域的errback中未捕获的异常，你可以重载requirejs.onError()：</p>
+
+<pre><code>requirejs.onError = function (err) {
+    console.log(err.requireType);
+    if (err.requireType === 'timeout') {
+        console.log('modules: ' + err.requireModules);
+    }
+
+    throw err;
+};
+</code></pre>
+
+</div>
+
+<div class="section">
+<h2>
+<a href="http://www.requirejs.cn/api.html#plugins" name="plugins">加载插件</a>
+<span class="sectionMark">§ 5</span>
+</h2>
+
+<p>RequireJS支持加载器插件。使用它们能够加载一些对于脚本正常工作很重要的非JS文件。RequireJS的wiki有一个插件的列表。本节讨论一些由RequireJS一并维护的特定插件：</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#text" name="text">指定文本文件依赖</a><span class="sectionMark">§ 5.1</span></h3>
+
+<p>如果都能用HTML标签而不是基于脚本操作DOM来构建HTML，是很不错的。但没有好的办法在JavaScript文件中嵌入HTML。所能做的仅是在js中使用HTML字串，但这一般很难维护，特别是多行HTML的情况下。.</p>
+
+<p>RequireJS有个text.js插件可以帮助解决这个问题。如果一个依赖使用了text!前缀，它就会被自动加载。参见text.js的README文件。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#pageload" name="pageload">页面加载事件及DOM Ready</a><span class="sectionMark">§ 5.2</span></h3>
+
+<p>RequireJS加载模块速度很快，很有可能在页面DOM Ready之前脚本已经加载完毕。需要与DOM交互的工作应等待DOM Ready。现代的浏览器通过DOMContentLoaded事件来知会。</p>
+
+<p>但是，不是所有的浏览器都支持DOMContentLoaded。domReady模块实现了一个跨浏览器的方法来判定何时DOM已经ready。下载并在你的项目中如此用它：</p>
+
+<pre><code>require(['domReady'], function (domReady) {
+  domReady(function () {
+    //This function is called once the DOM is ready.
+    //It will be safe to query the DOM and manipulate
+    //DOM nodes in this function.
+  });
+});
+</code></pre>
+
+<p>基于DOM Ready是个常规需求，像上述API中的嵌套调用方式，理想情况下应避免。domReady模块也实现了Loader Plugin API，因此你可以使用loader plugin语法（注意domReady依赖的!前缀）来强制require()回调函数在执行之前等待DOM Ready。当用作loader plugin时，domReady会返回当前的document：</p>
+
+<pre><code>require(['domReady!'], function (doc) {
+    //This function is called once the DOM is ready,
+    //notice the value for 'domReady!' is the current
+    //document.
+});
+</code></pre>
+
+<p><b>注意:</b> 如果document需要一段时间来加载（也许是因为页面较大，或加载了较大的js脚本阻塞了DOM计算），使用domReady作为loader plugin可能会导致RequireJS“超时”错。如果这是个问题，则考虑增加waitSeconds配置项的值，或在require()使用domReady()调用（将其当做是一个模块）。</p>
+
+<h3><a href="http://www.requirejs.cn/api.html#i18n" name="i18n">Define an I18N Bundle</a><span class="sectionMark">§ 5.3</span></h3>
+
+<p>一旦你的web app达到一定的规模和流行度，提供本地化的接口和信息是十分有用的，但实现一个扩展良好的本地化方案又是很繁贅的。RequireJS允许你先仅配置一个含有本地化信息的基本模块，而不需要将所有的本地化信息都预先创建起来。后面可以将这些本地化相关的变化以值对的形式慢慢加入到本地化文件中。</p>
+
+<p>i18n.js插件提供i18n bundle支持。在模块或依赖使用了i18n!前缀的形式（详见下）时它会自动加载。下载该插件并将其放置于你app主JS文件的同目录下。</p>
+
+<p>将一个文件放置于一个名叫“nls”的目录内来定义一个bundle——i18n插件当看到一个模块名字含有“nls”时会认为它是一个i18n bundle。名称中的“nls”标记告诉i18n插件本地化目录（它们应当是nls目录的直接子目录）的查找位置。如果你想要为你的“my”模块集提供颜色名的bundle，应像下面这样创建目录结构：</p>
+
+<ul>
+<li>my/nls/colors.js</li>
+</ul>
+
+<p>该文件的内容应该是：</p>
+
+<pre><code>//my/nls/colors.js contents:
+define({
+    "root": {
+        "red": "red",
+        "blue": "blue",
+        "green": "green"
+    }
+});
+</code></pre>
+
+<p>以一个含有“root”属性的object直接量来定义该模块。这就是为日后启用本地化所需的全部工作。你可以在另一个模块中，如my/lamps.js中使用上述模块：</p>
+
+<pre><code>//Contents of my/lamps.js
+define(["i18n!my/nls/colors"], function(colors) {
+    return {
+        testMessage: "The name for red in this locale is: " + colors.red
+    }
+});
+</code></pre>
+
+<p>my/lamps模块具备一个“testMessage”属性，它使用了colors.red来显示红色的本地化值。</p>
+
+<p>日后，当你想要为文件再增加一个特定的翻译，如fr-fr，可以改变my/nls/colors内容如下：</p>
+
+<pre><code>//Contents of my/nls/colors.js
+define({
+    "root": {
+        "red": "red",
+        "blue": "blue",
+        "green": "green"
+    },
+    "fr-fr": true
+});
+</code></pre>
+
+<p>然后再定义一个my/nls/fr-fr/colors.js文件，含有如下内容：</p>
+
+<pre><code>//Contents of my/nls/fr-fr/colors.js
+define({
+    "red": "rouge",
+    "blue": "bleu",
+    "green": "vert"
+});
+</code></pre>
+
+<p>RequireJS会使用浏览器的navigator.language或navigator.userLanguage属性来判定my/nls/colors的本地化值，因此你的app不需要更改。如果你想指定一个本地化方式，你可使用模块配置将该方式传递给插件：</p>
+
+<pre><code>requirejs.config({
+    config: {
+        //Set the config for the i18n
+        //module ID
+        i18n: {
+            locale: 'fr-fr'
+        }
+    }
+});
+</code></pre>
+
+<p><strong>注意</strong> RequireJS总是使用小写版本的locale值来避免大小写问题，因此磁盘上i18n的所有目录和文件都应使用小写的本地化值。 RequireJS有足够智能去选取合适的本地化bundle，使其尽量接近my/nls/colors提供的那一个。例如，如果locale值时“en-us”，则会使用“root” bundle。如果locale值是“fr-fr-paris”，则会使用“fr-fr” bundle</p>
+
+<p>RequireJS也会将bundle合理组合，例如，若french bundle如下定义（忽略red的值）：</p>
+
+<pre><code>//Contents of my/nls/fr-fr/colors.js
+define({
+    "blue": "bleu",
+    "green": "vert"
+});
+</code></pre>
+
+<p>则会应用“root”下的red值。所有的locale组件是如此。如果如下的所有bundle都已定义，则RequireJS会按照如下的优先级顺序（最顶的最优先）应用值：</p>
+
+<ul>
+<li>my/nls/fr-fr-paris/colors.js</li>
+<li>my/nls/fr-fr/colors.js</li>
+<li>my/nls/fr/colors.js</li>
+<li>my/nls/colors.js</li>
+</ul>
+
+<p>如果你不在模块的顶层中包含root bundle，你可像一个常规的locale bundle那样定义它。这种情形下顶层模块应如下：</p>
+
+<pre><code>//my/nls/colors.js contents:
+define({
+    "root": true,
+    "fr-fr": true,
+    "fr-fr-paris": true
+});
+</code></pre>
+
+<p>root bundle应看起来如下：</p>
+
+<pre><code>//Contents of my/nls/root/colors.js
+define({
+    "red": "red",
+    "blue": "blue",
+    "green": "green"
+});
+</code></pre>
+
+</div>
+    </div>
+    <div id="footer" class="mono">
+        <span class="line">最新版本: <a href="http://requirejs.org/docs/download.html">2.1.11</a></span>
+        <span class="line">开源: <a href="https://github.com/jrburke/requirejs/blob/master/LICENSE">最新的 BSD 或者 MIT 授权</a></span>
+        <span class="line"><a href="http://www.miibeian.gov.cn/">沪ICP备13012305号-5</a></span>
+		<span class="line" style="padding-left:50%;margin-left:-50px;"><div class="bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1531229562854"><a href="http://www.requirejs.cn/#" class="bds_more" data-cmd="more"></a><a href="http://www.requirejs.cn/#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="http://www.requirejs.cn/#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="http://www.requirejs.cn/#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="http://www.requirejs.cn/#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="http://www.requirejs.cn/#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></span>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    (function(win,doc){
+        var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+        if (!win.alimamatk_show) {
+            s.charset = "gbk";
+            s.async = true;
+            s.src = "http://a.alimama.cn/tkapi.js";
+            h.insertBefore(s, h.firstChild);
+        };
+        var o = {
+            pid: "mm_13262185_9812698_32692345",/*推广单元ID，用于区分不同的推广渠道*/
+            appkey: "",/*通过TOP平台申请的appkey，设置后引导成交会关联appkey*/
+            unid: "",/*自定义统计字段*/
+            type: "click" /* click 组件的入口标志 （使用click组件必设）*/
+        };
+        win.alimamatk_onload = win.alimamatk_onload || [];
+        win.alimamatk_onload.push(o);
+    })(window,document);
+</script>
+
+
+<iframe frameborder="0" id="bdSharePopup_selectshare1531229562860bg" class="bdselect_share_bg" style="display:none;" src="./RequireJS 中文网_files/saved_resource.html"></iframe><div id="bdSharePopup_selectshare1531229562860box" style="display: none;" share-type="selectshare" class="bdselect_share_box" data-bd-bind="1531229562859"><div class="selectshare-mod-triangle"><div class="triangle-border"></div><div class="triangle-inset"></div></div><div class="bdselect_share_head"><span>分享到</span><a href="http://www.baidu.com/s?wd=&amp;tn=SE_hldp08010_vurs2xrp" class="bdselect_share_dialog_search" target="_blank"><i class="bdselect_share_dialog_search_i"></i><span class="bdselect_share_dialog_search_span">百度一下</span></a><a class="bdselect_share_dialog_close"></a></div><div class="bdselect_share_content"><ul class="bdselect_share_list bdshare-button-style0-16"><div class="bdselect_share_partners"><a href="http://www.requirejs.cn/#" class="bds_qzone" data-cmd="qzone"></a><a href="http://www.requirejs.cn/#" class="bds_tsina" data-cmd="tsina"></a><a href="http://www.requirejs.cn/#" class="bds_tqq" data-cmd="tqq"></a><a href="http://www.requirejs.cn/#" class="bds_renren" data-cmd="renren"></a><a href="http://www.requirejs.cn/#" class="bds_weixin" data-cmd="weixin"></a></div><a href="http://www.requirejs.cn/#" class="bds_more" data-cmd="more"></a></ul></div></div><div id="bdimgshare_1531229562864" class="sr-bdimgshare sr-bdimgshare-list sr-bdimgshare-16 sr-bdimgshare-black" style="height:36px;line-height:26px;font-size:12px;width:autopx;display:none;" data-bd-bind="1531229562864"><div class="bdimgshare-bg"></div><div class="bdimgshare-content bdsharebuttonbox bdshare-button-style0-16"><label class="bdimgshare-lbl">分享到：</label><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_qzone" data-cmd="qzone" hidefocus=""></a><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_tsina" data-cmd="tsina" hidefocus=""></a><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_tqq" data-cmd="tqq" hidefocus=""></a><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_renren" data-cmd="renren" hidefocus=""></a><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_weixin" data-cmd="weixin" hidefocus=""></a><a href="http://www.requirejs.cn/#" onclick="return false;" class="bds_more" data-cmd="more" hidefocus=""></a></div></div><style type="text/css" id="xnSmartBarCacheCSSID">.baiduServiceBottomBar.noDis{display:none !important}.baiduServiceBottomBar.noVisible{visibility:hidden !important}.baiduServiceBottomBar.iphoneDevice>ul.bottomBar>li .count{font-size:10px;line-height:12px;height:12px;padding:0px 2px;top:-3px;right:-8px;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;text-shadow:none;outline:none}.baiduServiceBottomBar.hackIFrame iframe{top:0px;-webkit-transform:translateZ(5px);transform:translateZ(5px)}.baiduServiceBottomBar{overflow:visible;line-height:1;border-top:1px solid #c0c0c0;position:fixed;z-index:10001;width:100%;bottom:0px;background-color:rgba(242,242,242,0.94);background-image:-moz-linear-gradient(rgba(248,248,248,0.94), rgba(242,242,242,0.94));background-image:-o-linear-gradient(rgba(248,248,248,0.94), rgba(242,242,242,0.94));background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(248,248,248,0.94)), color-stop(1, rgba(242,242,242,0.94)));background-image:-webkit-linear-gradient(rgba(248,248,248,0.94), rgba(242,242,242,0.94));background-image:-ms-linear-gradient(rgba(248,248,248,0.94), rgba(242,242,242,0.94));background-image:linear-gradient(rgba(248,248,248,0.94), rgba(242,242,242,0.94))}.baiduServiceBottomBar div{overflow:visible}.baiduServiceBottomBar div,.baiduServiceBottomBar span,.baiduServiceBottomBar object,.baiduServiceBottomBar iframe,.baiduServiceBottomBar h1,.baiduServiceBottomBar h2,.baiduServiceBottomBar h3,.baiduServiceBottomBar h4,.baiduServiceBottomBar h5,.baiduServiceBottomBar h6,.baiduServiceBottomBar p,.baiduServiceBottomBar a,.baiduServiceBottomBar em,.baiduServiceBottomBar img,.baiduServiceBottomBar b,.baiduServiceBottomBar i,.baiduServiceBottomBar dl,.baiduServiceBottomBar dt,.baiduServiceBottomBar dd,.baiduServiceBottomBar ol,.baiduServiceBottomBar ul,.baiduServiceBottomBar li,.baiduServiceBottomBar fieldset,.baiduServiceBottomBar form,.baiduServiceBottomBar label,.baiduServiceBottomBar table,.baiduServiceBottomBar caption,.baiduServiceBottomBar tbody,.baiduServiceBottomBar tfoot,.baiduServiceBottomBar thead,.baiduServiceBottomBar tr,.baiduServiceBottomBar th,.baiduServiceBottomBar td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline}.baiduServiceBottomBar p,.baiduServiceBottomBar div,.baiduServiceBottomBar h1,.baiduServiceBottomBar h2,.baiduServiceBottomBar h3,.baiduServiceBottomBar h4,.baiduServiceBottomBar h5,.baiduServiceBottomBar h6{-webkit-text-size-adjust:none}.baiduServiceBottomBar ul,.baiduServiceBottomBar li,.baiduServiceBottomBar a{vertical-align:middle}.baiduServiceBottomBar ol,.baiduServiceBottomBar ul{list-style:none;overflow:visible}.baiduServiceBottomBar .qingIcon{width:22px;height:22px;margin:10px auto;background-size:100% 100%}.baiduServiceBottomBar .qingBtn{width:48px;height:48px;background-color:#f8f8f8;border:1px solid #ddd}.baiduServiceBottomBar .qingIcon,.baiduServiceBottomBar .qingBtn{display:block}.baiduServiceBottomBar .baiduServiceBarFullScreanMask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);-webkit-transform:scale(1);z-index:100000}.baiduServiceBottomBar .baiduServiceBarPopupContainer{position:fixed;z-index:100001;top:50%;left:50%;width:200px;height:225px;border-radius:5px;margin-left:-100px;margin-top:-125px;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAADwCAYAAAB1/Tp/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MEE4QURFMzMwNUQxMTFFNUFERkNDRDcwNjU5NEY0NUIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MEE4QURFMzQwNUQxMTFFNUFERkNDRDcwNjU5NEY0NUIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowQThBREUzMTA1RDExMUU1QURGQ0NENzA2NTk0RjQ1QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowQThBREUzMjA1RDExMUU1QURGQ0NENzA2NTk0RjQ1QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PutlVx4AAGBkSURBVHja7F0HgBRF1n7V3TOzs5GcQTIqQYKK8UQBFUTR33SYTu/UO/UM3JnzmU9RUU8x65nAMyJgQExIVIJIBgmSWVhgl93J0/3X61jd290zG9idaaa0mLAz011V76vvvVevXpFt27b1BYDFtPLgjbKQ1qNolQ7Ej3dq1y7tz8YlCQ7W4iOE0AcO5erBhx9ueuvtt//KcVwrL7QtkUisPffsswd/Pm1aFX2ZpFXEhi6l9WUPjeEgWi+BXGnsogPpmuuuG+sVEGGh5HMXBVEYAYSVTpgSp/7tXlr3eWgQH6I1mJPlRmUjGUjvf/hhh+Li4uu90rZoNPpNt0MO+VxjIu19DUi7ab3PQ2PZidaxOZFufDYaMXLkvRRX+R5pV3zJL7/cxoBIQjZigYTlBVpXeWgwscGtcjLdaGzE/7RwYb9gMDjGK22rrKx8/fhjjlmpAkkHkRVICVpv9NCYFtN6f060G4+NDu/dG1VsTzixKGb2vPfOOw+ybMT+nbN8fjqtUz00qFfRelhOthuUjWQQ/bZhw/BAIDDUK20rKyt7+Lprrtljx0Z2QMLyD7SpPNJ+gdbHcyLesA6Gnr16+dp36PCQV9qWSCRWXjJmzGtObOQEpLW0/sdDYzyK1qE5UW+QIrPRdzNnXioIQm+vNGrL5s23fTNjRtTqYEgFJCwP0LrDQwP8uEtbc6X+VDruHzffXNSiRYt7vNK2aDQ6rUfXrt9obGQHIjcgVdB6j4fGeiCtl+ZE/oA6GGRP3Z13330jx3FtPOJgiC34+ee73FS6VEDC8jqtCzw02Kiz5+dk/oDZRvzE//2vfXFx8Q1eaVtVVdWEISeeuNZNpUsHSKLqePBKwFgHtT25Uv9sJNtGI8844y6Kq0IvNEoUxdLXX3313+mwUSogYfmR1kkeGvRbaW2Tk/36Z6O5P/3UOz8/3zMxjmVlZQ/9c+zYfalso3SBhOV2WkMe6Z8iWv+Vg0D9s1Hffv1QdRa80Kh4PP4rVeneBEs8XV2BtInWf3to8P9Ma+8cBuqFjWQQrV2//pRAIHCqR5ombVi//rY1q1fH07GNagIkLONUQHmh4Kz5RA4K9aLSeW7xNRwOf9b70ENnpqvS1RRIqNrd4iFZGEHrsBwk6lS0xdeLfD5fP09QkSRF58yefUe6DobaAAnLB6rzwSvlScgt0tZFpeOuu/76Qi8tvlZUVDx7+vDhG2ui0tUGSPijN6ZrfGVBwVn0Tzlo1MrBIHvq7n/ggb9zHNfeC40SRXH7s+PHj6sNG9UUSFgwt8PrHhKK3CJt7Wwj/q13321bUlLimc2TO3fuvP+B++/fD8z28QMJJCx3ghJC5IXSzmO2X0OwkWwbnTV69J0UV0VeaFQ8Hl8w6Igj3oMauLvrA0i7QAlq9Uq5mda2OYykzUbcrLlzDy0oKPCKWiz9tnbtbbt27UrUxjaqC5CwPEvrGo90ZKHHJoYDzkb9BwzwzOJrOBx+v1/v3vOghu7u+gISLlZ5KW7tClr75rDiykYyiFasXj0kEAiM8AQVSVLVjK+/vr+2Dob6ABKWabR+5RFZwbwCuUXaFCpdy5Ythc5dunhm8bWiomL8/40evakuKl19AAnLTSo7eaGcptZcsZcTfuGSJWN8Pt8ALzRIFMVNt9966/j6YKP6ABKm73rBQwLzBHgndXN9qnTclVdfXdC6dWvPLL6Wlpbe8+rLL1dBLd3d1QzIbdu21fWemqiOh5Ye6eMraX3N6Y8HU+5vCiROBZJv1969Nzdp0sQTTpl4PD433+8frmpTibqqdfXBSFhwz8a9HpqIMXdZIRzkxbL42qqkpORmjzRNXLlixa1gky21sYGE5RVaf/FIR+Oa0s2QK7qn7syzzrqD4qrYC40KhULvDOrffxHU0d19oICEN+UldzhGO7Q7WBHEeupmzp7ds7Cw8M9eaBfFzP6pU6Y8UF8OhgMBJCzfgRIh7oWC8XcPwcFbdDYaOGgQCp7PC40qLy9//OI//nEbOGRLzRQgYcHE9RGPCBOGwPQ72BDELr4uW7nyhEAgcKYX2pVMJtf/48YbJ2gggnpO6lPfQNoA3lnYxL558mBV6XDxtWu3bo94pW3btm27++233qo3d/eBBhIWzGq61SP9j7toR8DBVWQ2WvTrr+f5fL5BXmhQNBr9vmunTp9pIDpQnVbfpVJV8bxSkGEFr6OHXXy99LLL8lu1auWVg+cSy5ctu11V6erdNjqQQMKCezvmeWQgMOPQn8H7RV83enL8+Ks5juvshUZVVla+OfjII5ceSBAdSCDhzV4P3snSirnwiryKIHbx9dXXX2/RpEmTW73QLoqZvZ9+8onj4WDZACQsmDf8LY/IGmZnvRW8W3RP3bnnn387xVUTLzRqz549/77isst2HWg2OtBAwoK66X6PCBsuOHfwMBtx3/7wQ7eCgoIrPWEYJRJrLv7jH1+EA+Tubmgg4RlLXnGhenWRVmejI4866kGKK78XGrV169bbmcPBxAPJRg0BJCxP07rOI0J36aZt2wZ4BUHs4uuvy5cfGwwGz/JCu6LR6PTunTtPh3qOp2tsIOGs4JUgUOyvJzwEIn3xtXuPHg+rr7O9xH9ZvBizpSYOtIOhoYGE5VNaZ3gETEMpK43y0MTALVyy5GyfzzfYCw2qrKx8+YRjj10F9bhFIpOAhGWsOkt4oTxOwZS1i7Ts4uvIM84ItmrVyhMb9ihmdr/3zjuPQgO4uxsTSMtofdEjQDoMlJ202e5k4N98++2reZ7v4oVBKSsre/i6a67Z05C2UWMACcv92F6PgOlflJWybrMb62B4fsKEZl5ZfE0kEstGjxr1OtQhW2o2AQlB5JUT81pBdsYU6kC66JJLbqW4auaFwdi8adPtP82fH2to26ixgIRlgqrmeaGMpazUKcvYSAbS199+26WgoOCvXhiEaDQ6pWe3bt81hkrXmEBCh4NXtqUHIbsWaXU2GnzMMf+iuAp4wMEQnTd37p2N4WBobCBh+RoUl7gXyiWUlTJ+3w5rG/2ydOnRwWDw/7zQ+fv3758w7OST1zeWStfYQMKCCUaiHhhLFNBx2aLSIZB69urlicVXURRLX/jPfx5rbDZqbCD9Bkr4kBfKEMpKmR5eI68bbdi8ebTP5zvOC52+e/fu++65666KxrSNMgFIWHDxbIdHwJSRi7QsG500ZEhe27ZtPeE1TSQSi0/+wx/ehUZyd2cakHA2ud0jQOpF698ymI34SR98cBXP89090Nfy4WBrVq+ON7ZtlClAwvI2KJsAvVDuzaRFWtbB8OTTTzdp3ry5JxZfw+Hwx30PP3x2Jqh0mQQknFG8si0dDxK4M8McIbJtdPmf/3wLxVWLrKciSQrPmT37nkxwMGQakLBgopSJHmGlGykrHZJJttGXX3/duaio6FovdG5FRcWzpw8fvjFTVLpMAxIWVDuqPDDWeZAZu4J1te6444+/zwuLr6IobnnkoYeeyjQ2yjQgYVLJf3uElcZQVjoqA9gId74ODAaD53uhU3fu3Pmvp8aN2w8NtH08W4GEBXefbvTAmDf2Iq0MIqzde/R4JAPHucYlHo//NOiIIyZBhri7Mx1IEfBO2qs/bN++/ZxGYiPZwbDu99/P8Pl8J3qgL8XVq1bdumvXrkSm2UaZCiQseDTM9x4B02MUTL4GBpEMpKHDhgXatWvniZ2v4XD4/QH9+v0MGeTuzgYgYRmrdlq2l560XtMIY8q/M3HinwVB6JXtHUgxUzVt6tR7M9HBkA1AwmM0X/UIK91DWemAZy5lF18fe/zxkmbNmt3hhc4rLy8fN+aCC7ZCA2RL9SKQZAEE5aDnbC+4CNoQi7S6bXTl1Vf/k+O4rD9lXhTF3++47bb/QANlS/UqkDBns1e2pd9AWalzQ9hGn06ZckhxcfF1Xui0nTt33vXqyy9XQga6u7MJSFiep3WVB2QCF0MfawA24k8ZOvRuiqtgtndYPB7/sVO7dp/CATwc7GACUlx1PHihXEBZqd6TMLKLrz8vWnREMBgc44G+Sq5YvvyAHw52MAEJy5e0TvOAcKCwP3mAfldmo8MOP/xR8MDiaygUevvIAQN+yRYQQRZ1+j9Vdsr2cjxlpXPrmY1kEP22ceNpgUDgpGzvIIqZ8o8/+ugByHB3d7YCaTWtz3pExcNFWn89gUgG0tGDB/vbt2//oBc6Z9++fU9ccdllO7KJjbIJSFhQUHZ5QFZwh+q19Th+/KdTpvxJEITDs94wSibXXX7ppS9AFri7sxlI5ZBZm+bqUnCRtmk9qHTcvfffX9S8efO7vNApW7duvePzadPCkAXu7mwGEhbM7fyLB2QG0wTfXR8Ohhtuumksx3Gts71DotHod90OOeRzyNDobq8BCTv4BvDGtvTrKCt1rYtt9P6HH3YoLi6+wQN9kfh1yZJbWQdDNrFRNgIJy4+0fugB4antIq3ORqePGIGLr/nZ3hGVlZWvHTd48IpsczBkO5Cw4FGaIQ+A6TzKSmkna2QXX+cvWNA3Pz//4mzvAIqZPR998MHDkGXu7mqz27Zt27J1DHCt4R4PgGkOrSe0bdtWSgNIMhPR6q+MRCYHAoGh2d743bt339K2ZUsMBYurDgYxG9uRzavgqBZt8gCQkJHOS5ONZCCtXb9+qBdAlEgkVl4yZswrkIXubi8BCVU7T+y5AWWRNpCOg6Fnr16+Dh07PuyFRm/dsuWOb2bMiEIWuru9BCQsmAtvlgdkCr1316UxVvx3M2deKghCn2xvcDQa/bx7ly4zIIO3jx9MQMLOHwtZuO5gU+6mrNTcRaXj/nHzzUUtWrTI+sVXipnYooULsR2JbHYweAlIWDBv+BseaAdGOtgt0uqeujvvvvsGjuPaZXtDq6qqXv7D8cevgSxdM7IrB/wYkn/caU5kM+nNF+v9Gtu2bUMBxCSIxVk+HtdSVnq+Xbt2v6mDo4Po3UmT2hUXF9+Y7QIniuLu11999RFg3N0K6dat/PFy80EgE9+YkGOkmhYqeBgt7IXoZ4wKf8zCRrJtdMaoUXdRgSvM9gaWlZU98M+xY/dpQEp4I0rFG0BSy3O0rs0SG6FapTO1Vs9dt27diRRBPJ2ueSplvm9/+KFvMBi8FP9u991sKYlEYumQE098E7I0nq5RVbu6ClwNSpSqRbgB8LNMvH8EAfueW9t4nn/ykM6dh+zcsZOTxKTviP79H6BCqI8Vqwppz7VHakOB3ecyoWxYv75Gh4Nl2v1nBSPVx0zbtm3bKfRhemO3AUGTTCblSgEgV/Y9699isZhco9GoVo96/fXXxwiCL3/q558PowJ1Kr6vfS4ej8tV+75W2d/UrsGyWGOWcDg8+fBevX6AGri77WQiUxlYAO+Vm2j9taHa5jTQVrVNe+73+0EQBPD5fHLF55SB9KoyEvTo0ePV8op9JvZif0dTBZPIdOp7OIMjI+FjOrUBJ5jo/Hnz7oIsj6c7qIBEWWklVfFwl+UNDQ0eTdCRCbAgUPLz8yEvLw8CgYAMotoUTeg1oDkVmYVU5kNWAhVc+L1UIDuQpaKi4rnhp5yyHjzk7j4YGAnLfbRiZHTz+vxRq7GvvaepUBpwCgoK5MeG1vF1VvP5dMDLqh4DLAQTfkYDlWZTsc/ruc+2T3j++XFg5KeTvChwngQSZaV9lJUwMvyFA8E+GusgeFA1KykpgeLiYhlImVQQHJoKqYFetrEoqIjqmGDZSlMP65Oldu/e/a977rqrAjwSCnSwMRKWl0E5CaJvfQFIYx8shYWF0KRJk1qra43iWaJgQTVTUwNj8ThEKbB4hqXs1L/alng8vrB/nz7vggfd3QcNkCgrJSkrYSTAt3UFkOZ1w5m9RYsWUFRUlFWuWSc1MKjaXLI3kIJKYylk2XoAlPTb2rW3ZfLhYPUKJCpwB/QCbKjGmCsa9qigE17xfTfrqvgn9Ok5dQEQzuJNmzaV7R4vFmRVrNheZCiNpeoCqHA4/EG/3r3nNqRK19BhQQeLaqcVXKQdAcpp42kBSFuDQQA1b95cV4fq03apz1JfMorAwcoCSlAdGJrax9pRLvcTmvH11xl/OFgOSOmLLJz4qn/Dj1fGngbLJkDreg+7YIrChExdHwxkFbjyiARrdidhc7kEWysk2LZfgrKQBPsiABVRCaJUEYokJIip5xX6qfaVJxAI0JEqziPQJADQIp9A2yIC7YsJdGpCoEdzDkrySL2BiwVUJBqVvX4IKI2hUk0KFRUV4/9v9OhNB4NKdzAxEhaMNr6M1vZ2LKQBCAvaQOiFqw/gxOlPLtuZhF+2i7CE1pW7RCiloCEKxpWZHbQX5t/g1CUjNDAq4wD7ad0dVuVRTWsgyi8l+f+WFFyHteLgiDYcDGjHQ2/63MfXDVgInEJa5agKakPhb2gudpaV2DbTCWnLfffcM/5gYqODBkgnvuav/PEvsbuoILzpxEK49oMgQiFJJXRuas2uShG+W5+EHzYmYfG2JIQT8hdA/o9DYx4FkI2RA9CQRYj+1EZd0jAjKR8QlY/JsKSI2k0ZbebvIsyk15WkOAR9Egxsy8MfuvBwMq0tCkitVUO0n9DRQu0eecFXUN3+duxUWlp69/PPPZcVh4PlgJS+ZqeXL2d8//app/wBN60co4XXyIuUtLRp0yYtNc4JQJVUJftiTRK+WpuARdtULy9HDGbBR/09DTwEXxrIUUFEHJAkqcwjSUSf5CUlOggkTgWZPEEQ+b0I5YM5m0WYvSkJj30PMkud3oPWnjwUBohtu9xkHj+DfYQxfshQIv0saz/JDByPzx3Yr99HcBC4uw86Rjpq/d2ylDz10QI45sgBtxQU5M+kICIIomAwCK1bt065ou8EoCXbk/DB0gR8vS4BMYpJgsjQwMKpqhuyEBATiPS/ye8zAGKYqRobqfyD4inic0n5gyipf8f3EWQymFDF0v6usNciqlou3JaAJ2YBnNpdgPP6+OCItlyNAaXFByI7xXBJQFX3aB+KK5avuKMyFEo2bd5S2lu2SzpY2MjzQDpaBdGyXxYQOqbc6P87/+epkz96jw76xc3RFiourjGAUHC/pcB5e1EcftmRpPjgZJAg88hAkqMElOecui0PPyNnpFPwpIAKWHZSMcSpQAJi4iRRMzNU9Y6TVE4S1c9RakJ24lTGkuhNys/x7wispMpc9G9x+rmpq5MwZWVCtqcuHeiDU7oJyn2lCSiNnbRodIGCKxIOTxwyZMhijhfEgqJiceiZ58LBVDwLpDFXXCNLw+aN67hwqIqjdhCPe3r2lZe/17dPnzGBQICrCYBQpL6mqtuEeTFYv1dU1TYFLITXWIgYNhBnAEpjJoWANBZSmYcz9pPrjMSqppLyHYm5EVG7IdVOQt1OUplIYSdCAS/KACKq6iepjKWASsL93bCkVIQln0egSzMOrh3sh2E9BBOAUwEKbSdkoxAtL7340uMUUCQvLx+KmjQl2hhMfGPCQcFKnNdBtGPbFi4WjVL7WPTPmP7FqEEDB06sKYh+3pyEC98Nwc1U6DbslWSwyCDCKnC0EuCx+ojy3MfJz/E9/W9Y5c+D+qh+n/0ttRLe/Ddi+bv+Hctvatdh70e+F3zPx94jZ1yL/ha2Cdt24Xshua01ca4gkAoKCvhhw4f1pWzEUazyoVAVwb5nxyIHpCwG0b69e+St2nT+9c+bPfOaHt27v0OFotgJQFaB2VYhwk2fheDPH4VhdZnIgIcBh14541EVavwszwisBgLCg8xWnMZgNhUsj2zl9Arqb5mvoV1TA6/p3mzuXWvX6t0i/IW29aYpYbntqfpHFyKOCwwaNOjNBT/P/wshnB/7HPv+YAKT4DUAsSAKh0NCXsDvXzBv9sMlJSXXpstCaAdNXByDZ2bHIJKUDIHXhVZ1Y2vubHytqW+c8tywhzTVzXAsmHzcxFAdifGP/p5JudRsI0b3I6wKqDkg8H5kW0kBLNpMRFPr8B7Q20eUS4lEURHxb7IPg7757bokzP09BDcc54cxA/zV7CcHVU/o0KHDE0sWL+jwh5OH3k/7Xv9Dx87dRG18vKrqCV4GUa8e3fMnvffOM4WFhRelC6LN+0S4/YsILJEdCVCNTYzXYLAJsToXFDccIVBtYQilqKkfoGsJQOcigDb5Sm0aACimtchHp3OKiIC6mBqlAo4OAlyQrYgC7KV1R0ipG/cDrK8AOSpCstpYRMOXJK81yXYREHmS0BwekFRsPZKUZGCh01pSbzVC//bYD1H4fHUCHhuRBx2bcOmACWMSb5w7a2bTc867YOzG3zdFWDB52W4SvAqiwUcOKnrxxRdeLMjPP9s66Cx4tNgxLJOXx+CR76IQioMKHMWRwHOqnVKNjRgG4gzW0aRYI5j2hQBHtgLo0xwrgZbB9NuHgMJaSAHW1mGpa1eYwLIyCZbtAViwE2BrlUpgGrA4g/JkppK95CLwCCxO8RwmMWURUd3m8iNtKwXWrzuTcP47IbjjZD+M7u23dT5YX1Ob6bJPPvog/49jLr529drfqg4GMAkeZaKClyiI8imIUjEQvo4mJHjwmwh8ujyuAITnVOCA4hTAgE2+uhrHrglZ11A7UfAM7Ujg5A5EBpKb4NW1tAwq1zm5g/IagfT9ZoAZWyTYVGF4AIm+8KusLxFgACdqah4yKX0zSXSWq6L9c9dXEViwJQl3Dw1CQDAzkh1D0QnsvPcnvisNO3XENbv37Al7HUyC10BEBzAw8d23n0kXRNupUX3D5BCsKBV1FkIvmMJE9FHQGCk1gIrphH0KBc+pnQgc2owcMOBUc81bfr99AYGLD1Xqqj0STN9E7R4KrIqY3nB10VeSGVMHGFHsJ1FVTTX7CT+Hi8Cf0IlmFe2nZ0cHoW0xlxJMdAzOn/7ltMiJQ4beWBUy20xeA1PWq3YsiMRk0v/tjK/+RW2iMemAaDm1g679uAp2RySZhRTvFTCuZsO5QCwRCzqAqBh0oLbOBT0JnHYIJ0drNwR40gUWAhrr3/oCfPW7CB+soSxVqal6ZkBhoziiuz6UvyWUSUV+lz6s3JWEMe9VwfNn50PvNnxKMNGxuJSOyb6jBh93bzwek+hYmcCUc39niIs7Go1ydIBwRH2zfvj2r02bNLk+HRDNXBeHP71fJQd7sm5t9pFoVWUhLThOi3vrUEjgrqM5+O9pPJzZVQFRpuVe09OA0XvDe3yT3utdRxPoWKiqbqpqRxi2Zdez0D1OVDe5tp61KyTJfTdzfcK2b6s5IOiY4Ngk4nE/jhWOmddc41y2gygcquJFUfRNm/LpmW3atHk4HRB9uSoO10+ukiOz9fUcAcxg0hc/AYxYHqWUUBXupgEUQKfzMJyyEEcg49MHa/eH9zq8EwUUvXdsQ4nf1DlGfCDbB6YJRukzDIq9/tMq+HJ1PC0w4dh89ulHw3CscMy8BiYuG0GEYxXICxIckGQi4XvmqXGHd+/WDc8h5VOBCD1zN0+tAsxQIAuFUB08ysKnpEdp60s+FCdndCHwzggfnNODk71cqQDU0ABL937w3s/pzsF7IwW5TUQynBKaykfYBV+BGI8qoDAX0c1TquQ+TQNMfM8ePV4b/+QTPXHMcOxwDDWnfbaDictGEJXu2Mbt21PGJxJxfvRZo0pOOXkIno9U7JTtVCtfrorBnZ+HqBFtuLKJKSzHsIW0RSBN/WmTL8H4k3m47WgBiv2SY5oup/S66XympmCp7fXYWuCT4LajBBh/Cg9tgsx2DS06nTDeSiZcSfNqivRvd30RklneDszstSi4cKzexDHDscMxxLH0Api4bAMRVQdIJBymal2ER537zttvfVoQhEOdZkPt+ffrEnDLtCpZQEwqC8cykToLc2ZnwvBOBN4Y4YcBrYgjSGtS6pruqj7SZVmFvX9LAm9SpsW2AsNOhCN6n5gdMUb/4cSEfYt97NT/WvH5fL1vv/Xmx3HscAxxLHFMsx1MWee1Q92aDgIfi0X9X30xdUx+fv55qUC0fIcIYz+rklURXmch0BdZ9ehtNgoBA8Y4+r0jfTC6B5/WKRKphN9aMFLhV3pvv5WJ8Ps+SQ4eLa2SIBwDqIwp1yn0E8indkyrQgKdmxA4pAkHPZoTGNieh6AgVfvtVGqd9T60z8tbI+jv3Xecj04YSXjq5wTEgfHuSZK+6Ix9J8mzsKRuNMQ8eRKMpWreWxcWQt+2vMmDZ/XmoVf1i6mTvz3rnPM/CFVVSoLPh39M5tzfDajS0UJnsZDw70ce6tqxQ4dHU4FoZ6UE131cKYfamCOp1dmWBz1/gqSF1dBhbUHVnMdO8sPhzYkriFhhSQdAOyoBpq5KwPcbkrBql6hseyDMZ4lZV9ifkGil7aAA+3WnpO9JwjWuw1txcMIhPJx5qACtC83Xs7tXq3DbgQwfz+zGQbcmPrh9ZhzKQuqCrb41noIH+09S1pa0vVEYMYEL2zd8WgWTLi2i90NcwXTIIYeMu//euxbe/8DDv+VzhSIdW6lVm3bydsRsXF/isglEqAZUVe4XgsE8//Dhw8ZTUBW7CS9m4rn2o0oqhKJle4LBRhxnLEhqu0670F995XQFRE4zPasa2YGIVbswvm3Gb0m48pMojHwzBBPmx2HlLiXojVjAzZmiu5nKgx6qhBXVqaWlkvxbI98My7+N1xCl6te36xs71ZR9jW1/9TQ/dME8MPoGKDUxiykGEXRWx/cQ8NjnWhYkl4jxkjPOGPmUKCZ9yWRSwLHNZnspa5wNuGmMqgHopeM/+eh/l+YFAiemUp3+NT0Ey3cmzc4Eraq6v5w8hEi6U+EwKkAvURC1zrf3gllfuwkrCvXUVUk4990I3PJlFBZvE3UWZINg9f1J6t4mTt0/xPkYLxn9G2G3PXCGWoq+SvztW+k1znsvAtNWmwHlxpJu7WtF++BFCqbeLQhoH5EYxsTrg9yvktqvyv2sKE3KfZ+KnekYDvli6mdjopGwgGOLY5xzNjSAly4ei/r+cdP17du2aXNfKpXuk2Ux+GhpzAAPJxmzqOaZY+N7qOT1b0XgP8MDcoCoEwulcq9r762ijHPZBxG4Z0YUfi+XDDDrazJKKJK2J0hg9goJlmr6DG9s3tN+g11A3UivdffXUbicXnv1bsmRnZxsJetr7Itnh/llZ4SyBVftNkldbyLmgF552YA+Yt9PXhZL6Xzo0KH9A9dd89c2oiQK2ezF4zIdRFhlL10kwsfjMeHcc/8PDyVu4ubmxq0QD34dUtdBDLUD1AHXWq3NrvhdnHXHneKXDXinBPqp3OuaOvnUrBhc9D5lw1JRXdw0hL3arlmdfQxgaUzE7mxVWAqU1/J7wGzcU6IP9I2D9JpLqf110aSQfC+xpLvHzqmNWsU+wb45vLmyZ10LZpVAXW+zqKga2/9rRlgeC7fr0rFsdtGYC++IRSMCjjGONTC777MFTBmv2u0p28UlEnFq24rCKy9NGFBUWPhHNyZK0nG6ZUolhBKSvvFOCTYl+oY7w6ug2ETdSjgYT2fdAp/9Ga9uTMQmSdxaLsKl74fhrcUJJQkKs1tVBolPeS4wKpwOBk77LOiVaM/lreSgf4ZlJdxKzpm2mYP+e+jqf+uXBPzpf2HYWiHaJnR0Yya2L7Bvxg/zQTfclySy/aGdXatFRRgqayhO1c2plbZqJvu8qKjokueffaYfjjGONY55TrU7AGyESUtisagwcMCAB+3umRWQdxdG5cSM2mY8UGdKJUuJpEcqKDaRCCUBAuOpOlfkJ3UC0dIdScoAEXlLOrv92wALZ6hiWq4FZiYn1lwN1ZwN1T+r/Qavq3mGvUUE47sr6T1dTO9t2c66gQn7aPywADTL0/pK0uP0JD0SgmkLvfYiOhbvLoraXpcp/NFHDXoQxxjHOhtZKVORL3eizEbxOIfu7v9NfGd4IOA/1s0+QUZ46oeQOb8Bu/XBnOMKqKzBU0MDslFdFxDN2piEqz6OQnlcsYVk75qmpvEM+6iMothsoAfEcoSxYzjnqnnM9C3u6nUIw1ZEdUzwptg4AuUxid5jBOb8nqwTmFrSvhpH+0zQHHmqzSQPmBb0qrETrzw+9UNYHhs3Oy0QCJw48e3/noRjjWOushIB27yzOSCly0ZywZkpEgnjSo/QtUuXW1Ot0zz2bQjCCUkPrFRW5LXTE5SwF3kWVbOS3nJMAPq0rBsTzduUhBunho3cDkx2H6IxkMoMoDKjARzV1lBzJcgvJUZA1UokI5WDpImWJrTE8J6ZAVXdEYFBujdMCcP8zXUDE9qTtx7rl7OtmvJIsFHknKTbhzgm//425OrpxNK9R/fbcaxxzFVWcpSN3IJsDdkIPXUfTHx7pN/vH+DGRvN+j8NXq2OyEIOaa07PxKMtKOoeJwlGdBPgnF68q9C4ARcff92epIIZoXYZa9uoqhWnrvuozg02VbHE5D3BO0CX+0AK6O5NiLy3CVWnoDoyKPx7IhJs2Q/w2z4JFu0CqqpJsi2oGfxyPJyo5GSQfxCDUnEbOSPgcjZ+XoREksDYqRF48Zw86KfuJ3LLwcBGQ7DPz+7Jw4JtAny1IaHsBNS3tSvRDjJbSqAmhJHgqzUxmE/HaPAhPsc9TAG//6j33npj2OVX/u1LOvZJlIFmzVtq3gopB6Sas5FsG6GXDhM7durU6W9uQo09/Ng3Yd3Y1aspAYkhGO0KOLj9WF9aLm4n4O7YL8H1n4UhmmRUKN7INCQLEBt6xGk4VjYAdSkhcFY3AsM6cVDks17TeI0na+JWB1wkPrE9gSvoL+yPE5ixSYTP1kuwYZ/ETD+ghPKIxrU57ecEI4QCt45fPzkCH1ycL4cepdqcZw0t0l7ffpwPlpQmYXulCJKW+Ujuc9EEJHkyoff0KB2jT/7sc7wOli5dOl9LbaUZPr8/SWVAZLg5o3fUchnKRkQSRT4ei/EvPv/sIMpGx1pdp+zjlyujsLw0rtgeqg2Bo0g4QyQlLQ0pHZp7T/RDgepccHP7OoUGYaKQ274Iyxl9dDXSlOBR3eekMxDRxaFTEYEHjyPw+qkcnEOBVCiI1VzQdpX9DH4Hv/v6cE7+rU5FoC8oa3vGtTUe2fsnMLnvVKDvi1LVlrZBlMB2InHqD/ZeMA7w3hP8atZXbcVWMkCtjoOWJGZFaQK+omNlN4bab+bl5Z34/LNP98exV20lkg22UkYA6Y+X/60aG6GejO7QPr0Pv8aNGXAmfG4Ww0aaMBN2O4Qxxmf1EOCodnzKEBmn62H5z9woLN4uMtsLmDAZzkhFLDER5KhpXtWXg9dO5SmzcGqy+/S3VNh+llb8LfzNq/qo+6PYOYmT9CxHHM8unCqLphgN8cLcqGtb3RZssWJfntldsKzVGkfX6N5GVUt4lo6VvP7kcr1+ffv8Fcee/hLP87wJRJlqK3GZyka0cldcdmnL/Pz8kW6q1gyqe/9WltRzayvgqmYSyf9gcpKbBvvBjd1SOTRWlorw+oKYsdDKmfcygbajVvWxo+WCe5n+cwoPlxzGgUDqtn/I7vP4m/jbz52s7CnSstlpCflBVTNNe7DU568uiMvBs6kcAW4sgn2KywiYy8vIcaku1Om2k7L8gGP1zZqY6/UKCgpGjbng/GaxaFTWSrKBlbhMYyOcgZLJBJcUReGcs8+6kHa0z0m4sb48L6yoMux+IiaKWlSpCPO1XT3AZzoiMl3w6K9pffjbiMw0eoJ8PVpCERTCWjn0n65U7ZowTLCNIq/N5j4ntVPzpk0YxkOXItBPJ5KIBidJdkQQjt06ouSfeIi2CdIII3JiKOzTq/r7FFYSJcOoMXnxDAfQS/PCrnup6Pt5F1xw7oUoAxiDp7KSk8zkgGRlI83lnUyKHAanNm/ebIydt0wri7cmYMm2BHPiA9F1c0nLOKrqHB2LOLiwtz8tlc5JmL5eE4elpSKjQoIOIqIKrKRl4REVB8Hzw3zQPEhSqnE1ZSSn7+C18JoYtS1pprq6EK2s9Zhj4/Del+4UYfqaeI0BxN7Dhb190KHIMEplpwch+uZAfZMgnoJBxwzHzm1sW7VsOQZlAGXBukCbY6QUpXzfHo4as9TIjPJPPPZwX5/P19ONjd5bFNaBw541pCFT1HJh0yd/HeST9/A4qSmuKFd//KX5MfX8IzbBPZhzO0iKALcISjDuZIEa5ODouKgPRrJjOLzmuCECtAxK+nEvejuYA9CAN9oyYW7MlpXSUfGwYN/+baDGSiLj/AAjZx4xvHg4dm6sRMf+sMcffagPygI6HVA2mEk3ByRXtY5apnQWQjAJfXofdraTCoO1IiLJeQK0AEl1lVO3jVgHQ8diAiN7+Go061uFG1NPrZZtMUlXVfSjK9VVVM0xiDtH/3W8IKcmZr1cTs9rW91+G699P70Hjlk01d3vamIX5WwnpQ3r9ibhu9/iNfLgWesI2scdio0tFyp65Strh7Bp4/XFyrg8hm5j3LfP4WejLNDnPM+ZnQ6Zpt5lAiPp4hiJULVOTHKiJHElJSVnuLHR1BVRecWccMx4mdhIkWpkh8v6+ZVsdHXIszBpSYw5ggX0cB5tO4akohZthEt783BEK64ai6SjSta0uO2Vwnu4tA8vM7K2OU9iVDw97Ei1Xz5aFq/1PchrS/T3L+/nU1lZ0vuEZSVttKP07ziGbqxUXFw8ktAbRZlA2WBlJcdIDmCqrCjn4pTCE7EY/8B99/QSBKGLm+E7bUVMV7m0c0eIttLPsFFJAGD0ob6Uqombvr6XapBzNiWMxUWNBdWTHjTvAoK3XSHA5X0FV7umvoub7XR5H0HOPS6f4Md4ASRG1dIWb7GNe8PufZGqD8/s5ZO9o9VZiXECqeDBMXQbY6redbvjtpu7oUygbGSyndRoQGKoWe8YWa2jbNSvT++hdp2rzV67qyT4eXOMcXkbLWFtI5wVR1F1o7YZULXrTVsVU8NtGJtIv3Mjdg+F9Kp+gnwsS01d7PUFJqt6hPdyZT9B3zJiUvEIY7/QySFB0fX5qnitshOxGV2xz8HOVuLYBXM8CTEuj6X1euzzgQOOGI4ygbJBJ1tTz2eSetfYjKR3DOEUCsdosSZNSk52+9L01VFFsDUVS/XQWW0jHNhzD0+fjZwKHr4Mql0EDKCsKl27fALDu/B1vl59gUkreE9tC4hyZIsoGSoeMRwpitNGgu83xOt8vfN6+1WbzcJKeqiRwuoYqItj6VaaNW16EsqELBscxzJSzkays5GiVAfGRdiePXsE8vLyjnT7wo842ISYbSM9A5BhGx3WgofuzflaMZFWohRDS7Yz0dKcmv1bMhaMNM/YmT0wfbGUMemLjTTFSmYghZEkRsXT2ivpth7u5Yom0ltLcrpet2ac3PearaTPbMTswUO1+McUwA0EAsc0b97ch7IRjWSuG7xRgGRV66oq93OqDsz/5fLL+tHHoNNsF0tKMGtDXPecqeeSGEGToMy6+L1Tu/lq5HmyM9iX70xATDTUH/kzWuCCxFR6zdO7CbbXqg8PXW08eWxbRnQXZKeDtrakYIno/aexLLZ1ZWnS1oFRk6iL02jfy04OiRlDNepE0SQUR9HsjXGIJ52ZjgI5/+axN/Sl7eIYOynj1DuukZlIf1Td3lznzp0Gu31p6bYEhONmN5A6PHookJY96uQuQlqubbeC4TOEY9dDWDVSWTRC4exSwkGbAjhg3rm6evPw3rrIZxoxAbyqnUSAmNbCVpQma3wdaz+f3FUwACtJVlJSVUsCoRgd0+3urERl4mh5qYqqdnTSzUj1LhNsJIIuTuwk+kCKi4sHun1h4ZaErs4xIW1Gj6ry0TyPyCpGXcu6PaJZpdNuWwsml5RjJAe2zvw0AwPbcIoDQHM6SGDkr1BVPHy+fk/djy7q2pRTIjp01c44TldiVHJ8xJMA3UpJcfEAlA2cbAnhcqqdU4lGMSwoSW0kiQv4A4c6uaOxLtgS1xcUjZ2ZxCIcAEd3qN1WK6v3aEu5qKuOWviPFhKqbB9Qzl3t3oyk5ZpuaDZiC96jqEZesLF48ueJpO4gBlOilJraSWwZ3EHQvZmm3XksFDicHGMmz121/Hd5eYeibKCMoKzknA3V7SOdkVCtG9D/iHyfTzjETqB1m2VHQvcsELCEMajuVtTNj+7A29o86Qq2ds29YZE52c60Q1AHL/5zSAlne71McThg6YT3qAFIdzpIuuGvDoa8I7cmAHJaFJbHQDKWIzQPDdEQrPbrsu0Jx4kMiyAI3Tp17OhHGWEYiWSSndRYjGQKDcIUTKKY5M4+64xeYDnjiC37whLsqJTMGrJqL+uznToDHtvJV2t7hR3MfVFV7JjLSozuj6oLMlKTPJIx9pGTgDfNU8J38H4lzQ3O2C5aH5aHpVp77djnx3T0GYGz+sYO1t5U/oRjui/sGjgsXPGniw9FGYnHosRFlg5aZwMJVVXJHUGtJNKmdesubh6h1aUJIKzLW5JYs0gPGC0OgBzzla63ztUrJWq0qb4mhHF7a+cJifI5Q05s0FjVWuS8fcpikkkN1r1pigIr54Ooj2vjGOAEoy1HSKx6p11PBRSOrVuftW3T5hCUEVxLojLDQW4dyTrbAEmiW5P2UVFhYUcn+wjLhj1JI3FItVwMhsrSqwVfY1Zw/CwBQ+iIoaLonxYNp0OmF1FjUtEkzXqOOrOQ1w8b9mrBKXGP7DgRYoqs0MbWbsy1UlRU2AkUf5TmOM157ay0jB47XHALBoMd3NQsJTeatmbErBup9KBqK7VahHW+QSPoUlPpdHtMNFT/UDzzgRSKS/o964ulVlanxc/XH5i6NuMNN7hocJJk0s2VsXVTJ4N5eR1RRtBzl3M2VLNu5NggvUP8fl9rty9v3pfU2UjfgamzkaSrdh2LuXrzoDXNNzyChFHpdIFQoxpKKzOfkvAeDbufYSHJbGcW5dWfp1AeC81TCMY4meMT0Dvq7gL3+fytDaBx1eToYGQkYiEcklBd37wgNHP74u4q0aSASJJFtVPfaF9Sf81qmc+pW2qs3j8zoDbuFVM6LhpOXba/5oa9SQALgCSLiocM3Lqg/vqvQwnHXFKqPmbyDUuwq9J97UoQ+BKUEZQVJ3v7oLaRopEI0QrPcU2dBAHf2xuRmKRAksmDBoyB3DI/vbwMNRIEG/cuK4wrdyUbBTQ1AZd8QqADgNg2dajjRMT+VssCbaOfaHY4MCDCXtsTllzPchLoJKvJSSwayTkbqql2nNJTSTGJiU+auH1pT0g0G8SMB40dRC3BSW1Cgqyep67NOFNMXTXhU9XLeZtSH0TcWKykPcd7JIwP2m5SQKde56acbV/UBETaozIWlkhwLbSBGJqeNraOgspxRZnIRDpjZoKzAV2aqPdKmA/U5ezTUEwy4QfUBBsSa7vQ2jTIuR5Vma4gypl5WmmOC2LJQ0D0i+Lft++XYDVlpZ4t7HfGNtS6ktM5sXhv2/eLSjpl1a7Tg3Atk0Tf1rxtEG/a+S2Y9stjIRriThiHjXwf6vu429kpu5IyYZFC3JdE1FCyHCM5DwD2jquZWy1KmPHYsULO10OrWPctZhSVRBuVzjQdSDBlhXFCXYpjTBqEjdj7+GxF3OybIzYsS9uIJ/R1b8bVG/g5Yh4wSbJ67pR7SSQgq0sGRH8TIqoGpFMOO61EEgxgCKtrMwk+6OwX9NWPjYTfRVAe2V5wtpHAWGP6eHmM3iOkddJDQ6lz+Ij39MnyKDC74h1tpKM7CnKb69pvWsn3E8PdbvJ2gimcAhnJHZAkX7ORrHuUc167mnYEkfQ0xWAJ2amPBUU74cH3hnUVjEVMk5qjZjPV4vJCEkz6JWpig4ZiJysLsdfFe8J7Y80KQsCU+lgTdG3rSTp9k37HmqMZ2JAkI3lEA8qRx5wNeuEFQcKZhg5WzO1LQYEzA8bB/R2O1y5WzMnhcEo3AQKCWRUirGCApGcVenFeBPZFwC2L6AFlIuv7eC94T1rGICPPhGQaBGxXgAcY2lWotaPB7n7QrpWYAbM6HbSXwRQHmtP7CBH7hh70sXa6bcS8dN3Az2s4Iu5gSoj1d38oSMUBAqd39xlbAvRJnDDBl8qqJgZf4qFaVmY4UGqeXXIYtuK9lEeUPtNTn+hbT0DfVoFtG9XLB0UBUq+OkaRoDI4tiFRgC1lzfnkGOxs0MImiGHfb0ZrvI6bZzRZMgFHiYrVZta714iN8SqS3VchUadCFl/box8uirjnbapp4sSaJLFlA4T3gvWgqsX4/VieD6mgY09dX70Gz8liwsYk2qh7+rzGSU98kEokqjuMkw07KAcn+RmgnJZPJcrfPNMvnLOCxB5NbSH66dpJVWA9rycNR7QQjzZQaBQDW3TGqsN7zRQhW7kyqCRg5R5upNjJh9xta1a6F18Z7YHOigyW0SuZROWZQgqPbC3Kwb23d3k4FxyIViCRmbJ0KnWQrcozkUvyBgN6vFEh73YzcpkFiJgIHMJWq4Sb1MXGxs+JNxwWUjXGS4XfQr66fvKAY8lXUTrt84n45dEgT8FSASrc6AUj7fbzm5ZP2y/dAGHCze4AkJsgXGzL22ECd7CInlXMnG/rjACJ5bFNEoyQY2WBlJgckpgi8IHE8J8Xj8b1uAt28gDMthTiBSQtura2h75Sg/og2PIzoITAb40yOMFWFkvSDtTCkacxbFbB8RzJtgKTDRG4Vr4XX3BuW9JMnzNmWzEYltuWsXn7o05pL61Dqmjo8tLGQnECkvtncZhHdZGslEvtQRlBWcoyUosTjiVK3wWuHWXBsbCL9H9UJgYNXX2xkZaWxlJXyBcJsoWa2abOHP6vpwspCIlz0dgV8ujRmq4LVpVp/45NfY/K1ysLGcZNsJlU13N5wmFAQYVtuOCZQr+ocC64tCCQ2dN7CRNogtitxj9iPxmKlOdUuLRuJl6pCoa1undmpiZHk0AomdrHvt91JW3uiriCS01oVErj5+IC+l0ff72dc0DgCU62hhAQ3f1YJN31cCburwAQAp+duoLE+x9/E375lSqV8LSWFM3OgGEdMk47EeNFuPSEArQqgzmnLnNhprT4Wkg0zgR5i1amJ+2bMyv2VW1BGBF9mMlJGnGrOC4LIJ3hp7969Wzq0b2c7MPImseY86JmrNQJidsyKqjq+cmeimo1jfV6bgskXUXDP6y3AnE0+mIFZQtnzkUA5s1W2o9RTvbXZCuOup66MwQ/rYnDlMUG47OhgjVzNdm7uigjA2z+H4ZW5YaiMq0fNaODhtXNbjDVPJkhRngiGd/XBuYcLtoklawMk/ZR55hT0VZgjj0jMgbpshxqg6tqcc5y8ZKdFecUWnucliUnilAMS62zwB8RIWDkCYcvWbZv69ultyw44ML1aCkYCePqvLK/6gbHKAiO+h5l/Nu1NQocS4ngMfbqsZP2+tpD54LA8WPdhEjbsE+k1iZ7zjqin4yk3BszdKrPv/hjA09+H4GUq/Gf2DsA5/QLQv4OgHKQsSa7siX/DfAqLNieoqhiFKcujUBWT9IOnZebhmaNntEPFmBwX2lGgnSm7PzA0r0Zu9ZoCClXsPaEkcOzJlYRUYyY5PUBLAbSFYruyZevWTZnsbGgsIJk6QhAEKUrf+3L6N2tPP3WYiKHgdl9qEiTQpoCD0rDpTAXTyXAaQ83dGIcL+geqgaEuwGIFrNBH4IUzCuCiDythb9Q4d8icBlg5yItTI9RFFek4OVdRQE1cFIGJCyMyMw3u7INDWwnQvSUPzQsIfU/pgv1REcqqqLq6K0ln9wTMp+3aHzW8hMAcM8OqcpgQX3OAyDYco9JhNqEJowrkAFVRrLuXzinGb+7GmJpV1XS4vNlGktVlTh5b0SHxBb2/xIcfT/4Nn6KsuMnSwQQkS7iiqv5Q2l63fkM4Hk9s8Pt93Vih1YQfa5+2PviGqkdEi1BlMSdp57hKMEcFkvZdVu2oC4hYoelIGe/1swvg8k+qYF/UODNVyaOtqaCWTKMagcp4I3IT9seV09lnrI5Vkw4TP+m/rXniiH6CoObgUKpknJjBplgWFRC9PrpAvndRrL5wXds+sospnE1VX/ngaqYVLKA1G7NfG5+rCh6Pxzfs2l0W9+flSQ4AanQwNaazQWd2n88voluTcJwYDofXurmjB7UXqjkXdIcDExQ89/fYAQ0S1e6pZwse3j63ENoVcqbdpzILcMYp4rgPSKuGDaMwlg4Gq6eNmAGi/J6kHFepfVf9Lf33OTPQJCakqUW+AvyeLfgau7drA6x5v8fAWP0lYD4Ew4jBG9hBcL2fqlBoNcoGz/EiygrYZfbKee0MhwOy0r7y8iVOHYrvHdlBMK9BmJ/oqax3VSreO1LDY+/dPucUL4c5xt87vwB6qWmLdZOEPYtT88DJp6GbQcXxnAEG3gw263umz6p/09U5JoraGiHfC+/xvEITiNzUstqodSwzraN9j8lWqm9iNlzgWqiSPDm6RJzv3bvvF5QNwefL2AwzjQ0kPSYYC084cc3a3xa5HVfSr60g73Ex69naIEq6To7l61UxRzZJ93iSdAoGyS7eloBieQOgqJ9fS5iocOOISe21ARYNXIQBBae9xxl/M32GJ6ZzYBVbCfTXeggQno9E9cfLjvDLtki6Lv90+8qpj762qKmEMAPFHJlUQPsMx9Tt+JuVq9YsRtlAGfH5dUaSckAyd4Tk9wdkI5LwvPjWu5OW0v6KOBp19I5POMSnz2oGzxt7mTWVaOqKSFrsks4MbbemU0ll5fk5YRjy4j64YUoVzN+SMMmKnhRYt/UkXTXTgKQzE22YzjI+fK1U7bn1MzoL8aqdpDo4iO4flnTPGEZg3zE9BKe8Vg4vzAvLi8Spwo/SYW+3PpX7nj01BCRjMRiMPWTH07EUOFdwh96e+L+VKBsOjgYpx0hMh6i6L+zbVx4PhUKL3NaBTurqs0lHw1jk6gBiwn1NvUtHZbEDjgYaLZYNK67fjP8+BMc/sweeoo879otG2JBkc09GqhfDjuMMwCseNzBc1ujpE5Sq2EGWz+jn5hrHWOphqKSaJOrR3dvKk/DUDyE46T974bEZVXJAqbVt1kVhqyMhnb7DPpcT47Mb9ojF0aDCYEhXd0dDVVVoQVVlpZx+k7GPcoxk423RjgmWBJ4alD6fWLpr9w9uDodhPfyyJmO7o4FdrqB10qKoo1C4zcZ2YMKcEc/PDMNxT++G8T9Uwf6IaOzxUa8ugvkkP9OQ604E4zR21smgrQMpC6nMie1a6BHrkOCIYXdZU4Go19T3TYlgShATiovw0pwqOHH8Hnj6uxCEEzVnJ7f+xD5X7s2cnd96xi82YSgdSzdVemdp6Q+84Ev6/f5k9UM7M4eZuEYCkWTneeF4QURdeOGiX2bbdaw2W6H3aXBHn33XsWt/uDfo17B8Jmo6276tkdRsnb4qDqc+vxee+LZSXgNihdfw50s2vikwe/MsiUYJEMt6ENFP/tbZh2P+TgwbyHQ6huX3JVs5k9SFY2W7fmVcgmfohDD02T3w+Yq4bbvtNiU6ORiwYl9jn2vrWFr0iWQjCTiGLfKJra2lvZ7/88JZPKdQr6a1OMhRztmgdRJPgYS68Nvvvb82FotvclPvzjjUD9YASN1rpcaayR6fsEgHNpKSdZwqxrH9+Z0KuHpiOWzcY5yVRNjFT3VdyIARsaEkB9G2E7Jqm5zsIOEkRQxorAn/iaJa6iBVgbujQoRr3y+Hi98sh837pLQj1O3Y6JOlEeVMKW39j5gZjA0yHknH0E2ti8Vi69//4OONKBMoGzYgynntbGYVCiafKNBOwzWD3bt3f+nmVUIg5QnE3k5iFkaxvjQrpKzruGz9ttvbM3VZDIY9Wwbfro3otgrrOQONPXhGxXJhIntwGR/A5uCRnR1LODikiVLxOb4nEOYHwfk3qjETMZ8PS5hgWj1aXV2Pmr0hBiNeKIMPFkcd90+5Vezjl2lfa/0uMdc16XS04NiNUoHkpNZRFf8rVOsoIyVRNmzmj4wBk5AhjGSsqdJOE2jn/bxw8RdntW1ztTWaQAscxVxzZ/Tyw0crYmDV0tiFTLQPNu5LwqeUlTCuzSmBIgsiTF91x2cV8MmSiB5JIOck1BdQiXnLhElYCFgP97PIkJxS+Yg2AhzagoduTTk5s2nLAg6apUhev4fezq4qEVbvFmHFrqScJnkVNezlkCGHa5o0Xj0GkFiIj/axakeh2nrLpxUwY3UU/j26CJoEOVMEhJujYTJlo/V7k/oeKGINDWL6Aceu0K+EKDmdxD533k+f0/HA9UUxLTI+CIFkDROSq0BnHT4RF32imHz9rXdXnn7q0N+okdmdHUQ2XGhM/zz4CPO1SURfiFVmRkn33hEVTOO/r4Sz+ubJgECwsAPGzqqb9orwV6rGYQS5ZuATJp7NbMNIxrGYTHS1nmlIfcR8BMd2EmBIZwGOp49tC4nNeo2oR687lSZU8JoGCPRsxsOZPXldgLdUSDBvSwJm/p6AOZsSekZaFkaSZviLxkY/XSWlT0TWVU3v46uVUVi5IwGvXlQCPdVss2y1qnR0epP7GPSt7caRLdXUOnXs3NS6SCS6+p1JH6zNzy9I4mK9YDASZKKK1+Cq3aQ3X5Rc1H3JJygdRjsvuWXrtk/sFgi10r8tDwPkxbzq6h3hzCdn/04B8vZPoWp7edg6a30CzpiwR853oBn+GEnA2SyGGl4zy1qJOq7YsSdS4DxxWhBmX1UE/xkZhHMPE6BNgcKq9VnbF4H828+OoNe6sgjGnR6EP9Brc6Q6S2trTkRlWNlLyBPbNuKkcvbLe2H6yrjtfihW/Xvn55BsQ7L9US30WFU9B7YT5LGzG1Pt+bbt2yejDLAy4aTaMTKVW0cygSkQSFCdOPnBx5M/tct1x86Mfx0crD4nEUN1IYzrGF3We0OirXfq418i8Ke398D+mBL3xvGGK5pwTIQBG8vGETML0VpEVc4/D/DD9D8VwUtn5sPIHgL4iSH0yWTSFgzayr5TZSM83KqPXmtEdwFepNfGe/jLQD+9J2A2EFN2YpiWjZwgvMV+orIeomru1ZP2watzQo4evfKIBE9/X2X6TVOErmWkrz466BoZQd+L0rGfjDKAsuAGopyzwYGVZAqXcKy55E8LFpXt3btvuh2AtHpKNx/0bM6Z8krrNgphtn3jsTBhCR6dXllNnXvxxyoY+3E5JEVDgDTHAscbszYwhjt7/iIW3Apx3eAAfHNFMdxyQh60K4SUgLGCwy0Mpzagakvv4ebj8+R7wnsrCDCxgMw6lp5pSG87CyzlCw98sR/GzaiyBdMjX1UqOSI0lmOdGyzTSEoudRwzt1AjHHMce5QBai+zal1G2keZ5LVjQYWhIKK8a5YXknPn//yW25oSWkQ3nZBvE+BAdGOXZZH3fwnDnA0GyT35TSU8TAVBjg4whd0QU1QB4WzsIEnB10X9/PD1n4rh74PzoNAnOYLHLp4sFYDc4g6tr52YDe8J720GvUe8V46zMJQ62Ri7a9mICoOhnqWMfs+UClNfz1kfk/vUZD9W25FrOBluPD5fWctyXjuSZs6a8yYd+wTKgGw8KuvcGe21axQgWewkE4hUVkpyPJ+kj4lX33x7WVUotMCNlYb38MnHr6RkJVUVQ69UZVSC8d9VUQO5SlflONb+4c1JH812kFL6tObh44uK4N4hQSgJSK4MlE6AbE0CRFOBzO5e8B7xXj+6sAgOb8VVX39Tt3OY1TszO735U5gy0H75e9iHN9O+1B0MrLprw0Z96BjhWLm1a39l5bz/vjtpJSMDTmFBGWMfZYL729HpgJQuUoMCDc5ly1a8cfRRg460c4Vrs8FdQ/Lhov/tN0+CepiKOsjqr2+pEOHc1/bCyp1xdQ0ITKmr9EgC1avFsUvziDEqcDcdG4S/DAoAiiPaPW7btZ1W7WvVWS7nR1nd0U4Lz4dS9eoDCqaXF0TgufkROahVU/qUPOYg21G6r43tVFGCl6i91KSAgzU7E3JfmmxHdt3KwkZ3nZyvRMc7qLJYfl26/L9+fyDBI4jsnQw51S6dRVmNxql6l6SdKQYCefF/P/nM9+Fw+Fe32fioDjyM7OmzZSUj1AZ0tQ3XX6pvXzC7urWQHPbm2hYQmHh+EVw1yE9VI3uHgBOo6iv5opvzJRVbaRUd1n87KiC3Bdtk5OJWnBF6+3n7+vg3VfDp8qjilOHMfWzHRjg2R7bnXdkIg5WfHP+fH1ET4ZVo72Q2qHWNCiQb9a4aO+GqNjVok/i4eMnSF9xsJax3UFbK9xH7KAd2LYi3MaqrGdikWhzoUVQQPr2kGPq15hyNfyehbrCZyQFQTk4KbAu2SRZyy+Ktoea59RUxxQKCDRvhmODYOE0m2uufFix+gR1zFxbKKLUuY93fFlZK+gOB+JPPPD+rqir0sxsryTnnTghWZyWwOB3s1k10GwqqeeTwl8493A9v/l8RtTPA0fvWmABKF1DW+1ZsJ5Dbhm00szkbVgTVXeXshMSESFnZCMcExyaFbTT3uQkvz8OxVtQ6RzbKZVqtiY1kgMmHISJJv88f/+b7meNo54t2M5omHBcd4YeBbQUT1bF5r6vtTrWE+5Bqur0Efx4QgEdPzQeBk1xVuUwAUG0AhRXbhm28clCeCUyEBZMLIxkOGWLq+0HtBLi4f8CVjWhNTp/x3ZM4xpxhGzmBKGcjuah3Vs+daKh3lJU4PslTvfm/70xcvmt32adurIQWzZMjC+R0WWA1wNntCZw5/5sTiK4bHIQ7qVoCKdZ76upEaAhAOfWZ1i5s4+0n5cO16oKpfd9Zlwiqh0hp3gUcgydHFprc3XaAKt2168NJH3y8EsdYHmuDjSQbQEGmqXWZpNqBk9NBU/E0VnrrnUnPJpPJfW6C0b6YwP1D8y2H/zJh/5x5u4XdFgH83qX982Ds8cG0zijKZBClw05s/QdVxS7rn2cDJutkBMx2clJNpfsXHQMcCzc2whNI3nhr4gt+f0Blo2ogymgnQ6baSLZgwhkqEAgk0Jvz06JfSpevXPV0Kq/UWYf64II+AdueJ6xL2EHgzjrUD/eekl+jNR6vVCz30LaPZrY5VOs3hy0p2qcv7BuA0YcHUi4oL126/IlFS5buQgcDjjHvbhvlsgjVUL0zMRIoqbNFwe9P0M6OP/DIE59UUuPUyTul1ftOCUK/1oI5oJW4VPXC6NG97pggZPlpjHUq2Pa/HxvUUylX6z8A+72H9LOt8jmqERSkvMb+yspZTz434XMcUxxbkCxjbgYUZKpal2mqHTvjiHasJKt4VIf2URXvvfc/epCqBfvdVBWeiPD8mQVyGqq0VS9UN+gVL5lUAb9uT5hUwlSHfmU8ONI83AwLtv3iiRWQSFrQZfecZSP6z879Irz2c9hQCW3ug45dxQcfT36sIL8gkZcXVDy0qdeNcoxUD6yUxNg7judkd/i3P8z6/ddlyx+1GvlW9QGPLHn1nEI5Klty07DZpO6iIgznv1UOkxZHanyKXrYCSKvv0zZf8Ha5nB2JzeeYUowlQ+af+L4KPl0WrXZNraxateap39Zv3FVYWCAVFxdKef6A5MJG+pUnvjEhZyPVkpVMYBIwmJFWBNMjjz89bXdZ2RQnz5Sm4vVoRuDZMwrAx0mpBYJJtxNLSHDblAq46eNyCMWJY8qqTAVUOgBi24RtHPtJOdxK2xyJi+CctMcdS1qa5Fs+q5APM7DpIzEhirFmTUp8TZo2pXMjB76AXwoGg1I2slFGAcky00gWr43Iqni8wMsqXiAvGBs3/oVHIpHI2lTu3eM68fD0iELgwQVMVq+S+qGPl0Th1OfL4KffE66ZdtzOeW1o8LgByK4N2LbTaBs/+iWSgm3SnxIxfdlV75fDml2i9frcEX173zH4yEHdigsLfM2aNuHz8/JIfjBPKi4qcgJTxrJRJjISgMPCrEXFo4zkj1O9Or55y9aK/300+Z9O9hK7gj+8Gw/jTi8A3pI6l5FCwwBgBZIoZ/1c8PoeuH1yJVTGCPA8bwuodA5cbmjw2CW5xIptwLbc8Vml3LZNeEylqd2MJ6Em+cAZG6oyIsFlb+2DPWEw9RO9dtHxxw1+rHvXzq2blhQHWrZoyhcWBDmq6kG2sVHGAclmxrGCKWliJ2oz+f2B2OfTv9kwd/7Pt7NRD07u1pE9BXh2VKG8km8FEwEwp9lltl9gxT1LExeG4MSndsPbP0Xoa2cwpctU6RzKXJtTzq33Yb1PvHdsA7blvQUhNU0Xsx2C7QMCjgldwG4u0qNIlLqjMgl/eaccoknzPfn9/rbDhw55tHWrlsWUkQKUkYSSokKuVcsWkE1slKmMBOASMsSyElXxEvJCrd8fe+7FV2etXvvbE3a2ktUtPqwrDy+PLoR8H9gyEzGdQ0SqbXDD08rvonbEsGfKYMoyagNwvCuY0jkn1g04qUCVKp+C6d7ovU6l94z3jm3Atli3lxshU8SRiHjOAUVMGjRjPxeBxdvi8Pf/lVPbyXzvgUCg//BhJ99ZVFiQX5gfDAT8gq9DuzZCxw7tsmr1IeOAxMw8koOtlLQDUyAQjN7/4L8nbtmy9b+pNrjJNlNHHiZeUAStCogl1bElHMZ6OgQTGrN+T5IKxz4Y/mwZvL8oCgkpNTM5OSPSzR2XjjPB7h7w3v63OCbf63X0nvHe2bawp18Q3j5+ThsNPDXx4z8Ww1m9/NUZHcCcKZaJx8MTKu77vFK/N+2+CwsKRp126tCr8/ODQb9P8FEw8c2aFPO9D+tFckCqf3YSbVQ8xV7y++WIYV8gELvt7gfG79xZ+onZTrbPcdCzGcAHFxbCEa15VzBxNtsu9Pfo3/Hk7ls/rYDBj++GR78KwYY9UjUbSnttZ1ulm4zR6XtOv42v8V7wnvDebvmkXL5XjXnsIrk5JxCppV8bAT4YgztseXhkeL6cn69a0nXL9n5WPcbDoyf8GK7W5mZNm14z5MTjRwb8vnyekIAkity2LZv1i4+54hqSA1L9sJKTvSSDyedH54MvzglC7J+33/tgWdmeL5y2ZrNgwnWmd88vhD/29TsGalo3uLEHgREGUHvCErw4uwpOHl8GoybshVfmRGDzPnAVdCdwpKpuQMVr4rXxHvBe8J7w3ohNchNrW8ABRNgzF9I+QhZvXaDEzwXod18aXQCtC0m1vUzARtqb8l8Q+Pc3lTB5acw6iXBt27Z96KhBA/snEvGAj+f8LZo3EzZvXJcVrEQaMtiSziq4+OrgXZXsPs8Go7AnpfJMFbTHZDLpi8diPjoQPpzZHnvwngebN2t2ug4MAFeDfOrqBNz3bQiq4tZlJUnPCgyimhZYVA76kbTDjEUNrBrcDTd75+Y8nNwjAIO7+GFQJwFaF3HV1r1q6qVjH3HxeOGmBMzfEIPv1kZhY1nScBBwxHwKhilrkJGwREu/rJ8uyFyvwIcBqAVwZi/BNgh4TZkI571XAeGk5XBg7A+tj5JqVZ8L9HtvXVIMx3QWTBMbHcOyVavX/Ombb79bsGdveSgSjUX27g9pm/zkSdbOIfPHy/+Gf2s0IAmQPYVlKdHwJ4EWxELobIyuIDlrcDQWD9/4zzvvfOrxh8KtWrY4x3q6uVY0WwrBNIoKysB2RXArVYV+3pZkjjUychnI/4jawcvK2SREVDOZoiGtCo9+ArKEySmT8Mb8ELwxLyRfsyUF0mGtBejV2gcdmnLQsSkPrQo5aEZtj+I8AkEquD5eEZY4FbowBXZFRII9VSKUVoqwmf7elr0irN4ZlzPC7tovsl57Zm8VmA9l1k+2ABN42Dx0VhY6qh0Pj5+WD+2KiN5XVlD3aMbB02cUwLWfVYIIhDn607iOdX9rgrbr6kkV8OFfmkCPFsbERsewec8e3Sds2rRp1Kw58zZv2byJr4rEpFZt2sl2sjq5ZpwHL6OBhLOPTceJFtvWZOuiagPgl59jpNw/brvnoUcfuLu8Y4f2lzuBiQVUWyrQb59XCBOp6jFuVhhCcUNgtGOfiSYY2p1xyl0RyThoHS9BRJszkujjbgqImeticgWohVhYMqiagWCARmMfYMFlBZkLC/3zhCCM6euXG2Xdh2VlxVO6CPCP4/Jh3GzVlQ5G+midGS1O7cqYJJ/08c31JeDT8mPgYQKC0PGkk/7w0Kw5c6/Kz8+Ple0tF5lxz9lI9WwviTYOiKRiM/FxDGwVfD7c4xK99a5/Pbt85apHcCemUxiRaeermISL+vrgi8uKKEv5TPJrSqzIGNSc3e5R/chK1haxHAnD2WQ45cBSHT5ryr9nuZZQ/X44vvp9m8+cVQq2+XPaduwD7It0s8JefZQfzj4s4L6h0rKzduv+JHyzJl7NM5kXCIw6Z/RZvSsrK3mqqnOlO7Zpqj2qcSQHpPr34iXtKgVTQgNTIC8v+tC/n/pw9tz5/0gVMc6mFm6VDzDutCC8QxlKzpvnBij24GRZmDlGgDnG08cpf+dtzoLVEzNa88pZ3mdOO1cAwzEHNjPXFYxrVXNr2wAI24iOF2wztt0uvbJbplisDw8Lylv97R03xBZQL84O29mApGuXzmfzHOcTk0mOjqP9gVE5INWaldxc4mxNmMAUyIu+8MqbP/z33UmXhcNKbF467IR1UFsCH40plLdkyOmRbQAlC4oJBGAIuoWZNAFnD2PmVEDoVTBAolXzZw3AVmMiwcI+KhhNO4KZ/sU2YduwjQPbkJS5x90mINy68sJZBdChiHMBE+sWV876jSWrj3tBQeEpooQBLIJi/5qdCyQHpAPnEhftwITucQRTMC8v9t0Ps9ff++CjV+zavXuqUxSELbDo7HxKZw4mX1wEE6jQHdmuOkM5Leayi546gHgzIIhgBpUCEAt4GJVNZySeAY6tumi4sq0AwjZgW7BN2DbRwkBueRawlO7a/UVp6a6vrH3WJCDBi2erW1dswGQ65lN9jk6VatETAn9IMinK/BUJh5mN7ZnHStnktUvlfHAsFEzy5xFZfr9fKt29p+KGf9553z9u+Nu8AUcccSvPc8V69hubs3/M7nIJhlChO7lLASwrFeG9X6Pw5doEhOKWw8uI9lsa/El1TgXjDCXJzj9p51ywCyMAc7yt1U3OFswxN6KHD8b080OfVuo5UaodlE5SFzXPQsXCxUuefP/DT+e0aN4078br/tayqKhwIHvN7k05eOL0fLhuSpXc74TxjuiHNCOI6Oh1bMbJ4VqiaE1kA4WC4CNUXdUYKSM9dllpI7mEEKWymeKUmeI+f0COGke7afzzL0975Y23Lqmo2D833bRVaDdo9fAWAI9Qm+DHK4vgIfp4bEcBeIsgWxOuVAudMTkCiH3aK6fjV3hzFiTTYc0MiPCe8KCzh9R7fXhYnnzvbFvSTTNWXl4xd8JLr136ypvvTI/FE6HKULhi0oefPBqORDZZbaghnXk1z6BkWbAFU072SwcFbIFLf2NPLBYjHMeR/IIisLJRJql3AmRhqQEzmTO3yq5xkATwS3jCJs/x0px5P2/6cfbc628Z+/cz+/Y+/Eb6mSa6u9sm6021c1Ppe0EqqXjQ13mH+2BvBOCb9XGYuTEBczcn9GMpiYk2zCQF+smBaa/I2vr/2YLHzCCw8cCxoV190DRPAwNOBlJK9rE+YrafX5etGD9u/PNf4rbwQF4QV80gnhCFzVu27fry62/vO2vkac/QjxbjmpyWl/2KAT557euNxVHdLc62dWh3HwWSXz10wsx+0WhsLe+jo5Xwg+UgdwK1WzjIASmNhVo7MNlu39NUPRQffyAgJUVfctwzEyb3OazXnMsvHfPX1q1ajgYlWsL+ghZAsexT4jdAhZHOy0qTsGhbAhZuT8IK+nxrhWijptV9Ym1fzMnxb4Pa8vKJeHjyA0ckW/BYWdcNQLhkQO2gya/+952XVq7+rYwyObU3/coKGZ2YorF40u8TxMVLlq1r2bzZfccfO/gJCiKBBdOtJyhq5CsLY3LOdSztiji4qJ8P/tTfJx9EINrYYPvK9/0Qp8aTP5BHu4hjQZRbkD0ArASQns1kZSeseOKFyCUpOxFOXLV23Y6b77zv4bNHjfj4tOGnjC0qLBzkFr5jZ09ZVbo+LQH6tvLB5QP86iIkwJqyJGzaJ8FmCio8zaEshFWCfRFJP/+1QmWyYvVwsHwK0KZBAs1obZ7PQQcKnI7FePI5gR7NeflgYxYgIFGVTXTOv5fqUb6Hiv3zPv/y6+emfvX1KjwgOy8vD/MLith3eEgyqoTYh5FYVBIpWL/+buaC5s2bPX1ozx43UxARtj9G9OBpDUI0qeycxfvVQG61jdRaSa/9IS8IQIELecFgKhLOAekAgskpsaAOKCoYstihQEBcPlVd/GzaV8s/+WzaX6+8/NLjjj5q4JUF+fn9nNQ866MdqNjHfIFA/9YEBrThdNKr6a7Z6meuKozjBIx0QMM+r6qqWjLvp4Uvv/7Wu/Nx8yS1K+Vst3gUpdxntI+0z1IwJeNRSQ4gpmCT3v/w0ylXXXFph3Zt24xR7RxTf+BqENXWQBSdPaZYtm7b/tL8nxftxp+gWkPGy2LWq3YpwEQcGIm3shN+3oe2E2UoKjRiUkzyr7313qxX33xn7l//8qfjB/TvezFlqKOsp6u7gcsOSG7Pnd5zOGfV9Xm6oGGeS/v3V/60YNEv72Kb6YSS9OcF5RTC8ukQdKLBfV9Qfes3SaAulwSJAlDKz8uDV95454W//eUyf+vWrc61MrdTO1gQhUKhnx5/6rk3ovFEgtpiorMPMwekhgKTmxOCt4CLQ3ZCYaE6C8+hEkOFCAH18htv/yiJ4uxzzx512EknHDemWbOmp9DPB9zUPRZwqcBTF0ZKBaQ0Ph/bXbZnxvc/zHrv06lfrEZHgp/aQTYAsk2PpXl/6R/wBF6xKhKRErTXnpvwypNXXHbR1q5dOv8dt0jYgcnuHiurquY/9ezzf49GY+FAIICRi9oZspBpDgbPAYl1iztEBzulv2XBxFkApdpPnMZQ3OSpXy77+LNp9/Ts3vWpC849e0TnTp1G5+UFulkXHd0YxO7vdQVSKrDYvQ5HIuu2bNk67X8fT562cvXaMmyjCiBRBVDSAiC7xI3ajXOxWIzDNTqOYiYWT9DL8ckJr7753tmjRq49cmD/fwYC/s4smGyi8MObNm997ennXng9HI1VUUZMINlRYGd0zm99DDN5P1IdrmN1kzKpTIBJy6HvbbI+Z99Dq5rHUzjpYONBtSSRSPBYcRfnqNOH9zj2mKOHtW3bemjA7z8klZpWW/DUBFRO70ej0Y3bd5R+M2fe/BnTvpzxG9qDgprBFmd+tH1cAOQKJLYPaaGWoOQTeM6XTCDBBfLOOWvkcT26dR1WVFR4BLW1WuKXEonkPrynHaWls774asbUX5YuK6WzWJTWOP3pKC8IGHufUKu2Jmi6Dy25aG4/0oFV9SSLu1S0rEGwbMRbmUmrnKreIKDU1yh8CCzuyxnfrZo2fcYaSZRePHXYkE6Djxp0XNs2rY+l9tQAKph56Zz5eqDARO8vtL+ycsn2HTvnzv954ZzpM77fRDgiM2wAPXAUONgWfI0fdwFQ0oHVtQlKZPpLopOOXBM8kVA3jiUS8df/+9439EPfS5TZjftTzuGhKmEcbTJJJDGJkATtIFw8T3XQWEYxlCeBZAMmsFH1nACl7i4ys5IGKH3WVe0nORc5lQUE1bffz1r/9bczN1KmmpQfDApnjBh+6GG9evRt0bx5n4KCgq5UvTmEgkg4QOfIJqhd8Ts1+NftLitbvmLVml+nfP7VKvpeEpmH3qgOHlRENPtH9Vy6MZDTMSus8c/2GbAOHFz/jlPqwfujN0mSosQxdCzhsgMFj4hAEnxCAnHoAqKMtZM8CyQXJwQ7k7IMZFc5u6oCisgsxckzLIc2FAuqeDIZ/+Szz3/5UBR/lZd+qQCVFBf7TxlyQpeOHdp3aNa0advCwoK2VO1p5RN8JZThiinJlVC7XF4RokgtVGZ3sUoBikgn9mQ5VSkr4ol4eSQSLa2srNpetmfP1s1btm6d8d3MDfR1HBkHm4bAocIpUfCIOnh4xd5T2UcE+7TQYppqHQsk0dKPJkChuoiqMQZK+ejn6XNOaaMCZEnOUcjbhXa5XjuTTqXwNJDScEKw7MTG7XEulVhARfRHHzU0FCEhCCyRwsyHoS2SDC4SikTiUz6fvpz+fUWSvpZ329JCP0cYdczs5lPpi+M4/d4pICRJfl8GjHzfDGgkOSpUAhY4kgocx1TQaQDKTr1ibSS77Ki6uswbbE44Y0uEW6xkKgDnGOlAGt9u2g8T5GjHTnYMJToByPIeYYTEEBYDWJBUbAMFNPQ/nwISYgJP6jUSM6gI0Xa/I2iUNTEFOGABjmSjnjmBR7J5zj6CDSNp/QYu6jLbZ9Y22aZaSwPIOSA1RmE8PHbsxDomrI8iYwc4goh5JJbZFx8VoVPAZQRgqjNIMplIBSZJUYcE60KRHJ0B7qcepgsmt884GfmSg71pByTrfiK31AEamOzakXGHjR1UQGIBZcNOYDOjcoygWMFkCxwbgalWdVAxwOE4f7qULLk8ulWxBsCSHFjITXhFF0CJln6x62s3dTPjk+gflEBKwU7sDJu0Uf0IIzR2QCIu74HL87RVOxvBdmIk0QVQbsBxOg0iHYF2sjlFqL4NAtIEvJTJbHRQA6kGgJJsgEQsgEqLiVzAlA6IIAUTpcNKbgLqtlZj6ylzYHXJpn1Sina63SdkOohyQErffrJzTIALqGoDoPpS7dIFVCpGg1Su5jT6TLTpJ3ABErgBOlNBJDewoUOEsqgQh9ep1DS3c7/TYSKShlpXEyBBCvCkUt+kWvSXW3vtVLtU7UnrPnIhQplZrGslbmqfG0hSMVB9AglSgENK43s1BZCT986ur8ClT8EFODlng4cABRaBsHOTp8M6qWbomt6TlMZ7UhrfqQ+BdZp8JAcWglq8lwPSQQAqO6FJBRxSD/eSLrAOBHjSYc+a5FmQslEwckCqf1A5qTmpwEPqIGg1BUqDCCtjs0heF4YckBpuBpZcbIOaZsaR6un9XMkBKauA1VDqTA4wjVT+X4ABAEsieObqsOeMAAAAAElFTkSuQmCC") 50% top #f8f8f8 no-repeat;background-size:105px 120px}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupClose{background-color:rgba(255,255,255,0);background-image:-moz-linear-gradient(#d0d0d0, rgba(255,255,255,0));background-image:-o-linear-gradient(#d0d0d0, rgba(255,255,255,0));background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #d0d0d0), color-stop(1, rgba(255,255,255,0)));background-image:-webkit-linear-gradient(#d0d0d0, rgba(255,255,255,0));background-image:-ms-linear-gradient(#d0d0d0, rgba(255,255,255,0));background-image:linear-gradient(#d0d0d0, rgba(255,255,255,0));position:absolute;right:30px;top:0;height:30px;width:1px;display:inline-block}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupClose:before,.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupClose:after{content:" ";position:absolute;right:-16px;top:7px;width:1px;height:12px;display:inline-block;background:#262626;-webkit-transform:rotateZ(45deg);transform:rotateZ(45deg)}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupClose:after{-webkit-transform:rotateZ(-45deg);transform:rotateZ(-45deg)}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupCloseBtn{position:absolute;right:0;top:0;height:30px;width:30px}.baiduServiceBottomBar .baiduServiceBarPopupContainer span{width:100%;text-align:center;display:inline-block;position:absolute;top:125px;font-size:16px;color:#666}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupInfo{top:150px;font-size:14px}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer{position:absolute;bottom:0;left:0;width:100%;height:44px;line-height:44px;background:#eee;font-size:16px;color:#262626;border:none;padding:0;border-radius:0 0 5px 5px;border-top:1px solid #d8d8d8}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer a{float:left;text-align:center;border:none;padding:0px;margin:0;padding-left:15px;display:inline-block;width:50%;height:42px}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer .baiduServiceBarPopupTel{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAfCAYAAAD5h919AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjE1MjQ4RTEwNUQyMTFFNUJFMzRCMjk5NjI5RDYxRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjE1MjQ4RTIwNUQyMTFFNUJFMzRCMjk5NjI5RDYxRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMTUyNDhERjA1RDIxMUU1QkUzNEIyOTk2MjlENjFGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMTUyNDhFMDA1RDIxMUU1QkUzNEIyOTk2MjlENjFGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvtU8CYAAAMcSURBVHjarJZriE1RFMfPuWe8G4brPTOYcBtvuhn5QENTTDJhJu/Xh2l8kURKmcizzMgXSSSFCEV88Za3MR9kIiGPlNwMmfkwuZcxHv9V/1Or0znH3Xdm1a+zzz77nHX23mv997JjsZgVYAPBJlAGhoGP4BDYD35bhpYV0F8BjoDeqq8A1IARYI2po4hP325wjk5+ggtgM69iVWB2e2dUw+USOwi2gibedwcloCfYAK5mOqNVyok4WKuciCXVrGaCwZk4ygUH2K4FOwPGn+XVoTNjR/LhbPAaVIeMvwVa2J5o6mgAWAb+crlaQ8b/4s+I9TN1NB90BhfBzf+M7wby2G4xjTp3rU+q/i7MFfloLybrH7CYiSx219TRaLYf8iqzuwRmhbx3T0Vg2kuXy7X/wr5Jysk7kFLjE2AbKDWVoSxGm7Y3dNyJMrSPyyUq8c3K0GRGzcyLQexrYhiLFXJvEu1x4jpyPxBX/ad4nWx1kImj52yXqv7znOkYU6kJc1TH9kLmicUAOAZsHhkd4shN0r5guXpWSyFdz8DwM8m3jQz3R9TLQr+BTjQabeRf9wfDwWHK0XeeSXMYEHc878qxcQNUgqEgHxTxvBK773VkMSfmUr8+gAY+rwcr6KxB6ZzYUb4jdobKXsCVEbWJUdbkpy2bNYOowSsOFLkZxRmJFXN5JY/KeeCNBc+4h6vBcY7NpqrMULK20jsjCfMF1DYJimscLDP8CuYxYBo5Ls6A2aFm2coyIM7aYgJ//KntqYIuK3kp8ezLLrBF3b/kB1M+ey/79xiMowAM8RYnldQ8h3+Wr55Vs3ARewsWBThxj31ZgTbQR5bf6yjBOi7JwLitzh/Xmbw4UiV6kL1XQp3nV27VM9x/MNwloaeo581p5mixUpUXkYBBV7hHnzkjScg9IMdADLbzKlH6wI06P5NoOUG9k2yfBtZx2SIM95Q6lxzmThVrwiKmgJQKSTuk9tYmleleMN7nWYrL3IP56Jrk3lKmhpWuI9emgiVgOpPWUc/amPTXwWnwJJ0iP8jqlNp3pdzkUEU+hZVq/wQYAMWrrzcqGuRcAAAAAElFTkSuQmCC") 27% 50% no-repeat;background-size:13px 15px}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer .baiduServiceBarPopupTel:only-child{background-position:40% 50%;width:100%}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer .baiduServiceBarPopupConsult{background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTFFMEE0NkQwNUQyMTFFNUE5NEREQzBEQzA1REExNDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTFFMEE0NkUwNUQyMTFFNUE5NEREQzBEQzA1REExNDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMUUwQTQ2QjA1RDIxMUU1QTk0RERDMERDMDVEQTE0NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMUUwQTQ2QzA1RDIxMUU1QTk0RERDMERDMDVEQTE0NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoHM7IEAAAFNSURBVHjaYlRTU9NgYGCYB8SWDLQDf4D4BBCnMgsLC28HMswZaAuYgFgOiC1ADCOoYAMQswMxI5UxyMw6qB3GjMAg/Q/lgCR+0ciHbED8E+ZVGPhFwyD9hRy2dAWjFtLNQh8gfgrEr6BsZOALxK+h8l5ocgFA/AyqzxubwcjZghFJ/DkQS0DZD4FYAUnuITQTw9RJIcm9AWJhKPslkhkg8B+fD/8jsf+hyf3DE2L/cJhBMEiToK4HBU8WmlwmVByEE/HoSyQlSGkB/o/mw1ELKbaQg4b2sCFb+AfKrqKRpRxQs8EFAygfHgYybAhoguVRLiBeDsTyQKxPhuWnQT5MAeJ9QPybgGKQZRuB2A+Ib5NoEcjs/UAcC/IhwdIBCLihlrkA8SYgDiW3ScJCpDqQJc6UWkZKtqCKZaRYSBXLiAnSi0D8g1qWgQBAgAEAgVRGMspf6MsAAAAASUVORK5CYII=") 25% 50% no-repeat;background-size:14px 14px}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer .baiduServiceBarPopupConsult:only-child{background-position:40% 50%;width:100%}.baiduServiceBottomBar .baiduServiceBarPopupContainer .baiduServiceBarPopupBottomContainer .baiduServiceBarPopupTel+.baiduServiceBarPopupConsult{border-left:1px solid #d8d8d8}.baiduServiceBottomBar *{vertical-align:middle;box-sizing:border-box}.baiduServiceBottomBar .baidu-xn-pop-parent{position:relative}.baiduServiceBottomBar .baidu-xn-pop-container{position:absolute;bottom:100%;display:none;z-index:-90;width:113%;background-color:rgba(255,255,255,0.94);background-image:-moz-linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94));background-image:-o-linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94));background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0.94)), color-stop(1, rgba(255,255,255,0.94)));background-image:-webkit-linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94));background-image:-ms-linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94));background-image:linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94));left:initial !important;margin-left:-7px;border:1px solid #c0c0c0;border-radius:2px;box-shadow:0px 0px 4px 1px rgba(0,0,0,0.12);margin-bottom:12px;-webkit-transform:scale(1)}.baiduServiceBottomBar .baidu-xn-pop-container ul,.baiduServiceBottomBar .baidu-xn-pop-container li{list-style:none}.baiduServiceBottomBar .baidu-xn-pop-container ul{padding:0px 9px;height:auto}.baiduServiceBottomBar .baidu-xn-pop-container ul>li:not(:last-of-type){border-bottom:1px solid #dddddd}.baiduServiceBottomBar .baidu-xn-pop-container li.vote{height:43px}.baiduServiceBottomBar .baidu-xn-pop-container ul>li{height:36px}.baiduServiceBottomBar .baidu-xn-pop-container ul>li a{padding:1px 0;font-size:14px}.baiduServiceBottomBar .baidu-xn-pop-container.show,.baiduServiceBottomBar .show>.baidu-xn-pop-container{display:block;z-index:-90}.baiduServiceBottomBar .noDis{display:none !important}.baiduServiceBottomBar a{text-decoration:none;color:#001526;background-color:transparent}.baiduServiceBottomBar>ul{display:-webkit-box;display:-ms-flexbox;display:-moz-box;display:box;width:100%;list-style-type:none;padding:0px;margin:0px;-webkit-box-pack:center;-webkit-box-align:center;box-pack:center;box-align:center;border:0 #fafafb solid;border-width:1px 0 0 1px}.baiduServiceBottomBar>ul>li{display:block;width:3em;-webkit-box-flex:1;flex:1;-ms-flex:1;-moz-box-flex:1;text-align:center;font-size:10px}.baiduServiceBottomBar>ul>li a{font-size:16px;padding:6px 0px 4px;display:inline-block;width:100%;line-height:34px;height:43px;text-align:center;border:0;-webkit-tap-highlight-color:transparent}.baiduServiceBottomBar>ul>li a p>span.text-char{text-shadow:0 1px #fff}.baiduServiceBottomBar>ul>li a:hover{border-color:transparent}.baiduServiceBottomBar>ul>li .icon{width:18px;height:18px;display:block;margin:0px auto 4px;background-size:100% 100%;vertical-align:middle;position:relative}.baiduServiceBottomBar>ul>li .count-outer{position:relative;width:auto;display:inline-block;line-height:inherit}.baiduServiceBottomBar>ul>li .count{background-color:#f43b3b;color:#fff;border-radius:1px;padding:0px 2px;position:absolute;font-size:10px;line-height:12px;height:12px;top:-3px;right:-10px;font-style:normal;text-shadow:none;outline:none}.baiduServiceBottomBar>ul>li .baidu-xn-pop-container .count{top:3px}.baiduServiceBottomBar>ul li.showMoreBtn{display:none;position:relative}.baiduServiceBottomBar>ul .comment .count{right:-9px}.baiduServiceBottomBar>ul .pop-tip{-webkit-transform:rotateZ(45deg);transform:rotateZ(45deg);width:6px;height:6px;z-index:300;top:-15px;left:-55%;position:absolute;border:1px solid #c0c0c0;background-color:rgba(255,255,255,0.94);display:none}.baiduServiceBottomBar>ul .pop-tip.align-right{margin-left:100%;border-left:0px;border-top:0px}@media only screen and (max-width: 400px){.baiduServiceBottomBar .show-more-buttons>li:nth-of-type(n+4),.baiduServiceBottomBar .show-more-buttons-lg>li:nth-of-type(n+4){display:none}.baiduServiceBottomBar .show-more-buttons>li.showMoreBtn,.baiduServiceBottomBar .show-more-buttons-lg>li.showMoreBtn{display:block}}@media only screen and (min-width: 400px) and (max-width: 480px){.baiduServiceBottomBar .show-more-buttons-lg>li:nth-of-type(n+5){display:none}.baiduServiceBottomBar .show-more-buttons-lg>li.showMoreBtn{display:block}}@media only screen and (max-device-width: 600px){.baiduServiceBottomBar #mobile-phone-detector{display:block}}.baiduServiceBottomBar [data-action=ecomBottomBar-vote]{position:relative}.baiduServiceBottomBar [data-action=ecomBottomBar-vote] .bd_vote{position:absolute;z-index:1;height:100%;width:100%;top:0px}.baiduServiceBottomBar [data-action=ecomBottomBar-vote] .text-char{display:inline-block;-webkit-transform:translateZ(0px);transform:translateZ(0px)}.baiduServiceBottomBar [data-action=ecomBottomBar-vote] .bd_vote iframe{position:relative}.baiduServiceBottomBar>ul.bottomBar>li:last-of-type .baidu-xn-pop-container{right:10px}.baiduServiceBottomBar>ul.bottomBar>li:first-of-type .baidu-xn-pop-container{left:8px !important;margin-left:0px}.baiduServiceBottomBar .baidu-xn-pop-parent:after{position:absolute;top:0px;left:50%;width:12px;height:3px;-webkit-box-sizing:border-box;box-sizing:border-box;border:1px solid #c0c0c0;border-left:0px;border-right:0px;margin:6px 0px 6px -6px;content:""}.baiduServiceBottomBar .qingBtn{display:none}.baiduServiceBottomBar.showQingIconStyle.hideContent{border-top:transparent;width:auto}.baiduServiceBottomBar.showQingIconStyle.hideContent .qingBtn{display:block}.baiduServiceBottomBar.showQingIconStyle.hideContent .icon-container{display:none}.baiduServiceBottomBar.showQingIconStyle{display:-webkit-box;display:-ms-flexbox;display:-moz-box;-webkit-box-pack:center;-webkit-box-align:center;box-pack:center;box-align:center}.baiduServiceBottomBar.showQingIconStyle .qingBtn{display:block}.baiduServiceBottomBar.showQingIconStyle>ul.bottomBar>li:first-of-type .baidu-xn-pop-container{left:initial !important;margin-left:-10%}.baiduServiceBottomBar.showQingIconStyle [data-action=ecomBottomBar-showMore]{max-width:50px}.baiduServiceBottomBar.showQingIconStyle [data-action=ecomBottomBar-showMore] .baidu-xn-pop-container{width:180%}.baiduServiceBottomBar.showQingIconStyle [data-action=ecomBottomBar-showMore] .pop-tip.align-right{margin-left:120%}.baiduServiceBottomBar.showQingIconStyle.showContent{width:100%}.baiduServiceBottomBar.showQingIconStyle.showContent .qingBtn{border:1px solid transparent;border-right:1px solid #cdcdcd}.baiduServiceBottomBar.showQingIconStyle.showContent .icon-container{display:-webkit-box;display:-ms-flexbox;display:-moz-box;dislay:box;-webkit-box-flex:1;flex:1;-ms-flex:1;-moz-box-flex:1}.baiduServiceBottomBar.double-scale>ul.bottomBar>li a{line-height:68px;height:86px;font-size:32px;padding:12px 0 4px}.baiduServiceBottomBar.double-scale>ul.bottomBar>li .baidu-xn-pop-container{width:113%}.baiduServiceBottomBar.double-scale>ul.bottomBar>li .baidu-xn-pop-container ul{padding:0px 18px}.baiduServiceBottomBar.double-scale>ul.bottomBar>li .baidu-xn-pop-container ul>li{height:72px;line-height:60px;width:100%}.baiduServiceBottomBar.double-scale>ul.bottomBar>li .baidu-xn-pop-container ul>li a{padding:0px;line-height:72px;height:72px}.baiduServiceBottomBar.double-scale>ul.bottomBar>li .count{font-size:20px;line-height:20px;height:20px;padding:0 6px;top:6px;right:-20px;text-shadow:none;outline:none;border-radius:4px}.baiduServiceBottomBar.double-scale .baidu-xn-pop-parent:after{width:24px;height:6px;margin:12px 0 12px -12px;content:""}@media only screen and (max-width: 800px){.baiduServiceBottomBar.double-scale .show-more-buttons>li:nth-of-type(n+4),.baiduServiceBottomBar.double-scale .show-more-buttons-lg>li:nth-of-type(n+4){display:none}.baiduServiceBottomBar.double-scale .show-more-buttons>li.showMoreBtn,.baiduServiceBottomBar.double-scale .show-more-buttons-lg>li.showMoreBtn{display:block}}@media only screen and (min-width: 800px) and (max-width: 960px){.baiduServiceBottomBar.double-scale .show-more-buttons-lg>li:nth-of-type(n+5){display:none}.baiduServiceBottomBar.double-scale .show-more-buttons-lg>li.showMoreBtn{display:block}}.smb-user-guide-wrapper{position:fixed;z-index:9999;background:rgba(15,15,15,0.8);top:83px;width:238px;height:195px;left:50%;margin-left:-119px;border-radius:10px;font-size:14px;font-family:sans-serif}.smb-user-guide-wrapper .bg-pic{margin-top:24px;height:131px;background:url(//m.baidu.com/static/search/siteapp/lego/use_guide.png) center no-repeat;background-size:208px 131px}.smb-user-guide-wrapper .queryX{position:absolute;left:44px;top:90px}.smb-user-guide-wrapper .closeX{display:block;margin:8px auto;color:#fff;width:110px;height:25px;line-height:25px;text-align:center}.baiduServiceBarPopupShow .baiduServiceBarFullScreanMask,.baiduServiceBarPopupShow .baiduServiceBarPopupContainer{display:block}.baiduServiceBarFullScreanMask,.baiduServiceBarPopupContainer,.baiduServiceBarPopupHideLeft .baiduServiceBarFullScreanMask,.baiduServiceBarPopupHideRight .baiduServiceBarFullScreanMask{display:none}.baiduServiceBarPopupHideLeft .baiduServiceBarPopupContainer,.baiduServiceBarPopupHideRight .baiduServiceBarPopupContainer{animation-duration:1s;-webkit-animation-duration:1s;-webkit-animation-name:fadeOutDownRight;animation-name:fadeOutDownRight;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;transition:All 1s ease-in-out;-webkit-transition:All 1s ease-in-out}.baiduServiceBarPopupHideLeft .baiduServiceBarPopupContainer{-webkit-animation-name:fadeOutDownLeft;animation-name:fadeOutDownLeft}@-webkit-keyframes fadeOutDownLeft{0%{opacity:1}30%{opacity:.8;-webkit-transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0);transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0)}100%{opacity:0;top:100%;left:5%;-webkit-transform:rotate(45deg) scale3d(0.1, 0.1, 0.1)}}@keyframes fadeOutDownLeft{0%{opacity:1}30%{opacity:.8;-webkit-transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0);transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0)}100%{opacity:0;top:100%;left:5%;-webkit-transform:rotate(45deg) scale3d(0.1, 0.1, 0.1)}}@-webkit-keyframes fadeOutDownRight{0%{opacity:1}30%{opacity:.8;-webkit-transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0);transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0)}100%{opacity:0;top:100%;left:95%;-webkit-transform:rotate(-45deg) scale3d(0.1, 0.1, 0.1)}}@keyframes fadeOutDownRight{0%{opacity:1}30%{opacity:.8;-webkit-transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0);transform:scale3d(0.1, 0.1, 0.1) translate3d(0, 0px, 0)}100%{opacity:0;top:100%;left:95%;-webkit-transform:rotate(-45deg) scale3d(0.1, 0.1, 0.1)}}.baiduServiceBottomBar .bottomBar [data-action=ecomBottomBar-follow]{position:relative}.baiduServiceBottomBar .bottomBar [data-action=ecomBottomBar-follow] .bd_follow{background:transparent;position:absolute;width:100%;height:100%;top:0;left:0;z-index:2}.baiduServiceBottomBar .bottomBar [data-action=ecomBottomBar-follow] .bd_follow iframe{width:100%;height:100%;background:transparent}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek14 .cross-wrap{display:inline-block;width:15px;margin-right:4px}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek14 .cross-wrap .cross{display:inline-block;top:1px;background:#f43b3b;height:14px;position:relative;width:1px}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek14 .cross-wrap .cross:after{background:#f43b3b;content:"";height:1px;left:-7px;position:absolute;top:6px;width:15px}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek14 .text-char{color:#f43b3b}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek14 .text-char.followed{color:#999}.baiduServiceBottomBar .bottomBar .ecomBottomBar-typek4 .text-char.followed{color:#999}.baiduServiceBottomBar-toast-container{position:fixed;z-index:99999999;width:100%;bottom:50px;text-align:center}.baiduServiceBottomBar-toast-container .toast-text{min-width:40%;max-width:80%;overflow:hidden;word-break:break-all;word-wrap:nowrap;text-overflow:ellipsis;background-color:rgba(0,0,0,0.75);opacity:0;-webkit-transition:opacity 1s linear 0s;border-radius:5px;color:#fff;padding:10px;margin:0px auto;font-size:16px}.baiduServiceBottomBar-toast-container.show .toast-text{opacity:1}.baiduServiceBottomBar-toast-container.noDis{display:none !important}body,html{padding:0px;margin:0px}@font-face{font-family:bdServiceBarIconfont;src:url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype")}.baiduServiceBottomBar .list.bottomMenu{display:-webkit-box;display:-ms-flexbox;display:-moz-box;display:box;width:100%}.baiduServiceBottomBar .list.bottomMenu .item{-webkit-box-flex:1;flex:1;-ms-flex:1;-moz-box-flex:1;box-flex:1;height:44px}.baiduServiceBottomBar .list.bottomMenu .item a{display:inline-block;width:100%;line-height:34px;height:44px;text-align:center;font-size:10px;color:#1a1f26}.baiduServiceBottomBar .list.bottomMenu .item a .wrapper .icon .icon-wrapper .bdServiceBarIconfont{color:#1a1f26}.baiduServiceBottomBar .list.bottomMenu .item a .text-char{line-height:10px;color:#1a1f26}.baiduServiceBottomBar .list.bottomMenu a .icon{bottom:initial;right:initial;z-index:inherit;background:initial;position:relative;display:block;width:auto;margin-top:6px;margin-bottom:6px;height:17px;background-size:contain}.baiduServiceBottomBar .list.bottomMenu a .icon .icon-wrapper{background:initial;position:relative;height:25px;width:25px;top:-10px;margin-left:auto;margin-right:auto}.baiduServiceBottomBar .list.bottomMenu a .icon .icon-wrapper div{line-height:34px}.baiduServiceBottomBar .bdServiceBarIconfont{font-family:"bdServiceBarIconfont" !important;font-size:24px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0.2px;-moz-osx-font-smoothing:grayscale}.baiduServiceBottomBar .list.bottomMenu [data-action=ecomBottomBar-follow]{position:relative}.baiduServiceBottomBar .list.bottomMenu [data-action=ecomBottomBar-follow] .bd_follow{background:transparent;position:absolute;width:100%;height:100%;top:0;left:0;z-index:2}.baiduServiceBottomBar .list.bottomMenu [data-action=ecomBottomBar-follow] .bd_follow iframe{width:100%;height:100%;background:transparent}@-webkit-keyframes heartbeat{0%{-moz-transform:scale(0.8, 0.8);-webkit-transform:scale(0.8, 0.8);-o-transform:scale(0.8, 0.8);-ms-transform:scale(0.8, 0.8);transform:scale(0.8, 0.8)}50%{-moz-transform:scale(1.2, 1.2);-webkit-transform:scale(1.2, 1.2);-o-transform:scale(1.2, 1.2);-ms-transform:scale(1.2, 1.2);transform:scale(1.2, 1.2)}100%{-moz-transform:scale(1, 1);-webkit-transform:scale(1, 1);-o-transform:scale(1, 1);-ms-transform:scale(1, 1);transform:scale(1, 1)}}.baiduServiceBottomBar .list.bottomMenu [data-action=ecomBottomBar-follow].strong .icon{-moz-animation-name:"heartbeat";-moz-animation-duration:600ms;-moz-animation-timing-function:linear;-moz-animation-delay:0s;-moz-animation-iteration-count:5;-moz-animation-direction:alternate;-ms-animation-name:"heartbeat";-ms-animation-duration:600ms;-ms-animation-timing-function:linear;-ms-animation-delay:0s;-ms-animation-iteration-count:5;-ms-animation-direction:alternate;-webkit-animation-name:"heartbeat";-webkit-animation-duration:600ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:5;-webkit-animation-direction:alternate;-o-animation-name:"heartbeat";-o-animation-duration:600ms;-o-animation-timing-function:linear;-o-animation-delay:0s;-o-animation-iteration-count:5;-o-animation-direction:alternate;animation-name:"heartbeat";animation-duration:600ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:5;animation-direction:alternate}@-webkit-keyframes spinMenuExpand4{0%{-moz-transform:translateY(174px);-webkit-transform:translateY(174px);-o-transform:translateY(174px);-ms-transform:translateY(174px);transform:translateY(174px)}100%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}}@-webkit-keyframes spinMenuCollapse4{0%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}100%{-moz-transform:translateY(174px);-webkit-transform:translateY(174px);-o-transform:translateY(174px);-ms-transform:translateY(174px);transform:translateY(174px)}}@-webkit-keyframes spinMenuExpand3{0%{-moz-transform:translateY(116px);-webkit-transform:translateY(116px);-o-transform:translateY(116px);-ms-transform:translateY(116px);transform:translateY(116px)}100%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}}@-webkit-keyframes spinMenuCollapse3{0%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}100%{-moz-transform:translateY(116px);-webkit-transform:translateY(116px);-o-transform:translateY(116px);-ms-transform:translateY(116px);transform:translateY(116px)}}@-webkit-keyframes spinMenuExpand2{0%{-moz-transform:translateY(58px);-webkit-transform:translateY(58px);-o-transform:translateY(58px);-ms-transform:translateY(58px);transform:translateY(58px)}100%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}}@-webkit-keyframes spinMenuCollapse2{0%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}100%{-moz-transform:translateY(58px);-webkit-transform:translateY(58px);-o-transform:translateY(58px);-ms-transform:translateY(58px);transform:translateY(58px)}}@-webkit-keyframes rotateForward{0%{-moz-transform:rotateY(0);-webkit-transform:rotateY(0);-o-transform:rotateY(0);-ms-transform:rotateY(0);transform:rotateY(0)}100%{-moz-transform:rotateY(-90deg);-webkit-transform:rotateY(-90deg);-o-transform:rotateY(-90deg);-ms-transform:rotateY(-90deg);transform:rotateY(-90deg)}}@-webkit-keyframes rotateBackward{0%{-moz-transform:rotateY(-90deg);-webkit-transform:rotateY(-90deg);-o-transform:rotateY(-90deg);-ms-transform:rotateY(-90deg);transform:rotateY(-90deg)}100%{-moz-transform:rotateY(0);-webkit-transform:rotateY(0);-o-transform:rotateY(0);-ms-transform:rotateY(0);transform:rotateY(0)}}@-webkit-keyframes rotateBackwardPositiveX{0%{-moz-transform:rotateX(90deg);-webkit-transform:rotateX(90deg);-o-transform:rotateX(90deg);-ms-transform:rotateX(90deg);transform:rotateX(90deg)}100%{-moz-transform:rotateX(0);-webkit-transform:rotateX(0);-o-transform:rotateX(0);-ms-transform:rotateX(0);transform:rotateX(0)}}@-webkit-keyframes rotateForwardPositiveX{0%{-moz-transform:rotateX(0);-webkit-transform:rotateX(0);-o-transform:rotateX(0);-ms-transform:rotateX(0);transform:rotateX(0)}100%{-moz-transform:rotateX(90deg);-webkit-transform:rotateX(90deg);-o-transform:rotateX(90deg);-ms-transform:rotateX(90deg);transform:rotateX(90deg)}}@-webkit-keyframes rotateForwardNegativeX{0%{-moz-transform:rotateX(0);-webkit-transform:rotateX(0);-o-transform:rotateX(0);-ms-transform:rotateX(0);transform:rotateX(0)}100%{-moz-transform:rotateX(-90deg);-webkit-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);transform:rotateX(-90deg)}}@-webkit-keyframes rotateBackwardNegativeX{0%{-moz-transform:rotateX(-90deg);-webkit-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);transform:rotateX(-90deg)}100%{-moz-transform:rotateX(0);-webkit-transform:rotateX(0);-o-transform:rotateX(0);-ms-transform:rotateX(0);transform:rotateX(0)}}.baiduServiceBottomBar .spinMenu.smb-expand.spinMenuExpand4 .items{-webkit-animation-name:spinMenuExpand4;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuExpand4;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-collapse.spinMenuCollapse4 .items{-webkit-animation-name:spinMenuCollapse4;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuCollapse4;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-expand.spinMenuExpand3 .items{-webkit-animation-name:spinMenuExpand3;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuExpand3;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-collapse.spinMenuCollapse3 .items{-webkit-animation-name:spinMenuCollapse3;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuCollapse3;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-expand.spinMenuExpand2 .items{-webkit-animation-name:spinMenuExpand2;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuExpand2;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-collapse.spinMenuCollapse2 .items{-webkit-animation-name:spinMenuCollapse2;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:spinMenuCollapse2;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-expand .zhida-logo-cross{visibility:visible;opacity:1}.baiduServiceBottomBar .spinMenu.smb-expand .zhida-logo-logo{visibility:hidden;opacity:0}.baiduServiceBottomBar .spinMenu.smb-collapse .zhida-logo-cross{-webkit-backface-visibility:hidden;visibility:hidden;opacity:0}.baiduServiceBottomBar .spinMenu.smb-collapse .zhida-logo-logo{-webkit-backface-visibility:hidden;visibility:visible;opacity:1}.baiduServiceBottomBar .spinMenu.smb-expand.logoMenu-rotate .zhida-logo-cross{-webkit-animation-name:rotateBackwardNegativeX;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateBackwardNegativeX;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-expand.logoMenu-rotate .zhida-logo-logo{-webkit-animation-name:rotateForwardNegativeX;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateForwardNegativeX;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-collapse.logoMenu-rotate .zhida-logo-cross{-webkit-animation-name:rotateForwardNegativeX;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateForwardNegativeX;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.smb-collapse.logoMenu-rotate .zhida-logo-logo{-webkit-animation-name:rotateBackwardNegativeX;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateBackwardNegativeX;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.tagExpand .item .text-char{-webkit-animation-name:rotateBackward;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateBackward;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar .spinMenu.tagCollapse .item .text-char{-webkit-animation-name:rotateForward;-webkit-animation-duration:300ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:rotateForward;animation-duration:300ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}@-webkit-keyframes heartBeat{0%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}50%{-moz-transform:translateY(58px);-webkit-transform:translateY(58px);-o-transform:translateY(58px);-ms-transform:translateY(58px);transform:translateY(58px)}100%{-moz-transform:translateY(0px);-webkit-transform:translateY(0px);-o-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px)}}.baiduServiceBottomBar .spinMenu.heartBeat .items .item:first-child{-webkit-animation-name:heartBeat;-webkit-animation-duration:500ms;-webkit-animation-timing-function:ease-in-out;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:heartBeat;animation-duration:500ms;animation-timing-function:ease-in-out;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}@-webkit-keyframes heartRotate{0%{-moz-transform:rotateY(0);-webkit-transform:rotateY(0);-o-transform:rotateY(0);-ms-transform:rotateY(0);transform:rotateY(0)}100%{-moz-transform:rotateY(360deg);-webkit-transform:rotateY(360deg);-o-transform:rotateY(360deg);-ms-transform:rotateY(360deg);transform:rotateY(360deg)}}.baiduServiceBottomBar .spinMenu.heartRotate .items .ecomBottomBar-typek4 .spinMenu-icon{-webkit-animation-name:heartRotate;-webkit-animation-duration:333ms;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:1;-webkit-animation-direction:normal;-webkit-animation-play-state:running;-webkit-animation-fill-mode:forwards;animation-name:heartRotate;animation-duration:333ms;animation-timing-function:linear;animation-delay:0s;animation-iteration-count:1;animation-direction:normal;animation-play-state:running;animation-fill-mode:forwards}.baiduServiceBottomBar a{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}.baiduServiceBottomBar .list.spinMenu{opacity:0.8}.baiduServiceBottomBar .list.spinMenu .ecomBottomBar-typek4.smbBDFollowed .spinMenu-icon{position:relative;top:2px}.baiduServiceBottomBar .list.spinMenu .ecomBottomBar-typek4 .spinMenu-icon{position:relative;top:1px}.baiduServiceBottomBar .list.spinMenu .spinMenu-icon{opacity:1}.baiduServiceBottomBar .list.spinMenu .zhida-logo{display:block;position:absolute;width:42px;height:42px;border-radius:21px;top:0;box-shadow:0px 2px 5px rgba(0,0,0,0.2)}.baiduServiceBottomBar .list.spinMenu .zhida-logo .spinMenu-icon{position:relative;top:2px;display:inline-block;line-height:42px;font-size:28px;height:42px;width:100%;vertical-align:middle;text-align:center}.baiduServiceBottomBar .list.spinMenu .zhidaLogo-wrapper{display:block;margin-top:18px;position:relative;width:1px;height:2px;margin-left:40px;margin-bottom:40px}.baiduServiceBottomBar .list.spinMenu .item{margin-top:18px}.baiduServiceBottomBar .list.spinMenu .item a{position:relative;display:inline-block}.baiduServiceBottomBar .list.spinMenu .item a .bd_follow{position:absolute;width:92px;height:40px;top:0;left:52px}.baiduServiceBottomBar .list.spinMenu .item a .bd_follow iframe{width:100%;height:100%}.baiduServiceBottomBar .list.spinMenu .item .smartBar-icon{display:inline-block;width:40px;height:40px;border-radius:20px;box-shadow:0px 2px 5px rgba(0,0,0,0.2)}.baiduServiceBottomBar .list.spinMenu .item .smartBar-icon .spinMenu-icon{height:40px;line-height:40px;text-align:center}.baiduServiceBottomBar .list.spinMenu .item .text-char{position:relative;display:inline-block;width:40px;top:-2px;line-height:18px;height:18px;font-size:12px;border-radius:2px;text-align:center}.baiduServiceBottomBar .list.spinMenu .item .text-char .tag-arrow{z-index:-1;position:absolute;display:inline-block;font-size:44px}.baiduServiceBottomBar .list.spinMenu .item .text-char .tag-text{position:relative;line-height:19px;top:-1px}.baiduServiceBottomBar .spinMenu.left .zhida-logo{left:1px}.baiduServiceBottomBar .spinMenu.left .text-char{margin-left:12px;transform-origin:0% 0%;-webkit-transform-origin:0% 0%;-o-transform-origin:0% 0%;-ms-transform-origin:0% 0%;transform-origin:0% 0%}.baiduServiceBottomBar .spinMenu.left .text-char .tag-arrow{right:0px;top:1px}.baiduServiceBottomBar .spinMenu.right .zhida-logo{right:1px}.baiduServiceBottomBar .spinMenu.right .text-char{margin-right:12px;transform-origin:100% 100%;-webkit-transform-origin:100% 100%;-o-transform-origin:100% 100%;-ms-transform-origin:100% 100%;transform-origin:100% 100%}.baiduServiceBottomBar .spinMenu.right .text-char .tag-arrow{left:0px;top:1px}.baiduServiceBottomBar .spinMenu.right .zhida-logo{right:-52px}.baiduServiceBottomBar .spinMenu.expand .item{transition:opacity 50ms ease-in-out 0s}.baiduServiceBottomBar .spinMenu.collapsed .items .item:not(:first-child){opacity:0;z-index:-1;visibility:hidden}.baiduServiceBottomBar .spinMenu.collapsed .zhida-logo-cross,.baiduServiceBottomBar .spinMenu.smbCrossHide .zhida-logo-cross{visibility:hidden;opacity:0;-moz-transform:rotateX(-90deg);-webkit-transform:rotateX(-90deg);-o-transform:rotateX(-90deg);-ms-transform:rotateX(-90deg);transform:rotateX(-90deg)}.baiduServiceBottomBar .spinMenu.collapsed4 .items{-moz-transform:translateY(174px);-webkit-transform:translateY(174px);-o-transform:translateY(174px);-ms-transform:translateY(174px);transform:translateY(174px)}.baiduServiceBottomBar .spinMenu.collapsed3 .items{-moz-transform:translateY(116px);-webkit-transform:translateY(116px);-o-transform:translateY(116px);-ms-transform:translateY(116px);transform:translateY(116px)}.baiduServiceBottomBar .spinMenu.collapsed2 .items{-moz-transform:translateY(58px);-webkit-transform:translateY(58px);-o-transform:translateY(58px);-ms-transform:translateY(58px);transform:translateY(58px)}.baiduServiceBottomBar .spinMenu.collapsed1 .items{-moz-transform:translateY(0);-webkit-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}.baiduServiceBottomBar .spinMenu.collapsed-fourth-child .items .item:nth-child(4){opacity:0;z-index:-1;visibility:hidden}.baiduServiceBottomBar .spinMenu.collapsed-third-child .items .item:nth-child(3),.baiduServiceBottomBar .spinMenu.collapsed-third-child .items .item:nth-child(4){opacity:0;z-index:-1;visibility:hidden}.baiduServiceBottomBar .spinMenu.collapsed-second-child .items .item:nth-child(3),.baiduServiceBottomBar .spinMenu.collapsed-second-child .items .item:nth-child(4),.baiduServiceBottomBar .spinMenu.collapsed-second-child .items .item:nth-child(2){opacity:0;z-index:-1;visibility:hidden}.baiduServiceBottomBar .spinMenu.tag-collapsed .item .text-char{-moz-transform:rotateY(-90deg);-webkit-transform:rotateY(-90deg);-o-transform:rotateY(-90deg);-ms-transform:rotateY(-90deg);transform:rotateY(-90deg)}.baiduServiceBottomBar.spinMenu-wrapper{background:none;line-height:normal;width:auto;bottom:45px;border:0}.baiduServiceBottomMenu-toast-container{position:fixed;z-index:99999999;width:100%;bottom:60px;text-align:center}.baiduServiceBottomMenu-toast-container .wrapper{position:relative;box-sizing:border-box;height:36px;min-width:40%;max-width:95%;color:#fff;background-color:rgba(0,0,0,0.75);opacity:0;-webkit-transition:opacity 1s linear 0s;border-radius:5px;padding:10px;margin:0px auto;font-size:14px;line-height:16px;font-family:"Microsoft Yahei"}.baiduServiceBottomMenu-toast-container .wrapper .toast-text{display:inline-block;min-width:40%;width:100%;overflow:hidden;word-break:break-all;word-wrap:nowrap;text-overflow:ellipsis;text-align:center}.baiduServiceBottomMenu-toast-container .wrapper .toast-text a{color:#0078da;text-decoration:none}.baiduServiceBottomMenu-toast-container .wrapper .close{width:25px;height:25px;background-color:transparent;display:inline-block;position:absolute;right:4px;top:6px;fill:#72867b}.baiduServiceBottomMenu-toast-container .arrow{top:100%;left:10%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:transparent;border-top-color:rgba(0,0,0,0.75);border-width:8px 8px 8px 8px;margin-left:-8px;opacity:0;-webkit-transition:opacity 1s linear 0s}.baiduServiceBottomMenu-toast-container .left .arrow{left:10%}.baiduServiceBottomMenu-toast-container .right .arrow{left:88%}.baiduServiceBottomMenu-toast-container.show .wrapper{opacity:1}.baiduServiceBottomMenu-toast-container.show .arrow{opacity:1}.baiduServiceBottomMenu-toast-container.noDis{display:none !important}</style></body></html>

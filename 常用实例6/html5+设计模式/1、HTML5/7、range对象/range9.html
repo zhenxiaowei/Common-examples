@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+这是一段文字，我不<b id="boldText">知道</b>些声明，随便把
+<button onclick="testPlace()">位置比较</button>
+</body>
+</html>
+<script>
+    function testPlace(){
+        var boldText=document.getElementById("boldText");
+        var boldRange=document.createRange();
+        boldRange.selectNodeContents(boldText.firstChild);
+        var selection=document.getSelection();
+        if(selection.rangeCount>0){
+            var selRange=selection.getRangeAt(0);
+            if(selRange.compareBoundaryPoints(Range.START_TO_END,boldRange)<=0){
+                alert("选取的文字在粗体之前")
+            }else{
+                if(selRange.compareBoundaryPoints(Range.END_TO_START,boldRange)){
+                    alert("选取的文字在粗体之后")
+                }
+            }
+        }
+    }
+</script>

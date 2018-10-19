@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>加动画</title>
+    <link rel="stylesheet" href="../../vue-utils/node_modules/animate.css/animate.css"/>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/list">列表页</router-link>
+    <!--mode="out-in"是动画的模式-->
+    <transition enter-active-class="animated fadeIn" enter-active-class="animated fadeOut" mode="out-in">
+        <keep-alive><!--要缓存谁    就把谁包起来-->
+            <router-view style="position: absolute;top: 30px;left: 10px;width: 100%"></router-view>
+        </keep-alive>
+    </transition>
+
+</div>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script src="../../vue-utils/node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let home={//组件
+        template:'<div style="background: red">首页</div>'//路由切换的组件   组件会销毁
+    };
+    let list={
+        template:'<div style="background: green">列表页</div>'
+    };
+    let routes=[//路由的映射表   配置路由和组件的关系
+        {path:'/home',component:home},//配置的是页面级组件     一个页面一个组件
+        {path:'/list',component:list}//路径必须加斜线/
+    ];
+    let router=new VueRouter({
+        routes,
+        linkActiveClass:'active'
+    });
+    let vm = new Vue({
+        el: '#app',
+        // router:router
+        router
+    });
+</script>

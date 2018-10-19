@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(fruit,key) in arr">{{key}}{{fruit}}</li>
+        <!--循环数组-->
+    </ul>
+    <ul>
+        <li v-for="(value,key,index) in school">{{index}}、{{key}}：{{value}}</li>
+        <!--循环对象-->
+    </ul>
+    <ul>
+        <li v-for="a in 'zhenxiaowei'">{{a}}</li>
+        <!--循环字符串-->
+    </ul>
+    <ul>
+        <li v-for="a in 5">{{a}}</li>
+        <!--循环数字-->
+    </ul>
+</div>
+</body>
+</html>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            arr: ["西瓜", "香蕉", "苹果"],
+            school: {name: "zxw", age: 8}
+        }
+    });
+
+</script>

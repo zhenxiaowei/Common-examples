@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        @media (min-width: 1200px){
+            .container {
+                width: 1200px !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--
+    为了给导航栏添加响应式特性，您要折叠的内容必须包裹在带有 class .collapse、.navbar-collapse 的 <div> 中。折叠起来的导航栏实际上是一个带有 class .navbar-toggle 及两个 data- 元素的按钮。第一个是 data-toggle，用于告诉 JavaScript 需要对按钮做什么，第二个是 data-target，指示要切换到哪一个元素。三个带有 class .icon-bar 的 <span> 创建所谓的汉堡按钮。这些会切换为 .nav-collapse <div> 中的元素。为了实现以上这些功能，您必须包含 Bootstrap 折叠（Collapse）插件。
+    -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">.col-xs-12 .col-sm-6 .col-md-8</div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="static/require.js"></script>
+<script type="text/javascript">
+    requirejs.config({
+        baseUrl:'static/',//配置基础目录
+        //urlArgs:'v='+(new Date()).getTime(),//清除缓存
+        paths:{
+            'jquery':'libs/jquery/jquery',
+            'bootstrap':'libs/bootstrap/js/bootstrap',
+            'loadingmodal':'libs/loadingmodal/loadingmodal-min',
+            'toastr':'libs/toastr/toastr',
+            'common':'libs/common',
+            'vue':'libs/vue/vue',
+            'vueRouter':'libs/vue/vue-router',
+            'VueDatepickerLocal': "libs/datepicker-local/vue-datepicker-local",
+            'index':'modules/index/index',
+        },
+        shim:{
+            'bootstrap':{
+                deps:['jquery','css!libs/bootstrap/css/bootstrap','css!libs/reset/reset']
+            },
+            'loadingmodal':{
+                deps:['jquery','css!libs/loadingmodal/loadingmodal']
+            },
+            'toastr':{
+                deps:['jquery','css!libs/toastr/toastr']
+            },
+            'VueDatepickerLocal':{
+                deps:['css!libs/datepicker-local/vue-datepicker-local']
+            },
+            'index':{
+                deps:['css!index']
+            },
+            'color':{
+                deps:['css!css']
+            }
+        }
+    });
+    requirejs(['index'],function (index) {
+    });
+
+
+</script>

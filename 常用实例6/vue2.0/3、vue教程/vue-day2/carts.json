@@ -1,0 +1,18 @@
+[
+  {
+    "isSelected": true,
+    "productName": "书名1",
+    "productCover": "./chrome-logo.jpg",
+    "productInfo": "描述1",
+    "productPrice": 57.8,
+    "productCount": 3
+  },
+  {
+    "isSelected": true,
+    "productName": "书名2",
+    "productCover": "./chrome-logo.jpg",
+    "productInfo": "描述2",
+    "productPrice": 57.8,
+    "productCount": 2
+  }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/list">列表页</router-link>
+    <router-view></router-view>
+    <vue-datepicker-local v-model="time" format="YYYY"/>
+</div>
+<i class="icon inho inhoicon-jia"></i>
+
+</body>
+</html>
+<script type="text/javascript" src="static/require.js"></script>
+<script type="text/javascript">
+    requirejs.config({
+        baseUrl:'static/',//配置基础目录
+        //urlArgs:'v='+(new Date()).getTime(),//清除缓存
+        paths:{
+            'jquery':'libs/jquery/jquery',
+            'bootstrap':'libs/bootstrap/js/bootstrap',
+            'loadingmodal':'libs/loadingmodal/loadingmodal-min',
+            'toastr':'libs/toastr/toastr',
+            'common':'libs/common',
+            'vue':'libs/vue/vue',
+            'vueRouter':'libs/vue/vue-router',
+            'VueDatepickerLocal': "libs/datepicker-local/vue-datepicker-local",
+            'echarts': 'libs/echarts/echarts',
+            'index':'modules/index/index',
+        },
+        shim:{
+            'bootstrap':{
+                deps:['jquery','css!libs/bootstrap/css/bootstrap','css!libs/reset/reset','css!libs/icon/iconfont']
+            },
+            'loadingmodal':{
+                deps:['jquery','css!libs/loadingmodal/loadingmodal']
+            },
+            'toastr':{
+                deps:['jquery','css!libs/toastr/toastr']
+            },
+            'VueDatepickerLocal':{
+                deps:['css!libs/datepicker-local/vue-datepicker-local']
+            },
+            'index':{
+                deps:['css!index']
+            },
+            'color':{
+                deps:['css!css']
+            }
+        }
+    });
+    requirejs(['index'],function (index) {
+    });
+
+
+</script>

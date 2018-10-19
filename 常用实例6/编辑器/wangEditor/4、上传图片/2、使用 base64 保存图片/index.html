@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    //如果需要使用 base64 编码直接将图片插入到内容中，可参考一下示例配置
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.create()
+</script>
+</body>
+</html>

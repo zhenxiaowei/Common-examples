@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键帧动画</title>
+</head>
+<style>
+    /*定义动画*/
+    @-webkit-keyframes demo {
+        0% {
+            background-color: red;
+            width: 100px;
+            height: 500px
+        }
+        10% {
+            background-color: green;
+            width: 130px
+        }
+        50% {
+            background-color: dodgerblue;
+            width: 150px
+        }
+        70% {
+            background-color: silver;
+            width: 160px
+        }
+        100% {
+            background-color: slateblue;
+            width: 200px
+        }
+    }
+    @-moz-keyframes demo {
+        0% {
+            background-color: red;
+            width: 100px;
+            height: 500px
+        }
+        10% {
+            background-color: green;
+            width: 130px
+        }
+        50% {
+            background-color: dodgerblue;
+            width: 150px
+        }
+        70% {
+            background-color: silver;
+            width: 160px
+        }
+        100% {
+            background-color: slateblue;
+            width: 200px
+        }
+    }
+    @-o-keyframes demo {
+        0% {
+            background-color: red;
+            width: 100px;
+            height: 500px
+        }
+        10% {
+            background-color: green;
+            width: 130px
+        }
+        50% {
+            background-color: dodgerblue;
+            width: 150px
+        }
+        70% {
+            background-color: silver;
+            width: 160px
+        }
+        100% {
+            background-color: slateblue;
+            width: 200px
+        }
+    }
+
+    @keyframes demo {
+        0% {
+            background-color: red;
+            width: 100px;
+            height: 500px
+        }
+        10% {
+            background-color: green;
+            width: 130px
+        }
+        50% {
+            background-color: dodgerblue;
+            width: 150px
+        }
+        70% {
+            background-color: silver;
+            width: 160px
+        }
+        100% {
+            background-color: slateblue;
+            width: 200px
+        }
+    }
+
+
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: #0d5ab1;
+    }
+
+    div:hover {
+        animation: demo 5s;
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>

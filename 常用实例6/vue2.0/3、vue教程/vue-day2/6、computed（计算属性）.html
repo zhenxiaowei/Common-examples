@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<div id="app">
+    <!--bootstrap栅格化布局   默认12列-->
+    <!--常见的样式   基本样式+增强样式-->
+    <!--default灰色 success绿色  danger红色  warning警告色 info浅蓝色 primary蓝色-->
+    <!--vue的ui框架 iview，mintui，elementui-->
+    <div class="container">
+        <!--每一行都有12列-->
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <caption class="h2 text-warning text-center">购物车</caption><!--表头标题-->
+                <tr>
+                    <!--click点击时  checkbox的状态还没有改变，所以拿到的总是相反的   change可以保证当值变化后再执行函数-->
+                    <th>全选 <input type="checkbox" v-model="checkAll"/></th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(product,index) in products">
+                    <td>
+                        <input type="checkbox" v-model="product.isSelected" />
+                    </td>
+                    <!--:和v-bind是等价的  指令：动态绑定数据-->
+                    <td><img :src="product.productCover" :title="product.productName" width="30px"/>
+                        {{product.productInfo}}
+                    </td>
+                    <td>
+                        {{product.productPrice}}
+                    </td>
+                    <td>
+                        <!--.number是让输入框的值变成数字类型  .lazy当输入框失去焦点时更新数据-->
+                        <input type="number" v-model.number="product.productCount" min="1"/>
+                    </td>
+                    <td>
+                        <!--{{'￥'+(product.productCount*product.productPrice).toFixed(2)}}-->
+                        <!--过滤器   原数据不变的情况下，只是改变显示的效果   管道符-->
+                        {{product.productCount*product.productPrice | toFixed(2)}}
+                    </td>
+                    <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
+                </tr>
+                <tr>
+                    <!--colspan合并单元格  数据一变化就会重新调用此函数  算出最新价格   不会缓存上一次的结果   computed可以解决这个问题-->
+                    <td colspan="6">总价格：{{sum | toFixed(2)}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<!--基于promise的获取数据的库文件-->
+<script src="../../vue-utils/node_modules/axios/dist/axios.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        created (){
+        this.getData();
+
+    },
+    //当给全选赋值时，要影响其他人的变化，当页面刷新时，获取全选值，是根据下面的checkbox来计算出来的结果给全选赋值
+    computed:{//放在computed中最后也会放在vm上，不能和data，methods名字相同
+        checkAll:{
+            //当products值一变就会重新计算
+            get(){//get和set中   this指向实例    默认v-model会获取checkAll的值    所有会调用get方法
+                console.log(this.products.every(p=>p.isSelected))
+                return this.products.every(p=>p.isSelected);
+            },
+            set(val){//当我们给checkbox赋值的时候
+                this.products.forEach(p=>p.isSelected=val);
+            }
+        },
+/*        sum:{//sum的结果会被缓存，如果依赖的数据没有变化就不会重新执行
+            get(){
+                return this.products.reduce((prev,next)=>{
+                    if(!next.isSelected) return prev;//如果当前项没有选中，不加这一项的结果
+                    return prev + next.productPrice * next.productCount;
+                },0);
+            }
+        }*/
+        //sum的结果会被缓存，如果依赖的数据没有变化就不会重新执行
+            sum(){//如果计算属性写成函数，那么默认调用的是get方法
+                return this.products.reduce((prev,next)=>{
+                    if(!next.isSelected) return prev;//如果当前项没有选中，不加这一项的结果
+                    return prev + next.productPrice * next.productCount;
+                },0);
+            }
+    },
+    methods:{
+        getData(){
+            axios.get('./carts.json').then((res)=>{//success
+                console.log(res.data);
+                this.products=res.data;
+            },(err)=>{//error
+                console.log(err);
+            });
+        },
+        remove(p){
+            this.products=this.products.filter(item=>item!==p);
+        }
+    },
+    data:{
+        products:[]
+    },
+    filters:{
+        toFixed(input,param1){
+            return '￥'+input.toFixed(param1);
+        }
+    }
+    });
+
+</script>

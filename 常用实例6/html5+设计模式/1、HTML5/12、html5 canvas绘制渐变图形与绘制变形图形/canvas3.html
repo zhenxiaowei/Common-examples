@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>变形图形</title>
+    <script>
+        function draw(id){
+            var canvas=document.getElementById(id);
+            if(canvas==null){
+                return false;
+            }
+            var context=canvas.getContext("2d");
+            context.fillStyle='#eeeeef';
+            context.fillRect(0,0,500,500);
+            context.translate(200,50);//平移
+            context.fillStyle='rgba(255,0,0,0.25)';
+            for(var i=0;i<50;i++){
+                context.translate(25,25);//平移
+                context.scale(0.95,0.95);//缩放
+                context.rotate(Math.PI/10);//旋转角度
+                context.fillRect(0,0,100,50);
+            }
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+<!--translate(x,y)平移   scale(x,y)缩放  rotate(deg)旋转角度-->
+<canvas id="canvas" width="500" height="500"></canvas>
+</body>
+</html>

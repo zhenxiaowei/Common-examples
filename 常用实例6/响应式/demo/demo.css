@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 48px;
+}
+
+/*对头部底部中部进行通用样式设置*/
+#head,
+#foot,
+#main {
+    height: 100px;
+    width: 1200px;
+    background: #515151;
+    line-height: 100px;
+    margin: 0 auto;
+    min-width: 320px;
+}
+
+/*设置中间的样式*/
+#main {
+    height: auto;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+/*对左侧中部右侧设置*/
+.left,
+.center,
+.right {
+    height: 600px;
+    /*    line-height: 600px;*/
+    float: left;
+    width: 20%;
+    background: #fff;
+}
+
+/*对中间进行单独设置*/
+.center {
+    width: 60%;
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+    box-sizing: border-box;
+}
+
+/*对头部信息进行样式设置*/
+#head ul .logo {
+    margin-top: 25px;
+    background: url("logo.png");
+    background-repeat: no-repeat;
+}
+
+#head ul li {
+    background: #515151;
+    width: 20%;
+    height: 60px;
+    float: left;
+    list-style: none;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+#main .left .left1 div {
+    width: 48%;
+    line-height: 128px;
+    background: orange;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/*设置中部图片样式*/
+.center img {
+    width: 700px;
+    height: 600px;
+}
+
+/*设置右侧信息样式*/
+#main .right {
+    line-height: 40px;
+}
+
+#main .right_top img {
+    height: 200px;
+}
+
+#main .right_top .time {
+    background: #f7a703;
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    font-family: 微软雅黑;
+    text-align: center;
+    line-height: 20px;
+}
+
+#main .right_top .time span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#main .right_top .title {
+    width: 180px;
+    height: 40px;
+    float: left;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-left: 5px;
+    color: rgb(81, 81, 81);
+    font-size: 13px;
+    font-family: 微软雅黑;
+}
+
+/*给右侧底部新闻设置样式*/
+#main .right ul {
+    list-style: none;
+    clear: both;
+}
+
+#main .right ul li {
+    margin-top: 10px;
+    color: rgb(81, 81, 81);
+    font-size: 13px;
+    width: 280px;
+    font-family: 微软雅黑;
+    line-height: 38px;
+    float: left;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px dotted #c7c8c7;
+}
+
+/*给底部设置样式*/
+#foot{
+    padding: 10px;
+    width: 55%;
+    margin: 10px auto;
+    height: 200px;
+    min-width: 1180px;
+    background: #515151;
+    border-top: 10px solid #f7a703;
+}
+#foot1 li{
+    list-style: none;
+    font-size: 12px;
+    line-height: 24px;
+    color: #fff;
+}
+#foot1 ul{
+    float: left;
+    margin-right: 80px;
+    line-height: 24px;
+}
+#foot1 .first{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/*设置底部二维码*/
+#foot1 .erweima{
+    width: 290px;
+    height: 170px;
+    float: right;
+}
+#foot1 .erweima div{
+    float: left;
+    margin-right: 20px;
+    padding: 5px;
+}
+/*单独给foot2设置样式*/
+#foot2{
+    display: none;
+    padding: 10px;
+    width: 60%;
+    margin: 0 auto;
+    height: 200px;
+    min-width: 950px;
+    color: orange;
+    background: #515151;
+    border-top: 10px solid #f7a703;
+}
+
+/*单独设置icon*/
+#head .icon{
+    display: none;
+    background: #515151;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1200px) {
+    #head,
+    #foot,
+    #main {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .right {
+        display: none;
+    }
+
+    .left {
+        width: 30%;
+    }
+
+    .center {
+        width: 70%;
+        border-right: none;
+    }
+    #foot2{
+        display: block;
+    }
+    #foot2 ul{
+        float: left;
+        margin-right: 80px;
+        line-height: 24px;
+    }
+    #foot2 ul li{
+        font-size: 12px;
+        list-style: none;
+    }
+    #foot2 .first{
+        font-size: 16px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    #foot{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .left,
+    .center,
+    .right {
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        display: block;
+    }
+
+    .center {
+        border: hidden;
+        border-top: 10px solid #fff;
+        border-bottom: 10px solid #fff;
+        height: 600px;
+        line-height: 600px;
+    }
+    .left{
+        display: none;
+    }
+    #foot{
+        display: none;
+    }
+    #foot2{
+        display: none;
+    }
+    #head ul{
+        display: none;
+    }
+    #head .icon{
+        display: block;
+    }
+    #main .right img{
+        display: none;
+    }
+}

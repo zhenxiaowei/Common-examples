@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>labels属性</title>
+</head>
+<body>
+<form id="testform" action="http://localhost:8066/inhotech-dataenginee/target.jsp">
+    <label for="txt_name" id="label">姓名：</label>
+    <input type="text" id="txt_name"/>
+    <input type="button" id="btn" value="验证" onclick="validate()"/>
+</form>
+</body>
+</html>
+<script>
+    function validate(){
+        var txtName=document.getElementById("txt_name");
+        var button=document.getElementById("btn");
+        var form=document.getElementById("testform");
+        if(txtName.value.trim()==""){
+            var label=document.createElement("label");
+            label.setAttribute("for","txt_name");
+            form.insertBefore(label,button);
+            txtName.labels[1].innerHTML="请输入姓名";
+            txtName.labels[1].setAttribute("style","color:red")
+        }
+    }
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>路由嵌套</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+<router-link to="/home">首页</router-link>
+<router-link to="/detail">详情页</router-link>
+<router-view></router-view>
+</div>
+
+<template id="details">
+  <div>
+    <router-link to="/detail/profile">个人中心</router-link>
+    <router-link to="/detail/about">关于我</router-link>
+    <router-view></router-view>
+  </div>
+</template>
+</body>
+</html>
+<script src="../../vue-utils/node_modules/vue/dist/vue.js"></script>
+<script src="../../vue-utils/node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+  let home={template:'<div>home</div>'};
+  let detail={template:'#details'};
+  let profile={template:'<div>profile</div>'};
+  let about={template:'<div>about</div>'};
+  let routes=[
+    {
+      path:'',
+      component:home
+    },
+    {
+      path:'/home',
+      component:home
+    },
+    {
+      path:'/detail',
+      component:detail,
+      children:[//children中的路径不带/    带/表示是一级理由
+        {
+          path:'',
+          component:profile
+        },
+        {path:'profile', component:profile},
+        {path:'about', component:about}
+      ]
+    },
+  ];
+  let router=new VueRouter({
+     routes,
+     linkActiveClass:'active'//更改默认样式的类名    默认叫router-link-active   改为active
+  });
+  let vm = new Vue({
+     el: '#app',
+     router
+  });
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function draw(id){
+            var canvas=document.getElementById(id);
+            if(canvas==null){
+                return false;
+            }
+            var context=canvas.getContext("2d");
+            context.fillStyle='#eeeeef';
+            context.fillRect(0,0,600,700);//绘制矩形
+            for(var i=0;i<=10;i++){
+                context.beginPath();//创建绘制路径
+                context.arc(i*25,i*25,i*10,0,Math.PI*2,true);//创建圆形
+                context.closePath();//关闭路径
+                context.fillStyle='rgba(255,0,0,0.25)';
+                context.fill();//绘制成功
+            }
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+<canvas id="canvas" width="600px" height="700px"></canvas>
+</body>
+</html>

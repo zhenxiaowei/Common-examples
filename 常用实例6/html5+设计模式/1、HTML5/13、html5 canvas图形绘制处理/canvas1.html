@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图形组合</title>
+    <script>
+        function draw(id){
+            var canvas=document.getElementById(id);
+            if(canvas==null){
+                return false;
+            }
+            var context=canvas.getContext("2d");
+            var options=new Array(
+                    "source-atop",
+                    "source-in",
+                    "source-out",
+                    "source-over",
+                    "destination-atop",
+                    "destination-in",
+                    "destination-out",
+                    "destination-over",
+                    "lighter",
+                    "copy",
+                    "xor"
+            );
+            i=4;
+            context.fillStyle='blue';
+            context.fillRect(10,10,60,60);
+            context.globalCompositeOperation=options[i];
+            context.beginPath();
+            context.fillStyle='red';
+            context.arc(60,60,30,Math.PI*2,false);
+            context.fill();
+        }
+    </script>
+</head>
+<body onload="draw('canvas')">
+<canvas id="canvas" width="500" height="500"></canvas>
+<!--globalCompositeOperation=type 属性-->
+<!--
+"source-atop",
+"source-in",
+"source-out",
+"source-over",
+"destination-atop",
+"destination-in",
+"destination-out",
+"destination-over",
+"lighter",
+"copy",
+"xor"
+-->
+</body>
+</html>

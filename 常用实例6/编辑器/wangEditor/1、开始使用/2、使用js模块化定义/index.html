@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="editor">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+<script src="require.js"></script>
+</body>
+</html>
+<script>
+    requirejs.config({
+        baseUrl: 'js/',
+        paths: {
+            'wangEditor': 'wangEditor'
+        }
+    });
+
+    requirejs(['wangEditor'], function   (E) {
+        var editor = new E('#editor')
+        editor.create()
+        });
+</script>

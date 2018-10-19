@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+<div id="div1">
+    <p>欢迎使用 wangEditor 富文本编辑器</p>
+</div>
+
+
+<script type="text/javascript" src="wangEditor.js"></script>
+<script type="text/javascript">
+    //配置onfocus函数之后，用户点击富文本区域会触发onfocus函数执行。
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.onfocus = function () {
+        console.log("onfocus")
+    }
+    editor.create()
+</script>
+</body>
+</html>

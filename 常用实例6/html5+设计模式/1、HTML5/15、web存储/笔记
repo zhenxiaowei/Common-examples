@@ -1,0 +1,3 @@
+客户端存储数据
+1、localStorage 没有时间限制的数据存储
+2、sessionStorage 针对一个session的数据存储

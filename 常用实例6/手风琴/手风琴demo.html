@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        a {
+            text-decoration: none;
+        }
+        .menu {
+            margin: 10px auto;
+            padding: 10px;
+            width: 500px;
+            background: #fff;
+        }
+        .menu ul {
+            width: 100%;
+            margin: 5px 0;
+            padding: 0;
+            position: relative;
+        }
+        .menu ul li{
+            float: left;
+            width: 25%;
+        }
+        .menu ul:before {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            content: "";
+            width: 0;
+            height: 0;
+            border: 5px solid #fff;
+            border-color: #fff transparent transparent;
+        }
+        .menu ul a {
+            display: block;
+            margin: 0;
+            padding: 10px;
+            background: #888;
+            background: -webkit-linear-gradient(top, #ddd, #888);
+            background: -moz-linear-gradient(top, #ddd, #888);
+            background: -ms-linear-gradient(top, #ddd, #888);
+            background: -o-linear-gradient(top, #ddd, #888);
+        }
+        .menu:target ul, .menu ul a:focus ul.stylemenu li, .menu ul a:hover ul.stylemenu li, .menu ul a:active ul.stylemenu li {
+            background: #008000;
+            background: -webkit-linear-gradient(top, #11c900, #11c900);
+            background: -moz-linear-gradient(top, #11c900, #11c900);
+            background: -ms-linear-gradient(top, #11c900, #11c900);
+            background: -o-linear-gradient(top, #11c900, #11c900);
+            color: #FFF;
+        }
+        .menu p {
+            clear: both;
+            margin: 5px 0;
+            padding: 0 10px;
+            height: 0;
+            line-height: 25px;
+            overflow: hidden;
+            -webkit-transition: height 0.5s ease-in;
+            -moz-transition: height 0.5s ease-in;
+            -o-transition: height 0.5s ease-in;
+            transition: height 0.5s ease-in;
+        }
+        .menu :target p {
+            height: 75px;
+        }
+        .menu :target ul:before {
+            border-color: transparent transparent transparent #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <div id="company">
+        <ul class="stylemenu">
+            <li><a href="#company">1</a></li>
+            <li><a href="#company">名称一</a></li>
+            <li><a href="#company">情报</a></li>
+            <li><a href="#company">总库</a></li>
+        </ul>
+
+        <p>
+            中央军委军队规模结构和力量编成改革工作会议日前在北京举行，中共中央总书记、国家主席、中央军委主席、中央军委深化国防和军队改革领导小组组长习近平出席会议并发表重要讲话。俄罗斯、巴西、埃及等多国专家学者认为，中国军队改革符合中国当前形势、顺应时代发展趋势，也体现了中国以实际行动维护世界和平的负责任态度。</p>
+    </div>
+
+    <div id="job">
+        <ul>
+            <li><a href="#job">1</a></li>
+            <li><a href="#job">名称一</a></li>
+            <li><a href="#job">情报</a></li>
+            <li><a href="#job">总库</a></li>
+        </ul>
+
+        <p>
+            中央军委军队规模结构和力量编成改革工作会议日前在北京举行，中共中央总书记、国家主席、中央军委主席、中央军委深化国防和军队改革领导小组组长习近平出席会议并发表重要讲话。俄罗斯、巴西、埃及等多国专家学者认为，中国军队改革符合中国当前形势、顺应时代发展趋势，也体现了中国以实际行动维护世界和平的负责任态度。</p>
+    </div>
+
+    <div id="teacher">
+        <ul>
+            <li><a href="#teacher">1</a></li>
+            <li><a href="#teacher">名称一</a></li>
+            <li><a href="#teacher">情报</a></li>
+            <li><a href="#teacher">总库</a></li>
+        </ul>
+
+        <p>
+            中央军委军队规模结构和力量编成改革工作会议日前在北京举行，中共中央总书记、国家主席、中央军委主席、中央军委深化国防和军队改革领导小组组长习近平出席会议并发表重要讲话。俄罗斯、巴西、埃及等多国专家学者认为，中国军队改革符合中国当前形势、顺应时代发展趋势，也体现了中国以实际行动维护世界和平的负责任态度。</p>
+    </div>
+    <div id="teacher1">
+        <ul>
+            <li><a href="#teacher1">1</a></li>
+            <li><a href="#teacher1">名称一</a></li>
+            <li><a href="#teacher1">情报</a></li>
+            <li><a href="#teacher1">总库</a></li>
+        </ul>
+
+        <p>
+            中央军委军队规模结构和力量编成改革工作会议日前在北京举行，中共中央总书记、国家主席、中央军委主席、中央军委深化国防和军队改革领导小组组长习近平出席会议并发表重要讲话。俄罗斯、巴西、埃及等多国专家学者认为，中国军队改革符合中国当前形势、顺应时代发展趋势，也体现了中国以实际行动维护世界和平的负责任态度。</p>
+    </div>
+</div>
+</body>
+</html>
+<script src="zxw.js"></script>
+<script>
+    console.log(webroot);
+</script>
