@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="../css/perfect-scrollbar.css" rel="stylesheet">
+    <script src="../dist/perfect-scrollbar.js"></script>
+    <style>
+    #container {
+      position: relative;
+      margin: 0px auto;
+      padding: 0px;
+      width: 600px;
+      height: 400px;
+      overflow: auto;
+    }
+    #container .content {
+      background-image: url('./assets/azusa.jpg');
+      width: 1280px;
+      height: 720px;
+    }
+    p {
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="content">
+      </div>
+    </div>
+
+    <p><b>Axis:</b> <span id="axis">&hellip;</span></p>
+    <p><b>Direction:</b> <span id="direction">&hellip;</span></p>
+    <p><b>Reached:</b> <span id="reached">(scroll to the start or end of an axis)</span></p>
+
+    <script>
+    var $ = document.querySelector.bind(document);
+
+    var container = $('#container');
+    var axis = $('#axis');
+    var direction = $('#direction');
+    var reached = $('#reached');
+
+    new PerfectScrollbar(container);
+
+    container.addEventListener('ps-scroll-y', function () {
+      axis.textContent = 'y';
+      reached.textContent = 'none';
+    });
+
+    container.addEventListener('ps-scroll-x', function () {
+      axis.textContent = 'x';
+      reached.textContent = 'none';
+    });
+
+    container.addEventListener('ps-scroll-up', function () {
+      direction.textContent = 'up';
+    });
+
+    container.addEventListener('ps-scroll-down', function () {
+      direction.textContent = 'down';
+    });
+
+    container.addEventListener('ps-scroll-left', function () {
+      direction.textContent = 'left';
+    });
+
+    container.addEventListener('ps-scroll-right', function () {
+      direction.textContent = 'right';
+    });
+
+    container.addEventListener('ps-y-reach-start', function () {
+      reached.textContent = 'y start';
+    });
+
+    container.addEventListener('ps-y-reach-end', function () {
+      reached.textContent = 'y end';
+    });
+
+    container.addEventListener('ps-x-reach-start', function () {
+      reached.textContent = 'x start';
+    });
+
+    container.addEventListener('ps-x-reach-end', function () {
+      reached.textContent = 'x end';
+    });
+    </script>
+  </body>
+</html>

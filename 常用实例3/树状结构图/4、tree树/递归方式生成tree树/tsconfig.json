@@ -1,0 +1,10 @@
+[{"featureDataCode":"011001","equipmentTypeCode":"01","pidCode":"0","order":0,"name":"物理特性","demSel":1,"flag":0},
+  {"featureDataCode":"012002","equipmentTypeCode":"01","pidCode":"011001","order":0,"name":"类型及状态","demSel":1,"flag":0},
+  {"featureDataCode":"012008","equipmentTypeCode":"01","pidCode":"011001","order":1,"name":"结构与力学特性","demSel":1,"flag":0},
+  {"featureDataCode":"012019","equipmentTypeCode":"01","pidCode":"011001","order":2,"name":"材料特性","demSel":1,"flag":0},
+  {"featureDataCode":"011022","equipmentTypeCode":"01","pidCode":"0","order":1,"name":"运动特性","demSel":1,"flag":0},
+  {"featureDataCode":"012023","equipmentTypeCode":"01","pidCode":"011022","order":0,"name":"轨道及姿态","demSel":1,"flag":0},
+  {"featureDataCode":"013024","equipmentTypeCode":"01","pidCode":"012023","order":0,"name":"双行根数","demSel":0,"flag":0},
+  {"featureDataCode":"013026","equipmentTypeCode":"01","pidCode":"013024","order":1,"name":"轨道六根数","demSel":0,"flag":0},
+  {"featureDataCode":"013033","equipmentTypeCode":"01","pidCode":"013026","order":2,"name":"姿态","demSel":0,"flag":0},
+  {"featureDataCode":"013039","equipmentTypeCode":"01","pidCode":"013033","order":3,"name":"轨道","demSel":0,"flag":0}]

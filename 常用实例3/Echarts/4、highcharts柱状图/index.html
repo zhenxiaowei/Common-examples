@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title>highcharts柱状图</title>
+        <meta name="keywords" content="highcharts，柱状图" />
+        <meta name="description" content="今天介绍一款统计图插件：Highcharts。通过它生成一个季节平均降雨量柱状统计图。" />
+        <link rel="stylesheet" type="text/css" href="http://www.sucaihuo.com/jquery/css/common.css" />
+
+    </head>
+    <body>
+        <div id="container">
+            <div class="demo" id="highcharts"></div>
+        </div>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script src="js/highcharts.js"></script>
+        <script src="js/modules/exporting.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#highcharts').highcharts({
+                    chart: {
+                        type: 'column'
+                    },
+                    title: { //标题
+                        text: '季节平均降雨量'
+                    },
+                    subtitle: { //副标题
+                        //text: '来源: sucaihuo.com'
+                    },
+                    xAxis: { //X轴选项
+                        categories: [ //设置X轴分类名称
+                            '春季',
+                            '夏季',
+                            '秋季',
+                            '冬季',
+                        ]
+                    },
+                    yAxis: { //Y轴选项
+                        min: 0, //Y轴最小值
+                        title: { //Y轴标题
+                            text: '降雨量 (mm)'
+                        }
+                    },
+                    tooltip: { //数据点提示框 当鼠标滑过某点时，以框的形式提示改点的数据，比如该点的值，数据单位等
+                        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                        footerFormat: '</table>',
+                        shared: true,
+                        useHTML: true
+                    },
+                    plotOptions: { //数据点选项
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [{ //数据列选项
+                            name: '江苏', //显示数据列的名称
+                            data: [49.9, 71.5, 106.4, 129.2] //数组或JSON，如：data:[0, 5, 3, 5]，或data: [{name: 'Point 1',y: 0}, {name: 'Point 2',y: 5}]
+
+                        }, {
+                            name: '浙江',
+                            data: [83.6, 78.8, 98.5, 93.4]
+
+                        }, {
+                            name: '山东',
+                            data: [48.9, 38.8, 39.3, 41.4]
+
+                        }, {
+                            name: '广东',
+                            data: [42.4, 33.2, 34.5, 39.7]
+
+                        }],
+                    credits: {
+                        enabled: false//不显示highCharts版权信息
+                    },
+                    exporting: {
+                        enabled: false //用来设置是否显示‘打印’,'导出'等功能按钮，不设置时默认为显示
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>
+

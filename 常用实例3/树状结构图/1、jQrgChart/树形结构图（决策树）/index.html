@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>可增加删除编辑的组织结构图</title>
+<link type="text/css" rel="stylesheet" href="css/jquery.jorgchart.css"/>
+<style>
+.jOrgChart .node{
+    line-height: 60px;
+}
+.add{
+    display: none;
+}
+.add p{
+    width: 90px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background: #00a0e9;
+    float: left;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.add input{
+    padding: 0;
+    padding-left: 5px;
+    margin-left: 25px;
+    float: left;
+    width: 120px;
+    height: 32px;
+    border: 1px solid #ccc;
+}
+</style>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jorgchart.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(renderTree.bind());
+
+function renderTree(cb){
+    $("#org").jOrgChart({
+        chartElement: '#chart',
+        dragAndDrop: true
+    });
+    setTimeout(function(){
+        cb && cb();
+    })
+}
+function rightClick(){
+
+    $('.node').on('click',function(e){
+        $(".add").show();
+        var that = this;
+        $(".add").children('input.mark').remove();
+        var mark = $("<input type='text' class='mark' maxlength='8'/>");
+        $('.add').find('p').eq(0).before(mark);
+        $(".newAdd").unbind('click').click(function (){
+        e.preventDefault();
+            var str = '<li>新加块</li>';
+            var str1 = '<ul><li>新加块</li><li>新加块</li><li>新加块</li></ul>';
+            var tableDivs = $(`.jOrgChart div:contains("${$(that).text()}")`);
+            var index = tableDivs.index($(that));
+            var text = $(that).text().trim();
+            var sourceLis = [];
+
+        $(`#org li`).each(function(index,item){
+            if($(item).text().trim().indexOf(text) === 0){
+                sourceLis.push($(item));
+            };
+        });
+        sourceLi = sourceLis[index];
+            if(sourceLi.children().length === 0) {
+                sourceLi.append(str1);
+            }else{
+                sourceLi.children().children('li:last').after(str);
+            };
+                $('.jOrgChart').remove();
+                renderTree(rightClick);
+            $(".add").hide();
+        });
+        $(".newDel").unbind('click').click(function () {
+            e.preventDefault();
+            var sourceLi1 = $(`#org li:contains("${$(that).text()}")`).last();
+            sourceLi1.remove();
+            $('.jOrgChart').remove();
+            renderTree(rightClick);
+            $(".add").hide();
+        });
+        $('.mark').unbind('click').blur(function(){
+            e.preventDefault();
+            var sourceLi1 = $(`#org li:contains("${$(that).text()}")`).last();
+            var attext = $(that).text();
+            var athtml = $(sourceLi1).html();
+                var val =  $(this).val();
+                var str1 =attext.trim();
+                var str2 = athtml.replace(str1,val);
+                $(sourceLi1).html(str2);
+                $('.jOrgChart').remove();
+                renderTree(rightClick);
+                $(".add").hide();
+            })
+        });
+}
+</script>
+</head>
+
+<body>
+<div class="add">
+    <p class="newAdd">增加</p>
+    <p class="newDel">删除</p>
+	<span style="padding-left: 30px;color: black "> 输入框空时增加块，有内容时修改当前块值</span>
+</div>
+<ul id="org" style="display:none">
+    <li>
+        来自星星的你
+        <ul>
+            <li id="beer">都敏俊
+                <ul>
+                    <li>古代千颂伊</li>
+                    <li>张英牧</li>
+                    <li>张英牧</li>
+                    <li>张英牧</li>
+                    <li>张英牧</li>
+                </ul>
+            </li>
+            <li>千颂伊
+                <ul>
+                    <li>李辉京</li><li>李辉京</li><li>李辉京</li>
+                    <li>刘世美</li>
+                    <li>刘世美</li>
+                    <li>刘世美</li>
+                    <li>刘世美</li>
+                    <li>刘世美
+                    <ul>
+                        <li>李辉京</li><li>李辉京</li><li>李辉京</li>
+                    </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div id="chart" class="orgChart" ></div>
+</body>
+</html>

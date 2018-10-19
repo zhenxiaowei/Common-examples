@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> ZTREE DEMO </TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/demo.css" type="text/css">
+    <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+    <SCRIPT LANGUAGE="JavaScript">
+        var setting = {
+            treeId: "treeDemo",//zTree 的唯一标识，初始化后，等于 用户定义的 zTree 容器的 id 属性值。
+            treeObj: null,//zTree 容器的 jQuery 对象，主要功能：便于操作。
+            async: {
+                autoParam: [],
+                //异步加载时需要自动提交父节点属性的参数。[setting.async.enable = true 时生效]默认值：[ ]
+                //1、将需要作为参数提交的属性名称，制作成 Array 即可，例如：["id", "name"]:异步加载 父节点(node = {id:1, name:"test"}) 的子节点时，将提交参数 id=1
+                //2、可以设置提交时的参数名称，例如 server 只接受 zId : ["id=zId"]:假设 对父节点 node = {id:1, name:"test"}，进行异步加载时，将提交参数 zId=1
+
+                contentType: "application/x-www-form-urlencoded",
+                //Ajax 提交参数的数据类型。[setting.async.enable = true 时生效]
+                // 默认值："application/x-www-form-urlencoded"
+                //contentType = "application/x-www-form-urlencoded" 可以满足绝大部分请求，按照标准的 Form 格式提交参数
+                //contentType = "application/json" 可以满足 .Net 的编程需要，按照 JSON 格式提交参数
+
+                dataFilter: null,
+                //用于对 Ajax 返回数据进行预处理的函数。[setting.async.enable = true 时生效] 默认值：null
+
+                dataType: "text",
+                //Ajax 获取的数据类型。[setting.async.enable = true 时生效]  默认值："text"
+                //dataType = "text" 可以满足绝大部分请求 , 其余 dataType 类型请参考 jQuery ajax 中的 dataType 参数
+
+                enable: true,
+                //设置 zTree 是否开启异步加载模式,默认值：false
+                //true 表示 开启 异步加载模式
+                //false 表示 关闭 异步加载模式
+                //如果设置为 true，请务必设置 setting.async 内的其它参数。
+                //如果需要根节点也异步加载，初始化时 treeNodes 参数设置为 null 即可。
+
+                otherParam: [],
+                //Ajax 请求提交的静态参数键值对。[setting.async.enable = true 时生效] 默认值：[ ]
+
+                type: "post",
+                //Ajax 的 http 请求模式。[setting.async.enable = true 时生效], 默认值："post"
+                //type = "post" 表示异步加载采用 post 方法请求
+                //type = "get" 表示异步加载采用 get 方法请求
+                //对应于 jQuery ajax 中的 type 参数
+
+                url: ""
+                //Ajax 获取数据的 URL 地址。[setting.async.enable = true 时生效],默认值：""
+            },
+            callback: {
+                beforeAsync: null,
+                //用于捕获异步加载之前的事件回调函数，zTree 根据返回值确定是否允许进行异步加载,默认值：null
+
+                beforeCheck: null,
+                //用于捕获 勾选 或 取消勾选 之前的事件回调函数，并且根据返回值确定是否允许 勾选 或 取消勾选,默认值：null
+
+                beforeClick: null,
+                //用于捕获点击节点之前的事件回调函数，并且根据返回值确定是否允许单机操作，默认值时null
+
+                beforeCollapse: null,
+                //用于捕获父节点折叠之前的事件回调函数，并且根据返回值确定是否允许折叠操作, 默认值：null
+
+                beforeDbClick: null,
+                //用于捕获 zTree 上鼠标双击之前的事件回调函数，并且根据返回值确定触发 onDblClick 事件回调函数,默认值：null
+
+                beforeDrag: null,
+                //用于捕获节点被拖拽之前的事件回调函数，并且根据返回值确定是否允许开启拖拽操作,默认值：null
+
+                beforeDragOpen: null,
+                //用于捕获拖拽节点移动到折叠状态的父节点后，即将自动展开该父节点之前的事件回调函数，并且根据返回值确定是否允许自动展开操作，默认值：null
+
+                beforeDrop: null,
+                //用于捕获节点拖拽操作结束之前的事件回调函数，并且根据返回值确定是否允许此拖拽操作,默认值：null
+
+                beforeEditName:null,
+                //用于捕获节点编辑按钮的 click 事件，并且根据返回值确定是否允许进入名称编辑状态
+                //此事件回调函数最主要是用于捕获编辑按钮的点击事件，然后触发自定义的编辑界面操作。 默认值：null
+
+                beforeExpand:null,
+                //用于捕获父节点展开之前的事件回调函数，并且根据返回值确定是否展开操作。默认值是null
+
+                beforeMouseDown:null,
+                //用于捕获ztree上鼠标按键按下之前的事件回调函数，并且根据返回值确定出发onMouseDown事件回调函数，默认值是null
+
+                beforeMouseUp:null,
+                //用于捕获 zTree 上鼠标按键松开之前的事件回调函数，并且根据返回值确定触发 onMouseUp 事件回调函数，默认值：null
+
+                beforeRemove:null,
+                //用于捕获节点被删除之前的事件的回调函数，并且根据返回值确定是否允许删除。
+
+                beforeRename:null,
+                //用于捕获节点编辑名称结束（Input 失去焦点 或 按下 Enter 键）之后，更新节点名称数据之前的事件回调函数，并且根据返回值确定是否允许更改名称的操作
+                //节点进入编辑名称状态后，按 ESC 键可以放弃当前修改，恢复原名称，取消编辑名称状态
+                //从 v3.5.13 开始，取消编辑状态也会触发此回调，根据 isCancel 参数判断
+                //  默认值：null
+
+                beforeRightClick:null,
+                //用于捕获zTree上鼠标右键点击之前的事件回调函数，并且根据返回值确定触发onRightClick事件回调函数，默认值null
+
+
+                onAsyncError:null,
+                //用于捕获异步加载出现异常错误的事件回调函数
+                //如果设置了 setting.callback.beforeAsync 方法，且返回 false，将无法触发 onAsyncSuccess / onAsyncError 事件回调函数。默认值：null
+
+                onAsyncSuccess:null,
+                //用于捕获异步加载正常结束的事件的回调函数，默认null
+
+                onCheck:null,
+                //用于捕获 checkbox / radio 被勾选 或 取消勾选的事件回调函数
+                //如果设置了 setting.callback.beforeCheck 方法，且返回 false，将无法触发 onCheck 事件回调函数。默认值：null
+
+                onClick:null,
+                //用于捕获节点被点击的事件回调函数
+                //如果设置了 setting.callback.beforeClick 方法，且返回 false，将无法触发 onClick 事件回调函数。默认值：null
+
+                onCollapse:null,
+                //用于捕获节点被折叠的事件回调函数
+                //如果设置了 setting.callback.beforeCollapse 方法，且返回 false，将无法触发 onCollapse 事件回调函数。默认值：null
+
+
+
+
+            }
+        }
+        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+        var zNodes = [
+            {name:"test1", open:true, children:[
+                {name:"test1_1"}, {name:"test1_2"}]},
+            {name:"test2", open:true, children:[
+                {name:"test2_1"}, {name:"test2_2"}]}
+        ];
+        $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        });
+    </SCRIPT>
+</HEAD>
+<BODY>
+<div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+</BODY>
+</HTML>

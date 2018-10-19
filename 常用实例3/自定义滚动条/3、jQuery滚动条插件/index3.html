@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS3谷歌滚动条</title>
+    <style>
+        p{
+            width: 200px;
+            height: 200px;
+            background-color: dimgrey;
+            margin: 100px auto;
+            overflow-y: auto;
+        }
+        /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+        ::-webkit-scrollbar
+        {
+            width: 16px;
+            height: 16px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        ::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        ::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+
+
+    </style>
+</head>
+<body>
+<p class="r_table_scoll">这两种费用的取消，有着深层次的原因。早在2015年，李 总 理就表示国人出国的漫游费实在是太贵了，而进行调整不是政府的决定，而是“不降不行”的市场选择。此外，央视也曝光长途费、漫游费等成本几乎为零，“除了需要市场部门重新设计、预测新套餐等工作，只需在系统中更改参数即可。”最终在今年总 理 在作政府工作报告时表示，今年网络提速降费要迈出更大步伐，年内全部取消手机国内长途和漫游费。政府的强硬，是这两种费用取消的重要推动因素。</p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+.abix-tree-list li {
+    list-style: none;
+}
+.abix-tree-list .collapsed span.icon, 
+.abix-tree-list .expanded span.icon {
+    margin-right: 6px;
+    cursor: pointer;
+}

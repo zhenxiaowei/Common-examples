@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <style type="text/css">
+        .processcontainer {
+            display: none;
+            width: 450px;
+            border: 1px solid #6C9C2C;
+            height: 25px;
+        }
+
+        #processbar {
+            background: #95CA0D;
+            float: left;
+            height: 100%;
+            text-align: center;
+            line-height: 150%;
+        }
+    </style>
+
+</head>
+<body>
+<button id="btn">上传</button>
+<div class="processcontainer">
+    <div id="processbar" style="width:0%;"></div>
+</div>
+</body>
+<script src="jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    console.log(btn);
+    btn.onclick = function () {
+        $(".processcontainer").show();
+        var bartimer = window.setInterval(function () {
+            setProcess(bartimer);
+        }, 100);
+    }
+    function setProcess(bartimer) {
+        var processbar = document.getElementById("processbar");
+        processbar.style.width = parseInt(processbar.style.width) + 5 + "%";
+        processbar.innerHTML = processbar.style.width;
+        if (processbar.style.width == "100%") {
+            window.clearInterval(bartimer);
+            $(".processcontainer").hide();
+        }
+    }
+
+
+</script>
+</html>

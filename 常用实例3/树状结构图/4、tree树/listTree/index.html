@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="css,html" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<title>演示：纯CSS和HTML打造树结构</title>
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<style>
+ ul.tree, ul.tree ul {
+     list-style-type: none;
+     background: url(images/vline.png) repeat-y;
+     margin: 0;
+     padding: 0;
+   }
+   
+   ul.tree ul {
+     margin-left: 10px;
+   }
+
+    ul.tree li {
+     margin: 0;
+     padding: 0 12px;
+     line-height: 20px;
+     background: url(images/node.png) no-repeat;
+     color: #369;
+     font-weight: bold;
+   }
+   /*ul.tree li.last {
+     background: #fff url(images/lastnode.png) no-repeat;
+   }*/
+    ul.tree li:last-child {
+     background: #fff url(images/lastnode.png) no-repeat;
+   }
+</style>
+</head>
+<body>
+<div class="container">
+	<header>
+		<div class="row">
+			<div class="col-md-3 col-xs-12"><h1 class="logo"><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+			<div class="col-md-9 text-right"></div>
+		</div>
+	</header>
+	<div class="row main">
+		<div class="col-md-12">
+			<h2 class="top_title"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><a href="http://www.helloweba.com/view-blog-413.html">纯CSS和HTML打造树结构</a></h2>
+			
+			<div class="row" style="margin-top: 30px">
+                <div class="col-md-offset-5 col-sm-12">
+                    <ul class="tree">
+                        <li>研发中心
+                            <ul>
+                                <li>北京研发部</li>
+                                <li>深圳研发部
+                                    <ul>
+                                        <li>产品1组</li>
+                                        <li>产品2组</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>销售部
+                            <ul>
+                                <li>售前</li>
+                                <li>售后</li>
+                                <li>代理分区
+                                    <ul>
+                                        <li>东北区</li>
+                                        <li>华北区</li>
+                                        <li>华南区</li>
+                                        <li>华中区</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>财务部</li>
+                        <li>人事部</li>
+                    </ul>
+                </div>
+			</div>
+
+		</div>
+	</div>
+	<footer>
+		<p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+	</footer>
+</div>
+    
+</body>
+</html>

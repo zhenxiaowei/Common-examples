@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jQuery树插件演示族谱Family tree和日程安排</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+                $('.tree li.parent_li > span').on('click', function(e) {
+                    var children = $(this).parent('li.parent_li').find(' > ul > li');
+                    if (children.is(":visible")) {
+                        children.hide('fast');
+                        $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+                    } else {
+                        children.show('fast');
+                        $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+                    }
+                    e.stopPropagation();
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+        <div class="tree well">
+            <h2>族谱Family tree</h2>
+            <ul>
+                <li>
+                    <span><i class="icon-folder-open"></i> Parent</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                    <ul>
+                        <li>
+                            <span><i class="icon-minus-sign"></i> Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                            <ul>
+                                <li>
+                                    <span><i class="icon-leaf"></i> Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span><i class="icon-minus-sign"></i> Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                            <ul>
+                                <li>
+                                    <span><i class="icon-leaf"></i> Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                </li>
+                                <li>
+                                    <span><i class="icon-minus-sign"></i> Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                    <ul>
+                                        <li>
+                                            <span><i class="icon-minus-sign"></i> Great Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                            <ul>
+                                                <li>
+                                                    <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                                </li>
+                                                <li>
+                                                    <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                        </li>
+                                        <li>
+                                            <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span><i class="icon-leaf"></i> Grand Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span><i class="icon-folder-open"></i> Parent2</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                    <ul>
+                        <li>
+                            <span><i class="icon-leaf"></i> Child</span> <a href="http://www.sucaihuo.com/js">自定义内容</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h2>日程安排</h2>
+        <div class="tree">
+            <ul>
+                <li>
+                    <span><i class="icon-calendar"></i>2015-9-10</span>
+                    <ul>
+                        <li>
+                            <span class="badge badge-success"><i class="icon-minus-sign"></i> 星期一</span>
+                            <ul>
+                                <li>
+                                    <a href="http://www.sucaihuo.com/js/1.html" target="_blank"><span><i class="icon-time"></i> 8.00</span> &ndash; jQuery仿天猫完美加入购物车</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="badge badge-success"><i class="icon-minus-sign"></i> 星期二</span>
+                            <ul>
+                                <li>
+                                    <span><i class="icon-time"></i> 6.00</span> &ndash; <a href="http://www.sucaihuo.com/js/6.html" target="_blank">flexslider图片轮播、多图相册滑动</a>
+                                </li>
+                                <li>
+                                    <span><i class="icon-time"></i> 2.00</span> &ndash; <a href="http://www.sucaihuo.com/js/2.html" target="_blank">jQuery+Ajax+PHP无刷新分页 </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="badge badge-warning"><i class="icon-minus-sign"></i> 星期三</span>
+                            <ul>
+                                <li>
+                                    <a href="http://www.sucaihuo.com/js/75.html" target="_blank"><span><i class="icon-time"></i> 3.00</span> &ndash; jQuery超酷响应式瀑布流效果</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.sucaihuo.com/js/60.html" target="_blank"><span><i class="icon-time"></i> 3.00</span> &ndash; jQuery+Validation表单验证</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="badge badge-important"><i class="icon-minus-sign"></i> 星期四</span>
+                            <ul>
+                                <li>
+                                    <a href="http://www.sucaihuo.com/js/10.html" target="_blank"><span><i class="icon-time"></i> 2.00</span> &ndash; jQuery全选、反选与获取选中值 </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span><i class="icon-calendar"></i> 2015-9-11</span>
+                    <ul>
+                        <li>
+                            <span class="badge badge-success"><i class="icon-minus-sign"></i> 星期一</span>
+                            <ul>
+                                <li>
+                                    <span><i class="icon-time"></i> 7.75</span> &ndash; <a href="http://www.sucaihuo.com/js/406.html" target="_blank">ShearPhoto免费的集成头像插件 </a>
+                                </li>
+                                <li>
+                                    <span><i class="icon-time"></i> 0.25</span> &ndash; <a href="http://www.sucaihuo.com/js/92.html" target="_blank">jQuery+PHP星级评分 </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>
+

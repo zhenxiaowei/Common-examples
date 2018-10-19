@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul li{
+            list-style: none;
+        }
+       .one1{
+           color: red;
+       }
+        .one2{
+            color: #00B83F;
+        }
+        .one3{
+            color: #b85d9f;
+        }
+        .two2,.two4{
+            color: #7a43b6;
+        }
+    </style>
+</head>
+<body>
+<div id="tree"></div>
+</body>
+</html>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    $.ajax({
+        url:"tsconfig.json",
+        type:"get",
+        success:function(val){
+            console.log(val)
+            var treeHeight = TreeDepth('0',val);
+            console.log(treeHeight);
+            $('#tree').html(showTree('0',val,1,treeHeight,""));
+        }
+    });
+
+    function  TreeDepth(pid,list){//计算树高
+        if(list.length <= 0) return 0;
+        var maxHeight = 0;
+        for (var i=0;i<list.length;i++){
+            if(list[i].pidCode == pid){
+                var height = 1 + TreeDepth(list[i].featureDataCode, list);
+                if(height >  maxHeight) maxHeight = height;
+            }
+        }
+        return maxHeight;
+    }
+
+    function  showTree(pid,list,level,height,title){
+        if(list.length <= 0) return '';
+        var str='';
+        var cnt = 0;
+        for (var i=0;i<list.length;i++){
+
+            if(list[i].pidCode == pid){
+                cnt ++;
+                var title2 = '';
+                if(title == "")
+                    title2 += title+''+cnt+'';
+                else
+                    title2 += title+'.'+cnt+'';
+
+                var str1 = ''+title2+":";
+                str1+= '&nbsp;'+list[i].name;
+
+                if(level < height){//根据当前节点层级与树高,判断是否显示图标
+                    str1 +='*';
+                }
+
+                var rstr = showTree(list[i].featureDataCode, list,level+1,height ,title2);
+
+                if(rstr !=''){//非叶子节点
+                    str +='<li class="one'+level+'">' + str1 + rstr +'</li>';
+                }
+                else{//叶子节点
+                    str +='<li class="two'+level+'">' + str1 +'</li>';
+                }
+            }
+        }
+        var str2 = '';
+        if(str !='') str2='<ul>' + str +'</ul>';
+        return str2;
+    }
+
+    //从第三层查找最后一层
+    $(".tree>ul>li>ul>li>ul").each(function(){
+        lastLvGet($(this))
+    })
+    //从第三层查找最后一层递归方法
+    function lastLvGet($current0){
+        var $current=$current0.children("li");
+        $current.each(function(){
+            if($(this).children("ul").size>0){//当前ul里面没有子项
+                lastLvGet($(this).children("ul"));
+            }else{
+                $(this).find("i").remove();//删除最后一层的图标
+            }
+        })
+    }
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+    <title>jquery组织架构插件-jOrgChart.js | jQuery特效|手机微信网站特效| 网页特效库</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/jquery.jOrgChart.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link href="css/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="prettify.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script src="jquery.jOrgChart.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        $("#org").jOrgChart({
+            chartElement : '#chart',
+            dragAndDrop  : true
+        });
+    });
+    </script>
+  </head>
+
+  <body onload="prettyPrint();">
+   
+    
+    <ul id="org" style="display:none">
+    <li>
+      1
+       <ul>
+         <li id="beer">2</li>
+         <li>3
+           
+           <ul>
+             <li>4</li>
+             <li>
+                <a href="http://www.5iweb.com.cn" target="_blank">22</a>
+                <p>...</p>
+             </li>
+           </ul>
+         </li>
+         <li class="fruit">5
+           <ul>
+             <li>6
+               <ul>
+                 <li>7</li>
+               </ul>
+             </li>
+             <li>8
+               <ul>
+                 <li>9</li>
+                 <li ><img src="images/raspberry.jpg" alt="Raspberry" style="margin-top: -20px;"/></li>
+                 <li>10</li>
+               </ul>
+             </li>
+           </ul>
+         </li>
+         <li>11</li>
+         <li class="collapsed">12
+           <ul>
+             <li>13</li>
+             <li>14</li>
+           </ul>
+         </li>
+       </ul>
+     </li>
+   </ul>            
+    
+    <div id="chart" class="orgChart"></div>
+    
+    <script>
+        jQuery(document).ready(function() {
+            
+            /* Custom jQuery for the example */
+            $("#show-list").click(function(e){
+                e.preventDefault();
+                
+                $('#list-html').toggle('fast', function(){
+                    if($(this).is(':visible')){
+                        $('#show-list').text('Hide underlying list.');
+                        $(".topbar").fadeTo('fast',0.9);
+                    }else{
+                        $('#show-list').text('Show underlying list.');
+                        $(".topbar").fadeTo('fast',1);//使用淡出效果来隐藏元素
+                    }
+                });
+            });
+            
+            $('#list-html').text($('#org').html());
+            
+            $("#org").bind("DOMSubtreeModified", function() {
+                $('#list-html').text('');
+                
+                $('#list-html').text($('#org').html());
+                
+                prettyPrint();                
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content {
+    margin: 0 auto;
+    width: 1360px;
+}
+
+.content div {
+    width: 100%;
+}
+
+.content div img {
+    display: block;
+    width: 100%;
+}
+
+.floor {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    margin-top: -170px;
+    width: 30px;
+    height: 341px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.floor li {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #EEE;
+    cursor: pointer;
+}
+
+.floor li span {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    color: #c81623;
+    background: #fff;
+}
+
+.floor li.bg span {
+    display: block;
+}
+
+.floor li:hover span {
+    display: block;
+    color: #fff;
+    background: #c81623;
+}

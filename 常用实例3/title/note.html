@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #titleRewrite {
+            position: absolute;
+            z-index: 5999;
+            padding: 2px 10px;
+            border-radius: 3px;
+            color: #fff;
+            background: #5B697B;
+            -webkit-box-shadow: 1px 1px 3px #ccc;
+            -moz-box-shadow: 1px 1px 3px #ccc;
+            box-shadow: 1px 1px 3px #ccc;
+        }
+    </style>
+</head>
+<body>
+<a href="#" note="查看">查看那</a>
+<a href="#" title="查看">查看那</a>
+</body>
+</html>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    $(function () {
+        $("[note]").each(function () {
+            var a = $(this);
+            var note = a.attr('note');
+            if (note == undefined || note == "") return;
+            a.data('note', note)
+                    .removeAttr('note')
+                    .on('mouseover mouseout', function (e) {
+                        if (e.type == 'mouseover') {
+                            var offset = a.offset();
+                            $("<div id=\"titleRewrite\"></div>").appendTo($("body")).html(note).css({
+                                top: offset.top + a.outerHeight(),
+                                left: offset.left + a.outerWidth() / 2 + 10
+                            }).fadeIn(function () {
+                                setTimeout(function () {
+                                    $(this).remove();
+                                }, $(this).text().length * 800);
+                            });
+                            //console.log('111');
+                        } else {
+                            setTimeout(function () {
+                                $("#titleRewrite").remove();
+                            }, 150);
+                            //console.log('000');
+                        }
+                    });
+            /*.hover(function (e) {
+             /!*var xx = e.originalEvent.x || e.originalEvent.layerX || 0;
+             var yy = e.originalEvent.y || e.originalEvent.layerY || 0;
+             //$(this).text(xx + '---' + yy);
+             $("<div id=\"titleRewrite\"></div>").appendTo($("body")).html(title).css({ top: yy + 10, left: xx + 10 }).fadeIn(function () {
+
+             var pop = $(this);
+             setTimeout(function (){
+             pop.remove();
+             }, pop.text().length*800);
+
+             });    *!/
+
+             var offset = a.offset();
+             $("<div id=\"titleRewrite\"></div>").appendTo($("body")).html(note).css({ top: offset.top + a.outerHeight(), left: offset.left + a.outerWidth()/2 + 10 }).fadeIn(function () {
+             setTimeout(function () { $(this).remove(); }, $(this).text().length*800);
+             });
+
+             },function(){
+             setTimeout(function (){
+             $("#titleRewrite").remove();
+             }, 150);
+             });*/
+        });
+    });
+</script>
