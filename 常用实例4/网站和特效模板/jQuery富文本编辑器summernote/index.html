@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery富文本编辑器summernote</title>
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="dist/summernote.css">
+<style type="text/css">
+.m{ width: 88%; margin-left: auto; margin-right: auto; }
+</style>
+<script src="dist/jquery.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="dist/summernote.js"></script>
+<script type="text/javascript" src="dist/lang/summernote-zh-CN.js"></script><!-- 中文-->
+<script type="text/javascript">
+$(function(){
+    $('.summernote').summernote({
+        height: 200,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+});
+</script>
+</head>
+
+<body>
+<div class="m">		
+	<div class="summernote">秘密</div>
+	<div class="summernote">吸引力法则</div>
+</div>
+</body>
+</html>

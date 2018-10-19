@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-family: "微软雅黑";
+            font-size: 20px;
+            outline: none;/*去掉input的蓝光*/
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        .box{
+            width: 540px;
+            position: absolute;
+            left: 50%;
+            margin-left: -270px;
+            top:10%;
+        }
+        .box input{
+            display: block;
+            height: 40px;
+            width: 100%;
+            padding:10px;
+            border: 1px solid blue;
+        }
+        .box ul{
+            display: none;
+            margin-top: -1px;
+            width:560px ;
+            border: 1px solid blue;
+        }
+        .box ul li{
+            height: 35px;
+            line-height: 35px;
+        }
+        .box ul li a{
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+        .box ul li a:hover{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<!--思路：
+显示：1）聚焦时如果里面有内容，会显示下拉菜单 2）编辑内容框时，如果有内容，会显示下拉单
+隐藏：1）聚焦或者删除内容时，内容为空，就隐藏 2）点击页面任何一个地方，让他消失 3）点击下拉单中的每一行，会消失，同时，搜索框的内容被改成点击的这一行的内容；
+-->
+<div class="box">
+    <input type="text" id="search"/>
+    <ul id="list">
+        <li><a href="javascript:;">javascript培训</a></li>
+        <li><a href="javascript:;">node</a></li>
+        <li><a href="javascript:;">HTML5培训</a></li>
+        <li><a href="javascript:;">培训</a></li>
+        <li><a href="javascript:;">reactJs</a></li>
+    </ul>
+</div>
+<script>
+    //1.获取元素
+    var oInp=document.getElementById('search');
+    var oUl=document.getElementById('list');
+    //显示：1）聚焦的时候，如果input中有内容，显示
+    //2）在input中如果有内容让我们编辑，显示，否则，隐藏
+    /*
+    * 隐藏：
+    * 1）编辑时，内容为空，隐藏
+    * 2）点击页面任何部分，隐藏ul；
+    * 3）点击ul中的每一项：1.把点击这一项的内容放到input中 2.隐藏ul
+    * */
+    oInp.onkeyup=oInp.onfocus=function(){
+        var val=this.value.replace(/(^ +)|( +$)/g,'');
+        oUl.style.display=val.length>0?'block':'none';
+    };
+    document.body.onclick=function(e){
+        e=e||window.event;
+        var tar= e.target|| e.srcElement;
+        //处理input思路1：事件源
+        /*if(tar.id==='search'){
+            return;
+        }*/
+        //点击的是ul下面的a:1)事件源是a 2）a的父级的父级是ul
+        if(tar.tagName.toLowerCase()==='a' && tar.parentNode.parentNode.id==='list'){
+            oInp.value=tar.innerHTML;
+        }
+        oUl.style.display='none';
+    }
+    //处理input思路2：阻止冒泡的思路；
+    oInp.onclick=function(e){
+        e=e||window.event;
+        e.stopPropagation? e.stopPropagation(): e.cancelBubble=true;
+    };
+</script>
+</body>
+</html>

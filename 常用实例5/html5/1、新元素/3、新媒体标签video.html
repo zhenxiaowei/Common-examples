@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--如果是IE9以下的浏览器，将读取以下js文件  主要解决html5新的元素不被ie6-8识别的问题-->
+    <!--[if lt IE 9]>
+    <script src="../html5.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<video controls>
+    <!--source带有两个源文件的音频播放器。浏览器需要选择它所支持的源文件(如果都支持则任选一个)-->
+    <source src="horse.ogg" type="audio/ogg"/>
+    <source src="horse.mp4" type="audio/mpeg"/>
+    你的浏览器不支持video标签
+</video>
+<!--
+属性autoplay 值autoplay 描述如果出现该属性，则视频在就绪后马上播放
+属性controls 值controls 描述如果出现该属性，则向用户显示音频控件（比如播放/暂停按钮）
+属性loop 值loop 描述如果出现该属性，则每当视频结束时重新开始播放
+属性height 值pixels 描述设置视频播放器的高度
+属性muted 值muted 描述如果出现该属性，则视频的音频输出为静音
+属性poster 值URL 描述规定视频正在下载时显示的图像，直到用户点击播放按钮
+属性preload 值auto、metadat、a、none 描述则视频在网页加载时进行加载，并预备播放。如果使用antoplay，则忽略该属性
+属性src 值URL 描述规定视频文件的URL
+属性wijth 值pixels 描述设置视频播放器的宽度
+-->
+</body>
+</html>

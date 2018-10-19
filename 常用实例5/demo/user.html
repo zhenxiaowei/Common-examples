@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/iconfont.css"/>
+    <link rel="stylesheet" href="css/user.css"/>
+</head>
+<body>
+<header class="header">
+    <div class="btn-group" role="group">
+        <button type="button" class="userBtn btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="icon inho inhoicon-yonghu"></i>
+            admin
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="signOut"><a href="#">退出</a></li>
+        </ul>
+    </div>
+     <span class="signOutIndex"><i class="icon inho inhoicon-tuichu"></i>返回主页</span>
+</header>
+<aside class="left_Content">
+   <dl>
+       <dt class="yonghuguanli"><i class="icon inho inhoicon-04"></i>用户管理</dt>
+   </dl>
+    <dl>
+        <dt class="zuzhijigou"><i class="icon inho inhoicon-04"></i>组织机构</dt>
+    </dl>
+</aside>
+<section class="yonghuguanliContent">
+    <table class="table table-bordered table-hover table-striped">
+        <caption style="    padding-left: 10px;">边框表格布局</caption>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>城市</th>
+            <th>邮编</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>560001</td>
+        </tr>
+        <tr>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>400003</td>
+        </tr>
+        <tr>
+            <td>Uma</td>
+            <td>Pune</td>
+            <td>411027</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<section class="zuzhijigouContent">
+    <div class="adminIstration_header">
+        <i class="icon inho inhoicon-yuan"></i>
+        <h3>组织机构</h3>
+    </div>
+      <div class="TreeContent"></div>
+    <div class="bumenxingxi" style="display: block;">
+        <div class="bumenxingxiHeader">
+            <h3>29基地</h3>
+            <button data-toggle="modal" data-target="#myModal">删除部门</button>
+            <button data-toggle="modal" data-target="#myModal">编辑修改</button>
+            <button data-toggle="modal" data-target="#myModal">添加子级部门</button>
+            <button data-toggle="modal" data-target="#myModal">添加同级部门</button>
+        </div>
+        <form class="bumenxingxiForm">
+            <div class="bumenxingxiContent">
+                <label> 名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称 :<input type="text" name="name" readonly="readonly" style="margin-left:54px;" value="29基地"></label>
+                <label> 机构代码:<input class="bumenxingxiInput" type="text" name="instituttioncode" readonly="readonly" value="01"> </label>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body modalData">
+                <label> <span>具体型号</span><input class=" form-control"  type="text" value=""  />
+                </label>
+                <label> <span>具体型号</span><input  class="form-control" type="text" value=""  />
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+</html>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/user.js"></script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 640px;
+            margin:30px auto;
+            position: relative;
+        }
+        .box img{
+            width: 150px;
+            margin-left: 10px;
+            float: left;
+        }
+        #mark{
+            display: none;
+            position: absolute;
+            left:0;
+            top:0;
+            width: 450px;
+        }
+        #mark img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="img/apple_1.jpg" realImg="img/apple_1_bigger.jpg" alt=""/>
+    <img src="img/apple_2.jpg" realImg="img/apple_2_bigger.jpg" alt=""/>
+    <img src="img/apple_3.jpg" realImg="img/apple_3_bigger.jpg" alt=""/>
+    <img src="img/apple_4.jpg" realImg="img/apple_4_bigger.jpg" alt=""/>
+
+    <div id="mark"><img src="img/apple_1_bigger.jpg" alt=""/></div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var $box=$('.box');
+    var $aImg=$box.children('img');
+    var $mark=$('#mark');
+    var $offset=$box.offset();//{left:xxx,top:xxx}
+    //1.鼠标移入每张图片，让大图显示在求出距离box左上角的位置；鼠标位置距离可视区左上角的；我们要求大图的位置是距离box左上角的
+    $aImg.mouseover(function(e){
+        var left= e.clientX-$offset.left+20;
+        var top= e.clientY-$offset.top+20;
+        var realImg=$(this).attr('realImg')
+        $mark.stop().show(500).css({left:left,top:top}).find('img').attr('src',realImg);
+    });
+    $aImg.mousemove(function(e){
+        var left= e.clientX-$offset.left+20;
+        var top= e.clientY-$offset.top+20;
+        $mark.css({left:left,top:top});
+    });
+    $aImg.mouseout(function(){
+        $mark.stop().hide();
+    })
+
+</script>
+</body>
+</html>

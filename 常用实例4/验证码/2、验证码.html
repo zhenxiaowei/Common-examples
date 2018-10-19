@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 300px;
+            margin: 30px auto;
+            border: 2px solid #ccc;
+        }
+
+        .box span {
+            display: block;
+            line-height: 300px;
+            font-size: 200px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <span>1x5y</span>
+</div>
+<script>
+    function getCode() {
+        var strRange = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var baseStr = '';
+        for (var i = 0; i < 4; i++) {
+            var ran = Math.round(Math.random() * (61));
+            var ranChar = strRange.charAt(ran);
+            baseStr += ranChar;
+        }
+        return baseStr;
+    }
+    var oSpan = document.getElementById('box').getElementsByTagName('span')[0];
+    oSpan.innerHTML = getCode();
+    oSpan.onclick = function () {
+        oSpan.innerHTML= getCode()
+    };
+</script>
+
+
+</body>
+</html>

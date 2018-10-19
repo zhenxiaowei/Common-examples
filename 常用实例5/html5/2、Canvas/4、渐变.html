@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--如果是IE9以下的浏览器，将读取以下js文件  主要解决html5新的元素不被ie6-8识别的问题-->
+    <!--[if lt IE 9]>
+    <script src="../html5.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--
+canvas标签是html5中新定义的标签，它是一个画布标签，只能作为一个图形容器，必须使用脚本来绘制图形
+-->
+<canvas id="myCanvas" width="200" height="200" style="border: 1px solid red">
+    标签中间的内容，将会被显示在不支持这个标签的浏览器中
+</canvas>
+</body>
+</html>
+<script>
+    var canvas=document.getElementById("myCanvas");//找到cancas元素
+    var ctx=canvas.getContext("2d");//创建content对象
+    var grd=ctx.createLinearGradient(0,0,100,0);
+   // var grd=ctx.createLinearGradient(75,50,5,90,60,100);
+   // var grd=ctx.createLinearGradient(0,0,0,100);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    ctx.fillStyle=grd;//设置fillStyle属性可以是css颜色，渐变，或图案，默认是#000000，黑色
+    ctx.fillRect(10,10,150,80);//fillRect(x,y,width,height)方法定义了矩形当前的填充方式
+    //意思是在画布上绘制80*100的矩形，从左上角开始(0,0)
+</script>

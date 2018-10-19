@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文本框输入内容，高度自适应</title>
+		<style type="text/css">
+			div{ width:600px; font-size:14px; border:solid 1px #0066FF; padding:10px; margin:0 auto 20px;}
+			.read-write{user-modify:read-write;-webkit-user-modify:read-write;}
+			.read-write-plaintext-only{user-modify:read-write-plaintext-only;-webkit-user-modify:read-write-plaintext-only;}
+			.title{width:600px; margin:0 auto;}
+		</style>
+	</head>
+	<body>
+		<!--方法一：-->
+		<p class="title">contenteditable="true"实现文本框自适应：</p>
+		<div contenteditable="true"></div>
+		<!--方法二：-->
+		<p class="title">contenteditable="plaintext-only"实现纯文本自适应：</p>
+		<div contenteditable="plaintext-only"></div>
+		<!--方法三：-->
+		<p class="title">read-write属性效果：</p>
+		<div class="read-write"></div>
+		<!--方法四：-->
+		<p class="title">read-write-plaintext-only属性效果：</p>
+		<div class="read-write-plaintext-only"></div>
+	</body>
+</html>

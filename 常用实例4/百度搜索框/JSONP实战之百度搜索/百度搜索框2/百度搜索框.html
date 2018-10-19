@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            width: 200px;
+            border: 1px solid saddlebrown;
+            cursor: pointer;
+        }
+        ul li:hover{
+            background: yellow;
+        }
+
+        ul li:hover {
+            background: oldlace;
+        }
+
+        div {
+            width: 200px;
+        }
+    </style>
+    <script src="jsonp.js"></script>
+    <!--<script>-->
+    <!--for (var i = 0; i < 100; i++) {-->
+    <!--jsonp('http://localhost:12345/cross', {a: 1, b: 2}, 'thisValNameis', function (data) {-->
+    <!--console.log(data)-->
+    <!--});-->
+    <!--}-->
+    <!--</script>-->
+</head>
+<body>
+<input type="search" placeholder="请输入要搜索的关键字">
+<input type="button" value="百度一下">
+
+<div>
+    <ul>
+
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    /**
+     * 百度搜索
+     * @constructor
+     */
+    function BaiduSearch() {
+        // jsonp接口
+        this.API = 'http://suggestion.baidu.com/su';
+        // 元素集合
+        this.node = {
+            searchVal: 'input[type="search"]',
+            searchBtn: 'input[type="button"]',
+            container: 'ul'
+        };
+        // 进行初始化
+        this.init();
+    }
+    BaiduSearch.prototype = {
+        constructor: BaiduSearch,
+        init: function () {
+            // 获取node当中的元素
+            for (var n in this.node) {
+                if (!this.node.hasOwnProperty(n)) continue;
+                this.node[n] = document.querySelector(this.node[n]);
+            }
+            // 绑定事件
+            this.bindEvent();
+        },
+        bindEvent: function () {
+            var that = this;
+            this.node.searchBtn.onclick = function () {
+                var val = that.node.searchVal.value;
+                if (val) {
+                    // 搜索关键字
+                    that.seachKeyWord(val);
+                }
+            };
+            this.node.container.onclick = function (e) {
+                e || (e = window.event);
+                var target = e.target || e.srcElement;
+                window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(target.innerHTML), '_blank');
+            }
+        },
+        seachKeyWord: function (key) {
+            var that = this;
+            // 调用jsonp去搜索关键字
+            jsonp(this.API, {wd: key}, 'cb', function (data) {
+                that.showKeyWordList(data.s);
+            })
+        },
+        showKeyWordList: function (list) {
+            var fragement = document.createDocumentFragment();
+            for (var i = 0, len = list.length; i < len; i++) {
+                var li = document.createElement('li');
+                li.innerHTML = list[i];
+                fragement.appendChild(li);
+            }
+            this.node.container.innerHTML = '';
+            this.node.container.appendChild(fragement);
+        }
+    };
+
+    window.onload = function () {
+        new BaiduSearch();
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="demo">点击按钮获取你当前坐标：</p>
+<button onclick="getLocation()">点我</button>
+</body>
+</html>
+<script>
+    var x=document.getElementById("demo");
+    //浏览器是否支持getCurrentPosition地理定位
+    function getLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition,showError);
+        }else{
+            x.innerHTML="该浏览器不支持获取地理位置";
+        }
+    }
+    //获取位置（在地图中显示结果，需要访问可使用经纬度的地图服务，比如谷歌和百度地图）
+    function showPosition(position){
+        x.innerHTML="维度"+position.coords.latitude+"经度"+position.coords.longitude;
+        var lotlon=position.coords.latitude+","+position.coords.longitude;
+        //把经纬度的数据，传入地图中，并显示地图
+    }
+    //错误处理
+    function showError(error){
+        switch (error.code){
+            case error.PERMISSION_DENIED:
+                x.innerHTML="用户拒绝对地理位置的请求";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML="位置信息是不可用的";
+                break;
+            case error.TIMEOUT:
+                x.innerHTML="请求用户地理位置超时";
+                break;
+            case error.UNKNOWN_ERR:
+                x.innerHTML="未知错误";
+                break;
+        }
+    }
+</script>

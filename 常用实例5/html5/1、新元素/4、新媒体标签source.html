@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--如果是IE9以下的浏览器，将读取以下js文件  主要解决html5新的元素不被ie6-8识别的问题-->
+    <!--[if lt IE 9]>
+    <script src="../html5.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<audio controls>
+    <!--source带有两个源文件的音频播放器。浏览器需要选择它所支持的源文件(如果都支持则任选一个)-->
+    <source src="horse.ogg" type="audio/ogg"/>
+    <source src="horse.mp3" type="audio/mpeg"/>
+    你的浏览器不支持audio标签
+</audio>
+<!--
+source属性
+属性media 值media_query 描述规定媒体资源的类型，供浏览器决定是否下载
+属性src 值URL 描述规定媒体文件的URL
+属性type 值 MIME_type 描述规定媒体资源的MIME类型
+-->
+</body>
+</html>

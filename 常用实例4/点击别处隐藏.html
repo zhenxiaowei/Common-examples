@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width:80%;
+            height:400px;
+            margin:100px auto;
+            border:1px solid crimson;
+            position: relative;
+        }
+        .btn{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+            bottom:0;
+            right:300px;
+        }
+        .slideBar{
+            width:300px;
+            height:100%;
+            background: yellow;
+            position: absolute;
+            right: 0;
+            top:0;
+            display: none;
+        }
+        .slideBar ul{
+            background:darkmagenta;
+        }
+        .slideBar ul li{
+            list-style: none;
+            width:90%;
+            height:69px;
+            background:darkturquoise;
+            margin:10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="box" myTar = 'myTar'>
+    <div class="btn"></div>
+    <div class="slideBar" id="test" >
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+/*
+$('.box')
+$('.btn')
+$('.slideBar')
+1 点击btn时，slideBar显示
+2 点击slideBar不错操作
+3 点击box,slideBar隐藏
+
+*/
+$('.btn').click(function(e){
+    var e = e || window.event; //浏览器兼容性
+    e.stopPropagation();
+    $('.slideBar').show();
+});
+$(document).bind('click', function(e) {
+    var e = e || window.event; //浏览器兼容性
+    var elem = e.target || e.srcElement;
+    while (elem) { //循环判断至跟节点，防止点击的是div子元素
+        if (elem.id && elem.id == 'test') {
+            return;
+        }
+        elem = elem.parentNode;
+    }
+    $('.slideBar').hide(); //点击的不是div或其子元素
+});
+
+</script>
+</html>

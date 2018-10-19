@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="form">
+    <input type="text" id="name" name="name" value=""/>
+    <input type="text" id="age" name="age" value=""/>
+</form>
+<input type="button" id="save-btn" value="保存"/>
+</body>
+</html>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    $("#save-btn").off("click").on("click", function () {
+        console.log($('#form').serialize())
+        $.ajax({
+            url:'',
+            type:'post',
+            data:$('#form').serialize(),
+            cache:false,
+            dataType:'json',
+            success: function (data) {
+
+            },
+            error: function (data) {
+
+            }
+        })
+    })
+</script>

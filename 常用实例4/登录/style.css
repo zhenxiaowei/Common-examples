@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+ul,ol{
+    list-style: none;
+}
+img,input,select{
+    vertical-align: middle;
+}
+a{
+    text-decoration: none;
+}
+.clear:before,.clear:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+body{
+    background: #e0ebf4;
+}
+.title{
+    width: 604px;
+    height: 30px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+}
+.title h4{
+    border-left: 3px solid #59afe4;
+    height: 25px;
+    line-height: 25px;
+    color: #616161;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 6px;
+}
+li{
+    height: 50px;
+}
+.name{
+    float: left;
+    width: 179px;
+    height: 44px;
+    padding: 6px 10px 0 0;
+    text-align: right;
+    font-size: 14px;
+    color: #333333;
+    line-height: 20px;
+}
+.btn{
+    float: left;
+    width: 306px;
+}
+.btn .mail{
+    border: 1px solid #a7b6c4;
+    width: 190px;
+    height: 33px;
+    line-height: 33px;
+    padding-left: 7px;
+    border-radius: 3px;
+    background-color: #f3f9fc;
+}
+.btn .mail:focus{
+    background-color: #fff;
+}
+.btn select.mail{
+    width: 97px;
+    padding: 0;
+}
+.text{
+    float: left;
+    width: 230px;
+    font-size: 12px;
+    color: #808080;
+    line-height: 14px;
+    padding-top: 2px;
+}
+
+.btn .passW{
+    width: 298px;
+}
+.btn label{
+    padding-left: 4px;
+    padding-right: 30px;
+    font-size: 12px;
+    color: #84a8c8;
+}
+.p7{
+    padding-top: 5px;
+}
+
+.btn select.sel1{
+    margin-right: 4px;
+    width: 58px;
+    height: 21px;
+    line-height: 21px;
+}
+.btn select.sel2{
+    margin-right: 4px;
+    width: 104px;
+    height: 21px;
+    line-height: 21px;
+}
+
+.btn select.sel{
+    width: 95px;
+    height: 21px;
+    margin-right: 4px;
+}
+.btn input[type=button]{
+    width: 254px;
+    height: 48px;
+    border: 1px solid #cccccc;
+    text-align: left;
+    padding-left: 50px;
+
+}
+.p14{
+    padding-top: 14px;
+    height: 36px;
+}
+.passTle{
+    padding-top: 23px;
+    height: 98px;
+}
+.btn p .pass{
+display: block;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+}
+.btn p .tel{
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    color: #999999;
+}
+.btn p a{
+    color: #4199d7;
+}
+.btn p label span{
+    border: 4px solid #0000cc;
+    border-color: #0000cc transparent transparent transparent;
+    display: inline-block;
+    margin-left: 20px;
+}
+.btn input[type=submit]{
+    width: 306px;
+    height: 50px;
+    background: #69b946;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    cursor:pointer ;
+}

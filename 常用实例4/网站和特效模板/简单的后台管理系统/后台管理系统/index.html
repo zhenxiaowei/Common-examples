@@ -1,0 +1,176 @@
+	<html>
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>后台管理系统</title>
+		<meta name="keywords" content="Admin">
+	  <meta name="description" content="Admin">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/commom.css">
+		<script src="js/upload.js" type="text/javascript"></script>
+		<script src="js/upload.js" type="text/javascript"></script>
+		<!-- Start: demo -->
+		<script type="text/javascript" charset="utf-8" src="umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/demo.js"></script>
+    <!-- End: demo -->
+    <!-- Start: date -->
+    <link href="css/date.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<!-- End: date -->
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<!-- End: date -->
+		
+	</head>
+
+	<body>
+	<!-- Start: Header -->
+	  <div class="navbar">
+	  	<div class="logo left">
+	  		<h1>后台管理系统</h1>
+	  	</div>
+	  	<div class="pull-right right">
+	  		<select class="user" name="city" onchange="window.location=this.value;">
+				  <option value="">admin</option>
+				  <option value="login.html">退出</option>
+				</select>
+	  	</div>
+	  	<div class="clear"></div>
+	  </div>
+	<!-- End: Header -->
+
+	<!-- Start: main -->
+	  <div id="main">
+	  <!-- Start: nav -->
+	  	<div class="nav left">
+	  		<ul>
+	  		  <li><span></span>导航栏</li>
+	  		  <li><i class="icon"></i><a href="index.html">管理员</a></li>
+	  			<li><i class="icon"></i><a href="index.html">资讯列表</a></li>
+	  			<li><i class="icon"></i><a href="index.html">文章列表</a></li>
+	  		</ul>
+	  	</div>
+	  <!-- End: nav -->
+
+	  <!-- Start: content -->
+	  	<div class="content left">
+	  		<div class="content-title">
+	  			<h1 class="left">资讯列表</h1>
+	  			<a href="case_add.html" class="btn-info right"><span>+</span>添加资讯</a>
+	  			<div class="clear"></div>
+	  		</div>
+        
+        <form method="post">
+	  		<div class="panel-body">
+	  			<table class="table table-bordered">
+	  				<tbody>
+	  					<tr class="active">
+	  						<th class="text-center" width="100">
+	  						<input type="checkbox" id="checkall" >全选</th>
+	  						<th>标题</th>
+	  						<th>添加时间</th>
+	  						<th width="100">操作</th>
+	  					</tr>
+	  					<tr class="success">
+	  						<td class="text-center" width="100">
+	  						<input type="checkbox" value="1" name="idarr[]" class="cbox" ></td>
+	  						<td>再谈互联网给传统金融带来的颠覆</td>
+	  						<td>2015-01-10</td>
+	  						<td>
+	  							<div class="btn-group">
+		  							<a class="default" href="case_edit.html"><span></span></a>
+		  							<a class="del" href=""><span></span></a>
+	  							</div>
+	  						</td>
+	  					</tr>
+	  					<tr class="success">
+	  						<td class="text-center" width="100">
+	  						<input type="checkbox" value="1" name="idarr[]" class="cbox" ></td>
+	  						<td>再谈互联网给传统金融带来的颠覆</td>
+	  						<td>2015-01-10</td>
+	  						<td>
+	  							<div class="btn-group">
+		  							<a class="default" href="case_edit.html"><span></span></a>
+		  							<a class="del" href=""><span></span></a>
+	  							</div>
+	  						</td>
+	  					</tr>
+	  					<tr class="success">
+	  						<td class="text-center" width="100">
+	  						<input type="checkbox" value="1" name="idarr[]" class="cbox" ></td>
+	  						<td>再谈互联网给传统金融带来的颠覆</td>
+	  						<td>2015-01-10</td>
+	  						<td>
+	  							<div class="btn-group">
+		  							<a class="default" href="case_edit.html"><span></span></a>
+		  							<a class="del" href=""><span></span></a>
+	  							</div>
+	  						</td>
+	  					</tr>
+	  					<tr class="success">
+	  						<td class="text-center" width="100">
+	  						<input type="checkbox" value="1" name="idarr[]" class="cbox" ></td>
+	  						<td>再谈互联网给传统金融带来的颠覆</td>
+	  						<td>2015-01-10</td>
+	  						<td>
+	  						  <div class="btn-group">
+		  							<a class="default" href="case_edit.html"><span></span></a>
+		  							<a class="del" href=""><span></span></a>
+	  							</div>
+	  						</td>
+	  					</tr>
+	  					
+	  				</tbody>
+	  			</table>
+	  			<div class="pull-left left">
+	  				<button type="submit" class="delall">
+	  					<span></span>
+	  				</button>
+	  			</div>
+	  			<div class="pull-right right">
+	  			  <a href="">上一页</a>
+	  				<a href="">1</a>
+	  				<a href="">2</a>
+	  				<a href="">3</a>
+	  				<a href="">下一页</a>
+	  			</div>
+	  			<div class="clear"></div>
+	  		</div>
+	  		</form>
+
+	  	</div>
+	  	<div class="clear"></div>
+	  	<!-- End: content -->
+	  </div>
+	<!-- End: main -->
+
+	</body>
+
+	<script type="text/javascript">
+jQuery(document).ready(function() {
+  
+    // Init Theme Core    
+    //Core.init();
+  
+    $("#checkall").click(function(){
+      if($(this).prop("checked")){
+        $(".cbox").prop("checked", true);
+      }else{
+        $(".cbox").prop("checked", false);
+      }
+  
+    });  
+  
+    $(".delall").click(function(){
+      var count = $(".cbox:checked").size();
+      if(count==0){
+        alert("请选择要删除的行");
+        return false; 
+      }
+  
+      return confirm("确认要删除吗？");
+    }); 
+    
+});
+	</script>
+	</html>

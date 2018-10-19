@@ -1,0 +1,195 @@
+html,body{
+    height: 100%;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    background: #4d4c4e;
+}
+.header .btn-group{
+    height: 50px;
+    line-height: 50px;
+}
+.header .userBtn{
+    height: 50px;
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.header>span{
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    float: right;
+    padding-right: 10px;
+    color: #fff;
+}
+
+.left_Content{
+    float: left;
+    width: 12%;
+    height: 94%;
+    background: #31354b;
+}
+.left_Content dl{
+    margin: 0;
+}
+.left_Content dt{
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+    color: #7f87ab;
+}
+.left_Content dd{
+    font-size: 14px;
+    display: none;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+    color: #7f87ab;
+}
+.left_Content dt:hover{
+    background:rgb(75, 211, 183) ;
+    color: #fff;
+}
+.left_Content dd:hover{
+    background:#000000 ;
+    color: #fff;
+}
+.left_Content i{
+    padding-right: 30px;
+}
+
+.yonghuguanliContent{
+    display: none;
+    float: right;
+    width: 86%;
+    margin: 1%;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+.zuzhijigouContent{
+    display: none;
+    width: 88%;
+    float: left;
+    height: 94%;
+}
+.TreeContent{
+    float: left;
+    width: 14%;
+    height: 93%;
+    background: #fff;
+}
+.TreeContent li{
+    margin-left: 20px;
+}
+.TreeContent li span{
+    height: 40px;
+    margin-left: 5px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.TreeContent ul li ul{
+    display: none;
+}
+.adminIstration_header {
+    height: 60px;
+    background: #d6dde1;
+}
+.adminIstration_header>i {
+    float: left;
+    margin-top: 21px;
+    margin-left: 12px;
+    color: #74d4bd;
+}
+.adminIstration_header>h3 {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 12px;
+}
+.bumenxingxi {
+     display: block;
+    float: left;
+    width: 84%;
+    height: 91%;
+    background: #fff;
+    margin: 1%;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+.bumenxingxiHeader {
+    border-bottom: 1px solid #dce4ea;
+    height: 49px;
+    background: #ebf1f5;
+    border-radius: 10px 10px 0px 0px;
+}
+.bumenxingxiHeader>h3 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 17px;
+    color: #555;
+    font-size: 16px;
+    text-indent: 15px;
+}
+.bumenxingxiHeader>button {
+    float: right;
+    background: #fff;
+    border: 1px solid #e8e9ec;
+    color: #686868;
+    border-radius: 5px;
+    width: 98px;
+    height: 28px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.bumenxingxiContent label {
+    width: 100%;
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+    margin-top: 30px;
+    padding-left: 100px;
+}
+.bumenxingxiContent label input {
+     width: 347px;
+     border: 1px solid #ddd;
+     height: 30px;
+     margin-left: 50px;
+     padding-left: 10px;
+ }
+
+.modalData label{
+    width: 100%;
+}
+.modalData label span{
+    float: left;
+    width: 23%;
+    height: 34px;
+    line-height: 34px;
+    text-align: right;
+    color: #000;
+    font-weight: 100;
+    margin-right: 10px;
+}
+.modalData label input{
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+

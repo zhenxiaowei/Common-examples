@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section>
+    <label for="sitename">网站名（key）</label>
+    <input type="text" id="sitename"/>
+    <label for="siteurl">网站名（value）</label>
+    <input type="text" id="siteurl"/>
+    <input type="button" value="新增记录" onclick="save()"/>
+</section>
+<section>
+    <label for="search_site">输入网站名</label>
+    <input type="text" id="search_site"/>
+    <input type="button" value="查找网站" onclick="find()"/>
+    <p id="find_result"></p>
+</section>
+</body>
+</html>
+<script>
+    function save(){
+        var siteurl=document.getElementById("siteurl").value;
+        var sitename=document.getElementById("sitename").value;
+        localStorage.setItem(sitename,siteurl);
+        alert("添加成功");
+    }
+    function find(){
+        var search_site=document.getElementById("search_site").value;
+        var sitename=localStorage.getItem(search_site);
+        var find_result=document.getElementById("find_result");
+        find_result.innerHTML=sitename;
+    }
+</script>

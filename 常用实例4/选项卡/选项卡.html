@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", simSum;
+        }
+
+        ul li {
+            list-style: none
+        }
+
+        .clear:after {
+            display: block;
+            width: 0;
+            height: 0;
+            content: '';
+            clear: both;
+        }
+
+        #tab {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        ul li {
+            width: 80px;
+            height: 30px;
+            margin-right: 20px;
+            float: left;
+            line-height: 30px;
+            background: #00E1FF
+        }
+
+        .content {
+            width: 298px;
+            height: 300px;
+            background: #00E1FF;
+            border: 1px solid #0000cc;
+            display: none;
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .content.zhen {
+            display: block;
+        }
+
+        .active {
+            background: #880000;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul class="clear">
+        <li class="active">国际大牌</li>
+        <li>国妆名品</li>
+        <li>个人护理</li>
+    </ul>
+    <div class="content zhen">国际大牌</div>
+    <div class="content">国妆名品</div>
+    <div class="content">个人护理</div>
+</div>
+<script>
+    var tab = document.getElementById('tab');
+    var lis = tab.getElementsByTagName('li');
+    var divs = tab.getElementsByClassName('content');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].xxx = i;
+        lis[i].onmouseover = function () {
+            change(this.xxx);
+        }
+    }
+    function change(n) {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].className = '';
+            divs[i].className = 'content';
+        }
+        lis[n].className = 'active';
+        divs[n].className = 'content zhen';
+    }
+
+
+</script>
+
+</body>
+</html>

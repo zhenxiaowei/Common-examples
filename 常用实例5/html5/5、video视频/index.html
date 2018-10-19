@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div style="text-align: center">
+    <button onclick="playPause()">播放/暂停</button>
+    <button onclick="makeBig()">放大</button>
+    <button onclick="makeSmall()">缩小</button>
+    <button onclick="makeNormal()">普通</button>
+</div>
+<video id="video1" width="420">
+    <source src="111.mp4" type="video/mp4"/>
+    <source src="111.ogg" type="video/ogg"/>
+    你的浏览器不支持html5的video标签
+</video>
+</body>
+</html>
+<script>
+    var myvideo=document.getElementById("video1");
+    function playPause(){
+        if(myvideo.paused){
+            myvideo.play();
+        }else{
+            myvideo.pause();
+        }
+    }
+    function makeBig(){
+        myvideo.width=560;
+    }
+    function makeSmall(){
+        myvideo.width=320;
+    }
+    function makeNormal(){
+        myvideo.width=420;
+    }
+</script>

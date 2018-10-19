@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        div{
+            width: 800px;
+            height: 200px;
+            border: 3px dashed lightgreen;
+            position: relative;
+            margin:50px auto;
+            overflow: hidden;
+        }
+        div ul{
+            height: 200px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        div ul li{
+            float: left;
+            width:200px;
+            height: 200px;
+        }
+        div ul li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li><img src="img/1.jpg" alt=""/></li>
+        <li><img src="img/2.jpg" alt=""/></li>
+        <li><img src="img/3.jpg" alt=""/></li>
+        <li><img src="img/4.jpg" alt=""/></li>
+    </ul>
+</div>
+<script>
+    //实现核心原理：不断改变ul的left;
+    /*
+    * 1.为了防止空白，给ul内容多克隆了一份
+    * 2.为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数
+    * 3.不断减少ul的left，当ul的left<=-800时；让left=0;
+    * */
+    var oDiv=document.getElementById('div');
+    var oUl=oDiv.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var curLeft=oUl.offsetLeft;
+    //1.为了防止空白，给ul内容多克隆了一份
+    oUl.innerHTML+=oUl.innerHTML;
+    //2.为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数
+    oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+    //3.不断减少ul的left，当ul的left<=-800时；让left=0;
+    clearInterval(timer);
+    var timer=setInterval(move,10);
+    function move(){
+        curLeft--;
+        if(curLeft<=-oUl.offsetWidth/2){
+            curLeft=0;
+        }
+        oUl.style.left=curLeft+'px';
+    }
+    //4.鼠标移入停止运动，移出继续运动
+    oDiv.onmouseover=function(){
+        clearInterval(timer);
+    };
+    oDiv.onmouseout=function(){
+        timer=setInterval(move,10)
+    }
+</script>
+</body>
+</html>

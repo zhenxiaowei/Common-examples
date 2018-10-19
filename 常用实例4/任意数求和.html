@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sum() {
+        var total = null;
+        for (var i = 0; i < arguments.length; i++) {
+
+            var cur = Number(arguments[i]);
+            if (!isNaN(cur)) {
+                total += cur;
+            }
+
+        }
+        return total;
+    }
+    console.log(sum(1, 3, 4));
+
+
+</script>
+
+
+</body>
+</html>

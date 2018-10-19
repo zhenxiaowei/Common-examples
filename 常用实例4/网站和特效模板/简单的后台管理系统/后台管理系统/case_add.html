@@ -1,0 +1,140 @@
+	<html>
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>后台管理系统</title>
+		<meta name="keywords" content="Admin">
+	  <meta name="description" content="Admin">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/commom.css">
+		<script src="js/upload.js" type="text/javascript"></script>
+		<!-- Start: demo -->
+		<script type="text/javascript" charset="utf-8" src="umeditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/demo.js"></script>
+    <!-- End: demo -->
+    <!-- Start: date -->
+    <link href="css/date.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+		<!-- End: date -->
+		
+	</head>
+
+	<body>
+	<!-- Start: Header -->
+	  <div class="navbar">
+	  	<div class="logo left">
+	  		<h1>后台管理系统</h1>
+	  	</div>
+	  	<div class="pull-right right">
+	  		<select class="user" name="city" onchange="window.location=this.value;">
+				  <option value="">admin</option>
+				  <option value="login.html">退出</option>
+				</select>
+	  	</div>
+	  	<div class="clear"></div>
+	  </div>
+	<!-- End: Header -->
+
+	<!-- Start: main -->
+	  <div id="main">
+	  <!-- Start: nav -->
+	  	<div class="nav left">
+	  		<ul>
+	  		  <li><span></span>导航栏</li>
+	  			<li><i class="icon"></i><a href="index.html">管理员</a></li>
+	  			<li><i class="icon"></i><a href="index.html">资讯列表</a></li>
+	  			<li><i class="icon"></i><a href="index.html">文章列表</a></li>
+	  		</ul>
+	  	</div>
+	  <!-- End: nav -->
+
+	  <!-- Start: content -->
+	  	<div class="content left">
+	  		<div class="content-title">
+	  			<h1 class="left">添加页面</h1>
+	  			<a href="index.html" class="btn-info right btn-info-add" title="返回"><span><</span></a>
+	  			<div class="clear"></div>
+	  		</div>
+        
+        <form method="post">
+	  		<div class="panel-body panel-body-add">
+	  			<div class="col-md-7">
+            <div class="form-group">
+              <div class="input-group"> <span class="input-group-addon">所属分类</span>
+                <select name="iid" class="form-control">
+                      <option value="1">企业网站</option>
+                      <option value="2">电子商务</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group"> <span class="input-group-addon">案例名称</span>
+                <input type="text" name="title" value="" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group"> <span class="input-group-addon">案例描述</span>
+                    <input type="text" name="author" value="" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group"> <span class="input-group-addon">时间控件</span>
+                    <script type="text/javascript" src="js/date.js"></script>
+                    <!-- <input type="text" name="author" value="" class="form-control"> -->
+                    <input name="member.birth" type="text" value="" class="form-control" readonly onClick="showcalendar(event,this);" onFocus="showcalendar(event, this);if(this.value=='0000-00-00')this.value=''">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">多选项</span>
+                    <div class="form-control">
+	                    <input type="checkbox" name="love" value="" checked="checked"><span>第一</span>
+	                    <input type="checkbox" name="love" value=""><span>第1</span>
+	                    <input type="checkbox" name="love" value=""><span>第2</span>
+	                    <input type="checkbox" name="love" value=""><span>第3</span>
+	                    <input type="checkbox" name="love" value=""><span>第4</span>
+	                    <input type="checkbox" name="love" value=""><span>第5</span>
+	                    <input type="checkbox" name="love" value=""><span>第6</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">图片上传</span>
+                   <div class="form-control">
+                   	  <div class="img left">
+                   	  	<input id="f" type="file" name="f" onchange="change()" />
+                   	  	<div class="upload">上传图片</div>
+                   	  </div>
+                   	  <p class="show-img left"><img id="preview" alt="" name="pic" /></p>
+                   	  <div class="clear"></div>
+                   </div>
+                </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="editor">
+            <span class="input-group-addon">文章内容</span>
+          	<script id="editor" type="text/plain" name="art_content" style="width:100%;min-height:300px;">
+              <p>2243243</p>
+          	</script>
+          </div>
+
+          <div class="col-md-7">
+            <div class="form-group">
+              <input type="submit" value="提交" class="submit">
+            </div>
+          </div>
+	  		</div>
+	  		</form>
+
+	  	</div>
+	  	<div class="clear"></div>
+	  	<!-- End: content -->
+	  </div>
+	<!-- End: main -->
+
+	</body>
+	</html>

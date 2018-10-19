@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #div{
+            position: relative;
+            width: 800px;
+            height: 200px;
+            border: 3px dashed lightgreen;
+            margin:50px auto;
+            overflow: hidden;
+        }
+        #div ul{
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        #div ul li{
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        #div ul li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li><img src="img/1.jpg" alt=""/></li>
+        <li><img src="img/2.jpg" alt=""/></li>
+        <li><img src="img/3.jpg" alt=""/></li>
+        <li><img src="img/4.jpg" alt=""/></li>
+    </ul>
+</div>
+<script src="js/utils.js"></script>
+<script>
+    //原理：通过改变ul的left，用定时器实现运动
+    /*
+    * 1.为了防止空白出现，一开始就对ul内容复制了一份（现在内容是以前内容的两倍）
+    * 2.不断减少oUl的left，当left<=-800;让left=0;
+    * */
+    var oDiv=document.getElementById('div');
+    var oUl=oDiv.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var curLeft=oUl.offsetLeft;
+    //把ul的内容多克隆了一份
+    oUl.innerHTML+=oUl.innerHTML;
+    //重置ul的宽度，然所有的li都在一行上显示；
+    oUl.style.width=utils.getCss(aLi[0],'width')*aLi.length+'px';
+    var timer=setInterval(function(){
+        //offsetLeft:只能获取不能设置；所以设置时只能设置到style上；
+        curLeft--;
+        if(curLeft<=-utils.getCss(oUl,'width')/2){
+            curLeft=0;
+        }
+        oUl.style.left=curLeft+'px';
+    },10)
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>
+<script>
+    if(typeof (Storage)!=="undefined"){
+        //支持的一些提示代码
+        localStorage.sitename="菜鸟教程";
+        document.getElementById("result").innerHTML="网站名称："+localStorage.sitename;
+
+        //localStorage.setItem('aa',"1q");//保存数据
+        //document.getElementById("result").innerHTML="网站名称："+localStorage.getItem('aa');//读取数据
+    }else{
+        //不支持的提示代码
+        document.getElementById("result").innerHTML="对不起，你的浏览器不支持web存储";
+    }
+    /*
+    localStorage对象存储的数据没有时间限制
+    保存数据：localStorage.setItem(key,value);
+    读取数据：localStorage.setItem(key);
+    删除单个数据：localStorage.removeItem(key);
+    删除所有数据：localStorage.clear();
+    得到某个索引的key：localStorage.key(index);
+    */
+</script>

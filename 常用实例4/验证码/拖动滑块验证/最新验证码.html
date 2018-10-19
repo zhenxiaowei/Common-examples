@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最新验证码</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .code{
+            margin: 300px auto;
+            /*margin-top:300px;*/
+            position: relative;
+            width: 300px;
+            height: 40px;
+            background: red;
+        }
+        .code .code_picture{
+            display: none;
+            position: absolute;
+            top: -300px;
+            left: 0;
+            width: 300px;
+            height:300px;
+            background: yellow;
+        }
+        .code:hover .code_picture{
+            display: block;
+        }
+
+        .code .code_picture .picture{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: blue;
+        }
+        .code .code_picture .picture .box{
+            width: 100%;
+            height: 100%;
+            background: chartreuse;
+        }
+
+        .code .code_picture .picture .box img{
+            width: 100%;
+            height: 100%;
+        }
+        .code .code_picture .picture .box .mark{
+            display: block;
+            position: absolute;
+            top: 0;
+            left:200px;
+            width: 100px;
+            height: 100px;
+            background: #000;
+            opacity: 0.2;
+            filter: alpha(opacity=20);
+            cursor: move;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .code .code_picture .picture .bigImg{
+            position: absolute;
+            top: 100px;
+            left: 60px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 50%;
+            z-index: 20;
+        }
+
+        .code .code_picture .picture .bigImg .boxBig{
+            display: block;
+            position: relative;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 50%;
+            z-index: 100;
+        }
+        .code .code_picture .picture .bigImg .boxBig img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height:300%;
+        }
+
+            /*验证码滑动*/
+        .code .slider {
+            width: 300px;
+            height: 40px;
+            position: relative;
+            border-radius: 2px;
+            background-color: #dae2d0;
+            overflow: hidden;
+            text-align: center;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #slider_bg {
+            position: absolute;
+            left:20px;
+            top: 0;
+            height: 100%;
+            background-color: #7AC23C;
+            z-index: 1;
+        }
+
+        #label {
+            width: 46px;
+            position: absolute;
+            height: 38px;
+            line-height: 38px;
+            border: 1px solid #cccccc;
+            background: #fff;
+            z-index: 3;
+            cursor: move;
+            color: #ff9e77;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        #labelTip {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 13px;
+            font-family: 'Microsoft Yahei', serif;
+            color: #787878;
+            line-height: 38px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .handler_bg{
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0ZDhlNWY5My05NmI0LTRlNWQtOGFjYi03ZTY4OGYyMTU2ZTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTEyNTVEMURGMkVFMTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTEyNTVEMUNGMkVFMTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MTc5NzNmZS02OTQxLTQyOTYtYTIwNi02NDI2YTNkOWU5YmUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NGQ4ZTVmOTMtOTZiNC00ZTVkLThhY2ItN2U2ODhmMjE1NmU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+YiRG4AAAALFJREFUeNpi/P//PwMlgImBQkA9A+bOnfsIiBOxKcInh+yCaCDuByoswaIOpxwjciACFegBqZ1AvBSIS5OTk/8TkmNEjwWgQiUgtQuIjwAxUF3yX3xyGIEIFLwHpKyAWB+I1xGSwxULIGf9A7mQkBwTlhBXAFLHgPgqEAcTkmNCU6AL9d8WII4HOvk3ITkWJAXWUMlOoGQHmsE45ViQ2KuBuASoYC4Wf+OUYxz6mQkgwAAN9mIrUReCXgAAAABJRU5ErkJggg==") no-repeat center;
+        }
+
+        .handler_ok_bg{
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0ZDhlNWY5My05NmI0LTRlNWQtOGFjYi03ZTY4OGYyMTU2ZTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDlBRDI3NjVGMkQ2MTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDlBRDI3NjRGMkQ2MTFFNEI5NDBCMjQ2M0ExMDQ1OUYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDphNWEzMWNhMC1hYmViLTQxNWEtYTEwZS04Y2U5NzRlN2Q4YTEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NGQ4ZTVmOTMtOTZiNC00ZTVkLThhY2ItN2U2ODhmMjE1NmU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+k+sHwwAAASZJREFUeNpi/P//PwMyKD8uZw+kUoDYEYgloMIvgHg/EM/ptHx0EFk9I8wAoEZ+IDUPiIMY8IN1QJwENOgj3ACo5gNAbMBAHLgAxA4gQ5igAnNJ0MwAVTsX7IKyY7L2UNuJAf+AmAmJ78AEDTBiwGYg5gbifCSxFCZoaBMCy4A4GOjnH0D6DpK4IxNSVIHAfSDOAeLraJrjgJp/AwPbHMhejiQnwYRmUzNQ4VQgDQqXK0ia/0I17wJiPmQNTNBEAgMlQIWiQA2vgWw7QppBekGxsAjIiEUSBNnsBDWEAY9mEFgMMgBk00E0iZtA7AHEctDQ58MRuA6wlLgGFMoMpIG1QFeGwAIxGZo8GUhIysmwQGSAZgwHaEZhICIzOaBkJkqyM0CAAQDGx279Jf50AAAAAABJRU5ErkJggg==") no-repeat center;
+        }
+    </style>
+</head>
+<body>
+   <div class="code">
+       <div class="code_picture" style="display: block">
+           <div class="picture" style="position: relative">
+               <!--显示图上-->
+               <div class="box" id="box" >
+                   <img src="./1.5安涛惠登录.png"/>
+                   <div class="mark" id="mark"></div>
+                   <!--mark位置是后台传进来的参数-->
+               </div>
+
+               <!--映射图/移动的-->
+               <div class="bigImg" id="bigImg" style="position:absolute;top: 0px;left: 0px" onmousedown="mouseDown(this,event)" onmousemove="mouseMove(event)" onmouseup="mouseUp(event)">
+                   <div class="box1 boxBig" id="boxBig">
+                       <img src="./1.5安涛惠登录.png"/>
+                   </div>
+               </div>
+
+           </div>
+
+       </div>
+
+       <div class="slider" id="slider" onmousemove="computedMarkPosition(event)">
+           <div id="slider_bg"></div>
+           <div id="label">
+               <input id="inget" type="hidden"  value="${number}" >
+               <input id="inset" type="hidden" name="code" value="">
+           </div>
+           <span id="labelTip">拖动滑块验证</span></div>
+       </div>
+
+   </div>
+
+</body>
+</html>
+
+<script src="jquery-1.12.1.min.js"></script>
+<script src="jquery.slideunlock.js"></script>
+<script>
+    //验证条划动
+    $(function () {
+
+        var label='<span class="handler_bg"></span>';
+        $('#label').append(label);
+
+        var slider = new SliderUnlock("#slider", {
+            successLabelTip: "验证成功！"
+        }, function () {
+            $('#label').children().removeClass('handler_bg').addClass('handler_ok_bg');
+            document.getElementById("inset").value=document.getElementById("inget").value;
+
+            var p=$("#label")
+
+        });
+        slider.init();
+    })
+
+    //图片
+    var oBox = document.getElementById("box"),
+            oMark = document.getElementById("mark"),
+            oBoxBig = document.getElementById("boxBig"),
+            oImg = oBoxBig.getElementsByTagName("img")[0],
+            bigImg = document.getElementById("bigImg"),
+            label= document.getElementById("label"),
+            slider_bg=document.getElementById("slider_bg");
+
+
+    var mouseX, mouseY;
+    var objX, objY;
+    var isDowm = false;  //是否按下鼠标
+    function mouseDown(obj, e) {
+        obj.style.cursor = "move";
+        objX = bigImg.style.left;
+        objY = bigImg.style.top;
+        mouseX = e.clientX - oBox.offsetLeft - (bigImg.offsetWidth / 2);
+
+        mouseY = e.clientY - oBox.offsetTop - (bigImg.offsetHeight / 2);
+
+        isDowm = true;
+    }
+
+    function mouseMove(e) {
+        var div = document.getElementById("bigImg");
+        var x = e.clientX - oBox.offsetLeft - (bigImg.offsetWidth / 2);
+      /*  console.log(x)*/
+        var y = e.clientY - oBox.offsetTop - (bigImg.offsetHeight / 2);
+       /* console.log(y)*/
+        var minL = 0,
+                minT = 0,
+                maxL = oBox.offsetWidth - bigImg.offsetWidth,
+                maxT = oBox.offsetHeight - bigImg.offsetHeight;
+        x = x < minL ? minL : (x > maxL ? maxL : x);
+        y = y < minT ? minT : (y > maxT ? maxT : y);
+
+
+        if (isDowm) {
+            div.style.left = parseInt(objX) + parseInt(x) - parseInt(mouseX) + "px";
+            console.log(div.style.left)
+            div.style.top = parseInt(objY) + parseInt(y) - parseInt(mouseY) + "px";
+            console.log( div.style.top)
+
+        }
+    }
+
+    function mouseUp(e) {
+        if (isDowm) {
+            var x = e.clientX - oBox.offsetLeft - (bigImg.offsetWidth / 2);
+            var y = e.clientY - oBox.offsetTop - (bigImg.offsetHeight / 2);
+            var div = document.getElementById("bigImg");
+            div.style.left = (parseInt(x) - parseInt(mouseX) + parseInt(objX)) + "px";
+            div.style.top = (parseInt(y) - parseInt(mouseY) + parseInt(objY)) + "px";
+
+            bigImg.style.cursor = "default";
+            isDowm = false;
+        }
+    }
+
+
+
+
+    //->计算MARK盒子的位置
+    function computedMarkPosition(ev) {
+        ev = ev || window.event;
+
+        //->按照需求计算出MARK盒子的TOP和LEFT值
+        var curT = 120;  //-->这两个数从后台传进  高度
+        var curL = 200;  //宽度   这个就是显示图要运动的宽度
+
+        //->进行边界判断和处理
+        var minL = 0,
+                minT = 0,
+                maxL = oBox.offsetWidth - oMark.offsetWidth,
+                maxT = oBox.offsetHeight - oMark.offsetHeight;
+        curL = curL < minL ? minL : (curL > maxL ? maxL : curL);
+        curT = curT < minT ? minT : (curT > maxT ? maxT : curT);
+
+        //->把计算好的TOP/LEFT值赋值给MARK的样式属性
+        oMark.style.left = curL + "px";//---》阴影图片的left是后台传来的
+        oMark.style.top = curT + "px"; //---》阴影图片的top是后台传来的
+
+        //->开始让右侧的显示图按照MARK阴影相反的方向移动MARK移动距离
+        oImg.style.left = -curL + "px";
+        oImg.style.top = -curT + "px";
+
+
+
+    }
+</script>

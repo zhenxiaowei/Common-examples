@@ -1,0 +1,65 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "美国",
+      "isoften": 1
+    },
+    {
+      "id": 3,
+      "name": "韩国",
+      "isoften": 1
+    },
+    {
+      "id": 4,
+      "name": "中国",
+      "isoften": 1
+    },
+    {
+      "id": 13,
+      "name": "泰国",
+      "isoften": 1
+    },
+    {
+      "id": 21,
+      "name": "孟加拉国",
+      "isoften": 1
+    },
+    {
+      "id": 42,
+      "name": "阿拉伯联合酋长国",
+      "isoften": 1
+    },
+    {
+      "id": 67,
+      "name": "德国",
+      "isoften": 1
+    },
+    {
+      "id": 71,
+      "name": "英国",
+      "isoften": 1
+    },
+    {
+      "id": 76,
+      "name": "法国",
+      "isoften": 1
+    },
+    {
+      "id": 121,
+      "name": "刚果共和国",
+      "isoften": 1
+    },
+    {
+      "id": 122,
+      "name": "刚果民主共和国",
+      "isoften": 1
+    },
+    {
+      "id": 171,
+      "name": "多米尼加共和国",
+      "isoften": 1
+    }
+  ]
+}
