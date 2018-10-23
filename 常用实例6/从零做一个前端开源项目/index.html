@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>从零做一个前端开源项目</title>
+</head>
+<body>
+    <div class="left_essay l">
+		<div class="part_essay js-part_essay">
+							<div class="originalImg"></div>
+						<!-- 面包屑 -->
+			<div class="detail-path">
+				<a class="imooc" target="_blank" href="//www.imooc.com"><i class="imv2-imooc"></i></a>
+				<a href="/article" target="_blank">手记</a>  /<a href="/article/fe" target="_blank" class="js-column">前端开发</a>
+			</div>
+			<!-- 面包屑end -->       
+			<div class="detail-title-wrap">
+				<h1 class="detail-title">
+					<span class="d-t js-title">从零做一个前端开源项目</span>
+				</h1>
+				<div class="dc-profile clearfix">
+					<div class="l">
+						<span class="spacer">2018.05.03 16:07</span>
+						<span class="spacer spacer-2">4826浏览</span>
+					</div>
+					<div class="r path-right-box">
+						<div class="rinfo l">
+																					<div class="font-info">
+								<i class="imv2-format_size"></i>
+								<span class="size-show">字号</span>
+								<div class="font-box-s hide clearfix">
+									<p data-size-f="big-size-f" class="b-z l">大字</p>
+									<p data-size-f="md-size-f" class="m-z l">中字</p>
+									<p data-size-f="sm-size-f" class="s-z l">小字</p>
+									<div class="triangle"></div>
+								</div>	
+							</div>
+						</div> 
+					</div>	
+				</div>
+			</div> 
+
+			 <!-- 手记详情 -->
+			<div class="detail-content-wrap">  
+				<div class="detail-content js-lookimg">
+					<strong style="display:block;font-size:22px;margin:22px 0 10px">前言</strong>
+<blockquote>
+<p>每个程序员都应该有自己的 github 账号，并贡献自己的代码</p>
+</blockquote>
+<p>本文将像您介绍，如何从零做一个前端的开源项目。如果您对 github 和开源不熟悉，又想开始自己的开源项目，可以通过阅读本文来入门。</p>
+<p><strong>另外，本文已录制成免费的视频教程，想看视频的来 <a href="https://www.imooc.com/learn/1003" target="_blank" rel="nofollow">https://www.imooc.com/learn/1003</a></strong>。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">目录</strong>
+<p>由于本文内容较多，先列一下目录供参考。</p>
+<ul>
+<li>什么是开源？</li>
+<li>为何做开源？</li>
+<li>做什么？</li>
+<li>注册账号</li>
+<li>搭建开发环境</li>
+<li>提交代码</li>
+<li>创建官网</li>
+<li>如何宣传？</li>
+<li>持续迭代</li>
+<li>总结</li>
+</ul>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">什么是开源？</strong>
+<p>您可能有很多次打开 github 去查阅下载一些项目的源码，但是您有没有总结过，开源项目到底是什么？</p>
+<h3>我与开源</h3>
+<p>我是开源编辑器 <a href="https://github.com/wangfupeng1988/wangEditor" target="_blank" rel="nofollow">wangEditor</a> 的作者（欢迎去 star），这个项目已经做了有近 4 年了，目前积累了 4.5k star（现在是 2018.5）。4 年时间，我一直未间断维护升级，其中还经历了 2 次大型的重构，积累了一些经验和教训。接下来我将根据自己的经历，来为大家分析开源。</p>
+<h3>开源项目包含什么</h3>
+<p>开源软件并不是只是一堆源代码，如果你仔细分析或者有亲身体会的话，包含内容还是比较多的。我总结了以下内容：</p>
+<ul>
+<li><strong>源码</strong></li>
+<li><strong>文档</strong>，如二次开发文档和用户使用文档</li>
+<li><strong>开发环境</strong>，告诉二次开发者如何搭建和运行代码</li>
+<li><strong>允许他人贡献代码</strong>，而不是仅仅给别人阅读源码的权限</li>
+<li><strong>问题</strong>，用户提问，维护者答复，问题共享（而不是私聊）</li>
+<li><strong>问题列表和升级计划</strong>，记录当前问题，以及何时解决、何时升级</li>
+</ul>
+<h3>其他配套设施</h3>
+<p>要做成一个成熟靠谱的开源软件产品，除了以上源码相关的方面，还需要以下配套的设施，才能完备。</p>
+<ul>
+<li><strong>官网</strong>，如 <a href="http://www.wangeditor.com/" target="_blank" rel="nofollow">wangEditor 官网</a></li>
+<li><strong>文档</strong>，可以和官网整合在一起</li>
+<li><strong>问答社区</strong>，wangEditor 的问题社区就用了 <a href="https://github.com/wangfupeng1988/wangEditor/issues" target="_blank" rel="nofollow">github issue</a></li>
+<li><strong>及时交流社区</strong>，即 QQ 群、微信群</li>
+</ul>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">为何做开源？</strong>
+<p>做开源不挣钱，这是确定的，但是为何要做开源，而且那么多人坚持做开源呢 —— 他们不是完全为了兴趣爱好，完全下班没事儿干。人只要付出劳动、付出努力，都是奔着目的性去的，有兴趣的原因，但是能让自己持之以恒做下去的，肯定不是兴趣。</p>
+<p>其实这个问题很简单，就像看书不挣钱（买书还花钱呢），但是为何要看书呢？因为大家都知道看书能提高自己的知识面和能力。而做开源也有相似的想过，只不过很多人没接触过不知道而已。我总结了如下几个理由：</p>
+<ul>
+<li><strong>全面提高编程能力</strong>。 你需要从 0 打造，每部分代码都需要自己负责，不像在公司中的一颗螺丝钉。</li>
+<li><strong>提高自己的社区知名度</strong>。 github 上的 star 能间接的反应你的身价，它能让你得到业内认可。业内同行认可了，做啥事儿都好做，如内推工作。</li>
+<li><strong>锻炼自己的产品意识</strong>。 因为做开源做的是产品，不再是单纯的技术活，UI、运维、推广、收集反馈、甚至成本预算，你都得考虑。</li>
+<li><strong>技术范儿、极客精神</strong>。 作为一名程序猿，能业余打造一款开源产品是一件很帅的事情，满足自己的虚荣心。</li>
+</ul>
+<p>有了充分的理由，那就开干！</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">做什么？</strong>
+<h3>迈出第一步</h3>
+<p>这是做开源要想到的第一件事情，很多想做开源的同学，到这一步就想不下去了。还有同学，一上来就定位太高，做着做着发现根本做不出来，就提前放弃。<strong>做什么，看似简单的问题，但是很重要的一步</strong>。</p>
+<h3>不做什么</h3>
+<p>一些早期就知名的开源作品，很多都是因为作者在工作中遇到一个需求，而这个需求目前还没有开源产品去满足，因此自己做一个。但是对于我们大众基层程序猿，天天写业务代码，重复劳动，你遇到这种需求的概率不是特别大。因此，这个方面就不在继续往下讨论了。</p>
+<p>想要知道做什么，你就得先明白你做开源的一些期望，然后再去想做什么。我总结了两点：</p>
+<ul>
+<li>要快速做出第一版，至少能用。后面再慢慢迭代升级。</li>
+<li>要能方便的推广使用，最好是 0 成本使用。</li>
+</ul>
+<p>即<strong>做出来，推出去，要快。即，你做的快，别人用的也快</strong>。按照这种期望往下想，首先你能排除不做什么：</p>
+<ul>
+<li>大型的框架，如做一个 UI 框架。 短期做不完，使用成本高</li>
+<li>模拟成熟轮子，如在造一个 jQuery 。 有成熟方案，用户不会换</li>
+<li>小众的东西。 基本没人用</li>
+<li>没有特色，100% 的模仿。 用户没有更换的理由</li>
+</ul>
+<h3>做什么</h3>
+<p>排除以上这些，还剩下的范围就不做了，我推荐做开源产品的方向：</p>
+<ul>
+<li>小而精的工具。 开发快，使用成本低。</li>
+<li>要有特色，哪怕是一个。 要和别人不一样，差异化竞争。</li>
+<li>一定要大众，50% 以上的开发人员都会用到</li>
+<li>避开已经被成熟产品垄断的领域。 你就不要去跟 jQuery vue React 竞争了。</li>
+</ul>
+<p>例如，前几天 <a href="https://www.npmjs.com/package/is-odd" target="_blank" rel="nofollow">is-odd</a> 在知乎闹的沸沸扬扬，这个库就是判断奇数偶数，只不过考虑了各种数据类型的转换。但是你看它的 weekly downloads 数量多大。</p>
+<p>下面列举几个我认为比较合适做开源的例子：</p>
+<ul>
+<li>cache 工具（缓存工具，整合 localStorage，以及合理的内存销毁机制）</li>
+<li>query2json，解析 url 参数为 json 格式</li>
+<li>移动端打印 console.log ，方便移动端输出内容</li>
+</ul>
+<p>其他符合上述条件的，根据自己当前的情况，大家可以自由发挥。最后，选择哪个不重要，重要的是你选择出来了。因此，如果你实在没有合适的选择，不如就从我举例中选择一个，抓阄也行。选择出来，你就可以继续往下做了，否则你一直都在纠结。</p>
+<h3>本文将做什么</h3>
+<p>好了，本教程就确定要做一个 cache 工具，取一个性的名字，不和现有的重复（是否重复，去 github 一搜便知），叫做<code>fast-cache</code>。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">注册账号</strong>
+<p><strong>注意，你如果现在已经有了 github 账号，也不好忽略这一章的内容，很重要！</strong></p>
+<p>你一旦注册一个 github 账号并且去做开源产品，那你就要作为一个个人品牌持续运营下去，<strong>不能随便改名字</strong>。因此注册账号时一定要慎重考虑，不能随便弄一个，做一段时间又想改。</p>
+<h3>组织还是项目</h3>
+<p>首先，你要明确你即将注册的账号是专门针对一个产品（即项目账号）还是将运维多个产品（即组织账号）？</p>
+<p>例如，<a href="https://github.com/facebook" target="_blank" rel="nofollow">facebook</a> 就是 github 中的组织账号，其下有很多开源产品，如 <a href="https://github.com/facebook/react" target="_blank" rel="nofollow">react</a> 和 <a href="https://github.com/facebook/hhvm" target="_blank" rel="nofollow">hhvm</a> 等。而 <a href="https://github.com/rollup" target="_blank" rel="nofollow">rollup</a> 就是 github 中的项目账号，其下就一个项目 <a href="https://github.com/rollup/rollup" target="_blank" rel="nofollow">rollup</a> ，其他的项目都是一些附件插件。</p>
+<p>对于我们个人开发者，我推荐注册项目账号，即以你项目的名称取个账号的名字。这样还有一个好处，就是后面讲到官网的时候，你可以用更短、更好记的官网地址。例如，如果不自己申请域名、假设服务器（即不花一分钱）的情况下，以上例子中他们的官网有区别。</p>
+<ul>
+<li>rollup  的官网地址将是 <code>rollup.github.io</code> ，很短；</li>
+<li>react 的官网地址只能是 <code>facebook.github.io/react</code>，多了一级目录；（注意是不申请域名、不花钱的情况下）</li>
+</ul>
+<p><strong>最后，我选择项目账号，因此我需要注册的账号是 <code>fast-cache</code> </strong>。</p>
+<h3>注册账号</h3>
+<p>我们分别要去 <a href="http://github.com/" target="_blank" rel="nofollow">github</a> 和 <a href="https://www.npmjs.com/" target="_blank" rel="nofollow">npm</a> 注册以 <code>fast-cache</code> 为用户名的账号，注册过程就不写了，都是傻瓜式操作。需要注意的是，<strong>如果被墙，自己想法办科学上网</strong>。</p>
+<h3>创建项目</h3>
+<p>登录 github ，点击右上角的“+”可看到新建项目的链接，或者直接访问 <code>https://github.com/new</code> 。创建项目如下图所示，注意图中红框部分。</p>
+<p><img title="从零做一个前端开源项目_" 图片1="" src="//img.mukewang.com/5ae9c975000158e614401066.png" alt="图片描述" style="cursor: pointer;"></p>
+<p>创建完成之后，通过 <code>https://github.com/fast-cache/fast-cache</code> 即可访问到项目的主页，这是你就已经有了自己的开源项目了。</p>
+<h3>添加 <code>ssh key</code></h3>
+<p><code>ssh key</code> 就是连接你的电脑和 github 服务器的一把钥匙，只有添加成功了才能把你本地的代码提交到 github 服务器。</p>
+<p>如果你是 mac os 系统，运行 <code>ssh-keygen</code> 即可一步一步生成 ssh key ，然后运行 <code>pbcopy &lt; ~/.ssh/id_rsa.pub</code> 即可拷贝下来，等着粘贴。windows 系统用户，自己百度搜索 <code>github ssh key</code> 即可找到相关介绍文章，跟着做就行了。</p>
+<p>在 github 个人中心的设置界面，能找到 <code>SSH and GPS keys</code> 菜单栏，或者直接访问 <code>https://github.com/settings/keys</code> 。页面中点击右侧“new ssh key”按钮即可添加 ssh key ，把刚才的内容粘贴过来添加上就行了。</p>
+<h3>下载代码</h3>
+<p>进入 github 项目主页，复制 git 地址（注意选择 <code>use ssh</code> ，不要 <code>use https</code> ），如下图</p>
+<p><img title="从零做一个前端开源项目_" 图片2="" src="//img.mukewang.com/5ae9cbdc0001af0209060426.png" alt="图片描述" style="cursor: pointer;"></p>
+<p>复制下来的内容应该是 <code>git@github.com:fast-cache/fast-cache.git</code> ，然后你选择一个合适的文件夹或目录，执行下载命令。</p>
+<pre class="prettyprint"><code class="language-shell"><span class="pln">git clone git@github</span><span class="pun">.</span><span class="pln">com</span><span class="pun">:</span><span class="pln">fast</span><span class="pun">-</span><span class="pln">cache</span><span class="pun">/</span><span class="pln">fast</span><span class="pun">-</span><span class="pln">cache</span><span class="pun">.</span><span class="pln">git</span></code></pre>
+<p>下载完毕，进入代码目录，运行如下命令修改当前 git 的用户名和邮箱，改成和当前 github 用户名和注册邮箱一致。</p>
+<pre class="prettyprint"><code class="language-shell"><span class="pln">cd fast</span><span class="pun">-</span><span class="pln">cache
+git config user</span><span class="pun">.</span><span class="pln">name </span><span class="str">'fast-cache'</span><span class="pln">
+git config user</span><span class="pun">.</span><span class="pln">email </span><span class="str">'fast-cache@github.com'</span></code></pre>
+<p>最后，随便修改一下 <code>README.md</code> 文件的内容，然后提交，看能否成功？成功了就说明刚才的<code>ssh key</code> 生效了。</p>
+<pre class="prettyprint"><code class="language-shell"><span class="pln">git add </span><span class="pun">.</span><span class="pln">
+git commit </span><span class="pun">-</span><span class="pln">m </span><span class="str">"first update"</span><span class="pln">
+git push origin master</span></code></pre>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">搭建开发环境</strong>
+<h3>初始化</h3>
+<p>进入项目目录，然后命令行运行 <code>npm init</code> ，按照提示进行初始化即可。提示中的信息，能写的都写上，别随意忽略了。初始化完成之后，项目根目录下会有 <code>package.json</code> 的文件。</p>
+<h3>规范版本号</h3>
+<p>打开 <code>package.json</code> 文件，将版本号定义为 <code>"version": "0.0.1"</code>  。以后我们每次正式提交代码，版本号都不一样。版本号分三级，分别为：</p>
+<ul>
+<li>一级，重构版本</li>
+<li>二级，重大功能改进</li>
+<li>三级，小升级或者 bug 修复</li>
+</ul>
+<p>为何从 <code>0.0.1</code> 开始？因为 <code>0.x.x</code> 可以认为是非正式版本、测试版，而从 <code>1.x.x</code> 开始，就是正式发布的版本了。</p>
+<h3>规范一级目录</h3>
+<p>项目的一级目录要提前规范好，最起码一些常用的目录要提前订好留用，不能乱来。例如：</p>
+<ul>
+<li><code>src</code> - 源代码</li>
+<li><code>release</code> - 发布结果</li>
+<li><code>test</code> - 单元测试用例</li>
+<li><code>doc</code> - 文档</li>
+<li><code>example</code> - 示例</li>
+</ul>
+<h3>构建工具</h3>
+<p>这部分比较独立，内容也比较多，就不详细讲了，用最常用的 webpack 做一个简单演示吧。</p>
+<p>安装插件 <code>npm i babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-latest webpack webpack-cli --save-dev</code> 。</p>
+<p>项目根目录下创建 <code>.babelrc</code> 文件，内容如</p>
+<pre class="prettyprint"><code class="language-json"><span class="pun">{</span><span class="pln">
+    </span><span class="str">"presets"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">"es2015"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"latest"</span><span class="pun">],</span><span class="pln">
+    </span><span class="str">"plugins"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>项目根目录下创建 <code>webpack.config.js</code> 文件，内容如</p>
+<pre class="prettyprint"><code class="language-js"><span class="pln">module</span><span class="pun">.</span><span class="pln">exports </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    entry</span><span class="pun">:</span><span class="pln"> </span><span class="str">'./src/index.js'</span><span class="pun">,</span><span class="pln">
+    output</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        path</span><span class="pun">:</span><span class="pln"> __dirname</span><span class="pun">,</span><span class="pln">
+        filename</span><span class="pun">:</span><span class="pln"> </span><span class="str">'./release/bundle.js'</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    module</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        rules</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+            test</span><span class="pun">:</span><span class="pln"> </span><span class="str">/\.js?$/</span><span class="pun">,</span><span class="pln">
+            exclude</span><span class="pun">:</span><span class="pln"> </span><span class="str">/(node_modules)/</span><span class="pun">,</span><span class="pln">
+            loader</span><span class="pun">:</span><span class="pln"> </span><span class="str">'babel-loader'</span><span class="pln">
+        </span><span class="pun">}]</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>最后，修改 <code>package.json</code> 中的 <code>scripts</code>  ，增加 <code>"release": "webpack"</code> 。然后命令行运行  <code>npm run release</code> ，就可生成 release 的内容。</p>
+<h3>运行示例</h3>
+<p>release 的内容已经发布出来了，还要运行起来，最简单的方式，在<code>example</code>创建<code>test.html</code>，然后引用 release 的内容。</p>
+<pre class="prettyprint"><code class="language-html"><span class="dec">&lt;!DOCTYPE html&gt;</span><span class="pln">
+</span><span class="tag">&lt;html&gt;</span><span class="pln">
+</span><span class="tag">&lt;head&gt;</span><span class="pln">
+    </span><span class="tag">&lt;meta</span><span class="pln"> </span><span class="atn">charset</span><span class="pun">=</span><span class="atv">"UTF-8"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;title&gt;</span><span class="pln">example</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+</span><span class="tag">&lt;/head&gt;</span><span class="pln">
+</span><span class="tag">&lt;body&gt;</span><span class="pln">
+    </span><span class="tag">&lt;p&gt;</span><span class="pln">example</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"../release/bundle.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;/body&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></code></pre>
+<p>为何规范化运行，可以修改 <code>package.json</code> 中的 <code>scripts</code>  ，增加 <code>"example": "http-server -p 8880"</code> 。然后命令行运行  <code>npm run example</code> ，浏览器访问 <code>http://localhost:8880/example/test.html</code> 。</p>
+<h3>规范 git 分支</h3>
+<p>至少要存在两个分支，<code>master</code> 和 <code>dev</code> ， <code>dev</code> 是开发中的代码。当然，你可以规范更多的分支，例如 <code>next</code> <code>fix-bug</code> 等，但是注意一个原则 —— <strong>用不到的就先不要规划</strong>。</p>
+<h3>完善 <code>README.md</code></h3>
+<p><code>README.md</code> 是开源项目的一张脸，用户的第一印象。必须包含以下内容：</p>
+<ul>
+<li>产品简介（此处要突出特点，打差异化竞争）</li>
+<li>产品安装和下载</li>
+<li>快速使用（详细的使用文档或者二次开发文档，外链即可）</li>
+<li>交流提问区</li>
+<li>关于作者（放你的博客链接，和收款二维码）</li>
+</ul>
+<p>最后，把以上完成的工作，都提交到 github 中。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">提交代码</strong>
+<h3>写代码</h3>
+<p>具体写什么代码不是本文的重点，你尽情的根据自己的项目来写自己的代码就是了。记得一定要使用编码规范的工具，例如 <code>es-lint</code> 等，否则经过长时间的维护，必然留坑。</p>
+<h3>写文档 &amp; 写测试用例</h3>
+<p><strong>注意，文档和测试用例对于一个开源产品来说非常重要！非常重要！非常重要！而且，文档和测试用例本身就是代码不可分割的一部分</strong>。</p>
+<p><em>如何写测试用例，需要用到其他工具，内容也相对独立，这里就不介绍了，自己去查一查吧。再次强调，测试用例很重要！！！</em></p>
+<p>在写文档之前，还需要准备其他的工具。定位到项目目录下，<code>npm i gitbook-cli -g</code> 安装 gitbook ，然后创建 <code>SUMMARY.md</code> ，内容如下：</p>
+<pre class="prettyprint"><code class="language-markdown"><span class="com"># Summary</span><span class="pln">
+
+</span><span class="pun">*</span><span class="pln"> </span><span class="pun">[项目介绍](</span><span class="pln">README</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">*</span><span class="pln"> </span><span class="pun">[使用文档](</span><span class="pln">doc</span><span class="pun">/</span><span class="kwd">use</span><span class="pun">/</span><span class="pln">README</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">*</span><span class="pln"> </span><span class="pun">[使用</span><span class="lit">1</span><span class="pun">](</span><span class="pln">doc</span><span class="pun">/</span><span class="kwd">use</span><span class="pun">/</span><span class="pln">use1</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">*</span><span class="pln"> </span><span class="pun">[使用</span><span class="lit">2</span><span class="pun">](</span><span class="pln">doc</span><span class="pun">/</span><span class="kwd">use</span><span class="pun">/</span><span class="pln">use2</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">*</span><span class="pln"> </span><span class="pun">[二次开发](</span><span class="pln">doc</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">README</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">*</span><span class="pln"> </span><span class="pun">[开发</span><span class="lit">1</span><span class="pun">](</span><span class="pln">doc</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">dev1</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">*</span><span class="pln"> </span><span class="pun">[开发</span><span class="lit">2</span><span class="pun">](</span><span class="pln">doc</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">dev2</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span></code></pre>
+<p>其实一看这个文件内容就知道，这是一个文档的目录，你可以根据自己项目的需要重新定义这个目录。需要注意的是，第一行 <code>* [项目介绍](README.md)</code> 对应的是已经存在的 <code>README.md</code> 文件。</p>
+<p>运行 <code>gitbook init</code> ，会看到各个文件都被创建了，就可以完善各个文档的内容。内容完成之后，运行 <code>gitbook build</code> 可以将 md 文件发布为 html 文件，默认放在 <code>_book</code> 文件夹。启动了 <code>npm run example</code> 之后，可以访问 <code>http://127.0.0.1:8880/_book/</code> 查看效果。</p>
+<p>最后，再次修改一下 <code>README.md</code> ，把文档的链接加上</p>
+<pre class="prettyprint"><code class="language-markdown"><span class="pun">[如何使用](./</span><span class="pln">doc</span><span class="pun">/</span><span class="kwd">use</span><span class="pun">/</span><span class="pln">README</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span><span class="pln"> </span><span class="pun">[二次开发](./</span><span class="pln">doc</span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">README</span><span class="pun">.</span><span class="pln">md</span><span class="pun">)</span></code></pre>
+<h3>提交第一版代码</h3>
+<p>首先，修改一下 <code>.gitignore</code> 文件，加上一行 <code>_book</code> ，把打包出来的文件忽略掉。然后用之前的方式提交到 github 的 master 分支，这里不再赘述了。</p>
+<p>接下来，创建 tag 并提交，代码如下：</p>
+<pre class="prettyprint"><code class="language-shell"><span class="pln">git tag </span><span class="pun">-</span><span class="pln">a </span><span class="str">'v0.0.1'</span><span class="pln"> </span><span class="pun">-</span><span class="pln">m </span><span class="str">'first commit'</span><span class="pln">
+git push origin v0</span><span class="pun">.</span><span class="lit">0.1</span></code></pre>
+<p>提交之后，下载地址就有了 ， <code>https://github.com/fast-cache/fast-cache/releases</code> 这里可以下载到各个版本的源码。</p>
+<p>最后要提交到 npm 上，能让使用者通过 npm 进行安装。首先，运行 <code>npm add user</code> 和 <code>npm login</code> 来登录，根据提示将你之前注册 npm 时的账号、密码、邮箱写上就行了，问题不大。然后，在项目的根目录运行 <code>npm publish .</code> ，<strong>此时问题来了！！！</strong></p>
+<p>运行之后报了 <code>403</code> 错误，刚才明明登录成功了，不可能有权限问题呀。后来一查才知道，<strong>原来 <code>fast-cache</code> 在 npm 中和其他项目重名了！！！</strong>没办法，只能改名，将 <code>package.json</code> 中的名称改为 <code>fast-cache-npm</code> ，然后再发布就成功了。</p>
+<p>发布之后，通过 <code>https://www.npmjs.com/package/fast-cache-npm</code> 就可以访问 npm 项目主页了。</p>
+<blockquote>
+<p><strong>注意，为项目取名时，一定要提前把名字在 github 和 npm 搜索一下，确认没有重名才行！！！</strong></p>
+</blockquote>
+<h3>升级代码并提交</h3>
+<p>上述是第一次提交代码的流程，下面简述一下升级代码之后的提交流程。在代码开发阶段的步骤总结如下：</p>
+<ul>
+<li>来一个 <code>dev</code> 分支，不要在 <code>master</code> 分支开发</li>
+<li>修改 <code>package.json</code> 版本号，按照之前既定的版本规则修改，不能乱改</li>
+<li>修改代码、文档和测试用例</li>
+<li>自测</li>
+<li>将 <code>dev</code> 分支提交到远程</li>
+</ul>
+<p>代码开发完成之后，提交的流程如下：</p>
+<ul>
+<li>再次确认版本号，因为版本号非常重要</li>
+<li>将 <code>dev</code> 合并到 <code>master</code> ，并提交 <code>master</code> 到远程</li>
+<li>创建 tag 并提交到远程</li>
+<li>提交到 npm</li>
+</ul>
+<h3>合并 pr</h3>
+<p>pr 即 Pull Request 的简称。</p>
+<p>开源软件最大的特色就是允许全世界的开发者都能为其贡献代码，你这个开源项目也不例外。其他人很有可能会通过 github 的 pr 为你的项目贡献自己的代码，到时候你既得欣然接受，又不能茫然接受。</p>
+<p>其他人贡献的 pr 可以通过 <code>https://github.com/fast-cache/fast-cache/pulls</code> 链接看到。对于每一个 pr ，如果你想合并，直接 merge 就好了（合并完之后，本地代码要随时更新一下）；如果你不想合并，留言说明然后关闭掉即可。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">创建官网</strong>
+<p>我们通过 <a href="https://pages.github.com/" target="_blank" rel="nofollow">github pages</a> 的机制即可免费创建项目的挂网，不用花一分钱。</p>
+<h3>创建项目</h3>
+<p>登录 github ，创建一个名为 <code>fast-cache.github.io</code> 的项目，名字必须是这一个！！！然后下载到本地，即 <code>git clone xxxx</code> 。然后，进入项目目录，新建一个 <code>index.html</code> ，然后随便写点什么，例如 <code>&lt;h1&gt;hello world&lt;/h1&gt;</code> ，提交到 github 远程。</p>
+<p>最后，访问 <code>fast-cache.github.io</code> ，你就能看到刚才的内容了，最简单的官网就这么出来了。做到这里，你应该知道 github pages 就是一个静态页面的服务器，上传相应的 html 就能显示。</p>
+<h3>生成官网</h3>
+<p>此前用 gitbook 将文档生成为 html 了，应该还记得。那么我们现在重新运行 <code>gitbook build</code> 生成 html ，然后将所有的 html 拷贝到这里来，全部提交上去，正式的官网也就出来了。</p>
+<p><img title="从零做一个前端开源项目_" 图片3="" src="//img.mukewang.com/5aeabcd20001e24228721210.png" alt="图片描述" style="cursor: pointer;"></p>
+<h3>更新 <code>README.md</code></h3>
+<p>记得要修改 <code>README.md</code> ，把官网的地址加进去。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">如何宣传</strong>
+<p>“酒香不怕巷子深”这句话在当代并不适用，特别是互联网中。我在 N 年前看过一本创业公司老板写的研发项目管理方面的书，到现在就记住一句话 —— <strong>“一个公司的核心竞争力，一是技术，二是营销”</strong>。因此，虽然是一个简单的开源项目，宣传也是必须必要的。</p>
+<p>宣传和更新维护都是一个漫长的过程，作为屌丝账户的我们（不是 google facebook 等明星账户），能做的只能是坚持。</p>
+<h3>写博客</h3>
+<p>首先，要围绕着你做的产品功能来写博客。例如针对 <code>fast-cache</code> ，我们可以写类似这样的博客。分体分两类，第一类是相关的技术干货文章，第二类是产品介绍，应该以第一类为主。</p>
+<ul>
+<li>总结如何做前端缓存</li>
+<li>前端缓存的坑</li>
+<li>预防前端内存泄露</li>
+<li>前端缓存插件 <code>fast-cache</code>使用总结</li>
+<li><code>fast-cache</code> 开发半年记</li>
+<li>……</li>
+</ul>
+<p>其次，要正确选择发表的网站，我的建议是这样的：</p>
+<ul>
+<li>选择一个地方作为你博客的唯一主页，例如 github ，像创建官网一样创建个人博客网站。</li>
+<li>博客贴到各大博客网站，如掘金、知乎专栏、博客园。选择三个流量较大的即可，不用到处乱贴。</li>
+<li>博客内容要写明白原文的链接，并写明产权。</li>
+<li>最好能找到一些媒体（如 InfoQ）或者大牛公众号帮你转发。</li>
+</ul>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">回答相关问题</strong>
+<p>去知乎、sf.gg 甚至是 stackoverflow 上面去搜索、关注与你产品相关的问题，积极参与回答。回答问题也有技巧：</p>
+<ul>
+<li>字数只能多不能少。最好图文并茂，还能讲个笑话</li>
+<li>回答要专业，经过亲自测试，不要想当然的瞎猜</li>
+<li>回答问题的最后，顺便推广自己的产品</li>
+</ul>
+<h3>口碑宣传</h3>
+<p>所谓口碑宣传就是让用户资源的帮助宣传，那就需要把产品做好，那如何做“好”呢？</p>
+<ul>
+<li>明确产品定位，<strong>有特色</strong>。做“T”型产品，差异化竞争。把一方面做好就行了，所有都做好不可能。</li>
+<li><strong>及时</strong>回复问题，<strong>定期</strong>更新升级，做好升级计划，让用户看到产品在不管进步和变化。</li>
+</ul>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">持续迭代</strong>
+<p>主要来探讨一下如何有效率的持续迭代，再不影响工作、生活的情况下。</p>
+<h3>统一问题收集区</h3>
+<p><strong>这一点非常重要！！！</strong> 因为：</p>
+<ul>
+<li>你没有那么多精力去很多个平台回复问题</li>
+<li>你没有那么多时间天天盯着 QQ 群解答问题</li>
+<li>问题应该被集中起来，供使用者反复查阅</li>
+</ul>
+<p>例如 wangEditor 的问题收集区主要集中在 <a href="https://github.com/wangfupeng1988/wangEditor/issues" target="_blank" rel="nofollow">github issue</a> 列表，其他的地方的提问直接忽略。还有一点要特别注意，<strong>问题应该本分享，而不是私聊</strong>，因此如下提问方式直接忽略：</p>
+<ul>
+<li>QQ 群提问和 QQ 私聊提问（或微信）</li>
+<li>私信提问</li>
+<li>邮件提问</li>
+</ul>
+<p>回顾我前几年刚做开源的经历，一开始你和使用者都会非常不习惯这种方式，特别是那些讨厌的伸手党。刚开始进来的用户直接 QQ 私聊或者群里 @ 你，让你做他们的技术客服，随叫随到，这种人你一定要坚持不理会，然后引导他们去 github 提交 issue 。慢慢的，你的社区和 QQ 群人多了，大家都知道这个套路，再有新人进来会自动被引导到 github 中提交 issue 。</p>
+<h3>定期答复和升级</h3>
+<p>让别人自愿、积极的去提交 issue 的前提是你能及时的答复。根据我的经验，给你以下建议：</p>
+<ul>
+<li><strong>定期回复</strong> 每天（下班或者上班之前）看看 github issues 然后先答复，临时无法搞清楚的就回复“周末时看下再答复”。这样每天大约花费 5-15 分钟即可，出去抽根烟的功夫。最后，需要修改的问题，先记录下。</li>
+<li><strong>定期升级</strong> 每周拿出 2 个小时（随便一个晚上或者周末时间）把记录下的问题，按照优先级高低顺序修复。就 2 小时，改多少算多少，改不完下周再说。改完的问题要及时回复 issue 并 close 。每周 2 小时，对你这周的工作生活应该不会受到影响。</li>
+</ul>
+<h3>学会拒绝</h3>
+<p>当用户慢慢增多，用户会提出各种看似奇葩的需求，以满足他们自己的使用需要。此时就需要你来分辨该需求是否应该被添加。我总结了以下判断标准：</p>
+<ul>
+<li>很多用户都提过这个需求，即大众需求</li>
+<li>你自己判断这个需求对大部分用户都有用</li>
+<li>该需求符合产品定位以及产品发展的方向</li>
+<li>该需求能抹平和竞品的差距，或者能和竞品差异化竞争</li>
+</ul>
+<p>符合以上要求的，可以加入升级计划。不符合要求的，你一定要无情拒绝，此时不要做好人。</p>
+<h3>持之以恒</h3>
+<p>虽然每天十几分钟、每周两小时看似不占用太多时间，但是你要持之以恒的坚持一年、两年、三年，你能做到吗？</p>
+<p>你做任何什么事情，没点持之以恒的态度，都做不成功。</p>
+<hr>
+<strong style="display:block;font-size:22px;margin:22px 0 10px">总结</strong>
+<p>回顾一下本课程的重点内容：</p>
+<ul>
+<li>做开源的意义。不是套话，你意识不到，肯定就做不下去；</li>
+<li>开源项目是什么。不仅仅是源码。</li>
+<li>做什么。小而精，不要大而全。</li>
+<li>怎么做？</li>
+<li>宣传和持续迭代</li>
+</ul>
+				</div>
+				<!-- 标签 -->
+												<div class="cat-box">
+					<div class="cat-wrap clearfix">
+																															<a class="cat l" href="/article/tag/17" target="_blank">JavaScript</a>
+											</div>
+											<div class="original-warp">
+							<p class="original">本文原创发布于慕课网 ，转载请注明出处，谢谢合作</p>    
+						</div>                    
+									</div>	
+	</div>
+</body>
+</html>
