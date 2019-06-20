@@ -1,27 +1,24 @@
-$.ajax({
-    "url":"tsconfig.json",
-    "type": "POST",
-    "data": "",
-    async:false,
-    success: function (data) {
-        console.log(data)
-        var typeArr = [];
-        var numArr = [];
-        var title_cont = "";
-        for(var i = 0; i < data.length; i ++){
+$.get('./tsconfig.json',function(data){
+    console.log(data)
+    var typeArr = [];
+    var numArr = [];
+    var title_cont = "";
+    for(var i = 0; i < data.length; i ++){
 
-            typeArr.push(data[i].name);
-            numArr.push(data[i].total);
-            title_cont+=data[i].name+"   "+data[i].total+"个";
-        }
-        $("#total").html(title_cont)
-        console.log(typeArr,numArr)
-        demand(typeArr,numArr);
-        categorySta(typeArr,numArr,"卫星类","zhuzhuangtu1");
-        console.log(typeArr,numArr)
-        urgency(typeArr,numArr,"yuanbingtu")
+        typeArr.push(data[i].name);
+        numArr.push(data[i].total);
+        title_cont+=data[i].name+"   "+data[i].total+"个";
     }
-});
+    $("#total").html(title_cont)
+    console.log(typeArr,numArr)
+    demand(typeArr,numArr);
+    categorySta(typeArr,numArr,"卫星类","zhuzhuangtu1");
+    console.log(typeArr,numArr)
+    urgency(typeArr,numArr,"yuanbingtu")
+})
+
+
+
 
 //生成柱状图
 function demand(typeArr,numArr){
