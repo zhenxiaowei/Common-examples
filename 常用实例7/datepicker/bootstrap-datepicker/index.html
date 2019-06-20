@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="col-sm-2">
+    <input type="text" class="date1 datepicker form-control" placeholder="请选择日期">
+</div>
+<div class="col-sm-2">
+    <input type="text" class="date2 datepicker form-control" placeholder="请选择年月">
+</div>
+<div class="col-sm-2">
+    <input type="text" class="date3 datepicker form-control" placeholder="请选择年">
+</div>
+<div class="col-sm-4 input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+    <input type="text" class="form-control">
+    <span class="input-group-addon">到</span>
+    <input type="text" class="form-control">
+</div>
+</body>
+</html>
+<script src="jquery/jquery.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-datepicker.zh-CN.min.js"></script>
+<script type="text/javascript">
+    $(".date1").datepicker({
+        minView: "day",
+        language: "zh-CN",
+        autoclose: true,//选中之后自动隐藏日期的选择框
+        clearBtn:true,//清除按钮
+        todayBtn: "linked",//今日按钮
+        format: "yyyy-mm-dd",//日期格式
+        // endDate:new Date()//选择未到的日期
+        onSelect:gotoDate//日期改变的时候执行的方法
+
+    }).on('changeDate',gotoDate);
+    $(".date2").datepicker({
+        language: "zh-CN",
+        autoclose: true,
+        format: "yyyy-mm",
+        minViewMode: 1,
+        // endDate:new Date()
+
+    });
+    $(".date3").datepicker({
+        language: "zh-CN",
+        todayHighlight: true,
+        autoclose: true,
+        format: "yyyy",
+        startView: 'years',
+        maxViewMode: 'years',
+        minViewMode: 'years',
+        //endDate:new Date()
+
+    });
+
+
+    $(".date1").datepicker("setDate", "2014-11-22");//设置一个日期
+    $(".date2").datepicker("setDate", new Date());//设置当前日期
+    var date=$(".date1").datepicker("getDate").toLocaleString();//获取
+    console.log(date);
+
+
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+
+    });
+
+
+
+    function gotoDate(ev) {
+        console.log(ev.date.getFullYear().toString());//年
+        console.log((ev.date.getMonth()+1).toString());//月
+        console.log(ev.date.getDate().toString());//日
+
+
+    }
+</script>

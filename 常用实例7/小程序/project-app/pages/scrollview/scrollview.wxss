@@ -1,0 +1,19 @@
+/* pages/scrollview/scrollview.wxss */
+scroll-view{
+white-space: normal
+}
+.scroll-view-item{
+  height: 200px;
+}
+.bc_green{
+  background-color: green;
+}
+.bc_red{
+  background-color: red;
+}
+.bc_yellow{
+  background-color: yellow;
+}
+.bc_blue{
+  background-color: blue;
+}

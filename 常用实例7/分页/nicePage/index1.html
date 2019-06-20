@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前台分页</title>
+    <link href="css/layui.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+<div style="width: 100%;margin: auto">
+    <!--以下为两个必须div元素-->
+    <div id="table"></div>
+    <div id="pageBar"></div>
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script language="Javascript" src="js/layui.js"></script>
+<script language="Javascript" src="js/nicePage.js"></script>
+<script>
+    var json;
+    $.ajax({
+        "url":"ceshi.json",
+        "type": "POST",
+        "data": "",
+        async:false,
+        success: function (data) {
+            json=data;
+        }
+    });
+    //nameList与widthList的数组长度要一致
+    var nameList = ['序号', '日期', '日出时刻', '最高温', '最低温', '日落时间', '空气指数', '风向', '风力', '天气', '提示'] //table的列名
+    var widthList = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100] //table每列的宽度
+
+    /**
+     * 初始化设置nicepage组件    v1.0
+     *-------------------------------------------------------------
+     * 进行数据组装,与layui交互进行元素渲染
+     *-------------------------------------------------------------
+     * @param    {string}  table     table的div id
+     * @param    {string}  bar     底部分页的div id
+     * @param    {int}  limit     每页默认行数
+     * @param    {string}  color     底部分页的颜色
+     * @param    {array}  layout     底部分页的布局,具体可参考layui api
+     *
+     * @date     2018-10-19
+     * @author   Thomas.dz <hzdz163@163.com>
+     */
+    $(function () {
+        nicePage.setCfg({
+            table: 'table',//表格的id
+            bar: 'pageBar',//分页的id
+            limit: 20,//每页显示的条数
+            color: '#1E9FFF',//底部分页的颜色
+            layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']//底部分页的布局,具体可参考layui api
+        });
+    });//初始化完成
+        layui.use("laypage", function () {
+            var a = layui.laypage;
+            a.render({
+                elem: nicePage.bar,
+                limit: nicePage.limt,
+                theme: nicePage.color,
+                count: json.length,
+                layout: nicePage.layout,
+                jump: function (b) {
+                    document.getElementById(nicePage.table).innerHTML = function () {
+                        var c = [nicePage.returnHtml(nameList, widthList)],
+                            d = nicePage.returnList(json).concat().splice(b.curr * b.limit - b.limit, b.limit);
+                        layui.each(d, function (e, g) {
+                            var f = nicePage.returnTable(g);
+                            c.push(f)
+                        });
+                        c.push(" </tbody></table></br>");
+                        return c.join("")
+                    }()
+                }
+            })
+        })
+</script>

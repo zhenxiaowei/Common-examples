@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双项目</title>
+</head>
+<style>
+    .a{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #e1edf7;
+        justify-content: space-between;
+    }
+    .b{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #85eef7;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .c{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #3df719;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+    .d{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #65def7;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .e{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #f79395;
+    }
+    .e .item:nth-child(2){
+        align-self: center;
+    }
+    .f{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #f7a1bc;
+        justify-content: space-between;
+    }
+    .f .item:nth-child(2){
+        align-self: flex-end;
+    }
+    .item{
+        width: 30px;
+        height: 30px;
+        background-color: #0C0C0C;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<div class="a">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="b">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="c">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="d">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="e">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="f">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+
+</body>
+</html>

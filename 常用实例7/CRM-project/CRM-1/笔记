@@ -1,0 +1,2 @@
+    var customInfoPath = "./json/customInfo.json";
+    //->存储所有客户信息这个文件的地址(我们今天的数据存储使用JSON文件存储,真实项目中存储数据使用的是数据库)

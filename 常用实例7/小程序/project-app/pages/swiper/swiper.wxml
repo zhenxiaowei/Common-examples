@@ -1,0 +1,8 @@
+<swiper indicator-dots="true" autoplay="true" current="1" interval="4000" duration="2000" bindchange="change">
+  <swiper-item>
+    <view class='item bc_green'>1</view></swiper-item>
+  <swiper-item>
+    <view class='item bc_red'>2</view></swiper-item>
+  <swiper-item>
+    <view class='item bc_blue'>3</view></swiper-item>
+</swiper>

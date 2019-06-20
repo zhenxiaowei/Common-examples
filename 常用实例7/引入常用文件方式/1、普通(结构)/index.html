@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @import "static/libs/common.css";
+    </style>
+    <link rel="stylesheet" href="static/modules/index/index.css">
+</head>
+<body>
+<header class="header">
+
+</header>
+<div class="content">
+       <ul class="left">
+           <li class="leftIconActive"><i class="icon inho inhoicon-liebiao"></i></li>
+           <li><i class="icon inho inhoicon-liebiao"></i></li>
+           <li><i class="icon inho inhoicon-liebiao"></i></li>
+       </ul>
+       <div class="right">
+           <div class="menu">
+               <div class="title">
+                   <h3>111<i class="iconHide icon inho inhoicon-shousuo1"></i></h3>
+               </div>
+               <div class="menuList">
+                   <div class="leftsidebar_box">
+                       <dl class="system_log">
+                           <dt>系统记录<img src="static/modules/index/images/off.png"></dt>
+                           <dd class="first_dd"><a href="#">充值记录</a></dd>
+                           <dd><a href="#">短信充值记录</a></dd>
+                           <dd><a href="#">消费记录</a></dd>
+                           <dd><a href="#">操作记录</a></dd>
+                       </dl>
+                       <dl class="custom">
+                           <dt>客户管理<img src="static/modules/index/images/off.png"></dt>
+                           <dd class="first_dd"><a href="#">客户管理</a></dd>
+                           <dd><a href="#">试用/成交客户管理</a></dd>
+                           <dd><a href="#">未成交客户管理</a></dd>
+                           <dd><a href="#">即将到期客户管理</a></dd>
+                       </dl>
+                   </div>
+               </div>
+           </div>
+           <div class="work">
+               1
+           </div>
+       </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript" src="static/libs/common.js"></script>
+<script type="text/javascript" src="static/modules/index/index.js"></script>
+<script>
+    confirmBox('qq',function () {
+        post('11','1111',function(msg){},function(msg){showError(msg.msg);})
+    })
+</script>

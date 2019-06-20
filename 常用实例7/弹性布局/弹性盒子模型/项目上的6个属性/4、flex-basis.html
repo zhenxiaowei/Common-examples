@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-basis属性</title>
+</head>
+<style>
+    .a{
+        display: flex;
+        display: -webkit-flex;
+        width:1000px;
+        background-color: #2f96b4;
+    }
+    .item1{
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-basis: auto;/*值为auto，即项目的本来大小*/
+    }
+    .item2{
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-basis: 800px;/*可以设置为固定值，则项目将占据固定空间*/
+    }
+    .item3{
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-basis: 800px;
+    }
+    /*
+
+    */
+</style>
+<body>
+<div class="a">
+   <div class="item1">
+       1
+   </div>
+    <div class="item2">
+        2
+    </div>
+    <div class="item3">
+        3
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<button bindtap='btnCloose'>选择图片</button>
+<button bindtap='btnRreview'>图片预览</button>
+<button bindtap='btnGetinfo'>获取图片信息</button>

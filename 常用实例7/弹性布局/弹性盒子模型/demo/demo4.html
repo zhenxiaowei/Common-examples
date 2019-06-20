@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四项目</title>
+</head>
+<style>
+    .a {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #e1edf7;
+        justify-content: flex-end;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+    }
+
+    .b {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: #19f785;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+
+    .ba {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item {
+        width: 30px;
+        height: 30px;
+        background-color: #0C0C0C;
+        border-radius: 50%;
+    }
+</style>
+<body>
+<div class="a">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<div class="b">
+    <div class="ba">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="ba">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

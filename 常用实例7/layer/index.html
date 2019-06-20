@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery.js"></script>
+<script src="layer.js"></script>
+<script>
+    layer.confirm('确定要退出吗',{
+        icon:3,title:'提示',btn:['确定','取消']
+    },function(content){
+        console.log(content);
+    },function(msg){
+        console.log(msg);
+    })
+</script>

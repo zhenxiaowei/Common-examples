@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 70px;
+        background: #2b8b47;
+    }
+    .item{
+        width: 50px;
+        height: 50px;
+        background: #1c8b8b;
+        margin: 10px;
+        flex-shrink: 1;
+        /*flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。*/
+    }
+    .a{
+        flex-shrink: 0;
+        /*
+        如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。
+        如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+        负值对该属性无效。
+        */
+    }
+</style>
+<body>
+<div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item a">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+</div>
+</body>
+</html>

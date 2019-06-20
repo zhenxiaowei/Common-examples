@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-grow属性</title>
+</head>
+<style>
+    .a{
+        display: flex;
+        display: -webkit-flex;
+        width:1000px;
+        background-color: #2f96b4;
+    }
+    .item1{
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-grow: 0;/*定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大*/
+    }
+    .item2{
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-grow: 1;
+    }
+    .item3{
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        flex-grow: 1;
+    }
+    /*
+     如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（有的情况下），如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍
+    */
+</style>
+<body>
+<div class="a">
+   <div class="item1">
+       1
+   </div>
+    <div class="item2">
+        2
+    </div>
+    <div class="item3">
+        3
+    </div>
+</div>
+</body>
+</html>

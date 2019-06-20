@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<text>这里是test</text>
+<button type='default'>default</button>
+<button type='primary' bindtap="btnclick">{{btnTest}}</button>
+<text>{{test}}</text>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>justify-content属性</title>
+</head>
+<style>
+    .a{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: flex-start;/*默认值 左对齐*/
+    }
+    .b{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: flex-end;/*右对齐*/
+
+    }
+    .c{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;/*居中*/
+
+    }
+    .d{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;/*两端对齐，项目之间的间隔都相等*/
+    }
+    .e{
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-around;/*每个项目两侧的间隔相等。所有，项目之间的间隔比项目与边框的间隔大一倍*/
+    }
+    .item{
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+    }
+</style>
+<body>
+<div class="a">
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+</div>
+<div class="b">
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+</div>
+<div class="c">
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+</div>
+<div class="d">
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+</div>
+<div class="e">
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+
+</div>
+</body>
+</html>

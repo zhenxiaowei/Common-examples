@@ -1,0 +1,4 @@
+<include src="../template/header.wxml"/>
+
+<import src="../template/footer.wxml" />
+<template is="footer1" data="{{text: '测试'}}" />

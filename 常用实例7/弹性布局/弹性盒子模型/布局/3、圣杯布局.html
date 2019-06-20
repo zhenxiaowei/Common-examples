@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            display: flex;
+            flex-direction: column;
+        }
+        .header,.footer{
+            flex: 1;
+            background-color: #00FFFF;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .content{
+            display: flex;
+            flex: 1;
+        }
+        .center{
+            flex: 1;
+        }
+        .left,.right{
+            flex: 0 0 100px;
+        }
+        .left{
+            order: -1;
+        }
+        @media (max-width: 768px) {
+            .content{
+                flex-direction: column;
+                flex: 1;
+            }
+            .left,.center,.right{
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <header class="header">
+        header
+    </header>
+    <div class="content">
+        <div class="center">center</div>
+        <nav class="left">left</nav>
+        <div class="right">right</div>
+    </div>
+    <footer class="footer">
+        footer
+    </footer>
+</div>
+</body>
+</html>

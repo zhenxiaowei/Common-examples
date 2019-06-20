@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+           <vue-datepicker-local v-model="timeRange" format="YYYY-MM-DD HH:mm:ss" :disabled-date="disabledDate" @input="change"/><br/>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="static/require.js"></script>
+
+<script>
+
+    requirejs.config({
+        baseUrl:'static/',
+        paths:{
+            'mm':'mm',
+            'vue': "libs/vue/vue",
+            'VueDatepickerLocal': "libs/datepicker-local/vue-datepicker-local"
+        },
+        shim:{
+            'VueDatepickerLocal':{
+                deps:['css!libs/datepicker-local/vue-datepicker-local']
+            },
+            'color':{
+                deps:['css!css']
+            }
+        }
+    });
+
+    requirejs(['mm'],function (test) {
+    });
+
+</script>

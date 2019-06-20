@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*
+    flex-start：与交叉轴的起点对齐。
+flex-end：与交叉轴的终点对齐。
+center：与交叉轴的中点对齐。
+space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+stretch（默认值）：轴线占满整个交叉轴。
+    */
+    .box1{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #1c8b8b;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .box2{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #1f558b;
+        flex-wrap: wrap;
+        align-content: flex-end;
+    }
+    .box3{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #7a578b;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .box4{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #8b2181;
+        flex-wrap: wrap;
+        align-content: stretch;
+    }
+    .box5{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #2b8b47;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+
+    .box6{
+        display: flex;
+        display: -webkit-flex;
+        width: 200px;
+        height: 300px;
+        background: #8b4652;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    .item {
+        width: 40px;
+        height: 50px;
+        background: aqua;
+        margin: 10px;
+    }
+    .item1 {
+        width: 40px;
+        height: auto;
+        background: aqua;
+        margin: 10px;
+    }
+
+</style>
+<body>
+<div class="box1">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+</div>
+<div class="box2">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+</div>
+<div class="box3">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+</div>
+<div class="box4">
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+    <div class="item1">1</div>
+</div>
+<div class="box5">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+</div>
+<div class="box6">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+    <div class="item">5</div>
+</div>
+</body>
+</html>

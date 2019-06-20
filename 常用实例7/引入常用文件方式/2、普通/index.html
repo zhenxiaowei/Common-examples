@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @import "static/libs/common.css";
+    </style>
+    <link rel="stylesheet" href="static/modules/index/index.css">
+</head>
+<body>
+<div class="col-sm-2">
+    <input type="text" class="date1 datepicker form-control" placeholder="请选择日期">
+</div>
+</body>
+</html>
+<script type="text/javascript" src="static/libs/common.js"></script>
+<script type="text/javascript" src="static/modules/index/index.js"></script>
+<script>
+    $(".date1").datepicker({
+        minView: "day",
+        language: "zh-CN",
+        autoclose: true,//选中之后自动隐藏日期的选择框
+        clearBtn:true,//清除按钮
+        todayBtn: "linked",//今日按钮
+        format: "yyyy-mm-dd",//日期格式
+        // endDate:new Date()//选择未到的日期libs
+        onSelect:gotoDate//日期改变的时候执行的方法
+
+    }).on('changeDate',gotoDate);
+
+    function gotoDate(ev) {
+        console.log(ev.date.getFullYear().toString());//年
+        console.log((ev.date.getMonth()+1).toString());//月
+        console.log(ev.date.getDate().toString());//日
+    }
+    alert("弹出消息");
+    confirmBox("你确定要删除吗？",function () {
+        alert("确认")
+    });
+</script>
