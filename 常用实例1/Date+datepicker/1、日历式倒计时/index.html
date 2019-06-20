@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jquery-countdown plugin test</title>
+    <link href="media.css" rel="stylesheet" type="text/css"/>
+    <script src="http://www.yyyweb.com/demo/common/jquery.min.js?aaa"></script>
+    <script src="jquery.countdown.js"></script>
+    <script>
+        $(function () {
+            $(".digits").countdown({
+                image: "digits.png",
+                format: "mm:ss",
+                startTime: "25:14"
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="cell">
+        <div id="holder">
+            <div class="digits"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
